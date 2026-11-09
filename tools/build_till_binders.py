@@ -169,19 +169,24 @@ def map_images(root, rows, assignments, visuals):
         )
         reference = references.get(row["source_id"])
         if reference:
+            supplier = reference["status"] == "SUPPLIER_REFERENCE"
             content = reference["content"]
             rendered = render_watermark(content, minimum_side=1) if row["organic"] else content
             images[row["source_id"]] = rendered
             record.update(
-                image_status="SUPPLIED_AI_CROP_REVIEW", embedded=True,
-                image_source="AI Generated", source_document=reference["source_document"],
-                source_member="crop " + reference["crop_box"],
+                image_status="SUPPLIER_REFERENCE_REVIEW" if supplier else "SUPPLIED_AI_CROP_REVIEW",
+                embedded=True,
+                image_source=reference["image_source"] if supplier else "AI Generated",
+                source_document=reference["source_document"],
+                source_member=reference["source_member"] if supplier else "crop " + reference["crop_box"],
                 original_sha256=reference["crop_sha256"], embedded_sha256=sha(rendered),
                 width=reference["width"], height=reference["height"],
                 visual_verdict="REVIEW_REFERENCE_NOT_APPROVED",
                 visual_review_note=reference["details"], organic_badge=row["organic"],
-                photograph_status="AI_ILLUSTRATION_NOT_PHOTOGRAPH",
-                details="Owner-supplied AI illustration cropped without labels; below 500 px. "
+                photograph_status="SUPPLIER_PUBLISHED_PHOTO" if supplier else "AI_ILLUSTRATION_NOT_PHOTOGRAPH",
+                rights_status=reference["rights_status"] if supplier else "NOT_VERIFIED",
+                details=reference["details"] if supplier else
+                        "Owner-supplied AI illustration cropped without labels; below 500 px. "
                         "Variety, rights and production approval remain unverified.",
                 fingerprint=image_fingerprint(io.BytesIO(content)),
             )
@@ -801,7 +806,8 @@ def generate(root, binder, output, verify_print=False, booklets=False):
     _, reference_audit = load_references(root, rows)
     csv_output(output / "AI_REFERENCE_REVIEW.csv", reference_audit, [
         "source_id", "plu", "product", "decision", "status", "source_document",
-        "source_sha256", "crop_box", "crop_sha256", "width", "height", "details",
+        "source_sha256", "source_member", "crop_box", "crop_sha256", "width", "height",
+        "image_source", "rights_status", "details",
     ])
     old = old_entries(binder)
     changes, additions = comparisons(old, items, rows)

@@ -1,5 +1,5 @@
 {
-  "status": "RETRIEVED_NOT_APPROVED",
+  "status": "USED_IN_REVIEW_WITH_OWNER_CONFIRMED_PERMISSION",
   "requested_url": "http://www.fsproduce.com-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
   "successful_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
   "http_status": 200,
@@ -11,7 +11,7 @@
   "named_citrus_varieties": 33,
   "embedded_image_assets": 48,
   "asset_count_note": "Includes branding, certification marks and best-seller stickers; not 48 distinct product photographs.",
-  "rights": "Copyright Four Seasons Produce is printed on the PDF. No reusable licence or permission was established. Images retained only in the temporary retrieval artifact/local reference directory, not published as booklet replacements.",
+  "rights": "Copyright Four Seasons Produce is retained. The owner confirmed permission to use matching images in binders and repository. This is owner-confirmed permission, not independently documented or a public reuse licence. Thirteen identity mappings use eleven original product-image assets in the review editions; production approval registries remain unchanged.",
   "mango_orange": {
     "xml_plu": "94391",
     "xml_description": "Organic Oranges Mango",
@@ -22,7 +22,7 @@
     "embedded_image": "page-02-image-002.jpeg",
     "width": 1092,
     "height": 816,
-    "finding": "The infographic shows a whole orange and sliced orange with a pink ring around the flesh. The owner-supplied AI collage panel showing a mango is not suitable and is rejected again. Owner clarification establishes the product identity, not approval of that incorrect image."
+    "finding": "The infographic shows a whole orange and sliced orange with a pink ring around the flesh. This product-correct image now replaces the rejected AI mango panel in review outputs, with the organic badge. Exact XML identity and description are preserved."
   },
   "page_1_varieties": [
     "Buddha's Hand", "Marmalade Orange", "Meyer Lemons", "Sweet Lime (Palestine Lime)",

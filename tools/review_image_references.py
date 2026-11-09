@@ -1,4 +1,4 @@
-"""Identity-linked AI crops for review copies only; never grant image approvals."""
+"""Identity-linked review images; never grant production image approvals."""
 import hashlib
 import io
 import json
@@ -23,6 +23,59 @@ def load_references(root, rows):
             raise ValueError("multiple AI references for the same source identity")
         references.update(selected)
         audit.extend(records)
+    supplier, records = load_supplier(root, rows)
+    references.update(supplier)
+    audit.extend(records)
+    return references, audit
+
+
+def load_supplier(root, rows):
+    path = root / "data/review-references/buck-brand.json"
+    if not path.exists():
+        return {}, []
+    manifest = json.loads(path.read_text(encoding="utf-8"))
+    if manifest["schema_version"] != 1 or manifest["rights_status"] != "OWNER_CONFIRMED_PERMISSION":
+        raise ValueError("supplier references require explicit owner-confirmed permission")
+    if not manifest["rights_evidence"].strip() or not manifest["attribution"].strip():
+        raise ValueError("supplier reference permission evidence and attribution are required")
+    folder = "data/review-references/buck-brand/"
+    inventory = json.loads(safe_asset(root, folder + "IMAGE_INVENTORY.json").read_text())
+    assets = {row["filename"]: row for row in inventory}
+    references, audit, seen = {}, [], set()
+    for mapping in manifest["mappings"]:
+        identity = (mapping["plu"], mapping["product"])
+        if not all(isinstance(value, str) and value for value in identity) or identity in seen:
+            raise ValueError("supplier references require unique exact string identities")
+        seen.add(identity)
+        matches = [row for row in rows if (row["plu"], row["name"]) == identity]
+        asset = assets[mapping["asset"]]
+        content = safe_asset(root, folder + mapping["asset"]).read_bytes()
+        if hashlib.sha256(content).hexdigest() != asset["sha256"]:
+            raise ValueError("supplier reference checksum changed; fresh review required")
+        with Image.open(io.BytesIO(content)) as image:
+            image.load()
+            if image.size != (asset["width"], asset["height"]):
+                raise ValueError("supplier reference dimensions differ from extraction evidence")
+            rendered = io.BytesIO()
+            image.convert("RGB").save(rendered, format="PNG")
+        record = dict(
+            source_id=matches[0]["source_id"] if len(matches) == 1 else "",
+            plu=identity[0], product=identity[1], decision="SUPPLIER_REFERENCE",
+            status="SUPPLIER_REFERENCE" if len(matches) == 1 else
+                   "NO_ACTIVE_EXACT_IDENTITY" if not matches else "AMBIGUOUS_DUPLICATE_IDENTITY",
+            source_document=manifest["source_url"], source_sha256=manifest["pdf_sha256"],
+            crop_box="", crop_sha256=asset["sha256"], width=asset["width"], height=asset["height"],
+            source_member=mapping["asset"], image_source="Four Seasons Produce / Buck Brand",
+            rights_status=manifest["rights_status"],
+            details=" ".join([manifest["attribution"], manifest["rights_evidence"],
+                              "Decoded to lossless RGB PNG at original dimensions for DOCX compatibility; "
+                              "unchanged supplier originals and checksums retained.",
+                              manifest["note"], "PDF label: " + mapping["label"],
+                              mapping.get("note", "")]),
+        )
+        if len(matches) == 1:
+            references[record["source_id"]] = dict(record, content=rendered.getvalue())
+        audit.append(record)
     return references, audit
 
 

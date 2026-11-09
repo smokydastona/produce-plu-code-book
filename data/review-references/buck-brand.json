@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "source_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+  "pdf_sha256": "c01b422dba54a6c8389f62f18e84c4299f95c01fe9d4c7ad4a0352084e628611",
+  "attribution": "Copyright Four Seasons Produce; Buck Brand / Deer Creek Heights Ranch specialty citrus infographic.",
+  "rights_status": "OWNER_CONFIRMED_PERMISSION",
+  "rights_evidence": "Owner answered Yes—use the matching images in the binders and repository when asked whether they have permission from Four Seasons Produce/Buck Brand. Permission is owner-confirmed, not independently documented; no public reuse licence is inferred.",
+  "note": "Original embedded images, no supplier codes substituted for PickList PLUs. Identity matching reviewed against labelled PDF panels. Organic images receive the standard pink badge. Production approvals remain unchanged.",
+  "mappings": [
+    {"plu": "94391", "product": "Organic Oranges Mango", "label": "Mango Orange", "asset": "page-02-image-002.jpeg"},
+    {"plu": "94304", "product": "Organic Lemons Meyer-Buckbrand", "label": "Meyer Lemons", "asset": "page-01-image-003.jpeg"},
+    {"plu": "94306", "product": "Organic Limes Sweet", "label": "Sweet Lime (Palestine Lime)", "asset": "page-01-image-012.jpeg"},
+    {"plu": "94328", "product": "Organic Limequats", "label": "Limequat", "asset": "page-01-image-010.jpeg"},
+    {"plu": "94024", "product": "Organic Limes Finger", "label": "Finger Lime", "asset": "page-01-image-008.jpeg"},
+    {"plu": "2159", "product": "Buddha's Hand Organic", "label": "Buddha's Hand", "asset": "page-01-image-002.jpeg"},
+    {"plu": "94457", "product": "Organic Oranges TDE Tangerine", "label": "TDE Triple Cross Mandarin", "asset": "page-03-image-009.jpeg"},
+    {"plu": "4452", "product": "Tangerine Fairchild", "label": "Fairchild Tangerine", "asset": "page-02-image-018.jpeg"},
+    {"plu": "3110", "product": "Orange Cara Cara", "label": "Cara Cara Navel Orange", "asset": "page-02-image-011.jpeg"},
+    {"plu": "93110", "product": "Organic Oranges Cara Cara", "label": "Cara Cara Navel Orange", "asset": "page-02-image-011.jpeg", "reuse_from_product": "Orange Cara Cara"},
+    {"plu": "4381", "product": "Oranges Blood", "label": "Moro Blood Orange", "asset": "page-02-image-014.jpeg", "note": "Moro is a blood-orange variety; exact cultivar of store entry remains unconfirmed."},
+    {"plu": "94381", "product": "Organic Oranges Blood", "label": "Moro Blood Orange", "asset": "page-02-image-014.jpeg", "reuse_from_product": "Oranges Blood", "note": "Moro is a blood-orange variety; exact cultivar of store entry remains unconfirmed."},
+    {"plu": "94461", "product": "Organic Grapefruit Shaddock", "label": "African Shaddock Pummelo", "asset": "page-03-image-012.jpeg", "note": "Shaddock/pummelo family match; African cultivar is not confirmed by the XML. Other Shaddock record retains its distinct reference."}
+  ]
+}

@@ -1,0 +1,79 @@
+[
+  {
+    "page": 1,
+    "filename": "page-01-image-002.jpeg",
+    "width": 1155,
+    "height": 968,
+    "sha256": "a6712490d83c8a4c5ffb23a8b073665cf4792bc059687a5c7c2976e2dc637759"
+  },
+  {
+    "page": 1,
+    "filename": "page-01-image-003.jpeg",
+    "width": 1077,
+    "height": 470,
+    "sha256": "a9926cdfecf41f37c563234d61149b0ae23ba6c8b897c41b8cb1b12a7b44f369"
+  },
+  {
+    "page": 1,
+    "filename": "page-01-image-008.jpeg",
+    "width": 1155,
+    "height": 843,
+    "sha256": "bf94230f222a96dd60a6f3f2e7089affe1275fcf12c66fa595cfd7ede902b8cf"
+  },
+  {
+    "page": 1,
+    "filename": "page-01-image-010.jpeg",
+    "width": 1154,
+    "height": 967,
+    "sha256": "3edffb9954c971ff3893d3019d4e74cd6ff7148f9f2fce0257211dd059d59c32"
+  },
+  {
+    "page": 1,
+    "filename": "page-01-image-012.jpeg",
+    "width": 1155,
+    "height": 952,
+    "sha256": "34a88ed354f1f4376c8f6a39fd522d3c427a5e85350ce93bb37c92b25dd39d4a"
+  },
+  {
+    "page": 2,
+    "filename": "page-02-image-002.jpeg",
+    "width": 1092,
+    "height": 816,
+    "sha256": "e957069f56770ce00ecc19dc6667863f0b0da38270c50bdc262acbf2e4811815"
+  },
+  {
+    "page": 2,
+    "filename": "page-02-image-011.jpeg",
+    "width": 1155,
+    "height": 967,
+    "sha256": "8121d470b27fe433b4a1643663f74e8ac57e6468b85b50cffce1605b14e81b35"
+  },
+  {
+    "page": 2,
+    "filename": "page-02-image-014.jpeg",
+    "width": 1156,
+    "height": 880,
+    "sha256": "ff15e902aef020fed0c5ed431ab60de2b9ddca39de9cd4aca703858fd5d0ec55"
+  },
+  {
+    "page": 2,
+    "filename": "page-02-image-018.jpeg",
+    "width": 1155,
+    "height": 968,
+    "sha256": "21b534af24521b7fdf1e951a42b97bf744d8fcecbf6d9ba3535bbf978e6035bb"
+  },
+  {
+    "page": 3,
+    "filename": "page-03-image-009.jpeg",
+    "width": 1166,
+    "height": 888,
+    "sha256": "6c503d6389284ea7d2075c7d6e8d8a7c532a685a875bb8d3cde8a51dba905d02"
+  },
+  {
+    "page": 3,
+    "filename": "page-03-image-012.jpeg",
+    "width": 1156,
+    "height": 911,
+    "sha256": "df4aa3deb6125ea2bfd521bf24e478fb30cd74a8305776acfe89790fa68d1726"
+  }
+]

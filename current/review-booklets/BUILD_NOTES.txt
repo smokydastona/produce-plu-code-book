@@ -1,78 +1,94 @@
-AI REFERENCE UPDATE - REVIEW DELIVERABLES, NOT A PRODUCTION RELEASE
+SUPPLIER PHOTO UPDATE - REVIEW EDITIONS, NOT A PRODUCTION RELEASE
 
 Source XML SHA-256:
 462db3121094008cd1dd5ea2c5836ca4b24de077edb8982c0f43149edbaf2cbb
 
-All three owner-supplied AI contact sheets are preserved in data/review-references/.
-120 product-specific crops were added to review outputs, with labels removed
-and proportional upper-left pink badges on organic entries. The re-uploaded
-corrected sheet replaces five previously unsuitable panels: Sing Qua (4656),
-Squash Acorn White (4752), Squash Acorn Golden (4751), Eggplant Italian
-(4599), and Papaya Large Cooking (4395). The owner clarified PLU 94391
-"Organic Oranges Mango" is an organic orange, usually Buck Brand. Actions
-retrieved the supplier infographic using its corrected /wp-content/ URL.
-Page 2 confirms Mango Orange is an orange. The earlier AI panel showing a
-mango is therefore rejected, and its slot is blank. The product-correct
-1092 x 816 supplier image is retained as a discovery candidate, pending reuse
-permission and image review. See current/reports/BUCK_BRAND_REFERENCE_DISCOVERY.json.
-These are AI
-illustrations, not verified photographs. No image approval, rights approval,
-classification approval or legacy rejection verdict was changed.
+The owner confirmed permission from Four Seasons Produce/Buck Brand to use
+matching images in binders and the repository. This is owner-confirmed
+permission, not independently documented permission or a public reuse licence.
+Copyright Four Seasons Produce is retained in the external audit reports.
 
-Outputs:
-  FRUIT_VISUAL_PLU_BOOKLET_REVIEW.docx / .pdf / .xlsx
-    297 XML records, 296 images, 50 DOCX/PDF pages, 6 planned Excel pages.
-  VEGETABLE_VISUAL_PLU_BOOKLET_REVIEW.docx / .pdf / .xlsx
-    305 XML records, 305 images, 51 DOCX/PDF pages, 6 planned Excel pages.
-  NON_PRODUCE_PLU_BOOKLET_REVIEW.docx / .pdf / .xlsx
-    46 XML records, code-only, 8 DOCX/PDF pages, 1 planned Excel page.
+13 exact XML identities use 11 original supplier assets:
+  94391 Organic Oranges Mango: correct Mango Orange; incorrect AI mango rejected.
+  94304 Organic Lemons Meyer-Buckbrand
+  94306 Organic Limes Sweet
+  94328 Organic Limequats
+  94024 Organic Limes Finger
+  2159  Buddha's Hand Organic
+  94457 Organic Oranges TDE Tangerine
+  4452  Tangerine Fairchild
+  3110  Orange Cara Cara
+  93110 Organic Oranges Cara Cara
+  4381  Oranges Blood
+  94381 Organic Oranges Blood
+  94461 Organic Grapefruit Shaddock
 
-The complete text-only and photo binder workbooks, their full 39-page PDFs,
-11-page Produce previews, original-sheet comparison and package-preservation
-reports are retained locally under current/review/till-binder-buck-brand-verified/.
-They are deliberately gitignored because unrelated operational workbook
-content must not be accidentally committed. All 14 original worksheets and
-their order were preserved. 99 of 104 original OOXML parts are byte-identical;
-the other five are limited to Produce and its necessary package integration.
-The original binder, PickList.xml and previously published booklets remain
-unchanged.
+Only matching conventional/organic pairs reuse a supplier image. Other
+conventional entries retain their distinct references. The PDF supplier codes
+are not store PLUs and were never copied into catalogue values.
 
-Actual validation:
-  94 regression tests passed.
-  Exact XML text and text-typed Excel PLUs checked, including duplicates.
-  Every DOCX image and Excel image anchor/byte sequence checked.
-  Every PDF PLU sequence, description, landscape Letter page and drawn image
-  count checked. Each DOCX/PDF product stays on its planned page.
-  Both complete binders were opened and exported by LibreOffice Calc.
-  Representative Produce, fruit and vegetable PDF pages were visually inspected;
-  small-crop edges and organic badge sizing were corrected during that review.
-  Store-printer, product-variety and rights approval are still required.
+Unchanged extracted JPEGs and their checksums are in
+data/review-references/buck-brand/. Decoded RGB pixels are saved losslessly as
+PNG for DOCX compatibility; no upscaling or product-image labels are added.
+Organic entries receive the consistent pink upper-left badge.
 
-Blank Produce references: PLU 94391, Organic Oranges Mango. The product-correct
-supplier candidate still needs reuse permission and review. Image variety,
-identity and rights checks remain outstanding; image presence is not approval.
+Current Produce references:
+  602 images for 602 XML records; no blank slots.
+  333 retained supplied references, 142 retained AI references,
+  114 new AI crops, 13 supplier-photo references.
+  Existing AI references are retained unless superseded by these matching photos.
+  Image origin, permission evidence and cultivar caveats stay in external reports.
 
-Other unresolved source/release issues:
+Standalone outputs in this folder:
+  Fruit DOCX/PDF/XLSX: 297 records/images, 50 PDF pages, 6 planned Excel pages.
+  Vegetable DOCX/PDF/XLSX: 305 records/images, 51 PDF pages, 6 planned Excel pages.
+  Non-produce DOCX/PDF/XLSX: 46 code-only records, 8 PDF pages, 1 Excel page.
+
+Complete binders are retained locally and gitignored:
+  current/review/till-binder-supplier-photos-final/
+  Complete Till Binder - Updated - Text Only.xlsx / .pdf
+  Complete Till Binder - Updated - Photos.xlsx / .pdf
+  Print previews, preservation reports and authoritative-source reconciliation.
+
+Validation:
+  95 regression tests passed, including supplier precedence, stale identity,
+  permission gating, checksum integrity and PDF-extracted JPEG compatibility.
+  All 14 original worksheets and their order preserved.
+  All unrelated OOXML parts byte-identical; original styles/settings retained.
+  Exact XML text, Excel text-typed PLUs, duplicate highlights and embedded
+  image bytes/anchors checked in both binders and standalone review formats.
+  Every DOCX/PDF record stays on its planned page; printed code sequences,
+  descriptions, image counts and landscape US Letter geometry checked.
+  Both complete binders opened/exported by LibreOffice Calc (39 pages each).
+  Produce sections contain 11 pages with 602 images in photo edition, none
+  in text edition. Representative final PDF pages inspected visually.
+  Original workbook, PickList.xml, production books and approval registries unchanged.
+
+Outstanding review:
+  Exact blood-orange and African Shaddock cultivars are not confirmed by XML.
+  Meyer lemon supplier asset is 470 px high, below the 500 px minimum.
   Five duplicate-record classifications and 106 organic placements need review.
-  AI origin, low-resolution sources, existing prohibited image reuse and
-  unverified provenance/rights continue to block production publication.
-  The new crops are not added to the production approval registry.
+  Remaining AI, legacy photo, resolution, uniqueness and provenance gates still
+  block production publication. Owner permission for supplier photos does not
+  approve the entire catalogue or unrelated images.
+  Store-printer and final product-variety review remain required.
 
 Reports:
-  REVIEW_VALIDATION.json: actual format checks and output hashes.
-  AI_REFERENCE_REVIEW.csv: source panels, crop boxes and decisions, including old rejections.
-  PHOTO_MAPPING.csv: all 602 Produce image associations and review limitations.
-  MISSING_IMAGES.csv: the remaining blank image slot.
-  PLACEMENT_REVIEW.csv: unresolved source classifications and organic placement.
-  *_LAYOUT.csv: exact Excel record, cell, image and page mappings.
+  REVIEW_VALIDATION.json: actual format checks and file hashes.
+  PHOTO_MAPPING.csv: actual selected image, provenance and concerns per record.
+  AI_REFERENCE_REVIEW.csv: source panels and supplier mappings, including
+    superseded/rejected AI candidates; this is not the final selection list.
+  MISSING_IMAGES.csv: header only, no blank slots.
+  PLACEMENT_REVIEW.csv: unresolved classifications/counterparts.
+  *_LAYOUT.csv: Excel cell/image/page mapping.
+  ../../data/review-references/buck-brand.json: permission and exact product mapping.
+  ../reports/BUCK_BRAND_REFERENCE_DISCOVERY.json: supplier PDF discovery evidence.
 
-Exact generation command used, from repository root:
-/root/.copilot/session-state/c176c1cf9a17463c86f57fded6ef542c/venv/bin/python tools/build_till_binders.py --binder /workspaces/produce-plu-code-book/.copilot/uploads/2026-11-09-1809d215/Complete_Till_Binder_-_Nov_2025.xlsx --output current/review/till-binder-buck-brand-verified --verify-print --booklets
+Generation command, from repository root (choose a new empty output directory):
+python tools/build_till_binders.py --binder "/path/to/Complete Till Binder - Nov 2025.xlsx" --output current/review/till-binder-supplier-photos-final --verify-print --booklets
 
-Exact regression command used:
-/root/.copilot/session-state/c176c1cf9a17463c86f57fded6ef542c/venv/bin/python -m unittest discover -s tools -p 'test_*.py' -q
+Regression command:
+python -m unittest discover -s tools -p 'test_*.py' -q
 
-For another environment, use its Python executable and the untouched original
-binder path. Choose a new empty output directory. README.md lists dependencies
-and a portable command. Copy only standalone booklets and their non-operational
-reports for repository sharing, never the complete operational binder.
+Use the untouched original workbook and dependencies documented in README.md.
+Do not commit the complete operational binder or unrelated store information.

@@ -400,6 +400,59 @@ class TillBinderChecks(unittest.TestCase):
         self.assertEqual(len(list((self.root / "booklets").glob("*.docx"))), 3)
         self.assertEqual(len(list((self.root / "booklets").glob("*.xlsx"))), 3)
 
+    def test_supplier_photos_override_ai_with_permission_and_checksum_evidence_only(self):
+        self.write_ai_manifest([self.ai_panel(3)])
+        folder = self.root / "data/review-references/buck-brand"
+        folder.mkdir()
+        (folder / "test.png").write_bytes(self.content)
+        (folder / "IMAGE_INVENTORY.json").write_text(json.dumps([
+            dict(filename="test.png", width=600, height=500, sha256=sha(self.content))]))
+        path = folder.parent / "buck-brand.json"
+        manifest = dict(schema_version=1, source_url="https://example.test/source.pdf",
+                        pdf_sha256="source-digest", attribution="Supplier copyright",
+                        rights_status="OWNER_CONFIRMED_PERMISSION",
+                        rights_evidence="Owner confirmed permission for binders and repository",
+                        note="Review only", mappings=[
+                            dict(plu=self.items[3]["plu"], product=self.items[3]["name"],
+                                 label="Exact product", asset="test.png")])
+        path.write_text(json.dumps(manifest))
+        assignments = read_assignments(self.root / "data/picklist_assignments.json")
+        before = (self.root / "data/picklist_assignments.json").read_bytes()
+        rows, _ = produce_catalog(self.items, assignments)
+        images, report = map_images(self.root, rows, assignments, visual_records(self.root))
+        record = next(row for row in report if row["plu"] == self.items[3]["plu"])
+        self.assertEqual(record["image_status"], "SUPPLIER_REFERENCE_REVIEW")
+        self.assertEqual(record["rights_status"], "OWNER_CONFIRMED_PERMISSION")
+        self.assertEqual(record["photograph_status"], "SUPPLIER_PUBLISHED_PHOTO")
+        self.assertEqual(images[self.items[3]["source_id"]], self.content)
+        self.assertEqual(before, (self.root / "data/picklist_assignments.json").read_bytes())
+        refs, _ = load_references(self.root, [dict(self.items[3], name="New identity")])
+        self.assertNotIn(self.items[3]["source_id"], refs)
+        manifest["rights_status"] = "UNKNOWN"
+        path.write_text(json.dumps(manifest))
+        with self.assertRaisesRegex(ValueError, "permission"):
+            load_references(self.root, rows)
+        manifest["rights_status"] = "OWNER_CONFIRMED_PERMISSION"
+        path.write_text(json.dumps(manifest))
+        jpeg = io.BytesIO()
+        Image.open(io.BytesIO(self.content)).save(jpeg, format="JPEG")
+        # PDF-extracted JPEGs may lack the JFIF header required by python-docx.
+        original = jpeg.getvalue()
+        segment_end = 4 + int.from_bytes(original[4:6], "big")
+        content = original[:2] + original[segment_end:]
+        (folder / "test.png").write_bytes(content)
+        (folder / "IMAGE_INVENTORY.json").write_text(json.dumps([
+            dict(filename="test.png", width=600, height=500, sha256=sha(content))]))
+        refs, _ = load_references(self.root, rows)
+        from docx.image.image import Image as DocxImage
+        decoded = refs[self.items[3]["source_id"]]["content"]
+        self.assertEqual(DocxImage.from_file(io.BytesIO(decoded)).px_width, 600)
+        self.assertEqual(Image.open(io.BytesIO(decoded)).tobytes(),
+                         Image.open(io.BytesIO(content)).tobytes())
+        (folder / "test.png").write_bytes(b"changed")
+        with self.assertRaisesRegex(ValueError, "checksum"):
+            load_references(self.root, rows)
+
 
 if __name__ == "__main__":
     unittest.main()
