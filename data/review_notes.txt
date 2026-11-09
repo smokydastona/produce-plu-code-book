@@ -1,0 +1,600 @@
+# idx|verdict|note   verdict: m=visually matches product/variety, a=plausible but not variety-certain, r=wrong or unsuitable
+# Reviewed by visual inspection of each embedded image against the PickList description.
+1|a|red-striped apple; Dazzle not distinguishable
+2|a|red-yellow blush apple; Ambrosia not certain
+3|a|red-yellow striped apple; variety not certain
+4|a|red apple with yellow patch; plausible Envy
+5|a|small dull-red apple; plausible Fuji
+6|m|Gala-type orange-red speckled apple
+7|m|yellow Golden Delicious
+8|m|Granny Smith
+9|r|faint watermark text at bottom of image
+10|a|red-yellow apple; crop artifact at bottom edge
+11|m|MacIntosh red/green apple
+12|a|same image as #11 (size not distinguishable)
+13|a|red-yellow striped apple; Pazza not certain
+14|m|Pink Lady
+15|m|Red Delicious
+16|a|dark red apple; Red Prince not certain
+17|a|Gala-type; same image as #18
+18|a|Gala-type; same image as #17
+19|m|dark red Spartan
+20|a|elongated yellow pear; plausible Abate Fetel
+21|a|brown Asian pears; Asian White should be pale
+22|a|pale yellow round fruit; plausible Asian yellow
+23|m|green Bartlett
+24|m|red Bartlett
+25|m|brown Bosc pears
+26|a|large green-blush pear; plausible Comice
+27|r|tiny mis-cropped image mostly empty
+28|a|long russet-green pear; plausible Conference
+29|a|small green/red pears; D'Anjou is large and green
+30|a|red pear with half; plausible red D'Anjou
+31|m|Forelle
+32|a|red pear
+33|a|same image as #32
+34|a|green pear; Rocha not certain
+35|a|green-brown pear too large for Seckel
+36|a|round yellow-green Asian pear; plausible Shingo
+37|m|Taylor Gold
+38|m|Taylor Gold; same image as #37
+39|a|Conference-type; not BC-specific
+40|a|green blush pear; Honey Belle not certain
+41|a|near-identical to #40
+42|m|Buddha's Hand
+43|m|clementines
+44|m|clementines
+45|m|red grapefruit
+46|m|pummelo
+47|m|red grapefruit
+48|m|red grapefruit
+49|m|red grapefruit
+50|r|shows red-flesh grapefruit; product is White
+51|m|pummelo
+52|m|lemon
+53|m|limes
+54|m|mandarins
+55|a|cut orange with pink-red flesh; Cara Cara plausible
+56|m|blood orange
+57|m|clementines
+58|m|navel-type orange
+59|a|generic mandarin with leaf; same image reused for 8 entries
+60|a|generic mandarin; image reused
+61|a|generic mandarin; image reused; not Murcott-specific
+62|m|navel orange
+63|a|cut orange with deep flesh; Cara Cara plausible
+64|m|pomelo
+65|m|tangelos
+66|a|generic mandarin; image reused
+67|a|generic mandarin; image reused
+68|a|generic mandarin; image reused
+69|a|generic mandarin; image reused
+70|a|generic mandarin; image reused
+71|a|generic mandarin; image reused
+72|m|black grapes
+73|m|green grapes
+74|m|green grapes; same image as #73
+75|m|red grapes
+76|a|red grapes; same image as #75
+77|a|green grapes; Sugraone not distinguishable
+78|a|green grapes; same image as #73
+79|m|gooseberries
+80|a|dark elongated berries; plausible loganberry
+81|a|blueberry-like; plausible saskatoon
+82|a|red elongated berries; plausible tayberry
+83|m|blackberries
+84|m|blackberries
+85|m|blueberries
+86|m|blueberries
+87|m|blueberries
+88|a|dark berries; plausible boysenberry
+89|m|black currants
+90|m|red currants
+91|m|raspberries
+92|m|raspberries
+93|m|raspberries
+94|m|strawberries
+95|m|strawberries
+96|m|strawberries
+97|m|strawberries
+98|m|strawberries
+99|m|strawberries
+100|m|cantaloupe
+101|m|Hami-type oval netted melon
+102|m|canary melon
+103|m|cantaloupe
+104|m|cantaloupe
+105|m|cantaloupe
+106|a|cantaloupe; Tuscan not distinguishable
+107|m|Charentais
+108|m|cut melon cubes
+109|a|yellow melon; same image as canary
+110|m|Hami melon
+111|a|honeydew; Honey Kiss not certain
+112|m|honeydew
+113|m|honeydew
+114|a|yellow melon; same image as canary
+115|a|cantaloupe; not mini-specific
+116|m|muskmelon/cantaloupe
+117|m|orange-flesh honeydew
+118|a|Picasso/Dino-type speckled melon
+119|m|Santa Claus melon
+120|m|Santa Claus melon
+121|m|mini watermelon
+122|m|cut mini watermelon
+123|m|Santa Claus melon
+124|m|watermelon
+125|m|apricots
+126|m|cherries
+127|m|Rainier cherries
+128|m|nectarine
+129|m|peaches
+130|m|peaches
+131|m|white peaches
+132|m|black plums
+133|m|black plums
+134|m|Italian prune plums
+135|m|Italian prune plums
+136|a|small purple plum-like fruit; plausible pluot
+137|a|same image as #136
+138|m|red plums
+139|m|red plums
+140|a|red plums; same image as #139
+141|m|prunes
+142|a|green smooth-skin avocado; Hass should be dark pebbly
+143|a|banana bunch; not clearly baby bananas
+144|m|bananas
+145|a|banana bunch; plantains not clearly distinguished
+146|m|coconut
+147|m|dragon fruit
+148|r|mis-cropped with pink band artifact; not clearly granadilla
+149|m|guava
+150|m|lychees
+151|m|mango
+152|m|Ataulfo-type yellow mango
+153|m|mango
+154|r|pink band artifacts at top and bottom
+155|m|mango
+156|m|mango
+157|m|mango
+158|m|papaya
+159|m|papaya
+160|a|ripe papaya; cooking papaya is green
+161|m|papaya
+162|a|orange-flesh papaya; not red-flesh
+163|m|papaya
+164|m|passion fruit
+165|m|passion fruit
+166|m|pineapple
+167|m|pineapple
+168|m|cored pineapple
+169|m|pineapple
+170|a|pineapple; Golden/Costa Rica not distinguishable
+171|m|cut pineapple
+172|m|halved pineapples
+173|m|pineapple
+174|m|pineapple
+175|r|stray text fragment at left edge of image
+176|m|star fruit
+177|m|dates
+178|a|dates; Medjool not certain
+179|m|feijoa
+180|m|figs
+181|a|purple figs shown; brown figs expected
+182|m|kiwi
+183|m|golden kiwi
+184|m|kiwi
+185|m|persimmon
+186|m|persimmon
+187|a|round persimmons; Hachiya is acorn-shaped
+188|m|pomegranate
+189|m|MacIntosh apple
+190|a|red-yellow apple; Akane not certain
+191|a|red-yellow apple; Ambrosia not certain
+192|a|red-yellow apple; Braeburn not certain
+193|a|striped apple; Cameo not certain
+194|a|dark red apple; Empire plausible
+195|a|small dull red apple; plausible Fuji
+196|m|Gala-type apple
+197|m|Gala-type apple
+198|m|Golden Delicious
+199|m|Golden Delicious
+200|m|Granny Smith
+201|m|Granny Smith
+202|a|red-yellow striped apple; Jonagold plausible
+203|m|Pink Lady
+204|m|MacIntosh
+205|m|MacIntosh
+206|a|yellow-green blush apple; Orin plausible
+207|a|yellow-orange apple; Pinata plausible
+208|m|Pink Lady
+209|m|Red Delicious
+210|m|Spartan
+211|a|red-yellow apple; Su Mac not certain
+212|a|pale red apple; Sunrise plausible
+213|a|dark green avocado; Hass pebble texture not visible
+214|a|same image as #213
+215|m|bananas
+216|m|blueberries
+217|m|cherries
+218|a|small green/red pears; D'Anjou is large
+219|m|red grapefruit
+220|m|pink grapefruit
+221|m|pomelo/shaddock
+222|m|pomelo
+223|m|green grapes
+224|m|green grapes
+225|m|red grapes
+226|m|green grapes
+227|m|honeydew
+228|m|kiwi
+229|m|kumquats
+230|m|lemon
+231|a|lemons; Meyer not certain
+232|m|limequats
+233|m|limes
+234|m|finger limes
+235|r|pink line artifact across top of image
+236|m|mango
+237|m|mango
+238|m|mango
+239|m|canary melon
+240|m|cantaloupe
+241|m|cantaloupe
+242|m|cantaloupe
+243|m|Galia melon
+244|m|honeydew
+245|m|honeydew
+246|a|cantaloupe shown for musk melon
+247|m|watermelon
+248|m|watermelon
+249|m|watermelon
+250|m|watermelon
+251|m|watermelon
+252|m|watermelon; seedless not distinguishable
+253|m|nectarines
+254|m|nectarines
+255|m|nectarines
+256|r|yellow-flesh nectarine shown; product is White
+257|m|blood orange
+258|a|cut orange with deep flesh; Cara Cara plausible
+259|a|generic mandarin
+260|a|generic mandarin; product Mango/orange unclear
+261|a|generic mandarin; image reused
+262|m|navel orange
+263|m|navel orange
+264|a|sweet orange; Seville is bitter and rougher
+265|m|tangelos
+266|a|generic mandarin
+267|a|generic mandarin
+268|a|generic mandarin; Torange not distinguishable
+269|a|cut orange; Valencia not distinguishable
+270|a|cut orange; Valencia not distinguishable
+271|m|peaches
+272|m|white peaches
+273|m|peaches
+274|r|tiny pear in corner of image; unusable crop
+275|a|small green/red pears; D'Anjou is large
+276|m|Bartlett pears
+277|m|Bartlett green
+278|m|Bartlett red
+279|m|Bosc pears
+280|m|pineapple
+281|m|pineapple
+282|m|pink grapefruit
+283|m|black plums
+284|m|red plums
+285|m|black plums
+286|m|red plums
+287|m|pomegranate
+288|m|red grapefruit
+289|m|red grapes
+290|m|Royal Gala
+291|m|pomelo/shaddock
+292|m|strawberries
+293|m|green grapes
+294|m|green leaf lettuce
+295|m|iceberg lettuce
+296|m|red leaf lettuce
+297|m|red romaine
+298|m|romaine
+299|m|romaine
+300|m|arugula
+301|m|collard greens
+302|a|Belgian endive shown; plain endive is curly/frisee
+303|m|Belgian endive
+304|m|curly kale
+305|m|black/lacinato kale
+306|m|red kale
+307|m|red kale
+308|m|radicchio
+309|m|spinach
+310|m|green Swiss chard
+311|m|red Swiss chard
+312|m|turnip greens
+313|m|watercress
+314|m|basil
+315|m|cilantro; tight crop
+316|m|dill
+317|m|arugula
+318|m|basil
+319|m|cilantro; tight crop
+320|m|dill
+321|m|Italian parsley
+322|m|curly parsley
+323|a|lemongrass pushed to lower-right corner with large empty area; recrop
+324|m|mint
+325|m|curly parsley
+326|m|Italian parsley
+327|m|rosemary
+328|m|broccoli
+329|m|broccoli crown
+330|m|broccoli florets
+331|m|Brussels sprouts
+332|m|green cabbage
+333|m|red cabbage; small in frame
+334|r|shows napa cabbage; product is Savoy cabbage
+335|a|green cabbage; sour cabbage product
+336|m|orange cauliflower
+337|m|orange cauliflower
+338|m|purple cauliflower
+339|m|cauliflower
+340|m|rapini
+341|m|beets
+342|m|beets
+343|m|golden beets
+344|r|stray text fragment at left edge
+345|m|carrots
+346|m|carrot bunch
+347|m|baby carrots
+348|m|celery root
+349|m|ginger
+350|m|horseradish root
+351|m|jicama
+352|a|small carrot bunch; not jumbo
+353|a|small carrot bunch; not jumbo
+354|m|parsnips
+355|m|red radishes
+356|m|rutabaga
+357|m|purple-top turnip
+358|m|yucca/cassava root
+359|a|small yellow potatoes; Early Nugget plausible
+360|a|mixed red/yellow mini potatoes; not red only
+361|r|mixed red/yellow potatoes; product is Mini White
+362|m|purple potatoes
+363|m|red potatoes
+364|a|mixed creamer potatoes; red only expected
+365|a|mixed creamer potatoes; red only expected
+366|m|russet potatoes
+367|m|white potatoes
+368|r|mixed red/yellow potatoes; product is White Creamer
+369|m|yellow potatoes
+370|r|mixed red/white potatoes; product is Yellow Creamer
+371|m|Yukon Gold
+372|a|purple-flesh sweet potato; Ben Yagi variety not certain
+373|r|orange bar and stray mark artifacts on image
+374|m|red/orange sweet potato
+375|m|Stokes purple sweet potato
+376|m|white sweet potato
+377|m|Warba-type yellow potatoes
+378|m|garnet yam
+379|a|purple-flesh tuber; plausible
+380|a|orange sweet potatoes shown for yams
+381|m|garlic
+382|m|leeks
+383|m|shallots
+384|m|yellow onion
+385|a|yellow onions; baby Vidalia not distinguishable
+386|m|green onions
+387|m|red onions
+388|a|yellow onions; Walla Walla not distinguishable
+389|m|white onion
+390|a|yellow onions; Vidalia not distinguishable
+391|r|red bar artifact; shows jalapeno-type peppers not clearly Anaheim
+392|m|brown bell pepper
+393|m|cherry peppers
+394|m|green bell pepper
+395|m|green chili peppers
+396|m|habaneros
+397|m|red finger chilies
+398|a|mixed hot peppers; stray mark at left edge
+399|r|thin red line artifact across top
+400|m|jalapenos
+401|a|red finger chilies; same image as #397
+402|m|orange bell pepper
+403|r|red bar artifact across top
+404|m|purple bell pepper
+405|m|red bell pepper
+406|m|serrano peppers
+407|m|sweet banana pepper
+408|m|red bell pepper
+409|m|white bell pepper
+410|m|yellow bell pepper
+411|m|yellow chili peppers
+412|r|red bar artifact across top
+413|m|beefsteak tomato
+414|m|Roma tomatoes
+415|r|pink bar artifacts top and bottom
+416|m|heirloom tomatoes
+417|m|hot house tomato
+418|m|hot house tomato
+419|m|tomatoes on the vine
+420|m|tomatoes on the vine
+421|m|cherry tomatoes on vine
+422|m|small green cucumbers
+423|m|long English cucumber
+424|r|screenshot fragment with text and colored bars
+425|m|pickling cucumber
+426|m|kabocha
+427|m|ornamental gourds
+428|m|pumpkin
+429|m|mini pumpkins
+430|m|white pumpkins
+431|m|acorn squash cut
+432|r|dark green acorn squash shown; product is Golden Acorn
+433|r|dark green acorn squash shown; product is Acorn White
+434|m|acorn squash
+435|m|banana squash
+436|m|buttercup squash
+437|m|butternut squash
+438|m|chayote
+439|m|chayote
+440|a|orange round squash; Golden variety not certain
+441|m|Hubbard squash
+442|a|long pale green squash; plausible
+443|m|opo/bottle gourd
+444|a|pattypan squash; stray mark at left edge
+445|m|spaghetti squash
+446|m|delicata/stripetti squash
+447|m|sunburst squash
+448|m|sweet dumpling squash
+449|m|kabocha-type sweet mama
+450|m|turban squash
+451|a|dark green kabocha shown; Uchiki Kuri is orange
+452|m|yellow crookneck squash
+453|m|yellow crookneck squash
+454|m|zucchini
+455|m|yellow zucchini
+456|m|zucchini
+457|r|yellow line artifacts; unclear grey zucchini
+458|m|zucchini
+459|m|yellow zucchini
+460|m|bean sprouts
+461|m|bok choy
+462|a|bok choy; same image as #461; not baby-specific
+463|a|bok choy; same image; not mini-specific
+464|a|bok choy; same image; not Shanghai-specific
+465|r|shows savoy cabbage; product is Napa cabbage
+466|r|shows savoy cabbage; Suey choy is napa-type
+467|a|daikon radish; Korean radish is shorter
+468|m|daikon
+469|m|gai choy
+470|m|gai lan
+471|m|daikon
+472|r|shows savoy cabbage; product is Nappa
+473|m|on choy/water spinach
+474|a|leafy Chinese green; plausible
+475|r|white box artifact and stray mark over image
+476|m|water chestnuts
+477|m|yu choy
+478|m|fennel
+479|m|artichokes
+480|m|artichokes
+481|m|small artichokes
+482|m|green asparagus
+483|m|white asparagus
+484|m|green beans
+485|m|yellow wax beans
+486|m|celery
+487|m|celery sticks
+488|m|corn
+489|m|eggplant
+490|m|Chinese eggplant
+491|a|globe eggplant shown; Italian not distinguishable
+492|m|chanterelle mushrooms
+493|m|green peas
+494|m|snow peas
+495|m|sugar snap peas
+496|m|pea tips
+497|m|rhubarb
+498|m|basil
+499|m|beets
+500|m|broccolini
+501|m|green cabbage
+502|m|red cabbage
+503|m|carrot bunch
+504|m|cauliflower
+505|m|celery
+506|m|green chard
+507|a|green chard only; rainbow stems not visible
+508|m|chives
+509|m|cilantro
+510|m|collard greens
+511|m|European cucumber
+512|m|field cucumbers
+513|m|dill
+514|m|eggplant
+515|m|white eggplant
+516|m|garlic
+517|m|ginger
+518|m|green beans
+519|m|iceberg lettuce
+520|m|hot house tomato
+521|m|black kale
+522|m|black kale
+523|m|curly kale
+524|m|red kale
+525|m|red kale
+526|m|green leaf lettuce
+527|r|green leaf lettuce shown; product is Red leaf
+528|m|leeks
+529|m|red romaine
+530|m|Boston/butter lettuce
+531|m|romaine
+532|m|mint
+533|m|oyster mushrooms
+534|m|portabello mushrooms
+535|m|brown mushrooms
+536|m|crimini mushrooms
+537|m|shiitake mushrooms
+538|m|white mushrooms
+539|m|mustard greens
+540|m|okra
+541|m|green onions
+542|m|red onion
+543|m|shallots
+544|m|Spanish onions
+545|m|yellow onion
+546|m|white onion
+547|m|yellow onion
+548|m|curly parsley
+549|m|flat parsley
+550|m|chocolate bell pepper
+551|m|green pepper
+552|m|green bell pepper
+553|m|orange pepper
+554|m|purple bell pepper
+555|m|red pepper
+556|m|yellow pepper
+557|m|baking potato
+558|a|small yellow potatoes; Nugget plausible
+559|m|purple potatoes
+560|m|red potatoes
+561|m|white potatoes
+562|m|yellow potatoes
+563|m|red potatoes
+564|m|radishes
+565|m|red cluster tomatoes
+566|m|rhubarb
+567|m|romanesco
+568|m|spinach
+569|m|acorn squash
+570|r|shows butter lettuce; product is Buttercup squash
+571|r|shows butter lettuce; product is Butternut squash
+572|m|carnival squash
+573|m|delicata squash
+574|m|sweet dumpling squash
+575|m|eight ball squash
+576|m|festival squash
+577|m|kabocha
+578|m|pattypan squash; stray mark at left edge
+579|a|dark green kabocha shown; Red Kuri is orange
+580|m|spaghetti squash
+581|m|stripetti squash
+582|m|sunburst squash
+583|m|yellow crookneck squash
+584|m|red Swiss chard
+585|m|cherry tomatoes
+586|m|field tomatoes
+587|m|grape tomatoes
+588|m|heirloom tomatoes
+589|m|tomatoes on the vine
+590|m|Roma tomatoes
+591|m|red tomatoes
+592|m|red tomatoes
+593|m|red tomatoes
+594|a|orange sweet potatoes shown for yam
+595|m|garnet yam
+596|m|zucchini
+597|m|yellow zucchini
+# END
