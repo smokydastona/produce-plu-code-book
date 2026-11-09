@@ -25,13 +25,25 @@ PDFs use landscape US Letter pages. DOCX files are the editable versions; keep e
 
 ## Verification status
 
-**Current means latest, not certified for production use.** The `_PRODUCTION` filenames were assigned during an earlier build and do not establish that all requested quality checks passed.
+**Current means latest, not certified for production use.**
 
-- The fruit and vegetable books contain 597 entries. Their images have not been independently validated for exact product or variety, and AI images and sub-500-pixel images remain.
-- Some `VERIFIED PHOTO` labels were assigned using product-name similarity to PickList descriptions, not visual inspection. Do not treat those labels or the image-match confidence values as photographic verification.
-- The non-produce supplement contains 46 visible PickList records representing 45 distinct codes omitted from the produce books. It preserves both `77974` entries (Cheese Bun and Pizza Bun). It is a code-and-label reference, not a photo-verified guide; referenced image files were not supplied.
-- The collection does not include every PickList record, including hidden items. Current duplicate reports cover the produce booklet entries, not a complete investigation of all PickList records.
-- Image licenses and provenance have not been independently established. Review them before redistributing the booklets.
+All 597 fruit and vegetable image assignments were visually inspected against their PickList descriptions (see [data/review_notes.txt](data/review_notes.txt)):
+
+| Result | Entries | Booklet status |
+| --- | --- | --- |
+| Visual match | 446 | ✅ VERIFIED PHOTO (photo source) / 🤖 AI GENERATED REFERENCE IMAGE (AI source) |
+| Approximate (variety not distinguishable) | 120 | ⚠ APPROXIMATE PHOTO MATCH / 🤖 |
+| Rejected (wrong product/variety, artifacts, bad crop) | 31 | ❌ IMAGE REJECTED – REPLACEMENT NEEDED |
+
+Open problems:
+
+- 31 rejected images still need replacement (for example Napa/Savoy/Suey cabbage showing savoy, White Grapefruit and White Nectarines showing red/yellow flesh, Organic Butternut/Buttercup squash showing lettuce, and images with stray bars or text). Replacement photographs could not be sourced: only GitHub was reachable from the build environment, and Fruits-360 original-size images are below the 500 px minimum.
+- 150 images are AI generated (74.9% photographic coverage, below the 90% goal). 595 of 597 images are under 500 px. Many entries share one image (see `Entries Sharing Image` in the audit workbook).
+- Image licenses and provenance are not independently established; review before redistributing.
+- The non-produce supplement (46 visible PickList records, 45 distinct codes) is a code-and-label reference only; both `77974` entries (Cheese Bun and Pizza Bun) are preserved. Hidden PickList items are not in the booklets.
+- A "verified" photo means the image was visually judged to match the product name by a reviewer; it is not a laboratory or supplier-confirmed variety identification.
+
+Regenerate with `python3 tools/extract_entries.py`, edit `data/review_notes.txt`, then `python3 tools/apply_review.py` and re-export the PDFs (`soffice --headless --convert-to pdf`). Requires python-docx, openpyxl and Pillow.
 
 ## Sources and reports
 
@@ -41,12 +53,12 @@ The final text-only master DOCX files, original visual booklets without `_CORREC
 
 Current reports:
 
-- [BOOKLET_AUDIT_REPORT.xlsx](current/reports/BOOKLET_AUDIT_REPORT.xlsx): automated findings and coverage counts.
+- [BOOKLET_AUDIT_REPORT.xlsx](current/reports/BOOKLET_AUDIT_REPORT.xlsx): findings, coverage, per-image review results and rejected images.
 - [DUPLICATE_PLU_REPORT.csv](current/reports/DUPLICATE_PLU_REPORT.csv): duplicate codes in the fruit and vegetable books.
 - [MASTER_IMAGE_LIBRARY.csv](current/reports/MASTER_IMAGE_LIBRARY.csv): entry-to-image assignments and reported sources.
 - [IMAGE_MATCH_REPORT.csv](current/reports/IMAGE_MATCH_REPORT.csv): automated match confidence and image-quality notes.
 
-Image paths in the CSV reports identify media embedded inside a DOCX package (for example, `Fruit/word/media/image1.jpg`); they are not standalone image files in this repository.
+Image paths in the CSV reports point to standalone copies of each booklet image under [data/images/](data/images/); [data/image_review.csv](data/image_review.csv) holds the full per-entry review table.
 
 ## Keeping the repository organized
 
