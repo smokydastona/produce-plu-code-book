@@ -1,4 +1,5 @@
 import json
+import io
 import subprocess
 import tempfile
 import unittest
@@ -8,6 +9,7 @@ from unittest.mock import patch
 from PIL import Image
 
 import candidate_manifest as candidates
+import commons_candidate_metadata as metadata
 
 
 class CandidateTests(unittest.TestCase):
@@ -86,6 +88,18 @@ class CandidateTests(unittest.TestCase):
         env["ALLOW_REGISTER_UPDATE"] = "1"
         allowed = subprocess.run(["sh", str(hook.resolve())], cwd=self.root, env=env)
         self.assertEqual(allowed.returncode, 0)
+
+    def test_metadata_requires_matching_original_url(self):
+        self.write([self.entry])
+        info = {"url": self.entry["image_url"], "extmetadata": {}}
+        response = {"query": {"pages": {"1": {"imageinfo": [info]}}}}
+        destination = self.root / "metadata.json"
+        with patch.object(metadata, "urlopen", return_value=io.BytesIO(json.dumps(response).encode())):
+            self.assertEqual(metadata.main(self.manifest, destination), 0)
+        self.assertEqual(json.loads(destination.read_text())[0]["candidate_id"], "009")
+        info["url"] = "https://upload.wikimedia.org/not-the-same.jpg"
+        with patch.object(metadata, "urlopen", return_value=io.BytesIO(json.dumps(response).encode())):
+            self.assertEqual(metadata.main(self.manifest, destination), 1)
 
 
 if __name__ == "__main__":
