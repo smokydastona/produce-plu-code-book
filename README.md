@@ -25,6 +25,34 @@ PDFs use landscape US Letter pages. DOCX files are the editable versions; keep e
 
 Every future approved build also includes one Excel (`.xlsx`) version per booklet, using the same filename stem as its DOCX/PDF. Excel versions are not yet published for the blocked current catalogue.
 
+## Updating the complete till binder
+
+`tools/build_till_binders.py` creates two **complete copies** of an existing till binder, replacing only its Produce section:
+
+- `Complete Till Binder - Updated - Text Only.xlsx`
+- `Complete Till Binder - Updated - Photos.xlsx`
+
+Keep the original `Complete Till Binder - Nov 2025.xlsx` unchanged. The uploaded original is an external input, not fabricated from repository booklets. Run from the repository root with Pillow, python-docx (including lxml), openpyxl and pypdf installed. Print verification additionally requires **LibreOffice Calc**, not just Writer, and DejaVu Sans fonts.
+
+```bash
+python tools/build_till_binders.py \
+  --binder "/path/to/Complete Till Binder - Nov 2025.xlsx" \
+  --output "/path/to/empty/till-binder-review" \
+  --verify-print
+```
+
+The output directory must be empty. Neither the original workbook nor the owner-maintained XML is modified. After a future owner XML upload, repeat the same command with a new empty output directory. Alternatively, the manually triggered **Build till-binder review copies** Actions workflow accepts the repository-relative path of an original workbook you have deliberately uploaded to the repository; it fails explicitly if that file is missing. Do not upload internal operational/contact information to a public repository merely to run Actions: local generation works with an external file.
+
+Both editions use the same compact three-block layout and exact XML codes/descriptions, with normal category headings, organic entries following their confidently identified conventional counterparts, and duplicate PLUs highlighted red. Unknown classifications and ambiguous counterparts are retained and flagged in a separate report. Known non-produce records are excluded from Produce; unrelated operational sheets are not silently rewritten from the PLU master.
+
+**No image-source/review labels, rights notes or audit metadata are printed beside cashier entries.** Entries contain only the PLU, exact product description and optional small image; organic images retain the requested upper-left pink seal. Audit details stay outside the binder. Source images are extracted directly from the supplied corrected visual DOCX files, matched by exact code/description plus the existing identity-linked assignment and checksum. Approximate photographic, rejected, changed-checksum, missing or ambiguous associations remain blank. At the owner's request, existing identity-linked **AI-only illustrations remain as visual references**, including uncertain pre-existing visual verdicts; their AI origin and review concerns appear only in `PHOTO_MAPPING.csv`, not on cashier entries. The owner explicitly chose to leave the five rejected wrong-product AI references blank (including lettuce images incorrectly associated with squash) while retaining the other 145 AI references. These are not certified photographs. Existing supplied references do not acquire photographic-origin, rights, resolution or reuse approval merely by appearing in a review copy.
+
+The original XLSX is **not loaded and resaved** to produce the result. Only the Produce worksheet XML/relationships are replaced; new styles are appended without changing existing style definitions, new image/drawing parts are namespaced, and only Produce print names/content types are added. All original package parts remain present. Validation checks every unrelated original part byte-for-byte, all original styles, unrelated workbook-level settings, internal relationships, worksheet names/order, exact text cells, duplicate warnings, image bytes and image anchors. This preserves unrelated data, formulas, formatting, images, charts, comments, print settings and opaque objects instead of trusting an openpyxl round-trip to preserve unsupported features.
+
+Each generation writes `PRODUCE_CHANGE_AND_VALIDATION_REPORT.txt`, `VALIDATION.json`, original-to-current comparison CSVs, all active duplicate-code associations, excluded-record details, `PHOTO_MAPPING.csv`, `PLACEMENT_REVIEW.csv`, per-cell/page layout, package-preservation hashes and the full XML reconciliation reports. Old abbreviated/contextual descriptions are not automatically treated as renamed products; uncertain matches remain explicit.
+
+`--verify-print` opens/exports the **actual assembled complete workbooks** in Calc, then retains just their **Produce-only PDF previews** (not replacement full-binder PDFs) in `print-previews/`. It verifies page count and landscape US Letter size, finds every code/description on its planned page, and checks actually drawn image counts. These checks do not replace visual inspection or a store-printer test. Both workbooks are **review deliverables, not a production release**; outstanding XML/image approvals continue to block publication of the production booklets. The original November binder and previously published booklets remain intact. Generated binder copies belong in an external directory or gitignored `current/review/`, so unrelated internal workbook information is not inadvertently committed.
+
 ## Updating PickList.xml in the future
 
 **Only @smokydastona updates [sources/plu/PickList.xml](sources/plu/PickList.xml).** Upload a replacement at that exact path. The committed XML is assumed correct: scripts and agents never edit, repair or "correct" its product values. Neither the old booklets nor image spreadsheets override it.
