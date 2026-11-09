@@ -4,6 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
+from urllib.error import HTTPError
 
 from PIL import Image
 
@@ -93,6 +94,7 @@ class ImageChecks(unittest.TestCase):
         entries = [
             {"idx": "27", "plu": "3016", "name": "Pear Concorde"},
             {"idx": "274", "plu": "93016", "name": "Organic Pear Concord"},
+            {"idx": "344", "plu": "4565", "name": "Carrot - Red"},
             {"idx": "9", "plu": "3283", "name": "Apples Honey Crisp"},
         ]
         page = {
@@ -113,7 +115,8 @@ class ImageChecks(unittest.TestCase):
                 patch.object(retrieve_commons, "fetch", return_value=content):
             self.assertTrue(retrieve_commons.acquire(entries, output, "test", 2))
         records = json.loads((output / "provenance.json").read_text())
-        self.assertEqual(len(records), 1)
+        self.assertEqual(len(records), 2)
+        self.assertEqual([r["idx"] for r in records], ["27", "274"])
         self.assertEqual(records[0]["approval_status"], "CANDIDATE")
         self.assertEqual(records[0]["license"], "CC BY 4.0")
         self.assertEqual((output / records[0]["image"]).read_bytes(), content)
@@ -121,9 +124,20 @@ class ImageChecks(unittest.TestCase):
         import csv
         with (output / "acquisition-report.csv").open() as file:
             report = list(csv.DictReader(file))
-        self.assertEqual([r["status"] for r in report], ["CANDIDATES_ONLY", "UNRESOLVED", "ERROR"])
+        self.assertEqual([r["status"] for r in report],
+                         ["CANDIDATES_ONLY", "CANDIDATES_ONLY", "UNRESOLVED", "ERROR"])
         with self.assertRaises(ValueError):
             retrieve_commons.acquire(entries, output, "test", 2)
+
+    def test_rate_limit_retries_and_pacing(self):
+        response = io.BytesIO(b"image")
+        error = HTTPError("https://commons.wikimedia.org/", 429, "rate limit",
+                          {"Retry-After": "15"}, None)
+        with patch.object(retrieve_commons, "urlopen", side_effect=[error, response]) as request, \
+                patch.object(retrieve_commons.time, "sleep") as sleep:
+            self.assertEqual(retrieve_commons.fetch("https://commons.wikimedia.org/", "test"), b"image")
+            self.assertEqual(request.call_count, 2)
+            self.assertIn(unittest.mock.call(15), sleep.call_args_list)
 
 
 if __name__ == "__main__":

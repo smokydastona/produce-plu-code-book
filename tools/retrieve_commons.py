@@ -7,15 +7,18 @@ import io
 import json
 import re
 import sys
+import time
 from pathlib import Path
 from urllib.parse import urlencode, urlparse
 from urllib.request import Request, urlopen
+from urllib.error import HTTPError
 
 from PIL import Image, ImageDraw, ImageOps
 
 from verify_images import LICENSES, PUBLIC_DOMAIN, validate
 
 API = "https://commons.wikimedia.org/w/api.php"
+LAST_REQUEST = 0.0
 TARGETS = {"3283": "Honeycrisp apple", "3016": "Concorde pear", "4555": "Savoy cabbage"}
 QUERIES = {
     "9": "Honeycrisp apple", "27": "Concorde pear", "50": "white grapefruit",
@@ -38,16 +41,28 @@ def plain(value):
 
 
 def fetch(url, user_agent):
+    global LAST_REQUEST
     parsed = urlparse(url)
     if parsed.scheme != "https" or parsed.hostname not in {
         "commons.wikimedia.org", "upload.wikimedia.org"
     }:
         raise ValueError(f"unexpected Wikimedia URL: {url}")
-    with urlopen(Request(url, headers={"User-Agent": user_agent}), timeout=60) as response:
-        data = response.read(50 * 1024 * 1024 + 1)
-        if len(data) > 50 * 1024 * 1024:
-            raise ValueError("response exceeds 50 MiB")
-        return data
+    for attempt in range(4):
+        time.sleep(max(0, 2 - (time.monotonic() - LAST_REQUEST)))
+        LAST_REQUEST = time.monotonic()
+        try:
+            with urlopen(Request(url, headers={"User-Agent": user_agent}), timeout=60) as response:
+                data = response.read(50 * 1024 * 1024 + 1)
+                if len(data) > 50 * 1024 * 1024:
+                    raise ValueError("response exceeds 50 MiB")
+                return data
+        except HTTPError as exc:
+            if exc.code not in {429, 503} or attempt == 3:
+                raise
+            retry_after = exc.headers.get("Retry-After", "")
+            delay = max(10 * (2 ** attempt), int(retry_after) if retry_after.isdigit() else 0)
+            print(f"HTTP {exc.code}: waiting {delay}s before retry", file=sys.stderr)
+            time.sleep(delay)
 
 
 def search(product, user_agent, *, title=None):
@@ -166,7 +181,7 @@ def acquire(entries, output, user_agent, limit, leads=()):
     output.mkdir(parents=True, exist_ok=True)
     if any(output.iterdir()):
         raise ValueError("review package output must be empty; originals will not be overwritten")
-    report, records = [], []
+    report, records, queries = [], [], {}
     for entry in entries:
         idx, plu, product = entry["idx"], entry["plu"], entry["name"]
         row = dict(idx=idx, plu=plu, product=product, query=QUERIES[idx],
@@ -178,7 +193,9 @@ def acquire(entries, output, user_agent, limit, leads=()):
                 if lead["id"].lstrip("0") == idx:
                     title = unquote(urlparse(lead["source_page_url"]).path.removeprefix("/wiki/"))
                     pages.extend(search(QUERIES[idx], user_agent, title=title))
-            pages.extend(search(QUERIES[idx], user_agent))
+            if QUERIES[idx] not in queries:
+                queries[QUERIES[idx]] = search(QUERIES[idx], user_agent)
+            pages.extend(queries[QUERIES[idx]])
             seen = set()
             for number, page in enumerate(pages, 1):
                 title = page.get("title")
