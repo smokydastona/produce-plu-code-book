@@ -4,21 +4,24 @@ Source XML SHA-256:
 462db3121094008cd1dd5ea2c5836ca4b24de077edb8982c0f43149edbaf2cbb
 
 All three owner-supplied AI contact sheets are preserved in data/review-references/.
-121 product-specific crops were added to review outputs, with labels removed
+120 product-specific crops were added to review outputs, with labels removed
 and proportional upper-left pink badges on organic entries. The re-uploaded
 corrected sheet replaces five previously unsuitable panels: Sing Qua (4656),
 Squash Acorn White (4752), Squash Acorn Golden (4751), Eggplant Italian
 (4599), and Papaya Large Cooking (4395). The owner clarified PLU 94391
-"Organic Oranges Mango" is an organic orange, usually Buck Brand; its earlier
-AI panel is now included as a candidate, pending variety verification against
-the Buck Brand specialty citrus infographic. The supplied URL could not be
-retrieved in this environment because DNS resolution is unavailable. These are AI
+"Organic Oranges Mango" is an organic orange, usually Buck Brand. Actions
+retrieved the supplier infographic using its corrected /wp-content/ URL.
+Page 2 confirms Mango Orange is an orange. The earlier AI panel showing a
+mango is therefore rejected, and its slot is blank. The product-correct
+1092 x 816 supplier image is retained as a discovery candidate, pending reuse
+permission and image review. See current/reports/BUCK_BRAND_REFERENCE_DISCOVERY.json.
+These are AI
 illustrations, not verified photographs. No image approval, rights approval,
 classification approval or legacy rejection verdict was changed.
 
 Outputs:
   FRUIT_VISUAL_PLU_BOOKLET_REVIEW.docx / .pdf / .xlsx
-    297 XML records, 297 images, 50 DOCX/PDF pages, 6 planned Excel pages.
+    297 XML records, 296 images, 50 DOCX/PDF pages, 6 planned Excel pages.
   VEGETABLE_VISUAL_PLU_BOOKLET_REVIEW.docx / .pdf / .xlsx
     305 XML records, 305 images, 51 DOCX/PDF pages, 6 planned Excel pages.
   NON_PRODUCE_PLU_BOOKLET_REVIEW.docx / .pdf / .xlsx
@@ -26,7 +29,7 @@ Outputs:
 
 The complete text-only and photo binder workbooks, their full 39-page PDFs,
 11-page Produce previews, original-sheet comparison and package-preservation
-reports are retained locally under current/review/till-binder-ai-updated/.
+reports are retained locally under current/review/till-binder-buck-brand-verified/.
 They are deliberately gitignored because unrelated operational workbook
 content must not be accidentally committed. All 14 original worksheets and
 their order were preserved. 99 of 104 original OOXML parts are byte-identical;
@@ -45,7 +48,8 @@ Actual validation:
   small-crop edges and organic badge sizing were corrected during that review.
   Store-printer, product-variety and rights approval are still required.
 
-Blank Produce references: none in the current review edition. Image variety,
+Blank Produce references: PLU 94391, Organic Oranges Mango. The product-correct
+supplier candidate still needs reuse permission and review. Image variety,
 identity and rights checks remain outstanding; image presence is not approval.
 
 Other unresolved source/release issues:
@@ -56,14 +60,14 @@ Other unresolved source/release issues:
 
 Reports:
   REVIEW_VALIDATION.json: actual format checks and output hashes.
-  AI_REFERENCE_REVIEW.csv: all 121 identities, crop boxes and decisions.
+  AI_REFERENCE_REVIEW.csv: source panels, crop boxes and decisions, including old rejections.
   PHOTO_MAPPING.csv: all 602 Produce image associations and review limitations.
-  MISSING_IMAGES.csv: the six remaining blank image slots.
+  MISSING_IMAGES.csv: the remaining blank image slot.
   PLACEMENT_REVIEW.csv: unresolved source classifications and organic placement.
   *_LAYOUT.csv: exact Excel record, cell, image and page mappings.
 
 Exact generation command used, from repository root:
-/root/.copilot/session-state/c176c1cf9a17463c86f57fded6ef542c/venv/bin/python tools/build_till_binders.py --binder /workspaces/produce-plu-code-book/.copilot/uploads/2026-11-09-1809d215/Complete_Till_Binder_-_Nov_2025.xlsx --output current/review/till-binder-ai-buckbrand --verify-print --booklets
+/root/.copilot/session-state/c176c1cf9a17463c86f57fded6ef542c/venv/bin/python tools/build_till_binders.py --binder /workspaces/produce-plu-code-book/.copilot/uploads/2026-11-09-1809d215/Complete_Till_Binder_-_Nov_2025.xlsx --output current/review/till-binder-buck-brand-verified --verify-print --booklets
 
 Exact regression command used:
 /root/.copilot/session-state/c176c1cf9a17463c86f57fded6ef542c/venv/bin/python -m unittest discover -s tools -p 'test_*.py' -q

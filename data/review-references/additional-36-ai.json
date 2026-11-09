@@ -22,7 +22,7 @@
     {"plu": "93227", "product": "Organic Oranges Torange", "box": [519, 245, 639, 341], "decision": "REVIEW_REFERENCE"},
     {"plu": "94388", "product": "Organic Oranges Valencia", "box": [653, 245, 785, 341], "decision": "REVIEW_REFERENCE"},
     {"plu": "93108", "product": "Organic Oranges Valencia", "box": [793, 245, 925, 341], "decision": "REVIEW_REFERENCE"},
-    {"plu": "94391", "product": "Organic Oranges Mango", "box": [933, 245, 1070, 341], "decision": "REVIEW_REFERENCE", "note": "Owner clarifies this is an organic orange, usually Buck Brand. Retain the matching owner-supplied AI panel as a review reference; verify the depicted variety against the Buck Brand specialty citrus infographic before production approval."},
+    {"plu": "94391", "product": "Organic Oranges Mango", "box": [933, 245, 1070, 341], "decision": "REJECTED", "note": "Owner confirms this is an organic orange, usually Buck Brand. The retrieved Buck Brand infographic (page 2, Mango Orange) confirms the product is an orange, not a mango. This AI panel depicts a mango beside an orange slice and is unsuitable. Leave blank pending review and reuse permission for the retrieved product-correct image."},
     {"plu": "94025", "product": "Organic D'Anjou Pears", "box": [10, 436, 177, 560], "decision": "REVIEW_REFERENCE"},
     {"plu": "94416", "product": "Organic Pear D'Anjou", "box": [185, 436, 356, 560], "decision": "REVIEW_REFERENCE"},
     {"plu": "4417", "product": "Pear D'Anjou Red", "box": [365, 436, 535, 560], "decision": "REVIEW_REFERENCE"},

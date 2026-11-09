@@ -1,0 +1,46 @@
+{
+  "status": "RETRIEVED_NOT_APPROVED",
+  "requested_url": "http://www.fsproduce.com-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+  "successful_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+  "http_status": 200,
+  "pdf_sha256": "c01b422dba54a6c8389f62f18e84c4299f95c01fe9d4c7ad4a0352084e628611",
+  "workflow_run_id": 42586124155,
+  "artifact": "buck-brand-reference",
+  "artifact_retention_days": 7,
+  "pages": 3,
+  "named_citrus_varieties": 33,
+  "embedded_image_assets": 48,
+  "asset_count_note": "Includes branding, certification marks and best-seller stickers; not 48 distinct product photographs.",
+  "rights": "Copyright Four Seasons Produce is printed on the PDF. No reusable licence or permission was established. Images retained only in the temporary retrieval artifact/local reference directory, not published as booklet replacements.",
+  "mango_orange": {
+    "xml_plu": "94391",
+    "xml_description": "Organic Oranges Mango",
+    "page": 2,
+    "pdf_label": "Mango Orange",
+    "pdf_supplier_code": "44411",
+    "supplier_code_is_not_store_plu": true,
+    "embedded_image": "page-02-image-002.jpeg",
+    "width": 1092,
+    "height": 816,
+    "finding": "The infographic shows a whole orange and sliced orange with a pink ring around the flesh. The owner-supplied AI collage panel showing a mango is not suitable and is rejected again. Owner clarification establishes the product identity, not approval of that incorrect image."
+  },
+  "page_1_varieties": [
+    "Buddha's Hand", "Marmalade Orange", "Meyer Lemons", "Sweet Lime (Palestine Lime)",
+    "Yuzu Lemon", "T'orange Lemon", "Variegated Pink Lemon", "Limequat",
+    "Centennial Kumquat", "Makrut Lime", "Key Limes", "Finger Lime"
+  ],
+  "page_2_varieties": [
+    "Algerian Clementine", "Satsuma Mandarin", "Lee Mandarins", "Minneola Tangelo",
+    "Fall Glo Tangerine", "Fairchild Tangerine", "Washington Navel Orange",
+    "Cara Cara Navel Orange", "Lou Lou Navel Orange", "Moro Blood Orange",
+    "Mango Orange", "Star Ruby Grapefruit"
+  ],
+  "page_3_varieties": [
+    "Lemonade Lemon", "Mandarinquat", "Nagami Kumquat", "Meiwa Kumquat",
+    "MeloGold Grapefruit", "Oro Blanco Grapefruit", "Red Globe Pummelo",
+    "African Shaddock Pummelo", "TDE Triple Cross Mandarin"
+  ],
+  "matching_boundary": "Names are discovery leads, not automatic exact XML mappings. Supplier codes must never replace store PLUs. T'orange is labelled a lemon in this source; do not silently map it to an XML orange.",
+  "picklist_changed": false,
+  "production_approvals_changed": false
+}
