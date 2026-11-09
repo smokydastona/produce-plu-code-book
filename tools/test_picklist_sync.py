@@ -1,3 +1,4 @@
+import csv
 import hashlib
 import io
 import json
@@ -122,6 +123,31 @@ class PickListSyncChecks(unittest.TestCase):
         self.assertEqual(summary["excluded_records"], 2)
         self.assertTrue(self.image.exists())
         self.assertIn("03283", (self.output / "INACTIVE_ASSIGNMENTS.csv").read_text())
+
+    def test_full_candidate_requests_follow_xml_and_skip_only_reviewed_code_only(self):
+        self.write_source([
+            ("03283", "Honeycrisp Apple", True), ("00042", "New Apple", True),
+            ("00042", "New Apple", True), ("43", "Code Only", True),
+            ("44", "Unreviewed Code Only", True), ("45", "Hidden", False),
+            ("46", "Deleted", True, True),
+        ])
+        items, _ = read_picklist(self.source)
+        code_only = self.approved_assignment(items[3])
+        code_only.update(book="Non-produce", image="", image_mode="CODE_ONLY",
+                         code_only_approved=True)
+        unreviewed = self.approved_assignment(items[4])
+        unreviewed.update(book="Non-produce", image="", image_mode="CODE_ONLY",
+                          code_only_approved=False)
+        self.write_assignments([self.assignment, code_only, unreviewed])
+        source_before = self.source.read_bytes()
+        reconcile(self.root, self.output)
+        with (self.output / "ALL_IMAGE_REQUESTS.csv").open(encoding="utf-8-sig", newline="") as file:
+            requests = list(csv.DictReader(file))
+        self.assertEqual([row["plu"] for row in requests], ["03283", "00042", "00042", "44"])
+        self.assertEqual([row["source_id"] for row in requests],
+                         [items[i]["source_id"] for i in (0, 1, 2, 4)])
+        self.assertEqual(requests[1]["name"], "New Apple")
+        self.assertEqual(self.source.read_bytes(), source_before)
 
     def test_approved_images_build_from_current_source_without_editing_it(self):
         before = self.source.read_bytes()

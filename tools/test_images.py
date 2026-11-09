@@ -117,6 +117,9 @@ class ImageChecks(unittest.TestCase):
         self.assertEqual(retrieve_commons.entry_query(
             {"idx": "50", "name": "New product after XML reorder", "query": "specific new variety"}),
             "specific new variety")
+        self.assertEqual(retrieve_commons.entry_query(
+            {"idx": "50", "source_id": "new-identity", "name": "New apple"}),
+            "New apple")
 
     def test_all_entry_selection_shards_cover_every_entry_once(self):
         root = Path(__file__).resolve().parents[1]
@@ -182,6 +185,14 @@ class ImageChecks(unittest.TestCase):
             self.assertEqual(retrieve_commons.fetch("https://commons.wikimedia.org/", "test"), b"image")
             self.assertEqual(request.call_count, 2)
             self.assertIn(unittest.mock.call(15), sleep.call_args_list)
+
+    def test_xml_requests_do_not_inherit_legacy_index_leads(self):
+        entries = [{"idx": "50", "source_id": "new-identity", "plu": "00042",
+                    "name": "New Apple"}]
+        leads = [{"id": "50", "source_page_url": "https://commons.wikimedia.org/wiki/File:Old.jpg"}]
+        with patch.object(retrieve_commons, "search", return_value=[]) as search:
+            self.assertFalse(retrieve_commons.acquire(entries, self.root / "package", "test", 1, leads))
+        search.assert_called_once_with("New Apple", "test")
 
     def different_image(self):
         content = io.BytesIO()

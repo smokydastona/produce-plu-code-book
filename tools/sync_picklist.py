@@ -85,7 +85,7 @@ def csv_output(path, rows, fields):
 def reconcile(root, output):
     items, digest = read_picklist(root / "sources/plu/PickList.xml")
     assignments = read_assignments(root / "data/picklist_assignments.json")
-    rows, requests, images, groups = [], [], {}, defaultdict(list)
+    rows, requests, all_image_requests, images, groups = [], [], [], {}, defaultdict(list)
     active_ids = set()
     for item in items:
         if not item["included"]:
@@ -120,11 +120,19 @@ def reconcile(root, output):
             errors.append("SECTION_REQUIRED")
         row["blockers"] = errors
         rows.append(row)
+        request = dict(
+            idx=str(item["source_position"]), source_id=item["source_id"],
+            plu=item["plu"], name=item["name"], query=search_query(item["name"]),
+        )
+        approved_code_only = (assignment and assignment["book"] == "Non-produce" and
+                              assignment.get("image_mode") == "CODE_ONLY" and
+                              assignment.get("code_only_approved") is True and
+                              (assignment.get("reviewed_plu"), assignment.get("reviewed_product")) ==
+                              (item["plu"], item["name"]))
+        if not approved_code_only:
+            all_image_requests.append(request)
         if not assignment or not assignment.get("image") and assignment.get("image_mode") != "CODE_ONLY":
-            requests.append(dict(
-                idx=str(item["source_position"]), source_id=item["source_id"],
-                plu=item["plu"], name=item["name"], query=search_query(item["name"]),
-            ))
+            requests.append(request)
     for group in groups.values():
         if len(group) < 2:
             continue
@@ -149,6 +157,8 @@ def reconcile(root, output):
                [dict(row, blockers="; ".join(row["blockers"])) for row in rows],
                fields + ["book", "section", "image", "organic", "width", "height", "blockers"])
     csv_output(output / "IMAGE_REQUESTS.csv", requests,
+               ["idx", "source_id", "plu", "name", "query"])
+    csv_output(output / "ALL_IMAGE_REQUESTS.csv", all_image_requests,
                ["idx", "source_id", "plu", "name", "query"])
     csv_output(output / "INACTIVE_ASSIGNMENTS.csv", inactive,
                ["source_id", "book", "reviewed_plu", "reviewed_product"])

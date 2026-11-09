@@ -193,7 +193,7 @@ def rejected_entries(path):
 def entry_query(entry):
     if entry.get("query"):
         return entry["query"]
-    if entry["idx"] in QUERIES:
+    if not entry.get("source_id") and entry["idx"] in QUERIES:
         return QUERIES[entry["idx"]]
     query = re.sub(r"\b(organic|small|large|medium)\b", "", entry["name"], flags=re.I)
     query = re.sub(r"\bapples\b", "apple", query, flags=re.I)
@@ -239,7 +239,7 @@ def acquire(entries, output, user_agent, limit, leads=()):
             from urllib.parse import unquote
             pages = []
             for lead in leads:
-                if lead["id"].lstrip("0") == idx:
+                if not entry.get("source_id") and lead["id"].lstrip("0") == idx:
                     title = unquote(urlparse(lead["source_page_url"]).path.removeprefix("/wiki/"))
                     pages.extend(search(query, user_agent, title=title))
             if query not in queries:
