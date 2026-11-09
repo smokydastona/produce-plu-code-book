@@ -12,11 +12,15 @@ from unittest.mock import patch
 
 from docx import Document
 from PIL import Image
+from openpyxl import load_workbook
 
 from picklist_catalog import read_assignments, read_picklist
 from sync_picklist import (BOOKS, build_documents, original_image, reconcile,
-                           reviewed_image, safe_asset, booklet_order, verify_pdfs)
+                           reviewed_image, safe_asset, booklet_order, verify_pdfs,
+                           build_workbooks, verify_workbooks)
 from approve_picklist_image import approve
+from check_image_uniqueness import image_fingerprint
+from organic_watermarks import render_watermark
 
 
 class PickListSyncChecks(unittest.TestCase):
@@ -176,6 +180,7 @@ class PickListSyncChecks(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("no booklets were published", result.stderr)
         self.assertEqual(list((self.root / "staging").glob("*.docx")), [])
+        self.assertEqual(list((self.root / "staging").glob("*.xlsx")), [])
         self.assertEqual(sentinel.read_bytes(), b"last published")
         second = subprocess.run(
             [sys.executable, str(script), "--root", str(self.root),
@@ -321,6 +326,111 @@ class PickListSyncChecks(unittest.TestCase):
                 PdfReader=lambda path: SimpleNamespace(pages=[page]))}):
             with self.assertRaisesRegex(ValueError, "booklet order"):
                 verify_pdfs(self.output, rows, {})
+
+    def test_excel_preserves_strings_duplicates_order_photos_and_credits(self):
+        self.write_source([
+            ("900042", "Organic Apple Gala", True), ("00042", "Apple Gala", True),
+            ("00042", "Apple Gala", True), ("00043", "=Unusual Product", True),
+        ])
+        items, digest = read_picklist(self.source)
+        assignments = {item["source_id"]: self.approved_assignment(item) for item in items}
+        assignments[items[0]["source_id"]]["section"] = "Organic Fruit"
+        assignments[items[0]["source_id"]]["provenance"]["creator"] = "=Literal Creator"
+        rows = [dict(item, book="Fruit", section=assignments[item["source_id"]]["section"],
+                     organic=index == 0) for index, item in enumerate(items)]
+        images = {item["source_id"]: self.image.read_bytes() for item in items}
+        before = self.source.read_bytes()
+        build_workbooks(self.output, rows, images, assignments, digest)
+        verify_workbooks(self.output, rows, assignments, digest)
+        workbook = load_workbook(self.output / (BOOKS["Fruit"] + ".xlsx"))
+        self.addCleanup(workbook.close)
+        self.assertEqual(workbook.sheetnames, ["Booklet", "Photo credits"])
+        sheet = workbook["Booklet"]
+        self.assertEqual([sheet.cell(number, 1).value for number in range(5, 9)],
+                         ["00042", "00042", "900042", "00043"])
+        self.assertEqual(sheet["B8"].value, "=Unusual Product")
+        self.assertEqual(sheet["B8"].data_type, "s")
+        self.assertEqual(sheet["A5"].number_format, "@")
+        self.assertEqual(sheet["A5"].data_type, "s")
+        self.assertEqual(sheet["C7"].value, "Apples")
+        self.assertEqual(sheet["D7"].value, "YES")
+        self.assertEqual(sheet.freeze_panes, "B5")
+        self.assertEqual(sheet.auto_filter.ref, "A4:F8")
+        self.assertEqual(sheet.page_setup.orientation, "landscape")
+        self.assertEqual(str(sheet.page_setup.paperSize), sheet.PAPERSIZE_LETTER)
+        self.assertEqual(sheet["B2"].value, digest)
+        self.assertEqual(len(sheet._images), 4)
+        for index, picture in enumerate(sheet._images):
+            self.assertEqual(picture.anchor._from.row, 4 + index)
+            self.assertEqual(picture.anchor._from.col, 4)
+            expected = render_watermark(self.image.read_bytes()) if index == 2 else self.image.read_bytes()
+            self.assertEqual(image_fingerprint(io.BytesIO(picture._data())),
+                             image_fingerprint(io.BytesIO(expected)))
+        credits = workbook["Photo credits"]
+        self.assertEqual(credits.max_row, 5)
+        self.assertEqual(credits["A4"].value, "900042")
+        self.assertEqual(credits["C4"].value, "=Literal Creator")
+        self.assertEqual(credits["C4"].data_type, "s")
+        self.assertIn("pink organic badge added", credits["I4"].value)
+        self.assertEqual(credits["J4"].value, assignments[items[0]["source_id"]]["provenance"]["rights_evidence"])
+        self.assertEqual(self.source.read_bytes(), before)
+
+    def test_excel_verification_rejects_changed_values_formulas_and_source_checksum(self):
+        rows, images, assignments, summary = reconcile(self.root, self.output)
+        for change, message in (
+                ("code", "entries differ"), ("formula", "literal text"), ("digest", "checksum")):
+            with self.subTest(change=change):
+                build_workbooks(self.output, rows, images, assignments, summary["source_sha256"])
+                path = self.output / (BOOKS["Fruit"] + ".xlsx")
+                workbook = load_workbook(path)
+                if change == "code":
+                    workbook["Booklet"]["A5"] = 3283
+                elif change == "formula":
+                    workbook["Photo credits"]["C2"] = "=1+1"
+                else:
+                    workbook.properties.identifier = "picklist-sha256:stale"
+                workbook.save(path)
+                workbook.close()
+                with self.assertRaisesRegex(ValueError, message):
+                    verify_workbooks(self.output, rows, assignments, summary["source_sha256"])
+
+    def test_excel_rejects_text_that_would_be_silently_truncated(self):
+        rows, images, assignments, summary = reconcile(self.root, self.output)
+        rows[0]["name"] = "x" * 32768
+        with self.assertRaisesRegex(ValueError, "Excel's cell limit"):
+            build_workbooks(self.output, rows, images, assignments, summary["source_sha256"])
+
+    def test_cli_builds_three_excel_versions_including_code_only_and_empty_books(self):
+        self.assignment.update(book="Non-produce", image="", image_mode="CODE_ONLY",
+                               code_only_approved=True)
+        self.write_assignments([self.assignment])
+        before = self.source.read_bytes()
+        staging = self.root / "staging"
+        result = subprocess.run(
+            [sys.executable, str(Path(__file__).with_name("sync_picklist.py")),
+             "--root", str(self.root), "--output", str(staging)],
+            capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertEqual(len(list(staging.glob("*.xlsx"))), 3)
+        self.assertEqual(len(list(staging.glob("*.docx"))), 3)
+        self.assertTrue(json.loads((staging / "BUILD_VERIFIED.json").read_text())["workbooks_verified"])
+        workbook = load_workbook(staging / (BOOKS["Non-produce"] + ".xlsx"))
+        self.addCleanup(workbook.close)
+        self.assertEqual(workbook["Booklet"]["A5"].value, "03283")
+        self.assertIn("CODE-ONLY", workbook["Booklet"]["F5"].value)
+        self.assertEqual(len(workbook["Booklet"]._images), 0)
+        self.assertEqual(workbook["Photo credits"].max_row, 1)
+        self.assertEqual(self.source.read_bytes(), before)
+
+    def test_catalog_only_never_creates_excel_or_docx_files(self):
+        staging = self.root / "staging"
+        result = subprocess.run(
+            [sys.executable, str(Path(__file__).with_name("sync_picklist.py")),
+             "--root", str(self.root), "--output", str(staging), "--catalog-only"],
+            capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertEqual(list(staging.glob("*.xlsx")), [])
+        self.assertEqual(list(staging.glob("*.docx")), [])
 
     def test_organic_matching_is_explicit_not_guessed_from_codes(self):
         self.write_source([("03283", "Honeycrisp Apple", True), ("903283", "Organic Apple", True)])

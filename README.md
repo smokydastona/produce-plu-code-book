@@ -23,6 +23,8 @@ Fruit, vegetable, and non-produce cashier references, their audit reports, and t
 
 PDFs use landscape US Letter pages. DOCX files are the editable versions; keep each PDF paired with its corresponding DOCX.
 
+Every future approved build also includes one Excel (`.xlsx`) version per booklet, using the same filename stem as its DOCX/PDF. Excel versions are not yet published for the blocked current catalogue.
+
 ## Updating PickList.xml in the future
 
 **Only @smokydastona updates [sources/plu/PickList.xml](sources/plu/PickList.xml).** Upload a replacement at that exact path. The committed XML is assumed correct: scripts and agents never edit, repair or "correct" its product values. Neither the old booklets nor image spreadsheets override it.
@@ -33,13 +35,15 @@ The **Sync owner PickList** Actions workflow runs automatically when the XML cha
 2. Reconcile image assignments using an identity derived from **code + exact description + department + duplicate occurrence**. Reordering unrelated items or changing XML encoding does not lose assignments. A new/changed code, description or department requires a new review; no approval is guessed from a similar name.
 3. Search Commons automatically for entries with no assigned image, capturing eligible candidate originals, provenance, contact sheets and licence-review records in a `picklist-review-<commit>` artifact. Downloads are **not approvals**. No eligible result remains explicitly unresolved.
 4. **Stop publication if any entry lacks an approved image or fails another gate.** Existing booklets under `current/booklets/` remain unchanged. Review `PICKLIST_SYNC.csv`, `IMAGE_REQUESTS.csv` and `PICKLIST_SYNC.json` in the artifact. Unknown products also need fruit/vegetable/non-produce classification, not a guessed category.
-5. Once all gates pass, build all three DOCX/PDF booklets directly from that XML in an isolated staging directory, verify PDF code order/page size, and provide `picklist-booklets-<commit>` for your final review. The workflow never writes the XML, overwrites published files, or silently publishes a failed build.
+5. Once all gates pass, build all three booklets in DOCX, PDF and Excel (`.xlsx`) directly from that XML in an isolated staging directory, verify PDF code order/page size and Excel entries/source checksum, and provide `picklist-booklets-<commit>` for your final review. The workflow never writes the XML, overwrites published files, or silently publishes a failed build.
 
 The existing 46-entry non-produce code-only supplement is preserved as an explicit exception; new entries are **not** silently made code-only. Every produce image needs visual/photographic and rights approval, a supported licence, provenance, matching checksum and at least 500 pixels on both sides. Every organic photograph gets the uploaded upper-left pink seal during rendering. In the new XML-driven pipeline, photo reuse requires an **explicit reviewed `reuse_from_source_id`** pointing to the matching conventional entry; organic codes are never inferred or rewritten. Any non-permitted repeated photograph blocks the build.
 
 **Booklet order:** Organic entries do not have a separate organic section. Within each normal produce category, all conventional sizes/duplicate records for a product are grouped together, immediately followed by its organic entries. Description matching ignores the organic label, size words, common plurals and word order; it never changes the printed source values or guesses a match from a PLU. Reviewed `reuse_from_source_id` links also identify counterparts. An optional `placement_after_source_id` in the assignment registry records a reviewed conventional counterpart independently of photo reuse. It must reference an included conventional entry in the same booklet.
 
 Unmatched or ambiguous organic entries stay at the end of their normal produce category, not in an organic section. `BOOKLET_ORDER.csv` records the exact presentation sequence, counterpart IDs and `PLACEMENT_REVIEW_REQUIRED` flags; `organic_placements_needing_review` summarizes those flags without adding a publication blocker. Legacy organic-only section labels are replaced for display using the product family; an unknown family falls back to the booklet's general category and remains flagged. This display categorization does not classify an unassigned XML record or approve any image. The XML catalogue remains in source order; both DOCX rendering and PDF verification use the derived booklet order.
+
+Excel versions follow that same booklet order, with embedded photographs and the same pink badge on organic images. Each workbook has a filterable, freeze-pane `Booklet` sheet, landscape US Letter print settings, a source checksum, and a `Photo credits` sheet containing provenance, licensing and modification details. PLUs and descriptions are stored as literal text, preserving leading zeros, duplicate entries and names that begin with `=`. Non-produce code-only entries stay code-only. Excel generation runs behind the same image/reconciliation gates; `--catalog-only` never creates workbooks.
 
 `data/picklist_assignments.json` is the review registry, **not an alternate PLU master**. Removed/hidden product assignments and assets are retained for audit but do not appear in newly generated books. Source descriptions/codes are always read afresh from XML. Truly identical duplicate records have no persistent ID in this XML format, so their occurrence number distinguishes them; adding/removing indistinguishable duplicates can require re-review. Candidate artwork and XML-referenced image filenames alone never establish an approved photo.
 
@@ -49,7 +53,7 @@ Local commands (Pillow, python-docx and openpyxl required):
 # Catalogue/review reports only, never publication:
 python3 tools/sync_picklist.py --catalog-only --output /tmp/new-picklist-review
 
-# Fail closed unless every required approval passes; output must be empty.
+# Build DOCX and Excel only when every required approval passes; output must be empty.
 # PDF mode also needs pypdf, LibreOffice Writer and DejaVu Sans fonts:
 python3 tools/sync_picklist.py --pdf --output /tmp/new-picklist-build
 ```

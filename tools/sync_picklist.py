@@ -292,6 +292,11 @@ def booklet_order(rows, assignments):
     return ordered
 
 
+def booklet_image(row, images):
+    content = images[row["source_id"]]
+    return render_watermark(content) if row["organic"] else content
+
+
 def build_documents(root, output, rows, images, assignments, digest):
     import docx
     from docx.enum.section import WD_ORIENT
@@ -328,9 +333,7 @@ def build_documents(root, output, rows, images, assignments, digest):
                 cell.add_paragraph(row["name"])
                 cell.add_paragraph("Section: " + row["display_section"])
                 if row["source_id"] in images:
-                    content = images[row["source_id"]]
-                    if row["organic"]:
-                        content = render_watermark(content)
+                    content = booklet_image(row, images)
                     with Image.open(io.BytesIO(content)) as image:
                         width, height = image.size
                     scale = min(3.7 / width, 1.0 / height)
@@ -365,6 +368,116 @@ def build_documents(root, output, rows, images, assignments, digest):
     csv_output(output / "PHOTO_ATTRIBUTIONS.csv", credits,
                ["source_id", "plu", "product", "creator", "license", "license_url",
                 "source_page_url", "original_image_url", "attribution", "changes", "rights_evidence"])
+
+
+def excel_row(sheet, number, values):
+    for column, value in enumerate(values, 1):
+        if len(value) > 32767:
+            raise ValueError(f"{sheet.title} row {number}: text exceeds Excel's cell limit")
+        cell = sheet.cell(number, column, value)
+        cell.data_type = "s"
+        cell.number_format = "@"
+
+
+def build_workbooks(output, rows, images, assignments, digest):
+    from openpyxl import Workbook
+    from openpyxl.drawing.image import Image as ExcelImage
+    from openpyxl.styles import Alignment, Font, PatternFill
+
+    presentation = booklet_order(rows, assignments)
+    for book, filename in BOOKS.items():
+        selected = [row for row in presentation if row["book"] == book]
+        workbook = Workbook()
+        workbook.properties.title = book + " PLU Reference"
+        workbook.properties.identifier = "picklist-sha256:" + digest
+        sheet = workbook.active
+        sheet.title = "Booklet"
+        excel_row(sheet, 1, [book + " PLU Reference"])
+        sheet.merge_cells("A1:F1")
+        excel_row(sheet, 2, ["Source SHA-256", digest])
+        sheet.merge_cells("B2:F2")
+        excel_row(sheet, 4, ["PLU", "Product", "Section", "Organic", "Photograph", "Notes"])
+        for number, row in enumerate(selected, 5):
+            has_image = row["source_id"] in images
+            note = "CODE-ONLY REFERENCE; no photograph."
+            if has_image:
+                note = "Reviewed photographic reference"
+                if row["organic"]:
+                    note += "; organic label is not certification."
+            if row["placement_note"]:
+                note = "; ".join(filter(None, [note, row["placement_note"]]))
+            excel_row(sheet, number, [row["plu"], row["name"], row["display_section"],
+                                      "YES" if row["organic"] else "NO", "", note])
+            sheet.row_dimensions[number].height = 90 if has_image else 36
+            if has_image:
+                picture = ExcelImage(io.BytesIO(booklet_image(row, images)))
+                scale = min(224 / picture.width, 112 / picture.height)
+                picture.width *= scale
+                picture.height *= scale
+                sheet.add_image(picture, f"E{number}")
+        sheet.freeze_panes = "B5"
+        sheet.auto_filter.ref = f"A4:F{max(4, sheet.max_row)}"
+        sheet.print_title_rows = "1:4"
+        sheet.print_area = f"A1:F{sheet.max_row}"
+        sheet.page_setup.orientation = "landscape"
+        sheet.page_setup.paperSize = sheet.PAPERSIZE_LETTER
+        sheet.page_setup.fitToWidth = 1
+        sheet.page_setup.fitToHeight = 0
+        sheet.sheet_properties.pageSetUpPr.fitToPage = True
+        credits = workbook.create_sheet("Photo credits")
+        excel_row(credits, 1, [
+            "PLU", "Product", "Creator", "Licence", "Licence URL", "Source page URL",
+            "Original image URL", "Attribution", "Changes", "Rights evidence", "Source ID",
+        ])
+        for row in selected:
+            if row["source_id"] not in images:
+                continue
+            provenance = assignments[row["source_id"]]["provenance"]
+            changes = provenance["changes"] + ("; pink organic badge added" if row["organic"] else "")
+            excel_row(credits, credits.max_row + 1, [
+                row["plu"], row["name"], provenance["creator"], provenance["license"],
+                provenance["license_url"], provenance["source_page_url"],
+                provenance["original_image_url"], provenance["attribution"], changes,
+                provenance["rights_evidence"], row["source_id"],
+            ])
+        credits.freeze_panes = "C2"
+        credits.auto_filter.ref = credits.dimensions
+        for worksheet, header, widths in (
+                (sheet, 4, [18, 38, 24, 12, 34, 48]),
+                (credits, 1, [18, 38, 28, 18, 42, 48, 48, 48, 40, 48, 68])):
+            for cells in worksheet.iter_rows(min_row=header):
+                for cell in cells:
+                    cell.alignment = Alignment(vertical="top", wrap_text=True)
+            for cell in worksheet[header]:
+                cell.font = Font(bold=True, color="FFFFFF")
+                cell.fill = PatternFill("solid", fgColor="305040")
+            for column, width in enumerate(widths, 1):
+                worksheet.column_dimensions[worksheet.cell(header, column).column_letter].width = width
+        workbook.save(output / (filename + ".xlsx"))
+
+
+def verify_workbooks(output, rows, assignments, digest):
+    from openpyxl import load_workbook
+
+    presentation = booklet_order(rows, assignments)
+    for book, filename in BOOKS.items():
+        workbook = load_workbook(output / (filename + ".xlsx"), read_only=True)
+        try:
+            if workbook.properties.identifier != "picklist-sha256:" + digest:
+                raise ValueError(f"{book}: Excel source checksum differs from current PickList")
+            sheet = workbook["Booklet"]
+            selected = [row for row in presentation if row["book"] == book]
+            actual = [(a.value, b.value, c.value, d.value)
+                      for a, b, c, d in sheet.iter_rows(min_row=5, max_col=4)]
+            expected = [(row["plu"], row["name"] or None, row["display_section"] or None,
+                         "YES" if row["organic"] else "NO") for row in selected]
+            if actual != expected:
+                raise ValueError(f"{book}: Excel entries differ from XML-derived booklet order")
+            if any(cell.data_type == "f" for worksheet in workbook for cells in worksheet
+                   for cell in cells):
+                raise ValueError(f"{book}: Excel must contain literal text, not formulas")
+        finally:
+            workbook.close()
 
 
 def verify_pdfs(output, rows, assignments):
@@ -403,6 +516,8 @@ def main():
         if summary["status"] != "READY_TO_BUILD":
             parser.exit(1, "BLOCKED: see PICKLIST_SYNC.csv; no booklets were published.\n")
         build_documents(args.root, args.output, rows, images, assignments, summary["source_sha256"])
+        build_workbooks(args.output, rows, images, assignments, summary["source_sha256"])
+        verify_workbooks(args.output, rows, assignments, summary["source_sha256"])
         if args.pdf:
             subprocess.run([
                 "soffice", "-env:UserInstallation=" + (args.output.resolve() / "lo-profile").as_uri(),
@@ -416,7 +531,7 @@ def main():
             raise ValueError("source changed during build; discard staging output and retry")
         (args.output / "BUILD_VERIFIED.json").write_text(json.dumps(dict(
             source_sha256=summary["source_sha256"], records=len(rows),
-            pdfs_verified=args.pdf, status="AWAITING_OWNER_RELEASE_REVIEW",
+            pdfs_verified=args.pdf, workbooks_verified=True, status="AWAITING_OWNER_RELEASE_REVIEW",
         ), indent=2) + "\n", encoding="utf-8")
     except (OSError, ValueError, KeyError, subprocess.SubprocessError) as exc:
         parser.exit(1, f"ERROR: {exc}\n")

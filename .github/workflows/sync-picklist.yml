@@ -108,7 +108,7 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install Pillow python-docx openpyxl pypdf
       - run: sudo apt-get update -qq && sudo apt-get install -y libreoffice-writer fonts-dejavu-core fonts-dejavu-extra
-      - name: Build exact-source DOCX and verified PDF files in staging only
+      - name: Build exact-source DOCX, Excel and verified PDF files in staging only
         run: python tools/sync_picklist.py --pdf --output "$RUNNER_TEMP/picklist-build"
       - name: Provide verified booklets for owner release review
         uses: actions/upload-artifact@v4
@@ -117,6 +117,7 @@ jobs:
           path: |
             ${{ runner.temp }}/picklist-build/*.docx
             ${{ runner.temp }}/picklist-build/*.pdf
+            ${{ runner.temp }}/picklist-build/*.xlsx
             ${{ runner.temp }}/picklist-build/*.csv
             ${{ runner.temp }}/picklist-build/*.json
           if-no-files-found: error
