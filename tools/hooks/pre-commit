@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ "${ALLOW_REGISTER_UPDATE:-}" = "1" ]; then
+    exit 0
+fi
+
+if git diff --cached --name-only --no-renames -- current/ data/ | grep -q .; then
+    echo "Commit blocked: staged changes under current/ or data/ require ALLOW_REGISTER_UPDATE=1." >&2
+    exit 1
+fi
