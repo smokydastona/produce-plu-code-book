@@ -15,7 +15,8 @@ from urllib.error import HTTPError
 
 from PIL import Image, ImageDraw, ImageOps
 
-from verify_images import LICENSES, PUBLIC_DOMAIN, validate
+from license_register import write_register
+from verify_images import LICENSES, validate
 
 API = "https://commons.wikimedia.org/w/api.php"
 LAST_REQUEST = 0.0
@@ -85,7 +86,7 @@ def search(product, user_agent, *, title=None):
 
 
 def download(plu, product, output, user_agent, *, query=None,
-             licenses=PUBLIC_DOMAIN, pages=None):
+             licenses=LICENSES, pages=None):
     for page in search(query or product, user_agent) if pages is None else pages:
         info = page.get("imageinfo", [{}])[0]
         extra = info.get("extmetadata", {})
@@ -224,6 +225,7 @@ def acquire(entries, output, user_agent, limit, leads=()):
         report.append(row)
     (output / "provenance.json").write_text(
         json.dumps(records, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    write_register(records, output / "license-register.csv")
     with (output / "acquisition-report.csv").open("w", newline="", encoding="utf-8") as file:
         writer = csv.DictWriter(file, fieldnames=list(report[0]) if report else
                                 ["idx", "plu", "product", "query", "source", "status", "details", "candidates"])

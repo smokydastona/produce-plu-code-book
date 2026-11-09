@@ -9,7 +9,7 @@ from PIL import Image
 
 PUBLIC_DOMAIN = {"CC0", "Public domain"}
 LICENSES = PUBLIC_DOMAIN | {"CC BY 2.0", "CC BY 3.0", "CC BY 4.0",
-                            "CC BY-SA 3.0", "CC BY-SA 4.0"}
+                            "CC BY-SA 2.0", "CC BY-SA 3.0", "CC BY-SA 4.0"}
 EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".tif", ".tiff", ".gif",
               ".bmp", ".avif", ".svg"}
 

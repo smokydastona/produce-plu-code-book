@@ -6,6 +6,8 @@ For each photo, use a filename that identifies the rejected entry, such as `009_
 
 Include the original source-page URL, creator, licence, and any required attribution for every image. Keep the original file unchanged; do not crop, resize, or approve it here. Images remain candidates until their variety, dimensions, and reuse rights have been checked.
 
+Eligible licence types are CC0 1.0, CC BY 2.0/3.0/4.0, CC BY-SA 2.0/3.0/4.0, and verified public-domain works. See the [image licence policy](../../README.md#replacement-image-retrieval-and-checks) for attribution and share-alike conditions. Neither a Commons download link nor a Public Domain Mark alone establishes rights. Each acquisition package includes a `license-register.csv` separating licence-type eligibility, individual rights verification, and visual approval; no status is automatically approved.
+
 After review, approved images will be moved to their final locations and this temporary folder can be emptied.
 
 For Wikimedia downloads through GitHub Actions, add candidate file pages to `candidates.json` as a JSON array. Each object needs `id` (a unique filename-safe identifier), `plu` (a string), `product`, and `source_page_url`. The workflow retrieves the canonical original image URL and licence metadata from the Commons API; do not guess these values. Optional `image_url`, `license`, and `license_url` fields are accepted when known and must be accurate. URLs must be HTTPS. Example:

@@ -9,7 +9,7 @@ from urllib.error import HTTPError
 from PIL import Image
 
 import retrieve_commons
-from verify_images import validate
+from verify_images import LICENSES, validate
 
 
 class ImageChecks(unittest.TestCase):
@@ -34,6 +34,13 @@ class ImageChecks(unittest.TestCase):
 
     def test_exact_minimum_passes(self):
         self.assertEqual(validate(self.path), [])
+
+    def test_all_accepted_licence_types(self):
+        for name in LICENSES:
+            with self.subTest(license=name):
+                self.record["license"] = name
+                self.write_record()
+                self.assertEqual(validate(self.path), [])
 
     def test_shortest_side_not_longest(self):
         Image.new("RGB", (1000, 499)).save(self.path)
@@ -79,9 +86,10 @@ class ImageChecks(unittest.TestCase):
             with self.assertRaises(FileExistsError):
                 retrieve_commons.download("3283", "Honeycrisp apple", output, "test")
             page["imageinfo"][0]["extmetadata"]["LicenseShortName"]["value"] = "CC BY-SA 4.0"
-            self.assertFalse(retrieve_commons.download("4555", "Savoy cabbage", output, "test"))
             self.assertTrue(retrieve_commons.download(
-                "4555", "Savoy cabbage", output, "test", licenses=retrieve_commons.LICENSES))
+                "4555", "Savoy cabbage", output, "test"))
+            page["imageinfo"][0]["extmetadata"]["LicenseShortName"]["value"] = "CC BY-NC 4.0"
+            self.assertFalse(retrieve_commons.download("9999", "Unsupported", output, "test"))
 
     def test_all_rejected_entries_have_exact_queries(self):
         root = Path(__file__).resolve().parents[1]
@@ -122,6 +130,11 @@ class ImageChecks(unittest.TestCase):
         self.assertEqual((output / records[0]["image"]).read_bytes(), content)
         self.assertTrue((output / "contact-sheet-01.jpg").is_file())
         import csv
+        with (output / "license-register.csv").open() as file:
+            licences = list(csv.DictReader(file))
+        self.assertEqual([r["idx"] for r in licences], ["27", "274"])
+        self.assertTrue(all(r["rights_verification_status"] == "NOT_VERIFIED" for r in licences))
+        self.assertTrue(all(r["visual_approval_status"] == "NOT_APPROVED" for r in licences))
         with (output / "acquisition-report.csv").open() as file:
             report = list(csv.DictReader(file))
         self.assertEqual([r["status"] for r in report],
