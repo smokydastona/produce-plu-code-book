@@ -9,26 +9,20 @@ permissions:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - run: python -m pip install Pillow
-      - run: python -m unittest discover -s tools -p 'test_candidate_manifest.py'
-      - name: Save Commons source metadata
+      - run: python -m unittest discover -s tools -p 'test_*.py'
+      - name: Acquire all rejected entries and build review package
         run: |
-          mkdir -p "$RUNNER_TEMP/produce-candidates"
-          python tools/commons_candidate_metadata.py sources/temp_upload/candidates.json \
-            "$RUNNER_TEMP/produce-candidates/commons-metadata.json"
-      - name: Download and inspect candidate dimensions
-        run: |
-          mkdir -p "$RUNNER_TEMP/produce-candidates"
-          cp sources/temp_upload/candidates.json "$RUNNER_TEMP/produce-candidates/candidates.json"
-          python tools/candidate_manifest.py sources/temp_upload/candidates.json \
-            --markdown "$RUNNER_TEMP/produce-candidates/candidates_manifest.md" \
-            --download-dir "$RUNNER_TEMP/produce-candidates/images"
+          python tools/retrieve_commons.py --review data/image_review.csv \
+            --leads sources/temp_upload/candidates.json \
+            --output "$RUNNER_TEMP/produce-candidates" --per-entry 2 \
+            --user-agent "ProducePLUReview/1.0 (https://github.com/smokydastona/produce-plu-code-book)"
       - name: Upload unreviewed candidates
         if: always()
         uses: actions/upload-artifact@v4

@@ -1,14 +1,14 @@
 idx,plu,product,reject_reason,lead_source,original_image_url,source_page_url,orig_width,orig_height,creator,licence,attribution_required,visual_verification,approval_status,notes
-9,3283,Apples Honey Crisp,watermark,Wikimedia Commons Honeycrisp photo,,,2880,2600,Evan-Amos,CC0 (reported; confirm),,,CANDIDATE,Lead only; not downloaded or verified
+9,3283,Apples Honey Crisp,watermark,Wikimedia Commons Honeycrisp photo,https://upload.wikimedia.org/wikipedia/commons/0/07/Honeycrisp-Apple.jpg,https://commons.wikimedia.org/wiki/File:Honeycrisp-Apple.jpg,2880,2600,Evan-Amos,CC0,credit retained,Photo inspected; source identifies Honeycrisp,CANDIDATE,Original staged in sources/temp_upload; Commons API licence checked; not assigned to booklet
 27,3016,Pear Concorde,tiny mis-cropped,Wikimedia Commons Concorde pear category,,,,,,,,,UNRESOLVED,Per-image licence must be checked
 50,4293,Grapefruit White Large,shows red flesh,Wikimedia Commons white grapefruit,,,2700,1800,Renee Comet / National Cancer Institute,licence not stated (NCI; confirm),,,CANDIDATE,Lead only; licence to confirm
 148,3038,Granadilla,pink band mis-crop,Wikimedia Commons Granadilla,,,3024,4032,MmaBaggio,CC BY-SA 4.0,yes + share-alike,,CANDIDATE,Lead only
-154,4313,Mango Julie,pink bands,Wikimedia Commons Julie mango,,,1849,2048,Filo gèn',CC BY-SA 4.0,yes + share-alike,,CANDIDATE,CC BY-SA 4.0 approved by owner 2026-11-09; still needs download and visual check
+154,4313,Mango Julie,pink bands,Wikimedia Commons Julie mango,https://upload.wikimedia.org/wikipedia/commons/7/71/Mangue-julie.jpg,https://commons.wikimedia.org/wiki/File:Mangue-julie.jpg,2582,1937,Filo gèn',CC BY-SA 4.0,yes + share-alike,Downloaded and inspected; damaged fruit unsuitable,CANDIDATE,Licence type approved in chat; local calendar date unconfirmed (session timestamp November 9 UTC); this specific photo is not approved
 175,3041,Ramboutan,stray text,Wikimedia Commons rambutan,,,1280,960,Syced,licence not stated (confirm),,,CANDIDATE,Lead only; licence to confirm
 235,94306,Organic Limes Sweet,pink line,Wikimedia Commons sweet lime (sliced),,,566,552,Rashid Jorvee,CC BY-SA 4.0,yes + share-alike,,CANDIDATE,Barely above 500 px; sliced fruit
 256,93035,Organic Nectarines White,shows yellow flesh,,,,,,,,,,UNRESOLVED,
 274,93016,Organic Pear Concord,tiny pear in corner,Wikimedia Commons Concorde pear category,,,,,,,,,UNRESOLVED,Per-image licence must be checked
-334,4555,Cabbage Savoy,shows napa,Wikimedia Commons Savoy cabbage,,,3456,2592,Evelyn Gunn,CC BY-SA 3.0,yes + share-alike,,CANDIDATE,Lead only
+334,4555,Cabbage Savoy,shows napa,Wikimedia Commons Savoy cabbage,https://upload.wikimedia.org/wikipedia/commons/b/b9/Savoy_Cabbage.jpg,https://commons.wikimedia.org/wiki/File:Savoy_Cabbage.jpg,3456,2592,Evelyn Gunn,CC BY-SA 3.0,yes + share-alike,Growing savoy cabbage inspected; market suitability unresolved,CANDIDATE,Original staged in sources/temp_upload; Commons API licence checked; not assigned to booklet
 344,4565,Carrot - Red,stray text,Wikimedia Commons red carrot,,,7222,6000,SarKaLay,CC BY-SA 4.0,yes + share-alike,,CANDIDATE,Lead only
 361,4724,Potato Mini white,mixed colours (AI),,,,,,,,,,UNRESOLVED,
 368,4724,Potato White Creamer,mixed colours (AI),,,,,,,,,,UNRESOLVED,
@@ -18,7 +18,7 @@ idx,plu,product,reject_reason,lead_source,original_image_url,source_page_url,ori
 399,4692,Pepper Hungarian,red line,Wikimedia Commons Hungarian wax pepper,,,3264,1836,Jeff Kwapil,CC BY-SA 4.0,yes + share-alike,,CANDIDATE,Lead only
 403,4706,Pepper Poblano,red bar,,,,,,,,,,UNRESOLVED,
 412,4705,Peppers Poblano,red bar,,,,,,,,,,UNRESOLVED,
-415,4963,Tomatillos,pink bars,Wikimedia Commons tomatillos,,,1280,1024,Molekuel,licence not stated (confirm),,,CANDIDATE,Lead only; licence to confirm
+415,4963,Tomatillos,pink bars,Wikimedia Commons tomatillos,https://upload.wikimedia.org/wikipedia/commons/9/9f/Tomatillo.jpg,https://commons.wikimedia.org/wiki/File:Tomatillo.jpg,1280,1024,Molekuel (reported; API creator absent),Public domain (Commons API declaration),confirm source terms,Downloaded and inspected,CANDIDATE,Creator and rights basis need source-page confirmation; not approved
 424,4999,Cucumber Mini,screenshot fragment,,,,,,,,,,UNRESOLVED,
 432,4751,Squash Acorn Golden,shows dark green acorn,,,,,,,,,,UNRESOLVED,
 433,4752,Squash Acorn White,shows dark green acorn,,,,,,,,,,UNRESOLVED,

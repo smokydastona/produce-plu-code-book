@@ -79,6 +79,51 @@ class ImageChecks(unittest.TestCase):
                 retrieve_commons.download("3283", "Honeycrisp apple", output, "test")
             page["imageinfo"][0]["extmetadata"]["LicenseShortName"]["value"] = "CC BY-SA 4.0"
             self.assertFalse(retrieve_commons.download("4555", "Savoy cabbage", output, "test"))
+            self.assertTrue(retrieve_commons.download(
+                "4555", "Savoy cabbage", output, "test", licenses=retrieve_commons.LICENSES))
+
+    def test_all_rejected_entries_have_exact_queries(self):
+        root = Path(__file__).resolve().parents[1]
+        entries = retrieve_commons.rejected_entries(root / "data/image_review.csv")
+        self.assertEqual(len(entries), 31)
+        self.assertEqual(len({entry["idx"] for entry in entries}), 31)
+        self.assertEqual({entry["idx"] for entry in entries}, set(retrieve_commons.QUERIES))
+
+    def test_package_partial_errors_and_duplicate_plus_organic_entries(self):
+        entries = [
+            {"idx": "27", "plu": "3016", "name": "Pear Concorde"},
+            {"idx": "274", "plu": "93016", "name": "Organic Pear Concord"},
+            {"idx": "9", "plu": "3283", "name": "Apples Honey Crisp"},
+        ]
+        page = {
+            "title": "File:Concorde.jpg", "imageinfo": [{
+                "width": 600, "height": 500, "mime": "image/jpeg",
+                "url": self.record["original_image_url"],
+                "descriptionurl": self.record["source_page_url"],
+                "extmetadata": {
+                    "Artist": {"value": "Photographer"},
+                    "LicenseShortName": {"value": "CC BY 4.0"},
+                    "LicenseUrl": {"value": "https://creativecommons.org/licenses/by/4.0/"},
+                },
+            }],
+        }
+        content = self.path.read_bytes()
+        output = self.root / "package"
+        with patch.object(retrieve_commons, "search", side_effect=[[page], [], OSError("network failure")]), \
+                patch.object(retrieve_commons, "fetch", return_value=content):
+            self.assertTrue(retrieve_commons.acquire(entries, output, "test", 2))
+        records = json.loads((output / "provenance.json").read_text())
+        self.assertEqual(len(records), 1)
+        self.assertEqual(records[0]["approval_status"], "CANDIDATE")
+        self.assertEqual(records[0]["license"], "CC BY 4.0")
+        self.assertEqual((output / records[0]["image"]).read_bytes(), content)
+        self.assertTrue((output / "contact-sheet-01.jpg").is_file())
+        import csv
+        with (output / "acquisition-report.csv").open() as file:
+            report = list(csv.DictReader(file))
+        self.assertEqual([r["status"] for r in report], ["CANDIDATES_ONLY", "UNRESOLVED", "ERROR"])
+        with self.assertRaises(ValueError):
+            retrieve_commons.acquire(entries, output, "test", 2)
 
 
 if __name__ == "__main__":
