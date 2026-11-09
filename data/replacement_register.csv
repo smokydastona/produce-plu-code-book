@@ -1,0 +1,32 @@
+idx,plu,product,reject_reason,lead_source,original_image_url,source_page_url,orig_width,orig_height,creator,licence,attribution_required,visual_verification,approval_status,notes
+9,3283,Apples Honey Crisp,watermark,Wikimedia Commons Honeycrisp photo (reported 2880x2600 CC0),,,,,,,,,UNRESOLVED,Lead only; not downloaded or verified
+27,3016,Pear Concorde,tiny mis-cropped,Wikimedia Commons Concorde pear category,,,,,,,,,UNRESOLVED,Per-image licence must be checked
+50,4293,Grapefruit White Large,shows red flesh,,,,,,,,,,UNRESOLVED,
+148,3038,Granadilla,pink band mis-crop,,,,,,,,,,UNRESOLVED,
+154,4313,Mango Julie,pink bands,Wikimedia Commons Julie mango (reported 2048x1534 CC BY-SA 4.0),,,,,,CC BY-SA 4.0,yes + share-alike,,UNRESOLVED,Share-alike: confirm acceptable before use
+175,3041,Ramboutan,stray text,Wikimedia Commons rambutan category,,,,,,,,,UNRESOLVED,Per-image licence must be checked
+235,94306,Organic Limes Sweet,pink line,,,,,,,,,,UNRESOLVED,
+256,93035,Organic Nectarines White,shows yellow flesh,,,,,,,,,,UNRESOLVED,
+274,93016,Organic Pear Concord,tiny pear in corner,Wikimedia Commons Concorde pear category,,,,,,,,,UNRESOLVED,Per-image licence must be checked
+334,4555,Cabbage Savoy,shows napa,,,,,,,,,,UNRESOLVED,
+344,4565,Carrot - Red,stray text,,,,,,,,,,UNRESOLVED,
+361,4724,Potato Mini white,mixed colours (AI),,,,,,,,,,UNRESOLVED,
+368,4724,Potato White Creamer,mixed colours (AI),,,,,,,,,,UNRESOLVED,
+370,4730,Potato Yellow Creamer,mixed colours (AI),,,,,,,,,,UNRESOLVED,
+373,4818,Sweet Potato japanese,artifacts,,,,,,,,,,UNRESOLVED,
+391,4677,Pepper Anaheim,red bar looks like jalapeno,,,,,,,,,,UNRESOLVED,
+399,4692,Pepper Hungarian,red line,,,,,,,,,,UNRESOLVED,
+403,4706,Pepper Poblano,red bar,,,,,,,,,,UNRESOLVED,
+412,4705,Peppers Poblano,red bar,,,,,,,,,,UNRESOLVED,
+415,4963,Tomatillos,pink bars,,,,,,,,,,UNRESOLVED,
+424,4999,Cucumber Mini,screenshot fragment,,,,,,,,,,UNRESOLVED,
+432,4751,Squash Acorn Golden,shows dark green acorn,,,,,,,,,,UNRESOLVED,
+433,4752,Squash Acorn White,shows dark green acorn,,,,,,,,,,UNRESOLVED,
+457,3060,Zucchini Grey,yellow lines unclear,,,,,,,,,,UNRESOLVED,
+465,4552,Cabbage Chinois Napa,shows savoy,,,,,,,,,,UNRESOLVED,
+466,4552,Cabbage Suey,shows savoy,,,,,,,,,,UNRESOLVED,
+472,4552,Nappa,shows savoy,,,,,,,,,,UNRESOLVED,
+475,4656,Sing Qua,white box artifact,,,,,,,,,,UNRESOLVED,
+527,94075,Organic Leaf Lettuce Red,shows green,,,,,,,,,,UNRESOLVED,
+570,94758,Organic Squash Buttercup,shows lettuce (AI),,,,,,,,,,UNRESOLVED,
+571,94759,Organic Squash Butternut,shows lettuce (AI),,,,,,,,,,UNRESOLVED,
