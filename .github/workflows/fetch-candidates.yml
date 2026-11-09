@@ -31,7 +31,7 @@ jobs:
         run: |
           python tools/retrieve_commons.py --review data/image_review.csv \
             --leads sources/temp_upload/candidates.json \
-            --output "$RUNNER_TEMP/produce-candidates" --per-entry 2 \
+            --output "$RUNNER_TEMP/produce-candidates" --per-entry 5 \
             --user-agent "ProducePLUReview/1.0 (https://github.com/smokydastona/produce-plu-code-book)"
       - name: Upload unreviewed candidates
         if: always()
