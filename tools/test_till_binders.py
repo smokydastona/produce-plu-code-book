@@ -19,6 +19,9 @@ from build_till_binders import (FILENAMES, VISUALS, comparisons, generate, layou
                                map_images, produce_catalog, quick_sheet, replace_produce,
                                sha, validate_package, visual_records)
 from picklist_catalog import read_picklist, read_assignments
+from review_image_references import load_references
+from review_booklets import build_review_booklets
+from organic_watermarks import render_watermark
 
 
 class TillBinderChecks(unittest.TestCase):
@@ -283,6 +286,119 @@ class TillBinderChecks(unittest.TestCase):
         self.assertEqual(list(self.output.glob("*.xlsx")), [])
         with self.assertRaisesRegex(ValueError, "missing original"):
             generate(self.root, self.root / "missing.xlsx", self.root / "other-output")
+
+    def write_ai_manifest(self, panels):
+        folder = self.root / "data/review-references"
+        folder.mkdir(exist_ok=True)
+        (folder / "sheet.png").write_bytes(self.content)
+        manifest = dict(schema_version=1, source="data/review-references/sheet.png",
+                        source_sha256=sha(self.content), source_size=[600, 500],
+                        origin="Owner-supplied AI illustration", review_note="Review only", panels=panels)
+        path = folder / "additional-36-ai.json"
+        path.write_text(json.dumps(manifest))
+        return path
+
+    def ai_panel(self, number, **changes):
+        item = self.items[number]
+        return dict(plu=item["plu"], product=item["name"], box=[10, 10, 190, 160],
+                    decision="REVIEW_REFERENCE", **changes)
+
+    def test_new_ai_reference_replaces_blank_with_exact_crop_without_approving_registry(self):
+        self.write_ai_manifest([self.ai_panel(3), self.ai_panel(8)])
+        before = (self.root / "data/picklist_assignments.json").read_bytes()
+        summary = generate(self.root, self.binder, self.output)
+        self.assertEqual(summary["new_ai_crops_embedded"], 2)
+        self.assertEqual(summary["embedded_references"], 7)
+        self.assertEqual(summary["production_publication"], "BLOCKED")
+        self.assertEqual((self.root / "data/picklist_assignments.json").read_bytes(), before)
+        with (self.output / "PHOTO_MAPPING.csv").open(encoding="utf-8-sig", newline="") as file:
+            audit = list(csv.DictReader(file))
+        reference = next(row for row in audit if row["plu"] == "00044")
+        self.assertEqual(reference["image_status"], "SUPPLIED_AI_CROP_REVIEW")
+        self.assertEqual(reference["rights_status"], "NOT_VERIFIED")
+        self.assertEqual(reference["photograph_status"], "AI_ILLUSTRATION_NOT_PHOTOGRAPH")
+        self.assertEqual((reference["width"], reference["height"]), ("180", "150"))
+        organic = next(row for row in audit if row["plu"] == "00049")
+        self.assertEqual(organic["organic_badge"], "True")
+        self.assertNotEqual(organic["embedded_sha256"], organic["original_sha256"])
+
+    def test_ai_crops_reject_stale_identity_ambiguous_duplicates_and_rejected_panels(self):
+        path = self.write_ai_manifest([self.ai_panel(3)])
+        rows = [self.items[3], dict(self.items[3], source_id="another-occurrence")]
+        refs, audit = load_references(self.root, rows)
+        self.assertEqual(refs, {})
+        self.assertEqual(audit[0]["status"], "AMBIGUOUS_DUPLICATE_IDENTITY")
+        manifest = json.loads(path.read_text())
+        manifest["panels"][0]["source_id"] = self.items[3]["source_id"]
+        path.write_text(json.dumps(manifest))
+        refs, _ = load_references(self.root, rows)
+        self.assertEqual(set(refs), {self.items[3]["source_id"]})
+        refs, audit = load_references(self.root, [dict(self.items[3], name="Changed product")])
+        self.assertEqual(refs, {})
+        self.assertEqual(audit[0]["status"], "NO_ACTIVE_EXACT_IDENTITY")
+        manifest["panels"][0]["decision"] = "REJECTED"
+        path.write_text(json.dumps(manifest))
+        refs, audit = load_references(self.root, self.items)
+        self.assertEqual(refs, {})
+        self.assertEqual(audit[0]["status"], "REJECTED")
+        assignments = read_assignments(self.root / "data/picklist_assignments.json")
+        rows, _ = produce_catalog(self.items, assignments)
+        _, report = map_images(self.root, rows, assignments, visual_records(self.root))
+        record = next(row for row in report if row["plu"] == self.items[3]["plu"])
+        self.assertIn("New AI panel excluded:", record["details"])
+
+    def test_small_ai_crops_keep_proportional_badge_without_changing_legacy_renderer(self):
+        panel = self.ai_panel(8)
+        panel["box"] = [0, 0, 60, 50]
+        self.write_ai_manifest([panel])
+        assignments = read_assignments(self.root / "data/picklist_assignments.json")
+        rows, _ = produce_catalog(self.items, assignments)
+        references, _ = load_references(self.root, rows)
+        images, _ = map_images(self.root, rows, assignments, visual_records(self.root))
+        source_id = self.items[8]["source_id"]
+        content = references[source_id]["content"]
+        self.assertEqual(images[source_id], render_watermark(content, minimum_side=1))
+        self.assertNotEqual(images[source_id], render_watermark(content))
+        self.assertEqual(Image.open(io.BytesIO(images[source_id])).size, (60, 50))
+
+    def test_ai_crop_checksums_bounds_and_exact_text_are_enforced(self):
+        path = self.write_ai_manifest([self.ai_panel(3)])
+        original = json.loads(path.read_text())
+        for field, value, message in (
+                ("source_sha256", "changed", "checksum"),
+                ("source_size", [1, 1], "dimensions")):
+            with self.subTest(field=field):
+                manifest = dict(original, **{field: value})
+                path.write_text(json.dumps(manifest))
+                with self.assertRaisesRegex(ValueError, message):
+                    load_references(self.root, self.items)
+        for box in ([-1, 0, 100, 100], [0, 0, 601, 100], [100, 0, 0, 100], [0, 0, 1.5, 2]):
+            manifest = json.loads(json.dumps(original))
+            manifest["panels"][0]["box"] = box
+            path.write_text(json.dumps(manifest))
+            with self.assertRaisesRegex(ValueError, "crop box"):
+                load_references(self.root, self.items)
+        path.write_text(json.dumps(original))
+        refs, audit = load_references(self.root, [dict(self.items[3], plu="44")])
+        self.assertEqual(refs, {})
+        self.assertEqual(audit[0]["status"], "NO_ACTIVE_EXACT_IDENTITY")
+
+    def test_review_booklets_include_exact_entries_and_images_without_cashier_metadata(self):
+        assignments = read_assignments(self.root / "data/picklist_assignments.json")
+        rows, _ = produce_catalog(self.items, assignments)
+        self.write_ai_manifest([self.ai_panel(3)])
+        images, _ = map_images(self.root, rows, assignments, visual_records(self.root))
+        non_produce = dict(self.items[7], book="Non-produce", section="Misc",
+                           organic=False, duplicate_count=1)
+        vegetable = dict(rows[0], source_id="vegetable-fixture", book="Vegetable", plu="00071",
+                         name="Vegetable", section="Vegetables", organic=False, duplicate_count=1)
+        results = build_review_booklets(
+            self.root / "booklets", rows + [non_produce, vegetable], images, assignments, self.digest)
+        self.assertEqual(results["Fruit"]["records"], len(rows))
+        self.assertEqual(results["Non-produce"]["images"], 0)
+        self.assertTrue(all(result["cashier_image_labels_absent"] for result in results.values()))
+        self.assertEqual(len(list((self.root / "booklets").glob("*.docx"))), 3)
+        self.assertEqual(len(list((self.root / "booklets").glob("*.xlsx"))), 3)
 
 
 if __name__ == "__main__":

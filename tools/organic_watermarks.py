@@ -75,12 +75,12 @@ def badge_artwork():
     return result.getvalue()
 
 
-def render_watermark(content):
+def render_watermark(content, *, minimum_side=40):
     with Image.open(io.BytesIO(content)) as original:
         image = ImageOps.exif_transpose(original).convert("RGBA")
     size = min(image.size)
     margin = max(2, round(size * 0.025))
-    side = min(size - margin * 2, max(40, round(size * 0.30)))
+    side = min(size - margin * 2, max(minimum_side, round(size * 0.30)))
     if side < 1:
         raise ValueError("image is too small for the organic badge")
     with Image.open(io.BytesIO(badge_artwork())) as badge:

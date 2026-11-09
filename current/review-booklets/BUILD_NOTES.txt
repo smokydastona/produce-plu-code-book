@@ -1,0 +1,72 @@
+AI REFERENCE UPDATE - REVIEW DELIVERABLES, NOT A PRODUCTION RELEASE
+
+Source XML SHA-256:
+462db3121094008cd1dd5ea2c5836ca4b24de077edb8982c0f43149edbaf2cbb
+
+Both owner-supplied AI contact sheets are preserved in data/review-references/.
+115 product-specific crops were added to review outputs, with labels removed
+and proportional upper-left pink badges on organic entries. These are AI
+illustrations, not verified photographs. No image approval, rights approval,
+classification approval or legacy rejection verdict was changed.
+
+Outputs:
+  FRUIT_VISUAL_PLU_BOOKLET_REVIEW.docx / .pdf / .xlsx
+    297 XML records, 295 images, 50 DOCX/PDF pages, 6 planned Excel pages.
+  VEGETABLE_VISUAL_PLU_BOOKLET_REVIEW.docx / .pdf / .xlsx
+    305 XML records, 301 images, 51 DOCX/PDF pages, 6 planned Excel pages.
+  NON_PRODUCE_PLU_BOOKLET_REVIEW.docx / .pdf / .xlsx
+    46 XML records, code-only, 8 DOCX/PDF pages, 1 planned Excel page.
+
+The complete text-only and photo binder workbooks, their full 39-page PDFs,
+11-page Produce previews, original-sheet comparison and package-preservation
+reports are retained locally under current/review/till-binder-ai-updated/.
+They are deliberately gitignored because unrelated operational workbook
+content must not be accidentally committed. All 14 original worksheets and
+their order were preserved. 99 of 104 original OOXML parts are byte-identical;
+the other five are limited to Produce and its necessary package integration.
+The original binder, PickList.xml and previously published booklets remain
+unchanged.
+
+Actual validation:
+  94 regression tests passed.
+  Exact XML text and text-typed Excel PLUs checked, including duplicates.
+  Every DOCX image and Excel image anchor/byte sequence checked.
+  Every PDF PLU sequence, description, landscape Letter page and drawn image
+  count checked. Each DOCX/PDF product stays on its planned page.
+  Both complete binders were opened and exported by LibreOffice Calc.
+  Representative Produce, fruit and vegetable PDF pages were visually inspected;
+  small-crop edges and organic badge sizing were corrected during that review.
+  Store-printer, product-variety and rights approval are still required.
+
+Remaining blank Produce references:
+  4656  Sing Qua: supplied panel shows a cabbage, not the named gourd.
+  94391 Organic Oranges Mango: supplied panel shows a mango and orange slice.
+  4752  Squash Acorn White: acorn variety not confidently depicted.
+  4751  Squash Acorn Golden: acorn variety not confidently depicted.
+  4599  Eggplant Italian: striped variety needs owner confirmation.
+  4395  Papaya Large Cooking: ripe papaya does not identify cooking papaya.
+
+Other unresolved source/release issues:
+  Five duplicate-record classifications and 106 organic placements need review.
+  AI origin, low-resolution sources, existing prohibited image reuse and
+  unverified provenance/rights continue to block production publication.
+  The new crops are not added to the production approval registry.
+
+Reports:
+  REVIEW_VALIDATION.json: actual format checks and output hashes.
+  AI_REFERENCE_REVIEW.csv: all 121 identities, crop boxes and decisions.
+  PHOTO_MAPPING.csv: all 602 Produce image associations and review limitations.
+  MISSING_IMAGES.csv: the six remaining blank image slots.
+  PLACEMENT_REVIEW.csv: unresolved source classifications and organic placement.
+  *_LAYOUT.csv: exact Excel record, cell, image and page mappings.
+
+Exact generation command used, from repository root:
+/root/.copilot/session-state/c176c1cf9a17463c86f57fded6ef542c/venv/bin/python tools/build_till_binders.py --binder /workspaces/produce-plu-code-book/.copilot/uploads/2026-11-09-1809d215/Complete_Till_Binder_-_Nov_2025.xlsx --output current/review/till-binder-ai-updated --verify-print --booklets
+
+Exact regression command used:
+/root/.copilot/session-state/c176c1cf9a17463c86f57fded6ef542c/venv/bin/python -m unittest discover -s tools -p 'test_*.py' -q
+
+For another environment, use its Python executable and the untouched original
+binder path. Choose a new empty output directory. README.md lists dependencies
+and a portable command. Copy only standalone booklets and their non-operational
+reports for repository sharing, never the complete operational binder.

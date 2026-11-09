@@ -29,6 +29,7 @@ from PIL import Image, ImageOps
 from check_image_uniqueness import image_fingerprint
 from organic_watermarks import render_watermark
 from picklist_catalog import read_assignments, read_picklist
+from review_image_references import load_references
 from sync_picklist import (booklet_order, csv_output, organic, organic_display_section,
                            reconcile)
 
@@ -153,6 +154,9 @@ def produce_catalog(items, assignments):
 def map_images(root, rows, assignments, visuals):
     with (root / "data/image_review.csv").open(newline="", encoding="utf-8-sig") as file:
         reviews = {row["idx"]: row for row in csv.DictReader(file)}
+    references, reference_audit = load_references(root, rows)
+    rejected_references = {row["source_id"]: row for row in reference_audit
+                           if row["status"] == "REJECTED"}
     images, report = {}, []
     for row in rows:
         assignment = assignments.get(row["source_id"], {})
@@ -163,6 +167,26 @@ def map_images(root, rows, assignments, visuals):
             visual_verdict="", visual_review_note="", rights_status="NOT_VERIFIED", photograph_status="NOT_VERIFIED",
             organic_badge=False, reused_by_entries=0, details="",
         )
+        reference = references.get(row["source_id"])
+        if reference:
+            content = reference["content"]
+            rendered = render_watermark(content, minimum_side=1) if row["organic"] else content
+            images[row["source_id"]] = rendered
+            record.update(
+                image_status="SUPPLIED_AI_CROP_REVIEW", embedded=True,
+                image_source="AI Generated", source_document=reference["source_document"],
+                source_member="crop " + reference["crop_box"],
+                original_sha256=reference["crop_sha256"], embedded_sha256=sha(rendered),
+                width=reference["width"], height=reference["height"],
+                visual_verdict="REVIEW_REFERENCE_NOT_APPROVED",
+                visual_review_note=reference["details"], organic_badge=row["organic"],
+                photograph_status="AI_ILLUSTRATION_NOT_PHOTOGRAPH",
+                details="Owner-supplied AI illustration cropped without labels; below 500 px. "
+                        "Variety, rights and production approval remain unverified.",
+                fingerprint=image_fingerprint(io.BytesIO(content)),
+            )
+            report.append(record)
+            continue
         candidates = visuals.get((row["plu"], row["name"]), [])
         review = reviews.get(assignment.get("legacy_entry_idx"), {})
         if not candidates or not assignment or (
@@ -210,6 +234,8 @@ def map_images(root, rows, assignments, visuals):
                 record.update(embedded=True, embedded_sha256=sha(rendered),
                               organic_badge=row["organic"])
                 record["fingerprint"] = image_fingerprint(io.BytesIO(content))
+        if row["source_id"] in rejected_references:
+            record["details"] += " New AI panel excluded: " + rejected_references[row["source_id"]]["details"]
         report.append(record)
     counts = Counter(record["fingerprint"] for record in report if record.get("fingerprint"))
     for record in report:
@@ -319,7 +345,7 @@ def set_text(cell, value):
     cell.number_format = "@"
 
 
-def quick_sheet(rows, images, with_photos):
+def quick_sheet(rows, images, with_photos, title="PRODUCE"):
     workbook = Workbook()
     sheet = workbook.active
     sheet.title = "Produce"
@@ -332,7 +358,7 @@ def quick_sheet(rows, images, with_photos):
     sheet.page_setup.fitToHeight = 0
     sheet.page_setup.pageOrder = "downThenOver"
     sheet.page_margins = PageMargins(left=.3, right=.3, top=.3, bottom=.3, header=.1, footer=.1)
-    sheet.oddFooter.center.text = "Produce | Page &P of &N"
+    sheet.oddFooter.center.text = title.title() + " | Page &P of &N"
     sheet.oddFooter.center.size = 8
     sheet.oddFooter.center.font = "DejaVu Sans"
     for base in BLOCKS:
@@ -349,7 +375,7 @@ def quick_sheet(rows, images, with_photos):
         for number in range(start + 3, start + PAGE_ROWS):
             sheet.row_dimensions[number].height = 25
         sheet.merge_cells(start_row=start, start_column=1, end_row=start, end_column=14)
-        set_text(sheet.cell(start, 1), "PRODUCE PLU QUICK GUIDE - " +
+        set_text(sheet.cell(start, 1), title + " PLU QUICK GUIDE - " +
                  ("VISUAL REFERENCES" if with_photos else "TEXT ONLY"))
         sheet.cell(start, 1).font = Font(name="DejaVu Sans", size=13, bold=True)
         sheet.merge_cells(start_row=start + 1, start_column=1, end_row=start + 1, end_column=14)
@@ -617,7 +643,7 @@ def validate_package(binder, output, coordinates, images, with_photos):
         original_book.close()
 
 
-def validate_print(output, coordinates, expected_pages):
+def validate_print(output, coordinates, expected_pages, retain_complete=False):
     from pypdf import PdfReader, PdfWriter
 
     if not shutil.which("soffice"):
@@ -640,6 +666,8 @@ def validate_print(output, coordinates, expected_pages):
                 raise ValueError("Calc did not open/export the complete binder; check PRINT_ENGINE_LOG.txt "
                                  "and install libreoffice-calc")
             full_pdf = PdfReader(complete)
+            if retain_complete:
+                shutil.copyfile(complete, output / complete.name)
             produce_pages = [page for page in full_pdf.pages if
                              "PRODUCE PLU QUICK GUIDE" in page.extract_text()]
             writer = PdfWriter()
@@ -706,7 +734,8 @@ def report_text(summary):
         f"Original Produce entries compared: {summary['original_produce_entries']}",
         f"Embedded supplied references: {summary['embedded_references']}; "
         f"missing/uncertain images left blank: {summary['missing_or_uncertain_images']}",
-        f"Existing AI illustrations retained as visual references: {summary['ai_illustrations_embedded']}",
+        f"AI illustrations included as visual references: {summary['ai_illustrations_embedded']}",
+        f"New owner-supplied AI crops: {summary['new_ai_crops_embedded']}",
         f"AI illustrations omitted (if rejected or invalid association): {summary['ai_illustrations_omitted']}",
         f"Classification review: {summary['classification_review_required']}; "
         f"organic placement review: {summary['placement_review_required']}",
@@ -734,6 +763,8 @@ def report_text(summary):
         "  ACTIVE_SOURCE_DUPLICATES.csv: every active source record sharing a code, including non-produce",
         "  EXCLUDED_RECORDS.csv: hidden/deleted and known non-produce exclusions",
         "  PHOTO_MAPPING.csv: per-record source, image status, dimensions, hashes and missing-image reasons",
+        "  MISSING_IMAGES.csv: remaining blank Produce entries",
+        "  AI_REFERENCE_REVIEW.csv: exact identities, crop boxes and excluded AI panels",
         "  PRODUCE_LAYOUT.csv: exact record-to-cell and printed-page mapping for both editions",
         "  PLACEMENT_REVIEW.csv: unresolved classifications/counterparts",
         "  PACKAGE_PRESERVATION_TEXT.csv / PACKAGE_PRESERVATION_PHOTOS.csv: before/after package hashes",
@@ -748,7 +779,7 @@ def report_text(summary):
     return "\n".join(lines) + "\n"
 
 
-def generate(root, binder, output, verify_print=False):
+def generate(root, binder, output, verify_print=False, booklets=False):
     if not binder.is_file():
         raise ValueError(f"missing original till binder: {binder}")
     output.mkdir(parents=True, exist_ok=True)
@@ -767,6 +798,11 @@ def generate(root, binder, output, verify_print=False):
         raise ValueError("source contains blank Produce descriptions; refusing an unusable quick guide")
     visuals = visual_records(root)
     images, image_report = map_images(root, rows, assignments, visuals)
+    _, reference_audit = load_references(root, rows)
+    csv_output(output / "AI_REFERENCE_REVIEW.csv", reference_audit, [
+        "source_id", "plu", "product", "decision", "status", "source_document",
+        "source_sha256", "crop_box", "crop_sha256", "width", "height", "details",
+    ])
     old = old_entries(binder)
     changes, additions = comparisons(old, items, rows)
     validations, coordinates = {}, None
@@ -827,6 +863,7 @@ def generate(root, binder, output, verify_print=False):
                                       for row in image_report),
         ai_illustrations_omitted=sum(row["image_source"] == "AI Generated" and not row["embedded"]
                                      for row in image_report),
+        new_ai_crops_embedded=sum(row["image_status"] == "SUPPLIED_AI_CROP_REVIEW" for row in image_report),
         classification_review_required=sum(row["classification_status"] != "EXISTING_CLASSIFICATION" for row in rows),
         placement_review_required=sum(row["placement_status"] == "PLACEMENT_REVIEW_REQUIRED" for row in rows),
         planned_produce_print_pages=pages, source_reconciliation=source_summary,
@@ -835,20 +872,35 @@ def generate(root, binder, output, verify_print=False):
             "Both files are complete binder REVIEW copies, not approved for operational till use.",
             "Image-rights, photographic-origin, minimum-size and uniqueness blockers remain unresolved.",
             "Approximate photographic, rejected and missing image associations are blank; no placeholders are used.",
-            "Existing identity-linked AI illustrations are retained as visual references at the owner's request; "
+            "Existing and newly supplied identity-linked AI illustrations are visual references at the owner's request; "
             "AI provenance and uncertain visual verdicts are recorded only in the external audit report.",
             "Old descriptions are contextual abbreviations; code-only/name-only differences are not automatic corrections.",
             "Known non-produce entries are excluded from Produce; unrelated operational sheets remain unchanged, not PLU-reconciled.",
             "Future unclassified entries are retained for review, not silently discarded or approved.",
         ],
     )
+    csv_output(output / "MISSING_IMAGES.csv", [row for row in image_report if not row["embedded"]], [
+        "source_id", "plu", "product", "image_status", "visual_review_note", "details",
+    ])
+    if booklets:
+        from review_booklets import build_review_booklets
+
+        non_produce = [dict(item, book="Non-produce", section=assignments[item["source_id"]]["section"],
+                            organic=organic(item), duplicate_count=active_code_counts[item["plu"]])
+                       for item in items if item["included"] and
+                       assignments.get(item["source_id"], {}).get("book") == "Non-produce"]
+        summary["review_booklets"] = build_review_booklets(
+            output / "booklets", rows + non_produce, images, assignments, digest, pdf=verify_print)
+        for name in ("AI_REFERENCE_REVIEW.csv", "MISSING_IMAGES.csv", "PHOTO_MAPPING.csv",
+                     "PLACEMENT_REVIEW.csv"):
+            shutil.copyfile(output / name, output / "booklets" / name)
     if sha(binder.read_bytes()) != original_checksum or sha(
             (root / "sources/plu/PickList.xml").read_bytes()) != digest:
         raise ValueError("an input changed during generation; discard outputs and retry")
     (output / "VALIDATION.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
     (output / "PRODUCE_CHANGE_AND_VALIDATION_REPORT.txt").write_text(report_text(summary), encoding="utf-8")
     if verify_print:
-        summary["print_validation"] = validate_print(output, coordinates, pages)
+        summary["print_validation"] = validate_print(output, coordinates, pages, retain_complete=booklets)
         if summary["print_validation"]["photos"]["drawn_images"] != len(images):
             raise ValueError("printed reference count differs from the exact image mapping")
         (output / "VALIDATION.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
@@ -861,6 +913,8 @@ def generate(root, binder, output, verify_print=False):
                "--output", str(output.resolve())]
     if verify_print:
         command.append("--verify-print")
+    if booklets:
+        command.append("--booklets")
     (output / "REGENERATE.txt").write_text(
         "Exact generation command (output must be empty; use a new directory when rerunning):\n\n" +
         shlex.join(command) + "\n", encoding="utf-8")
@@ -874,9 +928,12 @@ def main():
     parser.add_argument("--output", type=Path, required=True, help="Empty directory for review copies and reports")
     parser.add_argument("--verify-print", action="store_true",
                         help="Export Produce-only PDF previews with Calc and verify each page's records")
+    parser.add_argument("--booklets", action="store_true",
+                        help="Also generate three cashier review booklets (DOCX/XLSX; PDF with --verify-print) "
+                             "and retain complete binder PDFs locally")
     args = parser.parse_args()
     try:
-        summary = generate(args.root, args.binder, args.output, args.verify_print)
+        summary = generate(args.root, args.binder, args.output, args.verify_print, args.booklets)
     except (OSError, ValueError, KeyError, zipfile.BadZipFile, ET.XMLSyntaxError,
             subprocess.SubprocessError) as exc:
         parser.exit(1, f"ERROR: {exc}\n")
