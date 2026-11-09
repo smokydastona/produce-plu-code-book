@@ -13,6 +13,11 @@ on:
         type: choice
         options: ['1', '2', '3', '4', '5']
         default: '2'
+      shard:
+        description: Full-catalog shard to run (ignored for rejected scope)
+        type: choice
+        options: [all, '0', '1', '2', '3', '4', '5']
+        default: all
 
 permissions:
   contents: read
@@ -25,7 +30,7 @@ jobs:
       fail-fast: false
       max-parallel: 2
       matrix:
-        shard: ${{ fromJSON(inputs.scope == 'all' && '[0,1,2,3,4,5]' || '[0]') }}
+        shard: ${{ fromJSON(inputs.scope == 'all' && (inputs.shard == 'all' && '[0,1,2,3,4,5]' || format('[{0}]', inputs.shard)) || '[0]') }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

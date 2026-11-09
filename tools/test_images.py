@@ -266,6 +266,53 @@ class ImageChecks(unittest.TestCase):
             image_fingerprint(output / records[1]["image"]),
         )
 
+    def test_acquisition_records_unsafe_images_and_tries_later_candidates(self):
+        import csv
+
+        page = {
+            "title": "File:Advertised-large.jpg", "imageinfo": [{
+                "width": 900, "height": 900, "mime": "image/jpeg",
+                "url": self.record["original_image_url"],
+                "descriptionurl": self.record["source_page_url"],
+                "extmetadata": {
+                    "Artist": {"value": "Photographer"},
+                    "LicenseShortName": {"value": "CC0"},
+                    "LicenseUrl": {"value": self.record["license_url"]},
+                },
+            }],
+        }
+        pages = [page]
+        for title in ("Warning", "Error", "Corrupt", "Valid"):
+            pages.append({
+                "title": f"File:{title}.jpg",
+                "imageinfo": [dict(page["imageinfo"][0], width=600, height=500)],
+            })
+        def encoded(size):
+            image = io.BytesIO()
+            Image.new("RGB", size).save(image, format="JPEG")
+            return image.getvalue()
+
+        output = self.root / "package"
+        entries = [{"idx": "999", "plu": "3283", "name": "Honeycrisp apple"}]
+        with patch.object(Image, "MAX_IMAGE_PIXELS", 300000), \
+                patch.object(retrieve_commons, "search", return_value=pages), \
+                patch.object(retrieve_commons, "fetch", side_effect=[
+                    encoded((650, 500)), encoded((800, 800)), b"not an image",
+                    self.path.read_bytes(),
+                ]) as fetch:
+            self.assertFalse(retrieve_commons.acquire(entries, output, "test", 1))
+        self.assertEqual(fetch.call_count, 4)
+        records = json.loads((output / "provenance.json").read_text())
+        self.assertEqual(len(records), 1)
+        self.assertEqual(records[0]["approval_status"], "CANDIDATE")
+        with (output / "acquisition-report.csv").open() as file:
+            report = list(csv.DictReader(file))
+        self.assertEqual(report[0]["status"], "CANDIDATES_ONLY")
+        for title in ("Advertised-large", "Warning", "Error", "Corrupt"):
+            self.assertIn(f"File:{title}.jpg", report[0]["details"])
+        self.assertTrue((output / "contact-sheet-01.jpg").is_file())
+        self.assertTrue((output / "license-register.csv").is_file())
+
 
 class OrganicWatermarkChecks(unittest.TestCase):
     def setUp(self):

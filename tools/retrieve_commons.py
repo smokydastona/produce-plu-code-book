@@ -8,6 +8,7 @@ import json
 import re
 import sys
 import time
+import warnings
 from pathlib import Path
 from urllib.parse import urlencode, urlparse
 from urllib.request import Request, urlopen
@@ -87,7 +88,7 @@ def search(product, user_agent, *, title=None):
 
 
 def download(plu, product, output, user_agent, *, query=None,
-             licenses=LICENSES, pages=None, used_images=None):
+             licenses=LICENSES, pages=None, used_images=None, rejections=None):
     if list(output.glob(f"{plu}.*")):
         raise FileExistsError(f"candidate already exists for PLU {plu}; will not overwrite")
     if used_images is None:
@@ -110,16 +111,32 @@ def download(plu, product, output, user_agent, *, query=None,
         suffix = {"image/jpeg": ".jpg", "image/png": ".png"}.get(info.get("mime"))
         if not suffix or not get("Artist"):
             continue
+        if (Image.MAX_IMAGE_PIXELS is not None and
+                info["width"] * info["height"] > Image.MAX_IMAGE_PIXELS):
+            reason = f"{page.get('title', 'candidate')}: advertised dimensions exceed pixel safety limit"
+            print(f"SKIP {plu}: {reason}", file=sys.stderr)
+            if rejections is not None:
+                rejections.append(reason)
+            continue
         url = info["url"]
         content = fetch(url, user_agent)
-        with Image.open(io.BytesIO(content)) as image:
-            if getattr(image, "n_frames", 1) != 1:
-                continue
-            image.load()
-            width, height = image.size
+        try:
+            with warnings.catch_warnings():
+                warnings.simplefilter("error", Image.DecompressionBombWarning)
+                with Image.open(io.BytesIO(content)) as image:
+                    if getattr(image, "n_frames", 1) != 1:
+                        continue
+                    image.load()
+                    width, height = image.size
+                fingerprint = image_fingerprint(io.BytesIO(content))
+        except (OSError, Image.DecompressionBombWarning, Image.DecompressionBombError) as exc:
+            reason = f"{page.get('title', 'candidate')}: unsafe or unreadable image: {exc}"
+            print(f"SKIP {plu}: {reason}", file=sys.stderr)
+            if rejections is not None:
+                rejections.append(reason)
+            continue
         if min(width, height) < 500:
             continue
-        fingerprint = image_fingerprint(io.BytesIO(content))
         if fingerprint in used_images:
             print(f"SKIP {plu}: duplicate image already used by {used_images[fingerprint]}",
                   file=sys.stderr)
@@ -217,6 +234,7 @@ def acquire(entries, output, user_agent, limit, leads=()):
         query = entry_query(entry)
         row = dict(idx=idx, plu=plu, product=product, query=query,
                    source="Wikimedia Commons", status="UNRESOLVED", details="", candidates=0)
+        rejections = []
         try:
             from urllib.parse import unquote
             pages = []
@@ -235,7 +253,8 @@ def acquire(entries, output, user_agent, limit, leads=()):
                 seen.add(title)
                 folder = output / "originals" / f"{int(idx):03d}" / str(number)
                 if download(plu, product, folder, user_agent, query=query,
-                            licenses=LICENSES, pages=[page], used_images=used_images):
+                            licenses=LICENSES, pages=[page], used_images=used_images,
+                            rejections=rejections):
                     path = next(folder.glob("*.json"))
                     metadata = json.loads(path.read_text(encoding="utf-8"))
                     metadata.update(idx=idx, source_id=entry.get("source_id", ""), query=query,
@@ -252,6 +271,8 @@ def acquire(entries, output, user_agent, limit, leads=()):
             row["status"] = "ERROR"
             row["details"] = str(exc)
             print(f"ERROR entry {idx}: {exc}", file=sys.stderr)
+        if rejections:
+            row["details"] = "; ".join(filter(None, [row["details"], *rejections]))
         report.append(row)
     (output / "provenance.json").write_text(
         json.dumps(records, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
