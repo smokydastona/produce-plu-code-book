@@ -44,7 +44,7 @@ Standalone outputs in this folder:
   Vegetable DOCX/PDF/XLSX: 305 records/images, 51 PDF pages, 6 planned Excel pages.
   Non-produce DOCX/PDF/XLSX: 46 code-only records, 8 PDF pages, 1 Excel page.
 
-Complete binders are retained locally and gitignored:
+Complete binder review copies and reports are committed in the repository:
   current/review/till-binder-supplier-photos-final/
   Complete Till Binder - Updated - Text Only.xlsx / .pdf
   Complete Till Binder - Updated - Photos.xlsx / .pdf
@@ -91,4 +91,7 @@ Regression command:
 python -m unittest discover -s tools -p 'test_*.py' -q
 
 Use the untouched original workbook and dependencies documented in README.md.
-Do not commit the complete operational binder or unrelated store information.
+The owner authorized publishing these complete review copies, including the
+unchanged operational sheets in the original workbook. They are review copies,
+not approved for operational use. The 144 MB convenience ZIP is not committed;
+the individual workbooks, PDFs, previews and reports are included.

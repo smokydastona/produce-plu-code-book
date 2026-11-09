@@ -1,3 +1,11 @@
-Exact generation command (output must be empty; use a new directory when rerunning):
+Regenerate both complete binder review copies, previews, reports and standalone
+review booklets from the unchanged November 2025 source workbook:
 
-/root/.copilot/session-state/c176c1cf9a17463c86f57fded6ef542c/venv/bin/python /workspaces/produce-plu-code-book/smokydastona/produce-plu-code-book/tools/build_till_binders.py --root /workspaces/produce-plu-code-book/smokydastona/produce-plu-code-book --binder /workspaces/produce-plu-code-book/.copilot/uploads/2026-11-09-1809d215/Complete_Till_Binder_-_Nov_2025.xlsx --output /workspaces/produce-plu-code-book/smokydastona/produce-plu-code-book/current/review/till-binder-supplier-photos-final --verify-print --booklets
+python tools/build_till_binders.py \
+  --binder "/path/to/Complete Till Binder - Nov 2025.xlsx" \
+  --output "/path/to/empty/output-directory" \
+  --verify-print --booklets
+
+The original binder is an external input and is not included in this repository.
+Use a new empty output directory when regenerating. See README.md for dependencies
+and details. These outputs are review copies, not approved for operational use.
