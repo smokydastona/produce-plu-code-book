@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "source": "data/review-references/corrected-five-ai.png",
+  "source_sha256": "f558ec4ae9be0e4d3aa7009c4fa17e66a9ee45fe06a0ae06bc807f446913021c",
+  "source_size": [1080, 1080],
+  "origin": "Owner-supplied AI-generated corrected contact sheet; creator and rights not independently verified.",
+  "review_note": "Owner supplied this as corrected product-specific AI references. Each image is an illustration, not a photograph or production approval. Crop boxes omit labels and borders. Exact PLU-description-source identity is verified against the committed PickList.",
+  "panels": [
+    {"plu": "4656", "product": "Sing Qua", "source_id": "33658608898baf393388f750486e091ca921e3b4051dba5d9942b86ad1e34b25", "box": [30, 119, 525, 397], "decision": "REVIEW_REFERENCE"},
+    {"plu": "4752", "product": "Squash Acorn White", "source_id": "b919a8e7dd8c5717ac78348404bc72dc1f1c1e653f84b68962b0e97578f427af", "box": [550, 119, 1060, 397], "decision": "REVIEW_REFERENCE"},
+    {"plu": "4751", "product": "Squash Acorn Golden", "source_id": "0cecc75fdeac095c94863bce45e75b3e10d80760c440392cf6e90f5e7b782060", "box": [30, 442, 525, 723], "decision": "REVIEW_REFERENCE"},
+    {"plu": "4599", "product": "Eggplant Italian", "source_id": "2210b20ce7310887f6b3b1d176ed16227b7ebaee492cf93acac895312203443b", "box": [550, 442, 1060, 723], "decision": "REVIEW_REFERENCE"},
+    {"plu": "4395", "product": "Papaya Large Cooking", "source_id": "081b79c25c618d9a1066b3e8a12da42c4e6b30336f3470ef80f73e34cab279ca", "box": [20, 771, 1060, 1035], "decision": "REVIEW_REFERENCE"}
+  ]
+}

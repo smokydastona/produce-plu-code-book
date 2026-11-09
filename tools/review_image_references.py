@@ -11,6 +11,7 @@ from sync_picklist import safe_asset
 MANIFESTS = (
     "data/review-references/additional-36-ai.json",
     "data/review-references/missing-ai.json",
+    "data/review-references/corrected-five-ai.json",
 )
 
 

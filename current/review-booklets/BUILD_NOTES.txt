@@ -3,17 +3,24 @@ AI REFERENCE UPDATE - REVIEW DELIVERABLES, NOT A PRODUCTION RELEASE
 Source XML SHA-256:
 462db3121094008cd1dd5ea2c5836ca4b24de077edb8982c0f43149edbaf2cbb
 
-Both owner-supplied AI contact sheets are preserved in data/review-references/.
-115 product-specific crops were added to review outputs, with labels removed
-and proportional upper-left pink badges on organic entries. These are AI
+All three owner-supplied AI contact sheets are preserved in data/review-references/.
+121 product-specific crops were added to review outputs, with labels removed
+and proportional upper-left pink badges on organic entries. The re-uploaded
+corrected sheet replaces five previously unsuitable panels: Sing Qua (4656),
+Squash Acorn White (4752), Squash Acorn Golden (4751), Eggplant Italian
+(4599), and Papaya Large Cooking (4395). The owner clarified PLU 94391
+"Organic Oranges Mango" is an organic orange, usually Buck Brand; its earlier
+AI panel is now included as a candidate, pending variety verification against
+the Buck Brand specialty citrus infographic. The supplied URL could not be
+retrieved in this environment because DNS resolution is unavailable. These are AI
 illustrations, not verified photographs. No image approval, rights approval,
 classification approval or legacy rejection verdict was changed.
 
 Outputs:
   FRUIT_VISUAL_PLU_BOOKLET_REVIEW.docx / .pdf / .xlsx
-    297 XML records, 295 images, 50 DOCX/PDF pages, 6 planned Excel pages.
+    297 XML records, 297 images, 50 DOCX/PDF pages, 6 planned Excel pages.
   VEGETABLE_VISUAL_PLU_BOOKLET_REVIEW.docx / .pdf / .xlsx
-    305 XML records, 301 images, 51 DOCX/PDF pages, 6 planned Excel pages.
+    305 XML records, 305 images, 51 DOCX/PDF pages, 6 planned Excel pages.
   NON_PRODUCE_PLU_BOOKLET_REVIEW.docx / .pdf / .xlsx
     46 XML records, code-only, 8 DOCX/PDF pages, 1 planned Excel page.
 
@@ -38,13 +45,8 @@ Actual validation:
   small-crop edges and organic badge sizing were corrected during that review.
   Store-printer, product-variety and rights approval are still required.
 
-Remaining blank Produce references:
-  4656  Sing Qua: supplied panel shows a cabbage, not the named gourd.
-  94391 Organic Oranges Mango: supplied panel shows a mango and orange slice.
-  4752  Squash Acorn White: acorn variety not confidently depicted.
-  4751  Squash Acorn Golden: acorn variety not confidently depicted.
-  4599  Eggplant Italian: striped variety needs owner confirmation.
-  4395  Papaya Large Cooking: ripe papaya does not identify cooking papaya.
+Blank Produce references: none in the current review edition. Image variety,
+identity and rights checks remain outstanding; image presence is not approval.
 
 Other unresolved source/release issues:
   Five duplicate-record classifications and 106 organic placements need review.
@@ -61,7 +63,7 @@ Reports:
   *_LAYOUT.csv: exact Excel record, cell, image and page mappings.
 
 Exact generation command used, from repository root:
-/root/.copilot/session-state/c176c1cf9a17463c86f57fded6ef542c/venv/bin/python tools/build_till_binders.py --binder /workspaces/produce-plu-code-book/.copilot/uploads/2026-11-09-1809d215/Complete_Till_Binder_-_Nov_2025.xlsx --output current/review/till-binder-ai-updated --verify-print --booklets
+/root/.copilot/session-state/c176c1cf9a17463c86f57fded6ef542c/venv/bin/python tools/build_till_binders.py --binder /workspaces/produce-plu-code-book/.copilot/uploads/2026-11-09-1809d215/Complete_Till_Binder_-_Nov_2025.xlsx --output current/review/till-binder-ai-buckbrand --verify-print --booklets
 
 Exact regression command used:
 /root/.copilot/session-state/c176c1cf9a17463c86f57fded6ef542c/venv/bin/python -m unittest discover -s tools -p 'test_*.py' -q
