@@ -15,7 +15,7 @@ from PIL import Image
 
 from picklist_catalog import read_assignments, read_picklist
 from sync_picklist import (BOOKS, build_documents, original_image, reconcile,
-                           reviewed_image, safe_asset)
+                           reviewed_image, safe_asset, booklet_order, verify_pdfs)
 from approve_picklist_image import approve
 
 
@@ -208,6 +208,119 @@ class PickListSyncChecks(unittest.TestCase):
                                 original.crop((0, 0, 180, 180)).tobytes())
             self.assertEqual(image.crop((200, 200, 600, 500)).tobytes(),
                              original.crop((200, 200, 600, 500)).tobytes())
+
+    def placement_rows(self, values):
+        return [
+            dict(source_id=str(index), source_position=index, plu=plu, name=name,
+                 book=book, section=section, organic="organic" in name.lower())
+            for index, (plu, name, book, section) in enumerate(values, 1)
+        ]
+
+    def test_organics_follow_all_conventional_sizes_and_duplicates(self):
+        rows = self.placement_rows([
+            ("94013", "Organic Apples Gala", "Fruit", "Organic Fruit"),
+            ("4013", "Apples Gala Small", "Fruit", "Apples"),
+            ("4020", "Apples Golden Delicious", "Fruit", "Apples"),
+            ("4135", "Apples Gala Large", "Fruit", "Apples"),
+            ("4013", "Apples Gala Small", "Fruit", "Apples"),
+            ("94135", "Organic Gala Apples", "Fruit", "Organic Fruit"),
+        ])
+        before = json.dumps(rows)
+        result = booklet_order(rows, {})
+        self.assertEqual([row["source_id"] for row in result], ["2", "4", "5", "1", "6", "3"])
+        self.assertTrue(all(row["display_section"] == "Apples" for row in result))
+        self.assertEqual(result[3]["counterpart_source_ids"], "2;4;5")
+        self.assertEqual([row["booklet_position"] for row in result], list(range(1, 7)))
+        self.assertEqual(json.dumps(rows), before)
+
+    def test_unmatched_and_ambiguous_organics_stay_in_normal_category_and_are_flagged(self):
+        rows = self.placement_rows([
+            ("94769", "Organic Squash Stripetti", "Vegetable", "Organic Vegetables"),
+            ("4769", "Kabocha", "Vegetable", "Squash"),
+            ("1", "Lettuce Romaine", "Vegetable", "Lettuce"),
+            ("2", "Lettuce Romaine", "Vegetable", "Leafy Greens"),
+            ("3", "Organic Lettuce Romaine", "Vegetable", "Organic Vegetables"),
+        ])
+        result = booklet_order(rows, {})
+        self.assertEqual({row["source_id"] for row in result}, {"1", "2", "3", "4", "5"})
+        organic_rows = [row for row in result if row["organic"]]
+        self.assertTrue(all(row["placement_status"] == "PLACEMENT_REVIEW_REQUIRED" for row in organic_rows))
+        self.assertEqual({row["display_section"] for row in organic_rows}, {"Squash", "Lettuce"})
+        self.assertTrue(all(not row["counterpart_source_ids"] for row in organic_rows))
+        self.assertEqual([row["plu"] for row in result[:2]], ["4769", "94769"])
+
+    def test_reviewed_placement_is_independent_of_photo_reuse_and_never_crosses_books(self):
+        rows = self.placement_rows([
+            ("94020", "Organic Apples Golden Delicious", "Fruit", "Organic Fruit"),
+            ("4020", "Apples Gold Delicious Large", "Fruit", "Apples"),
+            ("9", "Apples Golden Delicious", "Vegetable", "Specialty Vegetables"),
+        ])
+        assignments = {"1": {"placement_after_source_id": "2"}}
+        result = booklet_order(rows, assignments)
+        self.assertEqual([row["source_id"] for row in result], ["2", "1", "3"])
+        self.assertEqual(result[1]["placement_status"], "REVIEWED_COUNTERPART")
+        self.assertNotIn("reuse_from_source_id", assignments["1"])
+        with self.assertRaisesRegex(ValueError, "same booklet"):
+            booklet_order(rows, {"1": {"placement_after_source_id": "3"}})
+
+    def test_orphan_organics_with_no_conventional_entries_keep_all_records(self):
+        rows = self.placement_rows([
+            ("00042", "Organic Apple Unknown", "Fruit", "Organic Fruit"),
+            ("00042", "Organic Apple Unknown", "Fruit", "Organic Fruit"),
+            ("43", "Organic Unrecognized Product", "Fruit", "Organic Fruit"),
+            ("44", "Ice", "Non-produce", "Ice"),
+        ])
+        result = booklet_order(rows, {})
+        self.assertEqual([row["plu"] for row in result], ["00042", "00042", "43", "44"])
+        self.assertEqual([row["display_section"] for row in result], ["Apples", "Apples", "Fruit", "Ice"])
+        self.assertEqual(result[-1]["booklet_position"], 1)
+        self.assertEqual(result[-1]["placement_status"], "SOURCE_ORDER")
+
+    def test_order_report_and_docx_use_same_order_without_changing_xml(self):
+        self.write_source([
+            ("903283", "Organic Honeycrisp Apple", True),
+            ("03283", "Honeycrisp Apple Large", True),
+            ("42", "Other Apple", True),
+            ("00043", "Honeycrisp Apple Small", True),
+        ])
+        items, _ = read_picklist(self.source)
+        assignments = [self.approved_assignment(item) for item in items]
+        assignments[0]["section"] = "Organic Fruit"
+        self.write_assignments(assignments)
+        before = self.source.read_bytes()
+        rows, images, registry, summary = reconcile(self.root, self.output)
+        # Layout fixtures do not grant publication approval to reused test images.
+        self.assertEqual(summary["status"], "BLOCKED")
+        build_documents(self.root, self.output, rows, images, registry, summary["source_sha256"])
+        with (self.output / "BOOKLET_ORDER.csv").open(encoding="utf-8-sig", newline="") as file:
+            report = list(csv.DictReader(file))
+        self.assertEqual([row["plu"] for row in report], ["03283", "00043", "903283", "42"])
+        fruit = Document(self.output / (BOOKS["Fruit"] + ".docx"))
+        cells = [cell for table in fruit.tables for row in table.rows for cell in row.cells
+                 if cell.text.startswith("PLU: ")]
+        self.assertEqual([cell.paragraphs[0].text for cell in cells],
+                         ["PLU: " + row["plu"] for row in report])
+        self.assertTrue(all("Section: Apples" in cell.text for cell in cells))
+        self.assertEqual(self.source.read_bytes(), before)
+
+    def test_pdf_verification_requires_interleaved_sequence_not_xml_order(self):
+        from types import SimpleNamespace
+
+        rows = self.placement_rows([
+            ("900042", "Organic Apple", "Fruit", "Organic Fruit"),
+            ("00042", "Apple", "Fruit", "Apples"),
+        ])
+        page = SimpleNamespace(mediabox=SimpleNamespace(width=792, height=612),
+                               extract_text=lambda: "PLU: 00042\nPLU: 900042")
+        empty = SimpleNamespace(pages=[])
+        readers = iter([SimpleNamespace(pages=[page]), empty, empty])
+        with patch.dict(sys.modules, {"pypdf": SimpleNamespace(PdfReader=lambda path: next(readers))}):
+            verify_pdfs(self.output, rows, {})
+        page.extract_text = lambda: "PLU: 900042\nPLU: 00042"
+        with patch.dict(sys.modules, {"pypdf": SimpleNamespace(
+                PdfReader=lambda path: SimpleNamespace(pages=[page]))}):
+            with self.assertRaisesRegex(ValueError, "booklet order"):
+                verify_pdfs(self.output, rows, {})
 
     def test_organic_matching_is_explicit_not_guessed_from_codes(self):
         self.write_source([("03283", "Honeycrisp Apple", True), ("903283", "Organic Apple", True)])

@@ -146,6 +146,7 @@ def reconcile(root, output):
                 row["blockers"].append("PROHIBITED_IMAGE_REUSE")
     if not rows:
         raise ValueError("PickList has no visible, non-deleted products; nothing to publish")
+    presentation = booklet_order(rows, assignments)
     inactive = [dict(source_id=key, book=value["book"],
                      reviewed_plu=value.get("reviewed_plu", ""),
                      reviewed_product=value.get("reviewed_product", ""))
@@ -162,6 +163,9 @@ def reconcile(root, output):
                ["idx", "source_id", "plu", "name", "query"])
     csv_output(output / "INACTIVE_ASSIGNMENTS.csv", inactive,
                ["source_id", "book", "reviewed_plu", "reviewed_product"])
+    csv_output(output / "BOOKLET_ORDER.csv", presentation,
+               ["book", "booklet_position", "source_id", "source_position", "plu", "name",
+                "display_section", "placement_status", "counterpart_source_ids", "placement_note"])
     summary = dict(
         source="sources/plu/PickList.xml", source_sha256=digest, source_unchanged=True,
         total_xml_records=len(items), included_records=len(rows),
@@ -169,6 +173,8 @@ def reconcile(root, output):
         status="BLOCKED" if any(row["blockers"] for row in rows) else "READY_TO_BUILD",
         records_needing_review=sum(bool(row["blockers"]) for row in rows),
         missing_image_requests=len(requests), inactive_assignments=len(inactive),
+        organic_placements_needing_review=sum(
+            row["placement_status"] == "PLACEMENT_REVIEW_REQUIRED" for row in presentation),
         blocker_counts=dict(sorted(Counter(
             error for row in rows for error in row["blockers"]).items())),
     )
@@ -181,14 +187,120 @@ def search_query(name):
     return " ".join(value.split()) or name
 
 
+def placement_key(name):
+    words = re.findall(r"[a-z0-9]+", name.lower())
+    singulars = dict(apples="apple", pears="pear", grapes="grape", onions="onion",
+                     peppers="pepper", tomatoes="tomato", potatoes="potato",
+                     mushrooms="mushroom", oranges="orange", plums="plum",
+                     nectarines="nectarine", peaches="peach", bananas="banana",
+                     mangoes="mango", lemons="lemon", limes="lime", yams="yam")
+    return tuple(sorted(singulars.get(word, word) for word in words
+                        if word not in {"organic", "small", "medium", "large", "sml", "lrg"}))
+
+
+def organic_display_section(row):
+    if not re.search(r"\borganic\b", row["section"], re.I):
+        return row["section"]
+    families = {
+        "Fruit": {
+            "Apples": r"apple|apples|aples", "Pears": r"pear|pears", "Grapes": r"grape|grapes",
+            "Berries": r"blueberries|strawberry|berries",
+            "Citrus": r"grapefruit|grapefuit|shaddock|pommelo|orange|oranges|lemon|lemons|lime|limes|limequats|kumquat|buddha",
+            "Melons": r"melon|watermelon|honeydew",
+            "Stone Fruit": r"cherries|peach|peaches|nectarine|nectarines|plum|plums",
+            "Tropical Fruit": r"avocado|banana|bananas|kiwi|mango|mangoes|pineapple",
+            "Specialty Fruit": r"pomegranate|pomegrante",
+        },
+        "Vegetable": {
+            "Brassicas": r"broccoli|broccolini|cabbage|cauliflower|romanesco",
+            "Cucumbers": r"cucumber", "Lettuce": r"lettuce|lettuc",
+            "Leafy Greens": r"chard|collard|mustard|kale|spinach",
+            "Herbs": r"basil|chives|cilantro|dill|mint|parsley",
+            "Onions": r"onion|onions|leeks|garlic", "Peppers": r"pepper|peppers",
+            "Potatoes": r"potato|potatoes|yam|yams",
+            "Root Vegetables": r"beet|beets|carrot|carrots|radish|ginger",
+            "Squash": r"squash|zucchini", "Tomatoes": r"tomato|tomatoe|tomatoes",
+            "Specialty Vegetables": r"beans|celery|eggplant|mushroom|mushrooms|okra|rhubarb",
+        },
+    }
+    for section, pattern in families.get(row["book"], {}).items():
+        if re.search(r"\b(?:" + pattern + r")\b", row["name"], re.I):
+            return section
+    return row["book"]
+
+
+def booklet_order(rows, assignments):
+    """Derive presentation only; never infer image approvals or rewrite source rows."""
+    ordered = []
+    for book in BOOKS:
+        selected = [dict(row) for row in rows if row["book"] == book]
+        if book == "Non-produce":
+            ordered.extend(dict(row, display_section=row["section"], placement_status="SOURCE_ORDER",
+                                counterpart_source_ids="", placement_note="") for row in selected)
+            continue
+        conventional, sections, descriptions = {}, {}, defaultdict(list)
+        for row in selected:
+            if not row["organic"]:
+                key = (row["section"], placement_key(row["name"]))
+                if key not in conventional:
+                    descriptions[key[1]].append(key)
+                conventional.setdefault(key, []).append(row)
+                sections.setdefault(row["section"], None)
+        by_id = {row["source_id"]: key for key, group in conventional.items() for row in group}
+        paired, unmatched = defaultdict(list), defaultdict(list)
+        for row in selected:
+            if not row["organic"]:
+                continue
+            assignment = assignments.get(row["source_id"], {})
+            reference = assignment.get("placement_after_source_id") or assignment.get("reuse_from_source_id")
+            matches = descriptions.get(placement_key(row["name"]), [])
+            key = matches[0] if len(matches) == 1 and matches[0][1] else None
+            status = "MATCHED_DESCRIPTION"
+            if reference:
+                if reference not in by_id:
+                    raise ValueError(f"{row['source_id']}: organic placement counterpart must be "
+                                     "an included conventional entry in the same booklet")
+                key = by_id[reference]
+                status = "REVIEWED_COUNTERPART"
+            group = conventional.get(key, [])
+            if group:
+                row.update(display_section=group[0]["section"], placement_status=status,
+                           counterpart_source_ids=";".join(other["source_id"] for other in group),
+                           placement_note="")
+                paired[key].append(row)
+            else:
+                section = organic_display_section(row)
+                sections.setdefault(section, None)
+                note = ("Matching descriptions span multiple sections" if len(matches) > 1 else
+                        "No clear conventional counterpart; review placement")
+                row.update(display_section=section, placement_status="PLACEMENT_REVIEW_REQUIRED",
+                           counterpart_source_ids="", placement_note=note)
+                unmatched[section].append(row)
+        for section in sections:
+            for key, group in conventional.items():
+                if group[0]["section"] != section:
+                    continue
+                ordered.extend(dict(row, display_section=row["section"],
+                                    placement_status="CONVENTIONAL", counterpart_source_ids="",
+                                    placement_note="") for row in group)
+                ordered.extend(paired[key])
+            ordered.extend(unmatched[section])
+    positions = Counter()
+    for row in ordered:
+        positions[row["book"]] += 1
+        row["booklet_position"] = positions[row["book"]]
+    return ordered
+
+
 def build_documents(root, output, rows, images, assignments, digest):
     import docx
     from docx.enum.section import WD_ORIENT
     from docx.oxml import OxmlElement
     from docx.shared import Inches, Pt
 
+    presentation = booklet_order(rows, assignments)
     for book, filename in BOOKS.items():
-        selected = [row for row in rows if row["book"] == book]
+        selected = [row for row in presentation if row["book"] == book]
         document = docx.Document()
         section = document.sections[0]
         section.orientation = WD_ORIENT.LANDSCAPE
@@ -214,7 +326,7 @@ def build_documents(root, output, rows, images, assignments, digest):
                 cell = table.cell(offset // 2, offset % 2)
                 cell.paragraphs[0].add_run("PLU: " + row["plu"]).bold = True
                 cell.add_paragraph(row["name"])
-                cell.add_paragraph("Section: " + row["section"])
+                cell.add_paragraph("Section: " + row["display_section"])
                 if row["source_id"] in images:
                     content = images[row["source_id"]]
                     if row["organic"]:
@@ -255,16 +367,17 @@ def build_documents(root, output, rows, images, assignments, digest):
                 "source_page_url", "original_image_url", "attribution", "changes", "rights_evidence"])
 
 
-def verify_pdfs(output, rows):
+def verify_pdfs(output, rows, assignments):
     from pypdf import PdfReader
 
+    presentation = booklet_order(rows, assignments)
     for book, filename in BOOKS.items():
         pdf = PdfReader(output / (filename + ".pdf"))
-        expected = [row["plu"] for row in rows if row["book"] == book]
+        expected = [row["plu"] for row in presentation if row["book"] == book]
         text = "\n".join(page.extract_text() for page in pdf.pages)
         actual = re.findall(r"PLU:\s*(\S+)", text)
         if actual != expected:
-            raise ValueError(f"{book}: PDF code sequence differs from XML-derived catalogue")
+            raise ValueError(f"{book}: PDF code sequence differs from XML-derived booklet order")
         if any(abs(float(page.mediabox.width) - 792) > 1 or
                abs(float(page.mediabox.height) - 612) > 1 for page in pdf.pages):
             raise ValueError(f"{book}: expected landscape US Letter pages")
@@ -298,7 +411,7 @@ def main():
                 '"ReduceImageResolution":{"type":"boolean","value":"false"}}',
                 "--outdir", str(args.output), *map(str, sorted(args.output.glob("*.docx"))),
             ], check=True, timeout=300)
-            verify_pdfs(args.output, rows)
+            verify_pdfs(args.output, rows, assignments)
         if hashlib.sha256((args.root / "sources/plu/PickList.xml").read_bytes()).hexdigest() != summary["source_sha256"]:
             raise ValueError("source changed during build; discard staging output and retry")
         (args.output / "BUILD_VERIFIED.json").write_text(json.dumps(dict(

@@ -9,6 +9,7 @@
   "records_needing_review": 602,
   "missing_image_requests": 5,
   "inactive_assignments": 0,
+  "organic_placements_needing_review": 103,
   "blocker_counts": {
     "APPROVED_IMAGE_REQUIRED": 5,
     "BELOW_500_PX": 595,
