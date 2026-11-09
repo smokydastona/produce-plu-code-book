@@ -1,0 +1,100 @@
+name: Inspect Buck Brand citrus reference
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install PyMuPDF
+      - name: Fetch and inspect reference PDF without approving images
+        env:
+          OUTPUT: ${{ runner.temp }}/buck-brand-reference
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          from urllib.error import URLError
+          from urllib.request import Request, urlopen
+          import pymupdf
+
+          output = Path(os.environ["OUTPUT"])
+          output.mkdir()
+          urls = [
+              "http://www.fsproduce.com-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+              "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+              "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC.pdf",
+              "http://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+          ]
+          attempts = []
+          content = None
+          for url in urls:
+              attempt = {"requested_url": url}
+              try:
+                  request = Request(url, headers={"User-Agent": "ProducePLUReferenceReview/1.0"})
+                  with urlopen(request, timeout=40) as response:
+                      attempt.update(final_url=response.url, status=response.status,
+                                     content_type=response.headers.get("Content-Type"))
+                      data = response.read(30 * 1024 * 1024 + 1)
+                  if len(data) > 30 * 1024 * 1024:
+                      raise ValueError("PDF exceeds 30 MiB safety limit")
+                  if not data.startswith(b"%PDF-"):
+                      raise ValueError("Response is not a PDF")
+                  attempt["result"] = "FETCHED_UNVERIFIED"
+                  content = data
+              except (URLError, OSError, ValueError) as exc:
+                  attempt.update(result="ERROR", details=str(exc))
+              attempts.append(attempt)
+              print(json.dumps(attempt), flush=True)
+              if content is not None:
+                  break
+          (output / "FETCH_ATTEMPTS.json").write_text(json.dumps(attempts, indent=2))
+          if content is None:
+              raise SystemExit("No PDF retrieved; see FETCH_ATTEMPTS.json")
+          (output / "BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC.pdf").write_bytes(content)
+          images, texts = [], []
+          with pymupdf.open(stream=content, filetype="pdf") as document:
+              if len(document) > 30:
+                  raise ValueError("Reference exceeds 30-page safety limit")
+              for number, page in enumerate(document, 1):
+                  texts.append(f"PAGE {number}\n{page.get_text()}")
+                  scale = min(2, 2200 / max(page.rect.width, page.rect.height))
+                  page.get_pixmap(matrix=pymupdf.Matrix(scale, scale), alpha=False).save(
+                      output / f"page-{number:02d}.png")
+                  for index, image in enumerate(page.get_images(full=True), 1):
+                      extracted = document.extract_image(image[0])
+                      filename = f"page-{number:02d}-image-{index:03d}.{extracted['ext']}"
+                      (output / filename).write_bytes(extracted["image"])
+                      images.append(dict(page=number, filename=filename, width=extracted["width"],
+                                         height=extracted["height"],
+                                         sha256=hashlib.sha256(extracted["image"]).hexdigest()))
+              pages = len(document)
+          (output / "PDF_TEXT.txt").write_text("\n\n".join(texts))
+          (output / "IMAGE_INVENTORY.json").write_text(json.dumps(images, indent=2))
+          (output / "RETRIEVAL.json").write_text(json.dumps(dict(
+              source=attempts[-1], sha256=hashlib.sha256(content).hexdigest(),
+              pages=pages, embedded_images=len(images), status="UNREVIEWED_REFERENCE_ONLY",
+              rights="Not verified; extraction does not establish permission to redistribute",
+              approvals_changed=False, picklist_changed=False,
+          ), indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: buck-brand-reference
+          path: ${{ runner.temp }}/buck-brand-reference/
+          if-no-files-found: error
+          retention-days: 7
