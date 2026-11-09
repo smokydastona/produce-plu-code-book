@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "id": "009",
+    "plu": "3283",
+    "product": "Apples Honey Crisp",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/07/Honeycrisp-Apple.jpg",
+    "source_page_url": "https://commons.wikimedia.org/wiki/File:Honeycrisp-Apple.jpg",
+    "license": "CC0 (unverified)",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+    "id": "154",
+    "plu": "4313",
+    "product": "Mango Julie",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/71/Mangue-julie.jpg",
+    "source_page_url": "https://commons.wikimedia.org/wiki/File:Mangue-julie.jpg",
+    "license": "CC BY-SA 4.0 (unverified)",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
+  },
+  {
+    "id": "334",
+    "plu": "4555",
+    "product": "Cabbage Savoy",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Savoy_Cabbage.jpg",
+    "source_page_url": "https://commons.wikimedia.org/wiki/File:Savoy_Cabbage.jpg",
+    "license": "CC BY-SA 3.0 (unverified)",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  {
+    "id": "415",
+    "plu": "4963",
+    "product": "Tomatillos",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Tomatillo.jpg",
+    "source_page_url": "https://commons.wikimedia.org/wiki/File:Tomatillo.jpg",
+    "license": "Public domain (unverified)",
+    "license_url": "https://creativecommons.org/publicdomain/mark/1.0/"
+  }
+]
