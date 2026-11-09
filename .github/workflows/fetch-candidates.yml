@@ -17,6 +17,16 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install Pillow
       - run: python -m unittest discover -s tools -p 'test_*.py'
+      - name: Probe alternative libraries and search the four acquisition gaps
+        id: source-probes
+        continue-on-error: true
+        run: |
+          python tools/probe_image_sources.py \
+            --output "$RUNNER_TEMP/source-discovery" \
+            --user-agent "ProducePLUReview/1.0 (https://github.com/smokydastona/produce-plu-code-book)"
+      - name: Report incomplete source discovery
+        if: steps.source-probes.outcome == 'failure'
+        run: echo "::warning::Some library probes failed. See source-probes.csv in the source-discovery artifact."
       - name: Acquire all rejected entries and build review package
         run: |
           python tools/retrieve_commons.py --review data/image_review.csv \
@@ -29,5 +39,13 @@ jobs:
         with:
           name: unreviewed-produce-images
           path: ${{ runner.temp }}/produce-candidates/
+          if-no-files-found: warn
+          retention-days: 7
+      - name: Upload source-discovery evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: source-discovery
+          path: ${{ runner.temp }}/source-discovery/
           if-no-files-found: warn
           retention-days: 7
