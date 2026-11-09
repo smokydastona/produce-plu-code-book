@@ -40,7 +40,7 @@
 82200,Pears Conference BC,data/images/Fruit/0039_82200.jpg,AI Generated,Low,Approximate,Conference-type; not BC-specific; below 500 px minimum; image shared by 2 entries
 4005,Pears Honey Belle,data/images/Fruit/0040_4005.jpg,AI Generated,Low,Approximate,green blush pear; Honey Belle not certain; below 500 px minimum; image shared by 2 entries
 4424,Pears Honey Belle Sweet Green,data/images/Fruit/0041_4424.jpg,AI Generated,Low,Approximate,near-identical to #40; below 500 px minimum; image shared by 2 entries
-2159,Buddha's Hand Organic,data/images/Fruit/0042_2159.jpg,AI Generated,Medium,Approved,Buddha's Hand; below 500 px minimum
+2159,Buddha's Hand Organic,data/images/Fruit/0042_2159.png,AI Generated,Medium,Approved,Buddha's Hand; below 500 px minimum
 4450,Clementine,data/images/Fruit/0043_4450.jpg,Code Booklet,Medium,Approved,clementines; below 500 px minimum; image shared by 3 entries
 4458,Clementines Box,data/images/Fruit/0044_4458.jpg,Code Booklet,Medium,Approved,clementines; below 500 px minimum; image shared by 3 entries
 4286,Grapefruit Deep Red,data/images/Fruit/0045_4286.jpg,Code Booklet,Medium,Approved,red grapefruit; below 500 px minimum; image shared by 8 entries
@@ -187,111 +187,111 @@
 4429,Persimmon Large,data/images/Fruit/0186_4429.jpg,Code Booklet,Medium,Approved,persimmon; below 500 px minimum; image shared by 2 entries
 4427,Persimmons Hachiya,data/images/Fruit/0187_4427.jpg,Code Booklet,Low,Approximate,round persimmons; Hachiya is acorn-shaped; below 500 px minimum
 4446,Pomegramate Large,data/images/Fruit/0188_4446.jpg,Code Booklet,Medium,Approved,pomegranate; below 500 px minimum; image shared by 2 entries
-94153,Organic Aples MacIntosh,data/images/Fruit/0189_94153.jpg,Code Booklet,Medium,Approved,MacIntosh apple; below 500 px minimum; image shared by 5 entries
-94099,Organic Apples Akane,data/images/Fruit/0190_94099.jpg,AI Generated,Low,Approximate,red-yellow apple; Akane not certain; below 500 px minimum
-93438,Organic Apples Ambrosia,data/images/Fruit/0191_93438.jpg,Code Booklet,Low,Approximate,red-yellow apple; Ambrosia not certain; below 500 px minimum; image shared by 2 entries
-94103,Organic Apples Braeburn,data/images/Fruit/0192_94103.jpg,AI Generated,Low,Approximate,red-yellow apple; Braeburn not certain; below 500 px minimum; image shared by 2 entries
-93066,Organic Apples Cameo,data/images/Fruit/0193_93066.jpg,AI Generated,Low,Approximate,striped apple; Cameo not certain; below 500 px minimum
-94127,Organic Apples Empire,data/images/Fruit/0194_94127.jpg,AI Generated,Low,Approximate,dark red apple; Empire plausible; below 500 px minimum
-94131,Organic Apples Fuji,data/images/Fruit/0195_94131.jpg,Code Booklet,Low,Approximate,small dull red apple; plausible Fuji; below 500 px minimum
-94135,Organic Apples Gala,data/images/Fruit/0196_94135.jpg,Code Booklet,Medium,Approved,Gala-type apple; below 500 px minimum; image shared by 6 entries
-94174,Organic Apples Gala,data/images/Fruit/0197_94174.jpg,Code Booklet,Medium,Approved,Gala-type apple; below 500 px minimum; image shared by 6 entries
-94020,Organic Apples Golden Delicious,data/images/Fruit/0198_94020.jpg,Code Booklet,Medium,Approved,Golden Delicious; below 500 px minimum; image shared by 3 entries
-94097,Organic Apples Golden Delicious,data/images/Fruit/0199_94097.jpg,Code Booklet,Medium,Approved,Golden Delicious; below 500 px minimum; image shared by 3 entries
-94017,Organic Apples Granny Smith,data/images/Fruit/0200_94017.jpg,Code Booklet,Medium,Approved,Granny Smith; below 500 px minimum; image shared by 3 entries
-94139,Organic Apples Granny Smith,data/images/Fruit/0201_94139.jpg,Code Booklet,Medium,Approved,Granny Smith; below 500 px minimum; image shared by 3 entries
-94147,Organic Apples Jona Gold,data/images/Fruit/0202_94147.jpg,Code Booklet,Low,Approximate,red-yellow striped apple; Jonagold plausible; below 500 px minimum
-93072,Organic Apples Lady,data/images/Fruit/0203_93072.jpg,Code Booklet,Medium,Approved,Pink Lady; below 500 px minimum; image shared by 3 entries
-94153,Organic Apples MacIntosh,data/images/Fruit/0204_94153.jpg,Code Booklet,Medium,Approved,MacIntosh; below 500 px minimum; image shared by 5 entries
-94154,Organic Apples MacIntosh,data/images/Fruit/0205_94154.jpg,Code Booklet,Medium,Approved,MacIntosh; below 500 px minimum; image shared by 5 entries
-94204,Organic Apples Orin,data/images/Fruit/0206_94204.jpg,AI Generated,Low,Approximate,yellow-green blush apple; Orin plausible; below 500 px minimum
-94215,Organic Apples Pinata,data/images/Fruit/0207_94215.jpg,AI Generated,Low,Approximate,yellow-orange apple; Pinata plausible; below 500 px minimum
-94128,Organic Apples Pink Lady,data/images/Fruit/0208_94128.jpg,Code Booklet,Medium,Approved,Pink Lady; below 500 px minimum; image shared by 3 entries
-94016,Organic Apples Red Delicious,data/images/Fruit/0209_94016.jpg,Code Booklet,Medium,Approved,Red Delicious; below 500 px minimum; image shared by 2 entries
-94178,Organic Apples Spartan,data/images/Fruit/0210_94178.jpg,AI Generated,Medium,Approved,Spartan; below 500 px minimum; image shared by 2 entries
-94205,Organic Apples Su Mac,data/images/Fruit/0211_94205.jpg,AI Generated,Low,Approximate,red-yellow apple; Su Mac not certain; below 500 px minimum
-94212,Organic Apples Sunrise,data/images/Fruit/0212_94212.jpg,Code Booklet,Low,Approximate,pale red apple; Sunrise plausible; below 500 px minimum
-94225,Organic Avocado Large Hass,data/images/Fruit/0213_94225.jpg,Code Booklet,Low,Approximate,dark green avocado; Hass pebble texture not visible; below 500 px minimum; image shared by 3 entries
-94228,Organic Avocado Sharwil,data/images/Fruit/0214_94228.jpg,Code Booklet,Low,Approximate,same image as #213; below 500 px minimum; image shared by 3 entries
-94011,Organic Bananas,data/images/Fruit/0215_94011.jpg,Code Booklet,Medium,Approved,bananas; below 500 px minimum; image shared by 2 entries
-94249,Organic Blueberries Pint,data/images/Fruit/0216_94249.jpg,Code Booklet,Medium,Approved,blueberries; below 500 px minimum; image shared by 4 entries
-94045,Organic Cherries,data/images/Fruit/0217_94045.jpg,Code Booklet,Medium,Approved,cherries; below 500 px minimum; image shared by 2 entries
-94025,Organic D'Anjou Pears,data/images/Fruit/0218_94025.jpg,Code Booklet,Low,Approximate,small green/red pears; D'Anjou is large; below 500 px minimum; image shared by 2 entries
-94027,Organic Grapefruit,data/images/Fruit/0219_94027.jpg,Code Booklet,Medium,Approved,red grapefruit; below 500 px minimum; image shared by 8 entries
-94281,Organic Grapefruit Pink,data/images/Fruit/0220_94281.jpg,Code Booklet,Medium,Approved,pink grapefruit; below 500 px minimum; image shared by 8 entries
-94461,Organic Grapefruit Shaddock,data/images/Fruit/0221_94461.jpg,Code Booklet,Medium,Approved,pomelo/shaddock; below 500 px minimum; image shared by 6 entries
-93129,Organic Grapefuit Pommelo,data/images/Fruit/0222_93129.jpg,Code Booklet,Medium,Approved,pomelo; below 500 px minimum; image shared by 6 entries
-94022,Organic Grapes Green Sdls,data/images/Fruit/0223_94022.jpg,Code Booklet,Medium,Approved,green grapes; below 500 px minimum; image shared by 8 entries
-94497,Organic Grapes Green Sdls,data/images/Fruit/0224_94497.jpg,Code Booklet,Medium,Approved,green grapes; below 500 px minimum; image shared by 8 entries
-94023,Organic Grapes Red Seedless,data/images/Fruit/0225_94023.jpg,Code Booklet,Medium,Approved,red grapes; below 500 px minimum; image shared by 4 entries
-94022,Organic Green Grapes Seedless,data/images/Fruit/0226_94022.jpg,Code Booklet,Medium,Approved,green grapes; below 500 px minimum; image shared by 8 entries
-94034,Organic Honeydew,data/images/Fruit/0227_94034.jpg,Code Booklet,Medium,Approved,honeydew; below 500 px minimum; image shared by 6 entries
-94030,Organic Kiwi,data/images/Fruit/0228_94030.jpg,Code Booklet,Medium,Approved,kiwi; below 500 px minimum; image shared by 3 entries
-94303,Organic KumQuat,data/images/Fruit/0229_94303.jpg,Code Booklet,Medium,Approved,kumquats; below 500 px minimum
-94053,Organic Lemons,data/images/Fruit/0230_94053.jpg,Code Booklet,Medium,Approved,lemon; below 500 px minimum; image shared by 2 entries
-94304,Organic Lemons Meyer-Buckbrand,data/images/Fruit/0231_94304.jpg,Code Booklet,Low,Approximate,lemons; Meyer not certain; below 500 px minimum
-94328,Organic Limequats,data/images/Fruit/0232_94328.jpg,AI Generated,Medium,Approved,limequats; below 500 px minimum
-94048,Organic Limes,data/images/Fruit/0233_94048.jpg,Code Booklet,Medium,Approved,limes; below 500 px minimum; image shared by 2 entries
-94024,Organic Limes Finger,data/images/Fruit/0234_94024.jpg,AI Generated,Medium,Approved,finger limes; below 500 px minimum
-94306,Organic Limes Sweet,data/images/Fruit/0235_94306.jpg,Produce Guide,None,Rejected,pink line artifact across top of image; below 500 px minimum
-94584,Organic Mango,data/images/Fruit/0236_94584.jpg,Code Booklet,Medium,Approved,mango; below 500 px minimum; image shared by 8 entries
-94311,Organic Mangoes,data/images/Fruit/0237_94311.jpg,Code Booklet,Medium,Approved,mango; below 500 px minimum; image shared by 8 entries
-94959,Organic Mangoes,data/images/Fruit/0238_94959.jpg,Code Booklet,Medium,Approved,mango; below 500 px minimum; image shared by 8 entries
-94317,Organic Melon Canary,data/images/Fruit/0239_94317.jpg,Code Booklet,Medium,Approved,canary melon; below 500 px minimum; image shared by 4 entries
-94050,Organic Melon Cantaloupe,data/images/Fruit/0240_94050.jpg,Code Booklet,Medium,Approved,cantaloupe; below 500 px minimum
-94049,Organic Melon Cantaloupe Small,data/images/Fruit/0241_94049.jpg,Code Booklet,Medium,Approved,cantaloupe; below 500 px minimum; image shared by 10 entries
-94040,Organic Melon Canteloupe Small,data/images/Fruit/0242_94040.jpg,Code Booklet,Medium,Approved,cantaloupe; below 500 px minimum; image shared by 10 entries
-94326,Organic Melon Galia,data/images/Fruit/0243_94326.jpg,Code Booklet,Medium,Approved,Galia melon; below 500 px minimum
-94329,Organic Melon Honeydew,data/images/Fruit/0244_94329.jpg,Code Booklet,Medium,Approved,honeydew; below 500 px minimum; image shared by 6 entries
-94329,Organic Melon Honeydew Small,data/images/Fruit/0245_94329.jpg,Code Booklet,Medium,Approved,honeydew; below 500 px minimum; image shared by 6 entries
-94332,Organic Melon Musk,data/images/Fruit/0246_94332.jpg,Code Booklet,Low,Approximate,cantaloupe shown for musk melon; below 500 px minimum; image shared by 10 entries
-94031,Organic Melon Watermelon,data/images/Fruit/0247_94031.jpg,Code Booklet,Medium,Approved,watermelon; below 500 px minimum; image shared by 7 entries
-94032,Organic Melon Watermelon,data/images/Fruit/0248_94032.jpg,Code Booklet,Medium,Approved,watermelon; below 500 px minimum; image shared by 7 entries
-94321,Organic Melon Watermelon,data/images/Fruit/0249_94321.jpg,Code Booklet,Medium,Approved,watermelon; below 500 px minimum; image shared by 7 entries
-94340,Organic Melon Watermelon,data/images/Fruit/0250_94340.jpg,Code Booklet,Medium,Approved,watermelon; below 500 px minimum; image shared by 7 entries
-94342,Organic Melon Watermelon,data/images/Fruit/0251_94342.jpg,Code Booklet,Medium,Approved,watermelon; below 500 px minimum; image shared by 7 entries
-94342,Organic Melon Watermelon Seedless Slices,data/images/Fruit/0252_94342.jpg,Code Booklet,Medium,Approved,watermelon; seedless not distinguishable; below 500 px minimum; image shared by 7 entries
-94378,Organic Nectarines,data/images/Fruit/0253_94378.jpg,Code Booklet,Medium,Approved,nectarines; below 500 px minimum; image shared by 5 entries
-94036,Organic Nectarines Large,data/images/Fruit/0254_94036.jpg,Code Booklet,Medium,Approved,nectarines; below 500 px minimum; image shared by 5 entries
-94035,Organic Nectarines Small,data/images/Fruit/0255_94035.jpg,Code Booklet,Medium,Approved,nectarines; below 500 px minimum; image shared by 5 entries
-93035,Organic Nectarines White,data/images/Fruit/0256_93035.jpg,Code Booklet,None,Rejected,yellow-flesh nectarine shown; product is White; below 500 px minimum; image shared by 5 entries
-94381,Organic Oranges Blood,data/images/Fruit/0257_94381.jpg,Code Booklet,Medium,Approved,blood orange; below 500 px minimum; image shared by 2 entries
-93110,Organic Oranges Cara Cara,data/images/Fruit/0258_93110.jpg,Code Booklet,Low,Approximate,cut orange with deep flesh; Cara Cara plausible; below 500 px minimum; image shared by 3 entries
-93029,Organic Oranges Mandarin,data/images/Fruit/0259_93029.jpg,Code Booklet,Low,Approximate,generic mandarin; below 500 px minimum; image shared by 16 entries
-94391,Organic Oranges Mango,data/images/Fruit/0260_94391.jpg,Code Booklet,Low,Approximate,generic mandarin; product Mango/orange unclear; below 500 px minimum; image shared by 16 entries
-94453,Organic Oranges Murcott,data/images/Fruit/0261_94453.jpg,Code Booklet,Low,Approximate,generic mandarin; image reused; below 500 px minimum; image shared by 16 entries
-94012,Organic Oranges Navel Large,data/images/Fruit/0262_94012.jpg,Code Booklet,Medium,Approved,navel orange; below 500 px minimum; image shared by 7 entries
-93107,Organic Oranges Navel Medium,data/images/Fruit/0263_93107.jpg,Code Booklet,Medium,Approved,navel orange; below 500 px minimum; image shared by 7 entries
-93109,Organic Oranges Seville,data/images/Fruit/0264_93109.jpg,Code Booklet,Low,Approximate,sweet orange; Seville is bitter and rougher; below 500 px minimum; image shared by 7 entries
-94456,Organic Oranges Tangelos,data/images/Fruit/0265_94456.jpg,Code Booklet,Medium,Approved,tangelos; below 500 px minimum; image shared by 2 entries
-94458,Organic Oranges Tangerine,data/images/Fruit/0266_94458.jpg,Code Booklet,Low,Approximate,generic mandarin; below 500 px minimum; image shared by 16 entries
-94457,Organic Oranges TDE Tangerine,data/images/Fruit/0267_94457.jpg,Code Booklet,Low,Approximate,generic mandarin; below 500 px minimum; image shared by 16 entries
-93227,Organic Oranges Torange,data/images/Fruit/0268_93227.jpg,Code Booklet,Low,Approximate,generic mandarin; Torange not distinguishable; below 500 px minimum; image shared by 16 entries
-93108,Organic Oranges Valencia,data/images/Fruit/0269_93108.jpg,Code Booklet,Low,Approximate,cut orange; Valencia not distinguishable; below 500 px minimum; image shared by 7 entries
-94388,Organic Oranges Valencia,data/images/Fruit/0270_94388.jpg,Code Booklet,Low,Approximate,cut orange; Valencia not distinguishable; below 500 px minimum; image shared by 7 entries
-94044,Organic Peaches Tree Ripened,data/images/Fruit/0271_94044.jpg,Code Booklet,Medium,Approved,peaches; below 500 px minimum; image shared by 4 entries
-94401,Organic Peaches White,data/images/Fruit/0272_94401.jpg,Code Booklet,Medium,Approved,white peaches; below 500 px minimum; image shared by 2 entries
-94038,Organic Peaches Yellow Lrg,data/images/Fruit/0273_94038.jpg,Code Booklet,Medium,Approved,peaches; below 500 px minimum; image shared by 4 entries
-93016,Organic Pear Concord,data/images/Fruit/0274_93016.jpg,Code Booklet,None,Rejected,tiny pear in corner of image; unusable crop; below 500 px minimum; image shared by 2 entries
-94416,Organic Pear D'Anjou,data/images/Fruit/0275_94416.jpg,Code Booklet,Low,Approximate,small green/red pears; D'Anjou is large; below 500 px minimum
-94116,Organic Pears Bartlett,data/images/Fruit/0276_94116.jpg,Code Booklet,Medium,Approved,Bartlett pears; below 500 px minimum; image shared by 3 entries
-94409,Organic Pears Bartlett Green,data/images/Fruit/0277_94409.jpg,Code Booklet,Medium,Approved,Bartlett green; below 500 px minimum; image shared by 3 entries
-94410,Organic Pears Bartlett Red,data/images/Fruit/0278_94410.jpg,Code Booklet,Medium,Approved,Bartlett red; below 500 px minimum; image shared by 4 entries
-94413,Organic Pears Bosc,data/images/Fruit/0279_94413.jpg,Code Booklet,Medium,Approved,Bosc pears; below 500 px minimum; image shared by 2 entries
-94430,Organic Pineapple,data/images/Fruit/0280_94430.jpg,Code Booklet,Medium,Approved,pineapple; below 500 px minimum; image shared by 7 entries
-94433,Organic Pineapple,data/images/Fruit/0281_94433.jpg,Code Booklet,Medium,Approved,pineapple; below 500 px minimum; image shared by 7 entries
-94281,Organic Pink Grapefruit,data/images/Fruit/0282_94281.jpg,Code Booklet,Medium,Approved,pink grapefruit; below 500 px minimum; image shared by 8 entries
-94040,Organic Plum Black,data/images/Fruit/0283_94040.jpg,AI Generated,Medium,Approved,black plums; below 500 px minimum; image shared by 4 entries
-94042,Organic Plum Red,data/images/Fruit/0284_94042.jpg,Code Booklet,Medium,Approved,red plums; below 500 px minimum; image shared by 5 entries
-94039,Organic Plums Black Small,data/images/Fruit/0285_94039.jpg,AI Generated,Medium,Approved,black plums; below 500 px minimum; image shared by 4 entries
-94041,Organic Plums Red Small,data/images/Fruit/0286_94041.jpg,Code Booklet,Medium,Approved,red plums; below 500 px minimum; image shared by 5 entries
-93127,Organic Pomegrante,data/images/Fruit/0287_93127.jpg,Code Booklet,Medium,Approved,pomegranate; below 500 px minimum; image shared by 2 entries
-94047,Organic Red Grapefruit,data/images/Fruit/0288_94047.jpg,Code Booklet,Medium,Approved,red grapefruit; below 500 px minimum
-94023,Organic Red Seedless Grapes,data/images/Fruit/0289_94023.jpg,Code Booklet,Medium,Approved,red grapes; below 500 px minimum; image shared by 4 entries
-94173,Organic Royal Gala Apples,data/images/Fruit/0290_94173.jpg,Code Booklet,Medium,Approved,Royal Gala; below 500 px minimum; image shared by 6 entries
-94461,Organic Shaddock,data/images/Fruit/0291_94461.jpg,Code Booklet,Medium,Approved,pomelo/shaddock; below 500 px minimum; image shared by 6 entries
-94252,Organic Strawberry Pint,data/images/Fruit/0292_94252.jpg,Code Booklet,Medium,Approved,strawberries; below 500 px minimum; image shared by 7 entries
-94022,Organic White Grapes,data/images/Fruit/0293_94022.jpg,Code Booklet,Medium,Approved,green grapes; below 500 px minimum; image shared by 8 entries
+94153,Organic Aples MacIntosh,data/images/Fruit/0189_94153.png,Code Booklet,Medium,Approved,MacIntosh apple; below 500 px minimum; image shared by 5 entries
+94099,Organic Apples Akane,data/images/Fruit/0190_94099.png,AI Generated,Low,Approximate,red-yellow apple; Akane not certain; below 500 px minimum
+93438,Organic Apples Ambrosia,data/images/Fruit/0191_93438.png,Code Booklet,Low,Approximate,red-yellow apple; Ambrosia not certain; below 500 px minimum; image shared by 2 entries
+94103,Organic Apples Braeburn,data/images/Fruit/0192_94103.png,AI Generated,Low,Approximate,red-yellow apple; Braeburn not certain; below 500 px minimum; image shared by 2 entries
+93066,Organic Apples Cameo,data/images/Fruit/0193_93066.png,AI Generated,Low,Approximate,striped apple; Cameo not certain; below 500 px minimum
+94127,Organic Apples Empire,data/images/Fruit/0194_94127.png,AI Generated,Low,Approximate,dark red apple; Empire plausible; below 500 px minimum
+94131,Organic Apples Fuji,data/images/Fruit/0195_94131.png,Code Booklet,Low,Approximate,small dull red apple; plausible Fuji; below 500 px minimum
+94135,Organic Apples Gala,data/images/Fruit/0196_94135.png,Code Booklet,Medium,Approved,Gala-type apple; below 500 px minimum; image shared by 6 entries
+94174,Organic Apples Gala,data/images/Fruit/0197_94174.png,Code Booklet,Medium,Approved,Gala-type apple; below 500 px minimum; image shared by 6 entries
+94020,Organic Apples Golden Delicious,data/images/Fruit/0198_94020.png,Code Booklet,Medium,Approved,Golden Delicious; below 500 px minimum; image shared by 3 entries
+94097,Organic Apples Golden Delicious,data/images/Fruit/0199_94097.png,Code Booklet,Medium,Approved,Golden Delicious; below 500 px minimum; image shared by 3 entries
+94017,Organic Apples Granny Smith,data/images/Fruit/0200_94017.png,Code Booklet,Medium,Approved,Granny Smith; below 500 px minimum; image shared by 3 entries
+94139,Organic Apples Granny Smith,data/images/Fruit/0201_94139.png,Code Booklet,Medium,Approved,Granny Smith; below 500 px minimum; image shared by 3 entries
+94147,Organic Apples Jona Gold,data/images/Fruit/0202_94147.png,Code Booklet,Low,Approximate,red-yellow striped apple; Jonagold plausible; below 500 px minimum
+93072,Organic Apples Lady,data/images/Fruit/0203_93072.png,Code Booklet,Medium,Approved,Pink Lady; below 500 px minimum; image shared by 3 entries
+94153,Organic Apples MacIntosh,data/images/Fruit/0204_94153.png,Code Booklet,Medium,Approved,MacIntosh; below 500 px minimum; image shared by 5 entries
+94154,Organic Apples MacIntosh,data/images/Fruit/0205_94154.png,Code Booklet,Medium,Approved,MacIntosh; below 500 px minimum; image shared by 5 entries
+94204,Organic Apples Orin,data/images/Fruit/0206_94204.png,AI Generated,Low,Approximate,yellow-green blush apple; Orin plausible; below 500 px minimum
+94215,Organic Apples Pinata,data/images/Fruit/0207_94215.png,AI Generated,Low,Approximate,yellow-orange apple; Pinata plausible; below 500 px minimum
+94128,Organic Apples Pink Lady,data/images/Fruit/0208_94128.png,Code Booklet,Medium,Approved,Pink Lady; below 500 px minimum; image shared by 3 entries
+94016,Organic Apples Red Delicious,data/images/Fruit/0209_94016.png,Code Booklet,Medium,Approved,Red Delicious; below 500 px minimum; image shared by 2 entries
+94178,Organic Apples Spartan,data/images/Fruit/0210_94178.png,AI Generated,Medium,Approved,Spartan; below 500 px minimum; image shared by 2 entries
+94205,Organic Apples Su Mac,data/images/Fruit/0211_94205.png,AI Generated,Low,Approximate,red-yellow apple; Su Mac not certain; below 500 px minimum
+94212,Organic Apples Sunrise,data/images/Fruit/0212_94212.png,Code Booklet,Low,Approximate,pale red apple; Sunrise plausible; below 500 px minimum
+94225,Organic Avocado Large Hass,data/images/Fruit/0213_94225.png,Code Booklet,Low,Approximate,dark green avocado; Hass pebble texture not visible; below 500 px minimum; image shared by 3 entries
+94228,Organic Avocado Sharwil,data/images/Fruit/0214_94228.png,Code Booklet,Low,Approximate,same image as #213; below 500 px minimum; image shared by 3 entries
+94011,Organic Bananas,data/images/Fruit/0215_94011.png,Code Booklet,Medium,Approved,bananas; below 500 px minimum; image shared by 2 entries
+94249,Organic Blueberries Pint,data/images/Fruit/0216_94249.png,Code Booklet,Medium,Approved,blueberries; below 500 px minimum; image shared by 4 entries
+94045,Organic Cherries,data/images/Fruit/0217_94045.png,Code Booklet,Medium,Approved,cherries; below 500 px minimum; image shared by 2 entries
+94025,Organic D'Anjou Pears,data/images/Fruit/0218_94025.png,Code Booklet,Low,Approximate,small green/red pears; D'Anjou is large; below 500 px minimum; image shared by 2 entries
+94027,Organic Grapefruit,data/images/Fruit/0219_94027.png,Code Booklet,Medium,Approved,red grapefruit; below 500 px minimum; image shared by 8 entries
+94281,Organic Grapefruit Pink,data/images/Fruit/0220_94281.png,Code Booklet,Medium,Approved,pink grapefruit; below 500 px minimum; image shared by 8 entries
+94461,Organic Grapefruit Shaddock,data/images/Fruit/0221_94461.png,Code Booklet,Medium,Approved,pomelo/shaddock; below 500 px minimum; image shared by 6 entries
+93129,Organic Grapefuit Pommelo,data/images/Fruit/0222_93129.png,Code Booklet,Medium,Approved,pomelo; below 500 px minimum; image shared by 6 entries
+94022,Organic Grapes Green Sdls,data/images/Fruit/0223_94022.png,Code Booklet,Medium,Approved,green grapes; below 500 px minimum; image shared by 8 entries
+94497,Organic Grapes Green Sdls,data/images/Fruit/0224_94497.png,Code Booklet,Medium,Approved,green grapes; below 500 px minimum; image shared by 8 entries
+94023,Organic Grapes Red Seedless,data/images/Fruit/0225_94023.png,Code Booklet,Medium,Approved,red grapes; below 500 px minimum; image shared by 4 entries
+94022,Organic Green Grapes Seedless,data/images/Fruit/0226_94022.png,Code Booklet,Medium,Approved,green grapes; below 500 px minimum; image shared by 8 entries
+94034,Organic Honeydew,data/images/Fruit/0227_94034.png,Code Booklet,Medium,Approved,honeydew; below 500 px minimum; image shared by 6 entries
+94030,Organic Kiwi,data/images/Fruit/0228_94030.png,Code Booklet,Medium,Approved,kiwi; below 500 px minimum; image shared by 3 entries
+94303,Organic KumQuat,data/images/Fruit/0229_94303.png,Code Booklet,Medium,Approved,kumquats; below 500 px minimum
+94053,Organic Lemons,data/images/Fruit/0230_94053.png,Code Booklet,Medium,Approved,lemon; below 500 px minimum; image shared by 2 entries
+94304,Organic Lemons Meyer-Buckbrand,data/images/Fruit/0231_94304.png,Code Booklet,Low,Approximate,lemons; Meyer not certain; below 500 px minimum
+94328,Organic Limequats,data/images/Fruit/0232_94328.png,AI Generated,Medium,Approved,limequats; below 500 px minimum
+94048,Organic Limes,data/images/Fruit/0233_94048.png,Code Booklet,Medium,Approved,limes; below 500 px minimum; image shared by 2 entries
+94024,Organic Limes Finger,data/images/Fruit/0234_94024.png,AI Generated,Medium,Approved,finger limes; below 500 px minimum
+94306,Organic Limes Sweet,data/images/Fruit/0235_94306.png,Produce Guide,None,Rejected,pink line artifact across top of image; below 500 px minimum
+94584,Organic Mango,data/images/Fruit/0236_94584.png,Code Booklet,Medium,Approved,mango; below 500 px minimum; image shared by 8 entries
+94311,Organic Mangoes,data/images/Fruit/0237_94311.png,Code Booklet,Medium,Approved,mango; below 500 px minimum; image shared by 8 entries
+94959,Organic Mangoes,data/images/Fruit/0238_94959.png,Code Booklet,Medium,Approved,mango; below 500 px minimum; image shared by 8 entries
+94317,Organic Melon Canary,data/images/Fruit/0239_94317.png,Code Booklet,Medium,Approved,canary melon; below 500 px minimum; image shared by 4 entries
+94050,Organic Melon Cantaloupe,data/images/Fruit/0240_94050.png,Code Booklet,Medium,Approved,cantaloupe; below 500 px minimum
+94049,Organic Melon Cantaloupe Small,data/images/Fruit/0241_94049.png,Code Booklet,Medium,Approved,cantaloupe; below 500 px minimum; image shared by 10 entries
+94040,Organic Melon Canteloupe Small,data/images/Fruit/0242_94040.png,Code Booklet,Medium,Approved,cantaloupe; below 500 px minimum; image shared by 10 entries
+94326,Organic Melon Galia,data/images/Fruit/0243_94326.png,Code Booklet,Medium,Approved,Galia melon; below 500 px minimum
+94329,Organic Melon Honeydew,data/images/Fruit/0244_94329.png,Code Booklet,Medium,Approved,honeydew; below 500 px minimum; image shared by 6 entries
+94329,Organic Melon Honeydew Small,data/images/Fruit/0245_94329.png,Code Booklet,Medium,Approved,honeydew; below 500 px minimum; image shared by 6 entries
+94332,Organic Melon Musk,data/images/Fruit/0246_94332.png,Code Booklet,Low,Approximate,cantaloupe shown for musk melon; below 500 px minimum; image shared by 10 entries
+94031,Organic Melon Watermelon,data/images/Fruit/0247_94031.png,Code Booklet,Medium,Approved,watermelon; below 500 px minimum; image shared by 7 entries
+94032,Organic Melon Watermelon,data/images/Fruit/0248_94032.png,Code Booklet,Medium,Approved,watermelon; below 500 px minimum; image shared by 7 entries
+94321,Organic Melon Watermelon,data/images/Fruit/0249_94321.png,Code Booklet,Medium,Approved,watermelon; below 500 px minimum; image shared by 7 entries
+94340,Organic Melon Watermelon,data/images/Fruit/0250_94340.png,Code Booklet,Medium,Approved,watermelon; below 500 px minimum; image shared by 7 entries
+94342,Organic Melon Watermelon,data/images/Fruit/0251_94342.png,Code Booklet,Medium,Approved,watermelon; below 500 px minimum; image shared by 7 entries
+94342,Organic Melon Watermelon Seedless Slices,data/images/Fruit/0252_94342.png,Code Booklet,Medium,Approved,watermelon; seedless not distinguishable; below 500 px minimum; image shared by 7 entries
+94378,Organic Nectarines,data/images/Fruit/0253_94378.png,Code Booklet,Medium,Approved,nectarines; below 500 px minimum; image shared by 5 entries
+94036,Organic Nectarines Large,data/images/Fruit/0254_94036.png,Code Booklet,Medium,Approved,nectarines; below 500 px minimum; image shared by 5 entries
+94035,Organic Nectarines Small,data/images/Fruit/0255_94035.png,Code Booklet,Medium,Approved,nectarines; below 500 px minimum; image shared by 5 entries
+93035,Organic Nectarines White,data/images/Fruit/0256_93035.png,Code Booklet,None,Rejected,yellow-flesh nectarine shown; product is White; below 500 px minimum; image shared by 5 entries
+94381,Organic Oranges Blood,data/images/Fruit/0257_94381.png,Code Booklet,Medium,Approved,blood orange; below 500 px minimum; image shared by 2 entries
+93110,Organic Oranges Cara Cara,data/images/Fruit/0258_93110.png,Code Booklet,Low,Approximate,cut orange with deep flesh; Cara Cara plausible; below 500 px minimum; image shared by 3 entries
+93029,Organic Oranges Mandarin,data/images/Fruit/0259_93029.png,Code Booklet,Low,Approximate,generic mandarin; below 500 px minimum; image shared by 16 entries
+94391,Organic Oranges Mango,data/images/Fruit/0260_94391.png,Code Booklet,Low,Approximate,generic mandarin; product Mango/orange unclear; below 500 px minimum; image shared by 16 entries
+94453,Organic Oranges Murcott,data/images/Fruit/0261_94453.png,Code Booklet,Low,Approximate,generic mandarin; image reused; below 500 px minimum; image shared by 16 entries
+94012,Organic Oranges Navel Large,data/images/Fruit/0262_94012.png,Code Booklet,Medium,Approved,navel orange; below 500 px minimum; image shared by 7 entries
+93107,Organic Oranges Navel Medium,data/images/Fruit/0263_93107.png,Code Booklet,Medium,Approved,navel orange; below 500 px minimum; image shared by 7 entries
+93109,Organic Oranges Seville,data/images/Fruit/0264_93109.png,Code Booklet,Low,Approximate,sweet orange; Seville is bitter and rougher; below 500 px minimum; image shared by 7 entries
+94456,Organic Oranges Tangelos,data/images/Fruit/0265_94456.png,Code Booklet,Medium,Approved,tangelos; below 500 px minimum; image shared by 2 entries
+94458,Organic Oranges Tangerine,data/images/Fruit/0266_94458.png,Code Booklet,Low,Approximate,generic mandarin; below 500 px minimum; image shared by 16 entries
+94457,Organic Oranges TDE Tangerine,data/images/Fruit/0267_94457.png,Code Booklet,Low,Approximate,generic mandarin; below 500 px minimum; image shared by 16 entries
+93227,Organic Oranges Torange,data/images/Fruit/0268_93227.png,Code Booklet,Low,Approximate,generic mandarin; Torange not distinguishable; below 500 px minimum; image shared by 16 entries
+93108,Organic Oranges Valencia,data/images/Fruit/0269_93108.png,Code Booklet,Low,Approximate,cut orange; Valencia not distinguishable; below 500 px minimum; image shared by 7 entries
+94388,Organic Oranges Valencia,data/images/Fruit/0270_94388.png,Code Booklet,Low,Approximate,cut orange; Valencia not distinguishable; below 500 px minimum; image shared by 7 entries
+94044,Organic Peaches Tree Ripened,data/images/Fruit/0271_94044.png,Code Booklet,Medium,Approved,peaches; below 500 px minimum; image shared by 4 entries
+94401,Organic Peaches White,data/images/Fruit/0272_94401.png,Code Booklet,Medium,Approved,white peaches; below 500 px minimum; image shared by 2 entries
+94038,Organic Peaches Yellow Lrg,data/images/Fruit/0273_94038.png,Code Booklet,Medium,Approved,peaches; below 500 px minimum; image shared by 4 entries
+93016,Organic Pear Concord,data/images/Fruit/0274_93016.png,Code Booklet,None,Rejected,tiny pear in corner of image; unusable crop; below 500 px minimum; image shared by 2 entries
+94416,Organic Pear D'Anjou,data/images/Fruit/0275_94416.png,Code Booklet,Low,Approximate,small green/red pears; D'Anjou is large; below 500 px minimum
+94116,Organic Pears Bartlett,data/images/Fruit/0276_94116.png,Code Booklet,Medium,Approved,Bartlett pears; below 500 px minimum; image shared by 3 entries
+94409,Organic Pears Bartlett Green,data/images/Fruit/0277_94409.png,Code Booklet,Medium,Approved,Bartlett green; below 500 px minimum; image shared by 3 entries
+94410,Organic Pears Bartlett Red,data/images/Fruit/0278_94410.png,Code Booklet,Medium,Approved,Bartlett red; below 500 px minimum; image shared by 4 entries
+94413,Organic Pears Bosc,data/images/Fruit/0279_94413.png,Code Booklet,Medium,Approved,Bosc pears; below 500 px minimum; image shared by 2 entries
+94430,Organic Pineapple,data/images/Fruit/0280_94430.png,Code Booklet,Medium,Approved,pineapple; below 500 px minimum; image shared by 7 entries
+94433,Organic Pineapple,data/images/Fruit/0281_94433.png,Code Booklet,Medium,Approved,pineapple; below 500 px minimum; image shared by 7 entries
+94281,Organic Pink Grapefruit,data/images/Fruit/0282_94281.png,Code Booklet,Medium,Approved,pink grapefruit; below 500 px minimum; image shared by 8 entries
+94040,Organic Plum Black,data/images/Fruit/0283_94040.png,AI Generated,Medium,Approved,black plums; below 500 px minimum; image shared by 4 entries
+94042,Organic Plum Red,data/images/Fruit/0284_94042.png,Code Booklet,Medium,Approved,red plums; below 500 px minimum; image shared by 5 entries
+94039,Organic Plums Black Small,data/images/Fruit/0285_94039.png,AI Generated,Medium,Approved,black plums; below 500 px minimum; image shared by 4 entries
+94041,Organic Plums Red Small,data/images/Fruit/0286_94041.png,Code Booklet,Medium,Approved,red plums; below 500 px minimum; image shared by 5 entries
+93127,Organic Pomegrante,data/images/Fruit/0287_93127.png,Code Booklet,Medium,Approved,pomegranate; below 500 px minimum; image shared by 2 entries
+94047,Organic Red Grapefruit,data/images/Fruit/0288_94047.png,Code Booklet,Medium,Approved,red grapefruit; below 500 px minimum
+94023,Organic Red Seedless Grapes,data/images/Fruit/0289_94023.png,Code Booklet,Medium,Approved,red grapes; below 500 px minimum; image shared by 4 entries
+94173,Organic Royal Gala Apples,data/images/Fruit/0290_94173.png,Code Booklet,Medium,Approved,Royal Gala; below 500 px minimum; image shared by 6 entries
+94461,Organic Shaddock,data/images/Fruit/0291_94461.png,Code Booklet,Medium,Approved,pomelo/shaddock; below 500 px minimum; image shared by 6 entries
+94252,Organic Strawberry Pint,data/images/Fruit/0292_94252.png,Code Booklet,Medium,Approved,strawberries; below 500 px minimum; image shared by 7 entries
+94022,Organic White Grapes,data/images/Fruit/0293_94022.png,Code Booklet,Medium,Approved,green grapes; below 500 px minimum; image shared by 8 entries
 4076,Leaf lettuce green,data/images/Vegetable/0294_4076.jpg,Code Booklet,Medium,Approved,green leaf lettuce; below 500 px minimum; image shared by 3 entries
 4061,Lettuce Iceberg,data/images/Vegetable/0295_4061.jpg,Code Booklet,Medium,Approved,iceberg lettuce; below 500 px minimum; image shared by 2 entries
 4075,Lettuce Red Leaf,data/images/Vegetable/0296_4075.jpg,Code Booklet,Medium,Approved,red leaf lettuce; below 500 px minimum
@@ -496,103 +496,103 @@
 4675,Peas Sugar Snap,data/images/Vegetable/0495_4675.jpg,AI Generated,Medium,Approved,sugar snap peas; below 500 px minimum
 4676,Peas Tips,data/images/Vegetable/0496_4676.jpg,AI Generated,Medium,Approved,pea tips; below 500 px minimum
 4745,Rhubarb KG,data/images/Vegetable/0497_4745.jpg,Code Booklet,Medium,Approved,rhubarb; below 500 px minimum; image shared by 2 entries
-94885,Organic Basil,data/images/Vegetable/0498_94885.jpg,AI Generated,Medium,Approved,basil; below 500 px minimum; image shared by 3 entries
-94539,Organic Beets,data/images/Vegetable/0499_94539.jpg,Code Booklet,Medium,Approved,beets; below 500 px minimum; image shared by 3 entries
-93277,Organic Broccolini,data/images/Vegetable/0500_93277.jpg,AI Generated,Medium,Approved,broccolini; below 500 px minimum
-94069,Organic Cabbage Green,data/images/Vegetable/0501_94069.jpg,Code Booklet,Medium,Approved,green cabbage; below 500 px minimum; image shared by 3 entries
-94554,Organic Cabbage Red,data/images/Vegetable/0502_94554.jpg,Code Booklet,Medium,Approved,red cabbage; below 500 px minimum; image shared by 2 entries
-94094,Organic Carrots Bunch,data/images/Vegetable/0503_94094.jpg,Code Booklet,Medium,Approved,carrot bunch; below 500 px minimum; image shared by 4 entries
-94079,Organic Cauliflower,data/images/Vegetable/0504_94079.jpg,Code Booklet,Medium,Approved,cauliflower; below 500 px minimum; image shared by 2 entries
-94070,Organic Celery,data/images/Vegetable/0505_94070.jpg,Code Booklet,Medium,Approved,celery; below 500 px minimum; image shared by 2 entries
-94586,Organic Chard Green,data/images/Vegetable/0506_94586.jpg,Code Booklet,Medium,Approved,green chard; below 500 px minimum; image shared by 3 entries
-94588,Organic Chard Rainbow,data/images/Vegetable/0507_94588.jpg,Code Booklet,Low,Approximate,green chard only; rainbow stems not visible; below 500 px minimum; image shared by 3 entries
-94910,Organic Chives,data/images/Vegetable/0508_94910.jpg,AI Generated,Medium,Approved,chives; below 500 px minimum
-94889,Organic Cilantro,data/images/Vegetable/0509_94889.jpg,Code Booklet,Medium,Approved,cilantro; below 500 px minimum; image shared by 3 entries
-94614,Organic Collard Greens,data/images/Vegetable/0510_94614.jpg,Code Booklet,Medium,Approved,collard greens; below 500 px minimum
-94593,Organic Cucumber European,data/images/Vegetable/0511_94593.jpg,Code Booklet,Medium,Approved,European cucumber; below 500 px minimum; image shared by 2 entries
-94062,Organic Cucumber Field (Green),data/images/Vegetable/0512_94062.jpg,Code Booklet,Medium,Approved,field cucumbers; below 500 px minimum; image shared by 2 entries
-94892,Organic Dill,data/images/Vegetable/0513_94892.jpg,Code Booklet,Medium,Approved,dill; below 500 px minimum; image shared by 3 entries
-94081,Organic Eggplant,data/images/Vegetable/0514_94081.jpg,Code Booklet,Medium,Approved,eggplant; below 500 px minimum; image shared by 3 entries
-94600,Organic Eggplant White,data/images/Vegetable/0515_94600.jpg,AI Generated,Medium,Approved,white eggplant; below 500 px minimum
-94608,Organic Garlic,data/images/Vegetable/0516_94608.jpg,Code Booklet,Medium,Approved,garlic; below 500 px minimum; image shared by 2 entries
-94096,Organic Ginger Gold,data/images/Vegetable/0517_94096.jpg,Code Booklet,Medium,Approved,ginger; below 500 px minimum; image shared by 2 entries
-94066,Organic Green Beans,data/images/Vegetable/0518_94066.jpg,Code Booklet,Medium,Approved,green beans; below 500 px minimum; image shared by 2 entries
-94061,Organic Head Lettuce (iceburg),data/images/Vegetable/0519_94061.jpg,Code Booklet,Medium,Approved,iceberg lettuce; below 500 px minimum; image shared by 2 entries
-94799,Organic Hot House Tomatoe,data/images/Vegetable/0520_94799.jpg,Code Booklet,Medium,Approved,hot house tomato; below 500 px minimum; image shared by 3 entries
-94621,Organic Kale Black,data/images/Vegetable/0521_94621.jpg,AI Generated,Medium,Approved,black kale; below 500 px minimum; image shared by 3 entries
-94624,Organic Kale Black,data/images/Vegetable/0522_94624.jpg,AI Generated,Medium,Approved,black kale; below 500 px minimum; image shared by 3 entries
-94627,Organic Kale Greens,data/images/Vegetable/0523_94627.jpg,Code Booklet,Medium,Approved,curly kale; below 500 px minimum; image shared by 2 entries
-94623,Organic Kale Red,data/images/Vegetable/0524_94623.jpg,AI Generated,Medium,Approved,red kale; below 500 px minimum; image shared by 4 entries
-9463,Organic Kale Red,data/images/Vegetable/0525_9463.jpg,AI Generated,Medium,Approved,red kale; below 500 px minimum; image shared by 4 entries
-94076,Organic Leaf Lettuce Green,data/images/Vegetable/0526_94076.jpg,Code Booklet,Medium,Approved,green leaf lettuce; below 500 px minimum; image shared by 3 entries
-94075,Organic Leaf Lettuce Red,data/images/Vegetable/0527_94075.jpg,Code Booklet,None,Rejected,green leaf lettuce shown; product is Red leaf; below 500 px minimum; image shared by 3 entries
-94629,Organic Leeks,data/images/Vegetable/0528_94629.jpg,Code Booklet,Medium,Approved,leeks; below 500 px minimum; image shared by 2 entries
-93097,Organic Lettuc Red Romaine,data/images/Vegetable/0529_93097.jpg,AI Generated,Medium,Approved,red romaine; below 500 px minimum; image shared by 2 entries
-94632,Organic Lettuce Boston/Butter,data/images/Vegetable/0530_94632.jpg,AI Generated,Medium,Approved,Boston/butter lettuce; below 500 px minimum; image shared by 3 entries
-94640,Organic Lettuce Romaine,data/images/Vegetable/0531_94640.jpg,Code Booklet,Medium,Approved,romaine; below 500 px minimum; image shared by 3 entries
-94896,Organic Mint,data/images/Vegetable/0532_94896.jpg,Code Booklet,Medium,Approved,mint; below 500 px minimum; image shared by 2 entries
-94649,Organic Mushroom Oyster,data/images/Vegetable/0533_94649.jpg,AI Generated,Medium,Approved,oyster mushrooms; below 500 px minimum
-94657,Organic Mushroom Portabello,data/images/Vegetable/0534_94657.jpg,Code Booklet,Medium,Approved,portabello mushrooms; below 500 px minimum
-94648,Organic Mushrooms Brown,data/images/Vegetable/0535_94648.jpg,Code Booklet,Medium,Approved,brown mushrooms; below 500 px minimum; image shared by 2 entries
-94648,Organic Mushrooms Crimini,data/images/Vegetable/0536_94648.jpg,Code Booklet,Medium,Approved,crimini mushrooms; below 500 px minimum; image shared by 2 entries
-94651,Organic Mushrooms Shitake,data/images/Vegetable/0537_94651.jpg,AI Generated,Medium,Approved,shiitake mushrooms; below 500 px minimum
-94085,Organic Mushrooms White,data/images/Vegetable/0538_94085.jpg,Code Booklet,Medium,Approved,white mushrooms; below 500 px minimum
-94616,Organic Mustard Greens,data/images/Vegetable/0539_94616.jpg,AI Generated,Medium,Approved,mustard greens; below 500 px minimum
-94655,Organic Okra,data/images/Vegetable/0540_94655.jpg,Code Booklet,Medium,Approved,okra; below 500 px minimum
-94068,Organic Onion Green,data/images/Vegetable/0541_94068.jpg,Code Booklet,Medium,Approved,green onions; below 500 px minimum; image shared by 2 entries
-94082,Organic Onion Red,data/images/Vegetable/0542_94082.jpg,Code Booklet,Medium,Approved,red onion; below 500 px minimum; image shared by 2 entries
-94662,Organic Onion Shallots,data/images/Vegetable/0543_94662.jpg,Code Booklet,Medium,Approved,shallots; below 500 px minimum; image shared by 2 entries
-94093,Organic Onion Spanish,data/images/Vegetable/0544_94093.jpg,Code Booklet,Medium,Approved,Spanish onions; below 500 px minimum
-94665,Organic Onion Yellow,data/images/Vegetable/0545_94665.jpg,Code Booklet,Medium,Approved,yellow onion; below 500 px minimum; image shared by 3 entries
-94666,Organic Onions White,data/images/Vegetable/0546_94666.jpg,Code Booklet,Medium,Approved,white onion; below 500 px minimum; image shared by 2 entries
-94093,Organic Onions Yellow,data/images/Vegetable/0547_94093.jpg,Code Booklet,Medium,Approved,yellow onion; below 500 px minimum; image shared by 3 entries
-94901,Organic Parsley,data/images/Vegetable/0548_94901.jpg,Code Booklet,Medium,Approved,curly parsley; below 500 px minimum; image shared by 3 entries
-94900,Organic Parsley Flat,data/images/Vegetable/0549_94900.jpg,Code Booklet,Medium,Approved,flat parsley; below 500 px minimum; image shared by 3 entries
-94323,Organic Pepper Chocolate,data/images/Vegetable/0550_94323.jpg,AI Generated,Medium,Approved,chocolate bell pepper; below 500 px minimum; image shared by 2 entries
-94065,Organic Pepper Green,data/images/Vegetable/0551_94065.jpg,Code Booklet,Medium,Approved,green pepper; below 500 px minimum; image shared by 3 entries
-93120,Organic Pepper Green Bell,data/images/Vegetable/0552_93120.jpg,Code Booklet,Medium,Approved,green bell pepper; below 500 px minimum; image shared by 3 entries
-93121,Organic Pepper Orange,data/images/Vegetable/0553_93121.jpg,Code Booklet,Medium,Approved,orange pepper; below 500 px minimum; image shared by 2 entries
-93124,Organic Pepper Purple Bell,data/images/Vegetable/0554_93124.jpg,AI Generated,Medium,Approved,purple bell pepper; below 500 px minimum; image shared by 2 entries
-94088,Organic Pepper Red,data/images/Vegetable/0555_94088.jpg,Code Booklet,Medium,Approved,red pepper; below 500 px minimum; image shared by 3 entries
-94689,Organic Pepper Yellow,data/images/Vegetable/0556_94689.jpg,Code Booklet,Medium,Approved,yellow pepper; below 500 px minimum; image shared by 2 entries
-94072,Organic Potato Baking,data/images/Vegetable/0557_94072.jpg,Code Booklet,Medium,Approved,baking potato; below 500 px minimum; image shared by 2 entries
-94823,Organic Potato Nugget,data/images/Vegetable/0558_94823.jpg,AI Generated,Low,Approximate,small yellow potatoes; Nugget plausible; below 500 px minimum; image shared by 3 entries
-93128,Organic Potato Purple,data/images/Vegetable/0559_93128.jpg,AI Generated,Medium,Approved,purple potatoes; below 500 px minimum; image shared by 2 entries
-94723,Organic Potato Red,data/images/Vegetable/0560_94723.jpg,Code Booklet,Medium,Approved,red potatoes; below 500 px minimum; image shared by 3 entries
-94823,Organic Potato White,data/images/Vegetable/0561_94823.jpg,Code Booklet,Medium,Approved,white potatoes; below 500 px minimum; image shared by 2 entries
-94829,Organic Potato Yellow,data/images/Vegetable/0562_94829.jpg,Code Booklet,Medium,Approved,yellow potatoes; below 500 px minimum; image shared by 3 entries
-94073,Organic Potatoes Red,data/images/Vegetable/0563_94073.jpg,Code Booklet,Medium,Approved,red potatoes; below 500 px minimum; image shared by 3 entries
-94089,Organic Radish Bunch,data/images/Vegetable/0564_94089.jpg,Code Booklet,Medium,Approved,radishes; below 500 px minimum; image shared by 2 entries
-94664,Organic Red Cluster Tomatoes,data/images/Vegetable/0565_94664.jpg,Code Booklet,Medium,Approved,red cluster tomatoes; below 500 px minimum; image shared by 4 entries
-94745,Organic Rhubarb,data/images/Vegetable/0566_94745.jpg,Code Booklet,Medium,Approved,rhubarb; below 500 px minimum; image shared by 2 entries
-93320,Organic Romanesco,data/images/Vegetable/0567_93320.jpg,AI Generated,Medium,Approved,romanesco; below 500 px minimum
-94090,Organic Spinach,data/images/Vegetable/0568_94090.jpg,AI Generated,Medium,Approved,spinach; below 500 px minimum; image shared by 2 entries
-94750,Organic Squash Acorn,data/images/Vegetable/0569_94750.jpg,Code Booklet,Medium,Approved,acorn squash; below 500 px minimum; image shared by 5 entries
-94758,Organic Squash Buttercup,data/images/Vegetable/0570_94758.jpg,AI Generated,None,Rejected,shows butter lettuce; product is Buttercup squash; below 500 px minimum; image shared by 3 entries
-94759,Organic Squash Butternut,data/images/Vegetable/0571_94759.jpg,AI Generated,None,Rejected,shows butter lettuce; product is Butternut squash; below 500 px minimum; image shared by 3 entries
-93142,Organic Squash Carnivale,data/images/Vegetable/0572_93142.jpg,AI Generated,Medium,Approved,carnival squash; below 500 px minimum
-94763,Organic Squash Delicata,data/images/Vegetable/0573_94763.jpg,AI Generated,Medium,Approved,delicata squash; below 500 px minimum
-94764,Organic Squash Dumpling Sweet,data/images/Vegetable/0574_94764.jpg,AI Generated,Medium,Approved,sweet dumpling squash; below 500 px minimum; image shared by 2 entries
-93418,Organic Squash Eightball,data/images/Vegetable/0575_93418.jpg,AI Generated,Medium,Approved,eight ball squash; below 500 px minimum
-94785,Organic Squash Festival,data/images/Vegetable/0576_94785.jpg,AI Generated,Medium,Approved,festival squash; below 500 px minimum
-94769,Organic Squash Kabocha,data/images/Vegetable/0577_94769.jpg,AI Generated,Medium,Approved,kabocha; below 500 px minimum; image shared by 4 entries
-94773,Organic Squash Patty Pan,data/images/Vegetable/0578_94773.jpg,Produce Guide,Medium,Approved,pattypan squash; stray mark at left edge; below 500 px minimum; image shared by 2 entries
-94774,Organic Squash Red Kurri,data/images/Vegetable/0579_94774.jpg,AI Generated,Low,Approximate,dark green kabocha shown; Red Kuri is orange; below 500 px minimum; image shared by 4 entries
-94776,Organic Squash Spaghetti,data/images/Vegetable/0580_94776.jpg,Code Booklet,Medium,Approved,spaghetti squash; below 500 px minimum; image shared by 2 entries
-94769,Organic Squash Stripetti,data/images/Vegetable/0581_94769.jpg,AI Generated,Medium,Approved,stripetti squash; below 500 px minimum; image shared by 2 entries
-94777,Organic Squash Sunburst,data/images/Vegetable/0582_94777.jpg,AI Generated,Medium,Approved,sunburst squash; below 500 px minimum; image shared by 2 entries
-94782,Organic Squash Yellow,data/images/Vegetable/0583_94782.jpg,AI Generated,Medium,Approved,yellow crookneck squash; below 500 px minimum; image shared by 3 entries
-94587,Organic Swiss Chard Red,data/images/Vegetable/0584_94587.jpg,Code Booklet,Medium,Approved,red Swiss chard; below 500 px minimum; image shared by 2 entries
-94993,Organic Tomato Cherry,data/images/Vegetable/0585_94993.jpg,AI Generated,Medium,Approved,cherry tomatoes; below 500 px minimum; image shared by 2 entries
-94860,Organic Tomato Field,data/images/Vegetable/0586_94860.jpg,Code Booklet,Medium,Approved,field tomatoes; below 500 px minimum; image shared by 4 entries
-93150,Organic Tomato Grape,data/images/Vegetable/0587_93150.jpg,AI Generated,Medium,Approved,grape tomatoes; below 500 px minimum
-93423,Organic Tomato Heirloom,data/images/Vegetable/0588_93423.jpg,AI Generated,Medium,Approved,heirloom tomatoes; below 500 px minimum; image shared by 2 entries
-94664,Organic Tomato On the Vine,data/images/Vegetable/0589_94664.jpg,Code Booklet,Medium,Approved,tomatoes on the vine; below 500 px minimum; image shared by 4 entries
-94087,Organic Tomato Plum Roma,data/images/Vegetable/0590_94087.jpg,Code Booklet,Medium,Approved,Roma tomatoes; below 500 px minimum; image shared by 2 entries
-94063,Organic Tomato Red,data/images/Vegetable/0591_94063.jpg,Code Booklet,Medium,Approved,red tomatoes; below 500 px minimum; image shared by 4 entries
-94064,Organic Tomato Red Large,data/images/Vegetable/0592_94064.jpg,Code Booklet,Medium,Approved,red tomatoes; below 500 px minimum; image shared by 4 entries
-94798,Organic Tomatoes,data/images/Vegetable/0593_94798.jpg,Code Booklet,Medium,Approved,red tomatoes; below 500 px minimum; image shared by 4 entries
-94816,Organic Yam,data/images/Vegetable/0594_94816.jpg,Code Booklet,Low,Approximate,orange sweet potatoes shown for yam; below 500 px minimum; image shared by 5 entries
-94074,Organic Yams Red Garnet,data/images/Vegetable/0595_94074.jpg,Code Booklet,Medium,Approved,garnet yam; below 500 px minimum; image shared by 5 entries
-94067,Organic Zucchini,data/images/Vegetable/0596_94067.jpg,Code Booklet,Medium,Approved,zucchini; below 500 px minimum; image shared by 4 entries
-94086,Organic Zucchini Yellow,data/images/Vegetable/0597_94086.jpg,Code Booklet,Medium,Approved,yellow zucchini; below 500 px minimum; image shared by 3 entries
+94885,Organic Basil,data/images/Vegetable/0498_94885.png,AI Generated,Medium,Approved,basil; below 500 px minimum; image shared by 3 entries
+94539,Organic Beets,data/images/Vegetable/0499_94539.png,Code Booklet,Medium,Approved,beets; below 500 px minimum; image shared by 3 entries
+93277,Organic Broccolini,data/images/Vegetable/0500_93277.png,AI Generated,Medium,Approved,broccolini; below 500 px minimum
+94069,Organic Cabbage Green,data/images/Vegetable/0501_94069.png,Code Booklet,Medium,Approved,green cabbage; below 500 px minimum; image shared by 3 entries
+94554,Organic Cabbage Red,data/images/Vegetable/0502_94554.png,Code Booklet,Medium,Approved,red cabbage; below 500 px minimum; image shared by 2 entries
+94094,Organic Carrots Bunch,data/images/Vegetable/0503_94094.png,Code Booklet,Medium,Approved,carrot bunch; below 500 px minimum; image shared by 4 entries
+94079,Organic Cauliflower,data/images/Vegetable/0504_94079.png,Code Booklet,Medium,Approved,cauliflower; below 500 px minimum; image shared by 2 entries
+94070,Organic Celery,data/images/Vegetable/0505_94070.png,Code Booklet,Medium,Approved,celery; below 500 px minimum; image shared by 2 entries
+94586,Organic Chard Green,data/images/Vegetable/0506_94586.png,Code Booklet,Medium,Approved,green chard; below 500 px minimum; image shared by 3 entries
+94588,Organic Chard Rainbow,data/images/Vegetable/0507_94588.png,Code Booklet,Low,Approximate,green chard only; rainbow stems not visible; below 500 px minimum; image shared by 3 entries
+94910,Organic Chives,data/images/Vegetable/0508_94910.png,AI Generated,Medium,Approved,chives; below 500 px minimum
+94889,Organic Cilantro,data/images/Vegetable/0509_94889.png,Code Booklet,Medium,Approved,cilantro; below 500 px minimum; image shared by 3 entries
+94614,Organic Collard Greens,data/images/Vegetable/0510_94614.png,Code Booklet,Medium,Approved,collard greens; below 500 px minimum
+94593,Organic Cucumber European,data/images/Vegetable/0511_94593.png,Code Booklet,Medium,Approved,European cucumber; below 500 px minimum; image shared by 2 entries
+94062,Organic Cucumber Field (Green),data/images/Vegetable/0512_94062.png,Code Booklet,Medium,Approved,field cucumbers; below 500 px minimum; image shared by 2 entries
+94892,Organic Dill,data/images/Vegetable/0513_94892.png,Code Booklet,Medium,Approved,dill; below 500 px minimum; image shared by 3 entries
+94081,Organic Eggplant,data/images/Vegetable/0514_94081.png,Code Booklet,Medium,Approved,eggplant; below 500 px minimum; image shared by 3 entries
+94600,Organic Eggplant White,data/images/Vegetable/0515_94600.png,AI Generated,Medium,Approved,white eggplant; below 500 px minimum
+94608,Organic Garlic,data/images/Vegetable/0516_94608.png,Code Booklet,Medium,Approved,garlic; below 500 px minimum; image shared by 2 entries
+94096,Organic Ginger Gold,data/images/Vegetable/0517_94096.png,Code Booklet,Medium,Approved,ginger; below 500 px minimum; image shared by 2 entries
+94066,Organic Green Beans,data/images/Vegetable/0518_94066.png,Code Booklet,Medium,Approved,green beans; below 500 px minimum; image shared by 2 entries
+94061,Organic Head Lettuce (iceburg),data/images/Vegetable/0519_94061.png,Code Booklet,Medium,Approved,iceberg lettuce; below 500 px minimum; image shared by 2 entries
+94799,Organic Hot House Tomatoe,data/images/Vegetable/0520_94799.png,Code Booklet,Medium,Approved,hot house tomato; below 500 px minimum; image shared by 3 entries
+94621,Organic Kale Black,data/images/Vegetable/0521_94621.png,AI Generated,Medium,Approved,black kale; below 500 px minimum; image shared by 3 entries
+94624,Organic Kale Black,data/images/Vegetable/0522_94624.png,AI Generated,Medium,Approved,black kale; below 500 px minimum; image shared by 3 entries
+94627,Organic Kale Greens,data/images/Vegetable/0523_94627.png,Code Booklet,Medium,Approved,curly kale; below 500 px minimum; image shared by 2 entries
+94623,Organic Kale Red,data/images/Vegetable/0524_94623.png,AI Generated,Medium,Approved,red kale; below 500 px minimum; image shared by 4 entries
+9463,Organic Kale Red,data/images/Vegetable/0525_9463.png,AI Generated,Medium,Approved,red kale; below 500 px minimum; image shared by 4 entries
+94076,Organic Leaf Lettuce Green,data/images/Vegetable/0526_94076.png,Code Booklet,Medium,Approved,green leaf lettuce; below 500 px minimum; image shared by 3 entries
+94075,Organic Leaf Lettuce Red,data/images/Vegetable/0527_94075.png,Code Booklet,None,Rejected,green leaf lettuce shown; product is Red leaf; below 500 px minimum; image shared by 3 entries
+94629,Organic Leeks,data/images/Vegetable/0528_94629.png,Code Booklet,Medium,Approved,leeks; below 500 px minimum; image shared by 2 entries
+93097,Organic Lettuc Red Romaine,data/images/Vegetable/0529_93097.png,AI Generated,Medium,Approved,red romaine; below 500 px minimum; image shared by 2 entries
+94632,Organic Lettuce Boston/Butter,data/images/Vegetable/0530_94632.png,AI Generated,Medium,Approved,Boston/butter lettuce; below 500 px minimum; image shared by 3 entries
+94640,Organic Lettuce Romaine,data/images/Vegetable/0531_94640.png,Code Booklet,Medium,Approved,romaine; below 500 px minimum; image shared by 3 entries
+94896,Organic Mint,data/images/Vegetable/0532_94896.png,Code Booklet,Medium,Approved,mint; below 500 px minimum; image shared by 2 entries
+94649,Organic Mushroom Oyster,data/images/Vegetable/0533_94649.png,AI Generated,Medium,Approved,oyster mushrooms; below 500 px minimum
+94657,Organic Mushroom Portabello,data/images/Vegetable/0534_94657.png,Code Booklet,Medium,Approved,portabello mushrooms; below 500 px minimum
+94648,Organic Mushrooms Brown,data/images/Vegetable/0535_94648.png,Code Booklet,Medium,Approved,brown mushrooms; below 500 px minimum; image shared by 2 entries
+94648,Organic Mushrooms Crimini,data/images/Vegetable/0536_94648.png,Code Booklet,Medium,Approved,crimini mushrooms; below 500 px minimum; image shared by 2 entries
+94651,Organic Mushrooms Shitake,data/images/Vegetable/0537_94651.png,AI Generated,Medium,Approved,shiitake mushrooms; below 500 px minimum
+94085,Organic Mushrooms White,data/images/Vegetable/0538_94085.png,Code Booklet,Medium,Approved,white mushrooms; below 500 px minimum
+94616,Organic Mustard Greens,data/images/Vegetable/0539_94616.png,AI Generated,Medium,Approved,mustard greens; below 500 px minimum
+94655,Organic Okra,data/images/Vegetable/0540_94655.png,Code Booklet,Medium,Approved,okra; below 500 px minimum
+94068,Organic Onion Green,data/images/Vegetable/0541_94068.png,Code Booklet,Medium,Approved,green onions; below 500 px minimum; image shared by 2 entries
+94082,Organic Onion Red,data/images/Vegetable/0542_94082.png,Code Booklet,Medium,Approved,red onion; below 500 px minimum; image shared by 2 entries
+94662,Organic Onion Shallots,data/images/Vegetable/0543_94662.png,Code Booklet,Medium,Approved,shallots; below 500 px minimum; image shared by 2 entries
+94093,Organic Onion Spanish,data/images/Vegetable/0544_94093.png,Code Booklet,Medium,Approved,Spanish onions; below 500 px minimum
+94665,Organic Onion Yellow,data/images/Vegetable/0545_94665.png,Code Booklet,Medium,Approved,yellow onion; below 500 px minimum; image shared by 3 entries
+94666,Organic Onions White,data/images/Vegetable/0546_94666.png,Code Booklet,Medium,Approved,white onion; below 500 px minimum; image shared by 2 entries
+94093,Organic Onions Yellow,data/images/Vegetable/0547_94093.png,Code Booklet,Medium,Approved,yellow onion; below 500 px minimum; image shared by 3 entries
+94901,Organic Parsley,data/images/Vegetable/0548_94901.png,Code Booklet,Medium,Approved,curly parsley; below 500 px minimum; image shared by 3 entries
+94900,Organic Parsley Flat,data/images/Vegetable/0549_94900.png,Code Booklet,Medium,Approved,flat parsley; below 500 px minimum; image shared by 3 entries
+94323,Organic Pepper Chocolate,data/images/Vegetable/0550_94323.png,AI Generated,Medium,Approved,chocolate bell pepper; below 500 px minimum; image shared by 2 entries
+94065,Organic Pepper Green,data/images/Vegetable/0551_94065.png,Code Booklet,Medium,Approved,green pepper; below 500 px minimum; image shared by 3 entries
+93120,Organic Pepper Green Bell,data/images/Vegetable/0552_93120.png,Code Booklet,Medium,Approved,green bell pepper; below 500 px minimum; image shared by 3 entries
+93121,Organic Pepper Orange,data/images/Vegetable/0553_93121.png,Code Booklet,Medium,Approved,orange pepper; below 500 px minimum; image shared by 2 entries
+93124,Organic Pepper Purple Bell,data/images/Vegetable/0554_93124.png,AI Generated,Medium,Approved,purple bell pepper; below 500 px minimum; image shared by 2 entries
+94088,Organic Pepper Red,data/images/Vegetable/0555_94088.png,Code Booklet,Medium,Approved,red pepper; below 500 px minimum; image shared by 3 entries
+94689,Organic Pepper Yellow,data/images/Vegetable/0556_94689.png,Code Booklet,Medium,Approved,yellow pepper; below 500 px minimum; image shared by 2 entries
+94072,Organic Potato Baking,data/images/Vegetable/0557_94072.png,Code Booklet,Medium,Approved,baking potato; below 500 px minimum; image shared by 2 entries
+94823,Organic Potato Nugget,data/images/Vegetable/0558_94823.png,AI Generated,Low,Approximate,small yellow potatoes; Nugget plausible; below 500 px minimum; image shared by 3 entries
+93128,Organic Potato Purple,data/images/Vegetable/0559_93128.png,AI Generated,Medium,Approved,purple potatoes; below 500 px minimum; image shared by 2 entries
+94723,Organic Potato Red,data/images/Vegetable/0560_94723.png,Code Booklet,Medium,Approved,red potatoes; below 500 px minimum; image shared by 3 entries
+94823,Organic Potato White,data/images/Vegetable/0561_94823.png,Code Booklet,Medium,Approved,white potatoes; below 500 px minimum; image shared by 2 entries
+94829,Organic Potato Yellow,data/images/Vegetable/0562_94829.png,Code Booklet,Medium,Approved,yellow potatoes; below 500 px minimum; image shared by 3 entries
+94073,Organic Potatoes Red,data/images/Vegetable/0563_94073.png,Code Booklet,Medium,Approved,red potatoes; below 500 px minimum; image shared by 3 entries
+94089,Organic Radish Bunch,data/images/Vegetable/0564_94089.png,Code Booklet,Medium,Approved,radishes; below 500 px minimum; image shared by 2 entries
+94664,Organic Red Cluster Tomatoes,data/images/Vegetable/0565_94664.png,Code Booklet,Medium,Approved,red cluster tomatoes; below 500 px minimum; image shared by 4 entries
+94745,Organic Rhubarb,data/images/Vegetable/0566_94745.png,Code Booklet,Medium,Approved,rhubarb; below 500 px minimum; image shared by 2 entries
+93320,Organic Romanesco,data/images/Vegetable/0567_93320.png,AI Generated,Medium,Approved,romanesco; below 500 px minimum
+94090,Organic Spinach,data/images/Vegetable/0568_94090.png,AI Generated,Medium,Approved,spinach; below 500 px minimum; image shared by 2 entries
+94750,Organic Squash Acorn,data/images/Vegetable/0569_94750.png,Code Booklet,Medium,Approved,acorn squash; below 500 px minimum; image shared by 5 entries
+94758,Organic Squash Buttercup,data/images/Vegetable/0570_94758.png,AI Generated,None,Rejected,shows butter lettuce; product is Buttercup squash; below 500 px minimum; image shared by 3 entries
+94759,Organic Squash Butternut,data/images/Vegetable/0571_94759.png,AI Generated,None,Rejected,shows butter lettuce; product is Butternut squash; below 500 px minimum; image shared by 3 entries
+93142,Organic Squash Carnivale,data/images/Vegetable/0572_93142.png,AI Generated,Medium,Approved,carnival squash; below 500 px minimum
+94763,Organic Squash Delicata,data/images/Vegetable/0573_94763.png,AI Generated,Medium,Approved,delicata squash; below 500 px minimum
+94764,Organic Squash Dumpling Sweet,data/images/Vegetable/0574_94764.png,AI Generated,Medium,Approved,sweet dumpling squash; below 500 px minimum; image shared by 2 entries
+93418,Organic Squash Eightball,data/images/Vegetable/0575_93418.png,AI Generated,Medium,Approved,eight ball squash; below 500 px minimum
+94785,Organic Squash Festival,data/images/Vegetable/0576_94785.png,AI Generated,Medium,Approved,festival squash; below 500 px minimum
+94769,Organic Squash Kabocha,data/images/Vegetable/0577_94769.png,AI Generated,Medium,Approved,kabocha; below 500 px minimum; image shared by 4 entries
+94773,Organic Squash Patty Pan,data/images/Vegetable/0578_94773.png,Produce Guide,Medium,Approved,pattypan squash; stray mark at left edge; below 500 px minimum; image shared by 2 entries
+94774,Organic Squash Red Kurri,data/images/Vegetable/0579_94774.png,AI Generated,Low,Approximate,dark green kabocha shown; Red Kuri is orange; below 500 px minimum; image shared by 4 entries
+94776,Organic Squash Spaghetti,data/images/Vegetable/0580_94776.png,Code Booklet,Medium,Approved,spaghetti squash; below 500 px minimum; image shared by 2 entries
+94769,Organic Squash Stripetti,data/images/Vegetable/0581_94769.png,AI Generated,Medium,Approved,stripetti squash; below 500 px minimum; image shared by 2 entries
+94777,Organic Squash Sunburst,data/images/Vegetable/0582_94777.png,AI Generated,Medium,Approved,sunburst squash; below 500 px minimum; image shared by 2 entries
+94782,Organic Squash Yellow,data/images/Vegetable/0583_94782.png,AI Generated,Medium,Approved,yellow crookneck squash; below 500 px minimum; image shared by 3 entries
+94587,Organic Swiss Chard Red,data/images/Vegetable/0584_94587.png,Code Booklet,Medium,Approved,red Swiss chard; below 500 px minimum; image shared by 2 entries
+94993,Organic Tomato Cherry,data/images/Vegetable/0585_94993.png,AI Generated,Medium,Approved,cherry tomatoes; below 500 px minimum; image shared by 2 entries
+94860,Organic Tomato Field,data/images/Vegetable/0586_94860.png,Code Booklet,Medium,Approved,field tomatoes; below 500 px minimum; image shared by 4 entries
+93150,Organic Tomato Grape,data/images/Vegetable/0587_93150.png,AI Generated,Medium,Approved,grape tomatoes; below 500 px minimum
+93423,Organic Tomato Heirloom,data/images/Vegetable/0588_93423.png,AI Generated,Medium,Approved,heirloom tomatoes; below 500 px minimum; image shared by 2 entries
+94664,Organic Tomato On the Vine,data/images/Vegetable/0589_94664.png,Code Booklet,Medium,Approved,tomatoes on the vine; below 500 px minimum; image shared by 4 entries
+94087,Organic Tomato Plum Roma,data/images/Vegetable/0590_94087.png,Code Booklet,Medium,Approved,Roma tomatoes; below 500 px minimum; image shared by 2 entries
+94063,Organic Tomato Red,data/images/Vegetable/0591_94063.png,Code Booklet,Medium,Approved,red tomatoes; below 500 px minimum; image shared by 4 entries
+94064,Organic Tomato Red Large,data/images/Vegetable/0592_94064.png,Code Booklet,Medium,Approved,red tomatoes; below 500 px minimum; image shared by 4 entries
+94798,Organic Tomatoes,data/images/Vegetable/0593_94798.png,Code Booklet,Medium,Approved,red tomatoes; below 500 px minimum; image shared by 4 entries
+94816,Organic Yam,data/images/Vegetable/0594_94816.png,Code Booklet,Low,Approximate,orange sweet potatoes shown for yam; below 500 px minimum; image shared by 5 entries
+94074,Organic Yams Red Garnet,data/images/Vegetable/0595_94074.png,Code Booklet,Medium,Approved,garnet yam; below 500 px minimum; image shared by 5 entries
+94067,Organic Zucchini,data/images/Vegetable/0596_94067.png,Code Booklet,Medium,Approved,zucchini; below 500 px minimum; image shared by 4 entries
+94086,Organic Zucchini Yellow,data/images/Vegetable/0597_94086.png,Code Booklet,Medium,Approved,yellow zucchini; below 500 px minimum; image shared by 3 entries

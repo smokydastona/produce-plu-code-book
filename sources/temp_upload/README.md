@@ -2,7 +2,7 @@
 
 Upload candidate replacement photos here before they are reviewed and sorted into the project.
 
-For each photo, use a filename that identifies the rejected entry, such as `009_honeycrisp.jpg` or `465_napa-cabbage.jpg`. If one photo is intended for multiple entries, identify each entry in a companion note.
+For each photo, use a filename that identifies its entry, such as `009_honeycrisp.jpg` or `465_napa-cabbage.jpg`. Every entry needs a unique photograph, including repeated conventional PLUs. The only reuse exception is an organic entry using its matching conventional product's photo; identify that pairing explicitly for review. Every final organic image must carry the project's standard pink ORGANIC badge in its upper-left corner. Preserve candidate originals without badges here; the badge is not organic certification. Do not use renamed, cropped, resized or recoloured copies to bypass uniqueness.
 
 Include the original source-page URL, creator, licence, and any required attribution for every image. Keep the original file unchanged; do not crop, resize, or approve it here. Images remain candidates until their variety, dimensions, and reuse rights have been checked.
 
@@ -25,4 +25,4 @@ For Wikimedia downloads through GitHub Actions, add candidate file pages to `can
 
 `candidates.json` contains source-specific leads, not approved photographs. Run `python3 tools/candidate_manifest.py sources/temp_upload/candidates.json --markdown candidates_manifest.md` to generate a review checklist locally.
 
-The manually triggered **Fetch unreviewed produce candidates** workflow now uses `retrieve_commons.py --review` to search all 31 rejected entries, trying the known source pages first. It accepts supported CC BY and CC BY-SA licences as well as public-domain declarations, but requires creator metadata. Its downloadable artifact contains unchanged originals, provenance, contact sheets and an acquisition report for all entries. UNRESOLVED means no eligible candidate; ERROR means acquisition failed and the workflow fails. Neither a successful download nor a successful run approves an image. Production registers and booklet images remain untouched.
+The manually triggered **Fetch unreviewed produce candidates** workflow now uses `retrieve_commons.py --review` to search all 31 rejected entries, trying the known source pages first. It accepts supported CC BY and CC BY-SA licences as well as public-domain declarations, but requires creator metadata. Duplicate image content within the package is skipped and later candidates are tried; this includes repeated PLU codes. Its downloadable artifact contains unchanged originals, provenance, contact sheets and an acquisition report for all entries. UNRESOLVED means no unique eligible candidate; ERROR means acquisition failed and the workflow fails. Neither a successful download nor a successful run approves an image. Production registers and booklet images remain untouched.

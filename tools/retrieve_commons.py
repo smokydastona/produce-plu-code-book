@@ -1,4 +1,4 @@
-"""Acquire Commons candidates for rejected entries, without approving booklet images."""
+"""Acquire Commons candidates for rejected or all entries, without approving images."""
 import argparse
 import csv
 import hashlib
@@ -17,6 +17,7 @@ from PIL import Image, ImageDraw, ImageOps
 
 from license_register import write_register
 from verify_images import LICENSES, validate
+from check_image_uniqueness import image_fingerprint
 
 API = "https://commons.wikimedia.org/w/api.php"
 LAST_REQUEST = 0.0
@@ -69,7 +70,7 @@ def fetch(url, user_agent):
 def search(product, user_agent, *, title=None):
     params = {
         "action": "query", "format": "json", "generator": "search",
-        "gsrsearch": f'"{product}" filetype:bitmap', "gsrnamespace": 6,
+        "gsrsearch": f'{product} filetype:bitmap', "gsrnamespace": 6,
         "gsrlimit": 50, "prop": "imageinfo",
         "iiprop": "url|size|mime|extmetadata",
     }
@@ -86,7 +87,15 @@ def search(product, user_agent, *, title=None):
 
 
 def download(plu, product, output, user_agent, *, query=None,
-             licenses=LICENSES, pages=None):
+             licenses=LICENSES, pages=None, used_images=None):
+    if list(output.glob(f"{plu}.*")):
+        raise FileExistsError(f"candidate already exists for PLU {plu}; will not overwrite")
+    if used_images is None:
+        used_images = {
+            image_fingerprint(path): str(path)
+            for path in output.rglob("*")
+            if path.is_file() and path.suffix.lower() in {".jpg", ".jpeg", ".png"}
+        }
     for page in search(query or product, user_agent) if pages is None else pages:
         info = page.get("imageinfo", [{}])[0]
         extra = info.get("extmetadata", {})
@@ -110,10 +119,13 @@ def download(plu, product, output, user_agent, *, query=None,
             width, height = image.size
         if min(width, height) < 500:
             continue
+        fingerprint = image_fingerprint(io.BytesIO(content))
+        if fingerprint in used_images:
+            print(f"SKIP {plu}: duplicate image already used by {used_images[fingerprint]}",
+                  file=sys.stderr)
+            continue
         path = output / f"{plu}{suffix}"
         sidecar = path.with_suffix(suffix + ".json")
-        if list(output.glob(f"{plu}.*")):
-            raise FileExistsError(f"candidate already exists for PLU {plu}; will not overwrite")
         license_url = get("LicenseUrl")
         if not license_url and license_name == "Public domain":
             license_url = "https://creativecommons.org/publicdomain/mark/1.0/"
@@ -144,6 +156,7 @@ def download(plu, product, output, user_agent, *, query=None,
         errors = validate(path)
         if errors:
             raise ValueError(f"{path}: {'; '.join(errors)}")
+        used_images[fingerprint] = str(path)
         print(f"Downloaded {path}; exact variety and photographic suitability NOT verified")
         return True
     print(f"UNRESOLVED {plu}: no eligible candidate for {product}", file=sys.stderr)
@@ -158,6 +171,20 @@ def rejected_entries(path):
     if missing:
         raise ValueError(f"No exact-variety search configured for entries {sorted(missing)}")
     return rows
+
+
+def entry_query(entry):
+    if entry["idx"] in QUERIES:
+        return QUERIES[entry["idx"]]
+    query = re.sub(r"\b(organic|small|large|medium)\b", "", entry["name"], flags=re.I)
+    query = re.sub(r"\bapples\b", "apple", query, flags=re.I)
+    query = re.sub(r"\bpears\b", "pear", query, flags=re.I)
+    query = re.sub(r"\btomatoes\b", "tomato", query, flags=re.I)
+    query = re.sub(r"\bpeppers\b", "pepper", query, flags=re.I)
+    query = " ".join(query.split())
+    if not query:
+        raise ValueError(f"entry {entry['idx']}: empty product search query")
+    return query
 
 
 def contact_sheets(records, output):
@@ -178,14 +205,15 @@ def contact_sheets(records, output):
 
 def acquire(entries, output, user_agent, limit, leads=()):
     if not entries:
-        raise ValueError("review CSV contains no rejected entries")
+        raise ValueError("review CSV selection contains no entries")
     output.mkdir(parents=True, exist_ok=True)
     if any(output.iterdir()):
         raise ValueError("review package output must be empty; originals will not be overwritten")
-    report, records, queries = [], [], {}
+    report, records, queries, used_images = [], [], {}, {}
     for entry in entries:
         idx, plu, product = entry["idx"], entry["plu"], entry["name"]
-        row = dict(idx=idx, plu=plu, product=product, query=QUERIES[idx],
+        query = entry_query(entry)
+        row = dict(idx=idx, plu=plu, product=product, query=query,
                    source="Wikimedia Commons", status="UNRESOLVED", details="", candidates=0)
         try:
             from urllib.parse import unquote
@@ -193,10 +221,10 @@ def acquire(entries, output, user_agent, limit, leads=()):
             for lead in leads:
                 if lead["id"].lstrip("0") == idx:
                     title = unquote(urlparse(lead["source_page_url"]).path.removeprefix("/wiki/"))
-                    pages.extend(search(QUERIES[idx], user_agent, title=title))
-            if QUERIES[idx] not in queries:
-                queries[QUERIES[idx]] = search(QUERIES[idx], user_agent)
-            pages.extend(queries[QUERIES[idx]])
+                    pages.extend(search(query, user_agent, title=title))
+            if query not in queries:
+                queries[query] = search(query, user_agent)
+            pages.extend(queries[query])
             seen = set()
             for number, page in enumerate(pages, 1):
                 title = page.get("title")
@@ -204,11 +232,11 @@ def acquire(entries, output, user_agent, limit, leads=()):
                     continue
                 seen.add(title)
                 folder = output / "originals" / f"{int(idx):03d}" / str(number)
-                if download(plu, product, folder, user_agent, query=QUERIES[idx],
-                            licenses=LICENSES, pages=[page]):
+                if download(plu, product, folder, user_agent, query=query,
+                            licenses=LICENSES, pages=[page], used_images=used_images):
                     path = next(folder.glob("*.json"))
                     metadata = json.loads(path.read_text(encoding="utf-8"))
-                    metadata.update(idx=idx, query=QUERIES[idx],
+                    metadata.update(idx=idx, query=query,
                                     image=str(path.with_suffix("").relative_to(output)))
                     records.append(metadata)
                     row["candidates"] += 1
@@ -217,7 +245,7 @@ def acquire(entries, output, user_agent, limit, leads=()):
             if row["candidates"]:
                 row["status"] = "CANDIDATES_ONLY"
             else:
-                row["details"] = "No eligible licensed, sized candidate with creator metadata"
+                row["details"] = "No unique eligible licensed, sized candidate with creator metadata"
         except (OSError, ValueError, KeyError) as exc:
             row["status"] = "ERROR"
             row["details"] = str(exc)
@@ -238,6 +266,11 @@ def acquire(entries, output, user_agent, limit, leads=()):
         "organic certification, or rights ownership.\n"
         "Review every entry independently, including shared PLUs. Check source pages, "
         "creator, licence, attribution, watermarks and exact variety before use.\n"
+        "Each conventional entry requires a different photograph, even when PLUs repeat. "
+        "Only matching conventional/organic products may reuse a photo, with the "
+        "standard pink ORGANIC badge on every organic image. Candidates are kept "
+        "distinct within this package; compare separate shards before assignment.\n"
+        "Renaming, cropping or recolouring a reused image does not make it unique.\n"
         "Original files are unchanged; contact sheets are separate previews.\n"
         "No booklet or production register was modified.\n", encoding="utf-8")
     return any(row["status"] == "ERROR" for row in report)
@@ -250,18 +283,31 @@ def main():
                         help="Descriptive Wikimedia User-Agent including a contact URL/email")
     parser.add_argument("--review", type=Path,
                         help="Review CSV: acquire all rejected entries with supported reuse licences")
+    parser.add_argument("--all-entries", action="store_true",
+                        help="Search every entry in --review, not only rejected images")
+    parser.add_argument("--shard-index", type=int, default=0, help="Zero-based entry selection shard")
+    parser.add_argument("--shard-count", type=int, default=1, help="Number of entry selection shards")
     parser.add_argument("--per-entry", type=int, default=2)
     parser.add_argument("--leads", type=Path,
                         help="Existing Commons URL manifest to try before search results")
     args = parser.parse_args()
+    if args.shard_count < 1 or not 0 <= args.shard_index < args.shard_count:
+        parser.error("--shard-index must be between 0 and --shard-count minus 1")
+    if not args.review and (args.all_entries or args.shard_count != 1):
+        parser.error("--all-entries and sharding require --review")
     if args.review:
         if not 1 <= args.per_entry <= 5:
             parser.error("--per-entry must be between 1 and 5")
         try:
             from candidate_manifest import read_manifest
             leads = read_manifest(args.leads) if args.leads else []
-            failed = acquire(rejected_entries(args.review), args.output,
-                             args.user_agent, args.per_entry, leads)
+            if args.all_entries:
+                with args.review.open(newline="", encoding="utf-8-sig") as file:
+                    entries = list(csv.DictReader(file))
+            else:
+                entries = rejected_entries(args.review)
+            entries = entries[args.shard_index::args.shard_count]
+            failed = acquire(entries, args.output, args.user_agent, args.per_entry, leads)
         except (OSError, ValueError, KeyError) as exc:
             parser.exit(1, f"ERROR: {exc}\n")
         raise SystemExit(1 if failed else 0)

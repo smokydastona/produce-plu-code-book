@@ -2,6 +2,7 @@ import io
 import json
 import tempfile
 import unittest
+import zipfile
 from pathlib import Path
 from unittest.mock import patch
 from urllib.error import HTTPError
@@ -9,7 +10,10 @@ from urllib.error import HTTPError
 from PIL import Image
 
 import retrieve_commons
+import verify_images
+from check_image_uniqueness import audit_entries, image_fingerprint, require_unique_entries
 from verify_images import LICENSES, validate
+from organic_watermarks import badge_artwork, is_organic, render_watermark, verified_original, VERSION
 
 
 class ImageChecks(unittest.TestCase):
@@ -84,10 +88,14 @@ class ImageChecks(unittest.TestCase):
             self.assertTrue(retrieve_commons.download("3283", "Honeycrisp apple", output, "test"))
             self.assertEqual(validate(output / "3283.jpg"), [])
             with self.assertRaises(FileExistsError):
-                retrieve_commons.download("3283", "Honeycrisp apple", output, "test")
+                with patch.object(retrieve_commons, "fetch", return_value=self.different_image()):
+                    retrieve_commons.download("3283", "Honeycrisp apple", output, "test")
+            self.assertFalse(retrieve_commons.download("4555", "Savoy cabbage", output, "test"))
+            self.assertFalse((output / "4555.jpg").exists())
             page["imageinfo"][0]["extmetadata"]["LicenseShortName"]["value"] = "CC BY-SA 4.0"
-            self.assertTrue(retrieve_commons.download(
-                "4555", "Savoy cabbage", output, "test"))
+            with patch.object(retrieve_commons, "fetch", return_value=self.different_image()):
+                self.assertTrue(retrieve_commons.download(
+                    "4555", "Savoy cabbage", output, "test"))
             page["imageinfo"][0]["extmetadata"]["LicenseShortName"]["value"] = "CC BY-NC 4.0"
             self.assertFalse(retrieve_commons.download("9999", "Unsupported", output, "test"))
 
@@ -97,6 +105,26 @@ class ImageChecks(unittest.TestCase):
         self.assertEqual(len(entries), 31)
         self.assertEqual(len({entry["idx"] for entry in entries}), 31)
         self.assertEqual({entry["idx"] for entry in entries}, set(retrieve_commons.QUERIES))
+
+    def test_all_entry_queries_keep_variety_and_drop_only_label_or_size(self):
+        query = retrieve_commons.entry_query(
+            {"idx": "999", "name": "Organic Apples Golden Delicious Large"})
+        self.assertEqual(query, "apple Golden Delicious")
+        self.assertEqual(retrieve_commons.entry_query(
+            {"idx": "50", "name": "Grapefruit White Large"}), "white grapefruit")
+        with self.assertRaisesRegex(ValueError, "empty product"):
+            retrieve_commons.entry_query({"idx": "999", "name": "Organic"})
+
+    def test_all_entry_selection_shards_cover_every_entry_once(self):
+        root = Path(__file__).resolve().parents[1]
+        import csv
+        with (root / "data/image_review.csv").open(encoding="utf-8-sig") as file:
+            entries = list(csv.DictReader(file))
+        groups = [entries[index::6] for index in range(6)]
+        ids = [row["idx"] for group in groups for row in group]
+        self.assertEqual(len(ids), len(entries))
+        self.assertEqual(len(set(ids)), len(entries))
+        self.assertTrue(all(retrieve_commons.entry_query(row) for row in entries))
 
     def test_package_partial_errors_and_duplicate_plus_organic_entries(self):
         entries = [
@@ -123,8 +151,8 @@ class ImageChecks(unittest.TestCase):
                 patch.object(retrieve_commons, "fetch", return_value=content):
             self.assertTrue(retrieve_commons.acquire(entries, output, "test", 2))
         records = json.loads((output / "provenance.json").read_text())
-        self.assertEqual(len(records), 2)
-        self.assertEqual([r["idx"] for r in records], ["27", "274"])
+        self.assertEqual(len(records), 1)
+        self.assertEqual([r["idx"] for r in records], ["27"])
         self.assertEqual(records[0]["approval_status"], "CANDIDATE")
         self.assertEqual(records[0]["license"], "CC BY 4.0")
         self.assertEqual((output / records[0]["image"]).read_bytes(), content)
@@ -132,13 +160,13 @@ class ImageChecks(unittest.TestCase):
         import csv
         with (output / "license-register.csv").open() as file:
             licences = list(csv.DictReader(file))
-        self.assertEqual([r["idx"] for r in licences], ["27", "274"])
+        self.assertEqual([r["idx"] for r in licences], ["27"])
         self.assertTrue(all(r["rights_verification_status"] == "NOT_VERIFIED" for r in licences))
         self.assertTrue(all(r["visual_approval_status"] == "NOT_APPROVED" for r in licences))
         with (output / "acquisition-report.csv").open() as file:
             report = list(csv.DictReader(file))
         self.assertEqual([r["status"] for r in report],
-                         ["CANDIDATES_ONLY", "CANDIDATES_ONLY", "UNRESOLVED", "ERROR"])
+                         ["CANDIDATES_ONLY", "UNRESOLVED", "UNRESOLVED", "ERROR"])
         with self.assertRaises(ValueError):
             retrieve_commons.acquire(entries, output, "test", 2)
 
@@ -151,6 +179,202 @@ class ImageChecks(unittest.TestCase):
             self.assertEqual(retrieve_commons.fetch("https://commons.wikimedia.org/", "test"), b"image")
             self.assertEqual(request.call_count, 2)
             self.assertIn(unittest.mock.call(15), sleep.call_args_list)
+
+    def different_image(self):
+        content = io.BytesIO()
+        Image.new("RGB", (600, 500), "red").save(content, format="JPEG")
+        return content.getvalue()
+
+    def test_pixel_duplicates_ignore_filename_format_and_metadata(self):
+        other = self.root / "different-name.png"
+        with Image.open(self.path) as image:
+            image.save(other, comment="different metadata")
+        self.assertEqual(image_fingerprint(self.path), image_fingerprint(other))
+        other.write_bytes(self.different_image())
+        self.assertNotEqual(image_fingerprint(self.path), image_fingerprint(other))
+
+    def test_entry_uniqueness_includes_repeated_plus_and_cross_book_reuse(self):
+        other = self.root / "copy.jpg"
+        other.write_bytes(self.path.read_bytes())
+        rows = [
+            {"idx": "1", "plu": "03283", "book": "Fruit", "image": self.path.name},
+            {"idx": "2", "plu": "03283", "book": "Vegetable", "image": other.name},
+        ]
+        self.assertEqual(audit_entries(rows, self.root), [rows])
+        with self.assertRaisesRegex(ValueError, "2 entries share images"):
+            require_unique_entries(rows, self.root)
+        rows[1]["plu"] = "9999"
+        self.assertEqual(audit_entries(rows, self.root), [rows])
+        other.write_bytes(self.different_image())
+        self.assertEqual(audit_entries(rows, self.root), [])
+        require_unique_entries(rows, self.root)
+        rows[1]["image"] = ""
+        with self.assertRaisesRegex(ValueError, "missing image"):
+            audit_entries(rows, self.root)
+        rows[1]["idx"] = "1"
+        with self.assertRaisesRegex(ValueError, "repeated entry ID"):
+            audit_entries(rows, self.root)
+
+    def test_cli_rejects_changed_duplicate_but_not_legacy_duplicates(self):
+        first = self.root / "one.jpg"
+        second = self.root / "two.jpg"
+        third = self.root / "three.jpg"
+        for path in (first, second):
+            path.write_bytes(self.path.read_bytes())
+        third.write_bytes(self.different_image())
+        for changed, expected in ((second, 1), (third, 0)):
+            with self.subTest(changed=changed), \
+                    patch("sys.argv", ["verify_images", str(changed)]), \
+                    patch.object(verify_images, "validate", return_value=[]), \
+                    patch.object(verify_images, "Path", side_effect=lambda value:
+                                 self.root if value in ("data/images", "sources") else Path(value)):
+                with self.assertRaises(SystemExit) as result:
+                    verify_images.main()
+                self.assertEqual(result.exception.code, expected)
+
+    def test_acquisition_tries_next_candidate_after_duplicate(self):
+        page = {
+            "title": "File:First.jpg", "imageinfo": [{
+                "width": 600, "height": 500, "mime": "image/jpeg",
+                "url": self.record["original_image_url"],
+                "descriptionurl": self.record["source_page_url"],
+                "extmetadata": {
+                    "Artist": {"value": "Photographer"},
+                    "LicenseShortName": {"value": "CC0"},
+                    "LicenseUrl": {"value": self.record["license_url"]},
+                },
+            }],
+        }
+        entries = [
+            {"idx": "361", "plu": "4724", "name": "White creamer potato"},
+            {"idx": "368", "plu": "4724", "name": "White creamer potato"},
+        ]
+        other = dict(page, title="File:Second.jpg")
+        output = self.root / "package"
+        with patch.object(retrieve_commons, "search", return_value=[page, other]), \
+                patch.object(retrieve_commons, "fetch", side_effect=[
+                    self.path.read_bytes(), self.path.read_bytes(), self.different_image(),
+                ]):
+            self.assertFalse(retrieve_commons.acquire(entries, output, "test", 1))
+        records = json.loads((output / "provenance.json").read_text())
+        self.assertEqual([row["idx"] for row in records], ["361", "368"])
+        self.assertNotEqual(
+            image_fingerprint(output / records[0]["image"]),
+            image_fingerprint(output / records[1]["image"]),
+        )
+
+
+class OrganicWatermarkChecks(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        self.data = self.root / "data"
+        self.data.mkdir()
+        (self.data / "conventional.jpg").write_bytes(self.image_bytes("green"))
+        self.content = (self.data / "conventional.jpg").read_bytes()
+        (self.data / "organic.png").write_bytes(render_watermark(self.content))
+        source = self.root / "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx"
+        source.parent.mkdir(parents=True)
+        with zipfile.ZipFile(source, "w") as archive:
+            archive.writestr("word/media/image1.jpg", self.content)
+        self.rows = [
+            {"idx": "1", "book": "Fruit", "plu": "4011", "name": "Banana",
+             "image": "conventional.jpg"},
+            {"idx": "2", "book": "Fruit", "plu": "94011", "name": "Organic Banana",
+             "image": "organic.png"},
+        ]
+        import hashlib
+        self.record = dict(self.rows[1], watermark=VERSION,
+                           source_document=str(source.relative_to(self.root)),
+                           source_member="word/media/image1.jpg",
+                           original_sha256=hashlib.sha256(self.content).hexdigest(),
+                           badge_sha256=hashlib.sha256(badge_artwork()).hexdigest())
+        self.write_manifest()
+
+    def image_bytes(self, color):
+        content = io.BytesIO()
+        Image.new("RGB", (600, 500), color).save(content, format="JPEG")
+        return content.getvalue()
+
+    def write_manifest(self):
+        (self.data / "organic_watermarks.json").write_text(json.dumps([self.record]))
+
+    def test_all_organic_identifiers_are_recognized(self):
+        for row in ({"name": "Buddha's Hand Organic", "plu": "2159"},
+                    {"section": "Organic Fruit"}, {"category": "Organic Apple"}):
+            self.assertTrue(is_organic(row))
+        self.assertFalse(is_organic({"name": "Banana", "plu": "94011"}))
+
+    def test_watermark_is_standard_pink_and_preserves_dimensions(self):
+        with Image.open(io.BytesIO(render_watermark(self.content))) as image:
+            self.assertEqual(image.size, (600, 500))
+            with Image.open(io.BytesIO(self.content)) as original:
+                top_left = image.crop((0, 0, 180, 180)).getcolors(180 * 180)
+                self.assertGreater(sum(count for count, (r, g, b) in top_left
+                                       if r > 200 and b > 100 and g < 120), 0)
+                self.assertEqual(image.crop((200, 200, 600, 500)).tobytes(),
+                                 original.crop((200, 200, 600, 500)).tobytes())
+                self.assertNotEqual(image.crop((0, 0, 200, 200)).tobytes(),
+                                    original.crop((0, 0, 200, 200)).tobytes())
+        self.assertEqual(verified_original(self.rows[1], self.record, self.data), self.content)
+
+    def test_matching_pair_is_allowed_only_with_verified_watermark(self):
+        self.assertEqual(audit_entries(self.rows, self.data), [])
+        (self.data / "organic.png").write_bytes(self.content)
+        with self.assertRaisesRegex(ValueError, "missing or altered"):
+            audit_entries(self.rows, self.data)
+
+    def test_missing_watermark_record_is_rejected(self):
+        (self.data / "organic_watermarks.json").unlink()
+        with self.assertRaisesRegex(ValueError, "missing pink"):
+            audit_entries(self.rows, self.data)
+
+    def test_badge_checksum_is_required(self):
+        self.record["badge_sha256"] = "bad"
+        self.write_manifest()
+        with self.assertRaisesRegex(ValueError, "badge checksum mismatch"):
+            audit_entries(self.rows, self.data)
+
+    def test_badge_migration_still_verifies_image_pixels(self):
+        self.record["watermark"] = "PINK_ORGANIC_BADGE_TOP_LEFT_V2"
+        self.record.pop("badge_sha256")
+        self.assertEqual(verified_original(
+            self.rows[1], self.record, self.data, allow_legacy=True), self.content)
+        (self.data / "organic.png").write_bytes(self.content)
+        with self.assertRaisesRegex(ValueError, "missing or altered"):
+            verified_original(self.rows[1], self.record, self.data, allow_legacy=True)
+
+    def test_organic_reuse_of_unrelated_conventional_product_is_rejected(self):
+        self.rows[1]["plu"] = self.record["plu"] = "94012"
+        self.write_manifest()
+        self.assertEqual(audit_entries(self.rows, self.data), [self.rows])
+
+    def test_repeated_conventional_plus_remain_prohibited(self):
+        duplicate = dict(self.rows[0], idx="3")
+        self.assertEqual(audit_entries(self.rows + [duplicate], self.data),
+                         [[self.rows[0], self.rows[1], duplicate]])
+
+    def test_watermark_cannot_hide_organic_only_duplicates(self):
+        duplicate = dict(self.rows[1], idx="3")
+        (self.data / "organic_watermarks.json").write_text(
+            json.dumps([self.record, dict(self.record, idx="3")]))
+        self.assertEqual(audit_entries([self.rows[1], duplicate], self.data),
+                         [[self.rows[1], duplicate]])
+
+    def test_tampered_original_or_record_is_rejected(self):
+        self.record["original_sha256"] = "bad"
+        self.write_manifest()
+        with self.assertRaisesRegex(ValueError, "checksum mismatch"):
+            audit_entries(self.rows, self.data)
+        self.record["image"] = "wrong.png"
+        self.write_manifest()
+        with self.assertRaisesRegex(ValueError, "record image mismatch"):
+            audit_entries(self.rows, self.data)
+
+    def test_legacy_reuse_baseline_does_not_require_a_new_watermark(self):
+        self.rows[1]["image"] = self.rows[0]["image"]
+        self.assertEqual(audit_entries(self.rows, self.data, check_watermarks=False), [])
 
 
 if __name__ == "__main__":

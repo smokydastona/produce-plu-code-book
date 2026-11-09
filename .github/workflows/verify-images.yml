@@ -1,13 +1,22 @@
 name: Verify replacement images
 
 on:
+  push:
+    branches: [main]
   pull_request:
     paths:
       - 'data/images/**'
+      - 'data/entries.csv'
+      - 'data/organic_watermarks.json'
+      - 'data/branding/**'
+      - 'current/booklets/*_PRODUCTION.docx'
       - 'sources/**'
       - 'tools/verify_images.py'
       - 'tools/retrieve_commons.py'
       - 'tools/test_images.py'
+      - 'tools/check_image_uniqueness.py'
+      - 'tools/apply_review.py'
+      - 'tools/organic_watermarks.py'
       - '.github/workflows/verify-images.yml'
 
 permissions:
@@ -20,13 +29,13 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python -m pip install Pillow
-      - run: python -m unittest discover -s tools -p 'test_images.py'
+      - run: python -m pip install Pillow python-docx openpyxl
+      - run: python -m unittest discover -s tools -p 'test_*.py'
       - name: Check changed images and provenance
         env:
-          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
         run: python tools/verify_images.py --changed-from "$BASE_SHA"

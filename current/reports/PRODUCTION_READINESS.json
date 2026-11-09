@@ -1,0 +1,16 @@
+{
+  "status": "BLOCKED",
+  "entries": 597,
+  "organic_entries": 206,
+  "prohibited_duplicate_groups": 103,
+  "entries_with_blockers": 597,
+  "blocker_counts": {
+    "AI_REFERENCE_NOT_PHOTOGRAPH": 150,
+    "BELOW_500_PX": 595,
+    "MISSING_IMAGE_PROVENANCE_AND_RIGHTS_VERIFICATION": 597,
+    "PROHIBITED_IMAGE_REUSE": 365,
+    "VISUAL_APPROXIMATE": 120,
+    "VISUAL_REJECTED": 31
+  },
+  "scope": "Fruit and vegetable image readiness only. Does not certify varieties, organic status, licences, source-code accuracy, or final print layout. Non-produce remains a code-only supplement; final release review is mandatory."
+}

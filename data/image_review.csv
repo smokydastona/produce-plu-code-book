@@ -40,7 +40,7 @@
 39,Fruit,Pears,82200,Pears Conference BC,Pear,,AI Generated,images/Fruit/0039_82200.jpg,312,312,Approximate,Conference-type; not BC-specific,🤖 AI GENERATED REFERENCE IMAGE,1,2
 40,Fruit,Pears,4005,Pears Honey Belle,Pear,,AI Generated,images/Fruit/0040_4005.jpg,310,310,Approximate,green blush pear; Honey Belle not certain,🤖 AI GENERATED REFERENCE IMAGE,1,2
 41,Fruit,Pears,4424,Pears Honey Belle Sweet Green,Pear,,AI Generated,images/Fruit/0041_4424.jpg,310,310,Approximate,near-identical to #40,🤖 AI GENERATED REFERENCE IMAGE,1,2
-42,Fruit,Citrus,2159,Buddha's Hand Organic,Citrus,,AI Generated,images/Fruit/0042_2159.jpg,348,348,Approved,Buddha's Hand,🤖 AI GENERATED REFERENCE IMAGE,1,1
+42,Fruit,Citrus,2159,Buddha's Hand Organic,Citrus,,AI Generated,images/Fruit/0042_2159.png,348,348,Approved,Buddha's Hand,🤖 AI GENERATED REFERENCE IMAGE,1,1
 43,Fruit,Citrus,4450,Clementine,Citrus,,Code Booklet,images/Fruit/0043_4450.jpg,200,200,Approved,clementines,✅ VERIFIED PHOTO,1,3
 44,Fruit,Citrus,4458,Clementines Box,Citrus,,Code Booklet,images/Fruit/0044_4458.jpg,200,200,Approved,clementines,✅ VERIFIED PHOTO,1,3
 45,Fruit,Citrus,4286,Grapefruit Deep Red,Citrus,,Code Booklet,images/Fruit/0045_4286.jpg,206,206,Approved,red grapefruit,✅ VERIFIED PHOTO,1,8
@@ -187,111 +187,111 @@
 186,Fruit,Specialty Fruit,4429,Persimmon Large,Specialty,,Code Booklet,images/Fruit/0186_4429.jpg,180,180,Approved,persimmon,✅ VERIFIED PHOTO,1,2
 187,Fruit,Specialty Fruit,4427,Persimmons Hachiya,Specialty,,Code Booklet,images/Fruit/0187_4427.jpg,257,257,Approximate,round persimmons; Hachiya is acorn-shaped,⚠ APPROXIMATE PHOTO MATCH,1,1
 188,Fruit,Specialty Fruit,4446,Pomegramate Large,Specialty,,Code Booklet,images/Fruit/0188_4446.jpg,202,202,Approved,pomegranate,✅ VERIFIED PHOTO,1,2
-189,Fruit,Organic Fruit,94153,Organic Aples MacIntosh,Organic Apple,,Code Booklet,images/Fruit/0189_94153.jpg,299,299,Approved,MacIntosh apple,✅ VERIFIED PHOTO,1,5
-190,Fruit,Organic Fruit,94099,Organic Apples Akane,Organic Apple,,AI Generated,images/Fruit/0190_94099.jpg,264,264,Approximate,red-yellow apple; Akane not certain,🤖 AI GENERATED REFERENCE IMAGE,1,1
-191,Fruit,Organic Fruit,93438,Organic Apples Ambrosia,Organic Apple,,Code Booklet,images/Fruit/0191_93438.jpg,225,225,Approximate,red-yellow apple; Ambrosia not certain,⚠ APPROXIMATE PHOTO MATCH,1,2
-192,Fruit,Organic Fruit,94103,Organic Apples Braeburn,Organic Apple,,AI Generated,images/Fruit/0192_94103.jpg,292,292,Approximate,red-yellow apple; Braeburn not certain,🤖 AI GENERATED REFERENCE IMAGE,1,2
-193,Fruit,Organic Fruit,93066,Organic Apples Cameo,Organic Apple,,AI Generated,images/Fruit/0193_93066.jpg,290,290,Approximate,striped apple; Cameo not certain,🤖 AI GENERATED REFERENCE IMAGE,1,1
-194,Fruit,Organic Fruit,94127,Organic Apples Empire,Organic Apple,,AI Generated,images/Fruit/0194_94127.jpg,287,287,Approximate,dark red apple; Empire plausible,🤖 AI GENERATED REFERENCE IMAGE,1,1
-195,Fruit,Organic Fruit,94131,Organic Apples Fuji,Organic Apple,,Code Booklet,images/Fruit/0195_94131.jpg,194,194,Approximate,small dull red apple; plausible Fuji,⚠ APPROXIMATE PHOTO MATCH,1,1
-196,Fruit,Organic Fruit,94135,Organic Apples Gala,Organic Apple,,Code Booklet,images/Fruit/0196_94135.jpg,247,247,Approved,Gala-type apple,✅ VERIFIED PHOTO,1,6
-197,Fruit,Organic Fruit,94174,Organic Apples Gala,Organic Apple,,Code Booklet,images/Fruit/0197_94174.jpg,247,247,Approved,Gala-type apple,✅ VERIFIED PHOTO,1,6
-198,Fruit,Organic Fruit,94020,Organic Apples Golden Delicious,Organic Apple,,Code Booklet,images/Fruit/0198_94020.jpg,253,253,Approved,Golden Delicious,✅ VERIFIED PHOTO,1,3
-199,Fruit,Organic Fruit,94097,Organic Apples Golden Delicious,Organic Apple,,Code Booklet,images/Fruit/0199_94097.jpg,253,253,Approved,Golden Delicious,✅ VERIFIED PHOTO,1,3
-200,Fruit,Organic Fruit,94017,Organic Apples Granny Smith,Organic Apple,,Code Booklet,images/Fruit/0200_94017.jpg,225,225,Approved,Granny Smith,✅ VERIFIED PHOTO,1,3
-201,Fruit,Organic Fruit,94139,Organic Apples Granny Smith,Organic Apple,,Code Booklet,images/Fruit/0201_94139.jpg,225,225,Approved,Granny Smith,✅ VERIFIED PHOTO,1,3
-202,Fruit,Organic Fruit,94147,Organic Apples Jona Gold,Organic Apple,,Code Booklet,images/Fruit/0202_94147.jpg,229,229,Approximate,red-yellow striped apple; Jonagold plausible,⚠ APPROXIMATE PHOTO MATCH,1,1
-203,Fruit,Organic Fruit,93072,Organic Apples Lady,Organic Apple,,Code Booklet,images/Fruit/0203_93072.jpg,225,225,Approved,Pink Lady,✅ VERIFIED PHOTO,1,3
-204,Fruit,Organic Fruit,94153,Organic Apples MacIntosh,Organic Apple,,Code Booklet,images/Fruit/0204_94153.jpg,299,299,Approved,MacIntosh,✅ VERIFIED PHOTO,1,5
-205,Fruit,Organic Fruit,94154,Organic Apples MacIntosh,Organic Apple,,Code Booklet,images/Fruit/0205_94154.jpg,299,299,Approved,MacIntosh,✅ VERIFIED PHOTO,1,5
-206,Fruit,Organic Fruit,94204,Organic Apples Orin,Organic Apple,,AI Generated,images/Fruit/0206_94204.jpg,291,291,Approximate,yellow-green blush apple; Orin plausible,🤖 AI GENERATED REFERENCE IMAGE,1,1
-207,Fruit,Organic Fruit,94215,Organic Apples Pinata,Organic Apple,,AI Generated,images/Fruit/0207_94215.jpg,284,284,Approximate,yellow-orange apple; Pinata plausible,🤖 AI GENERATED REFERENCE IMAGE,1,1
-208,Fruit,Organic Fruit,94128,Organic Apples Pink Lady,Organic Apple,,Code Booklet,images/Fruit/0208_94128.jpg,225,225,Approved,Pink Lady,✅ VERIFIED PHOTO,1,3
-209,Fruit,Organic Fruit,94016,Organic Apples Red Delicious,Organic Apple,,Code Booklet,images/Fruit/0209_94016.jpg,225,225,Approved,Red Delicious,✅ VERIFIED PHOTO,1,2
-210,Fruit,Organic Fruit,94178,Organic Apples Spartan,Organic Apple,,AI Generated,images/Fruit/0210_94178.jpg,293,293,Approved,Spartan,🤖 AI GENERATED REFERENCE IMAGE,1,2
-211,Fruit,Organic Fruit,94205,Organic Apples Su Mac,Organic Apple,,AI Generated,images/Fruit/0211_94205.jpg,270,270,Approximate,red-yellow apple; Su Mac not certain,🤖 AI GENERATED REFERENCE IMAGE,1,1
-212,Fruit,Organic Fruit,94212,Organic Apples Sunrise,Organic Apple,,Code Booklet,images/Fruit/0212_94212.jpg,199,199,Approximate,pale red apple; Sunrise plausible,⚠ APPROXIMATE PHOTO MATCH,1,1
-213,Fruit,Organic Fruit,94225,Organic Avocado Large Hass,Organic Tropical,,Code Booklet,images/Fruit/0213_94225.jpg,236,236,Approximate,dark green avocado; Hass pebble texture not visible,⚠ APPROXIMATE PHOTO MATCH,1,3
-214,Fruit,Organic Fruit,94228,Organic Avocado Sharwil,Organic Tropical,,Code Booklet,images/Fruit/0214_94228.jpg,236,236,Approximate,same image as #213,⚠ APPROXIMATE PHOTO MATCH,1,3
-215,Fruit,Organic Fruit,94011,Organic Bananas,Organic Tropical,,Code Booklet,images/Fruit/0215_94011.jpg,225,225,Approved,bananas,✅ VERIFIED PHOTO,1,2
-216,Fruit,Organic Fruit,94249,Organic Blueberries Pint,Organic Berry,,Code Booklet,images/Fruit/0216_94249.jpg,147,147,Approved,blueberries,✅ VERIFIED PHOTO,1,4
-217,Fruit,Organic Fruit,94045,Organic Cherries,Organic Stone Fruit,,Code Booklet,images/Fruit/0217_94045.jpg,225,225,Approved,cherries,✅ VERIFIED PHOTO,1,2
-218,Fruit,Organic Fruit,94025,Organic D'Anjou Pears,Organic Pear,,Code Booklet,images/Fruit/0218_94025.jpg,159,159,Approximate,small green/red pears; D'Anjou is large,⚠ APPROXIMATE PHOTO MATCH,1,2
-219,Fruit,Organic Fruit,94027,Organic Grapefruit,Organic Citrus,,Code Booklet,images/Fruit/0219_94027.jpg,206,206,Approved,red grapefruit,✅ VERIFIED PHOTO,1,8
-220,Fruit,Organic Fruit,94281,Organic Grapefruit Pink,Organic Citrus,,Code Booklet,images/Fruit/0220_94281.jpg,206,206,Approved,pink grapefruit,✅ VERIFIED PHOTO,1,8
-221,Fruit,Organic Fruit,94461,Organic Grapefruit Shaddock,Organic Citrus,,Code Booklet,images/Fruit/0221_94461.jpg,180,180,Approved,pomelo/shaddock,✅ VERIFIED PHOTO,1,6
-222,Fruit,Organic Fruit,93129,Organic Grapefuit Pommelo,Organic Citrus,,Code Booklet,images/Fruit/0222_93129.jpg,180,180,Approved,pomelo,✅ VERIFIED PHOTO,1,6
-223,Fruit,Organic Fruit,94022,Organic Grapes Green Sdls,Organic Grape,,Code Booklet,images/Fruit/0223_94022.jpg,271,271,Approved,green grapes,✅ VERIFIED PHOTO,1,8
-224,Fruit,Organic Fruit,94497,Organic Grapes Green Sdls,Organic Grape,,Code Booklet,images/Fruit/0224_94497.jpg,271,271,Approved,green grapes,✅ VERIFIED PHOTO,1,8
-225,Fruit,Organic Fruit,94023,Organic Grapes Red Seedless,Organic Grape,,Code Booklet,images/Fruit/0225_94023.jpg,225,225,Approved,red grapes,✅ VERIFIED PHOTO,1,4
-226,Fruit,Organic Fruit,94022,Organic Green Grapes Seedless,Organic Grape,,Code Booklet,images/Fruit/0226_94022.jpg,271,271,Approved,green grapes,✅ VERIFIED PHOTO,1,8
-227,Fruit,Organic Fruit,94034,Organic Honeydew,Organic Melon,,Code Booklet,images/Fruit/0227_94034.jpg,257,257,Approved,honeydew,✅ VERIFIED PHOTO,1,6
-228,Fruit,Organic Fruit,94030,Organic Kiwi,Organic Specialty,,Code Booklet,images/Fruit/0228_94030.jpg,180,180,Approved,kiwi,✅ VERIFIED PHOTO,1,3
-229,Fruit,Organic Fruit,94303,Organic KumQuat,Organic Citrus,,Code Booklet,images/Fruit/0229_94303.jpg,220,220,Approved,kumquats,✅ VERIFIED PHOTO,1,1
-230,Fruit,Organic Fruit,94053,Organic Lemons,Organic Citrus,,Code Booklet,images/Fruit/0230_94053.jpg,294,294,Approved,lemon,✅ VERIFIED PHOTO,1,2
-231,Fruit,Organic Fruit,94304,Organic Lemons Meyer-Buckbrand,Organic Citrus,,Code Booklet,images/Fruit/0231_94304.jpg,323,323,Approximate,lemons; Meyer not certain,⚠ APPROXIMATE PHOTO MATCH,1,1
-232,Fruit,Organic Fruit,94328,Organic Limequats,Organic Citrus,,AI Generated,images/Fruit/0232_94328.jpg,342,342,Approved,limequats,🤖 AI GENERATED REFERENCE IMAGE,1,1
-233,Fruit,Organic Fruit,94048,Organic Limes,Organic Citrus,,Code Booklet,images/Fruit/0233_94048.jpg,258,258,Approved,limes,✅ VERIFIED PHOTO,1,2
-234,Fruit,Organic Fruit,94024,Organic Limes Finger,Organic Citrus,,AI Generated,images/Fruit/0234_94024.jpg,346,346,Approved,finger limes,🤖 AI GENERATED REFERENCE IMAGE,1,1
-235,Fruit,Organic Fruit,94306,Organic Limes Sweet,Organic Citrus,,Produce Guide,images/Fruit/0235_94306.jpg,435,435,Rejected,pink line artifact across top of image,❌ IMAGE REJECTED – REPLACEMENT NEEDED,1,1
-236,Fruit,Organic Fruit,94584,Organic Mango,Organic Tropical,,Code Booklet,images/Fruit/0236_94584.jpg,180,180,Approved,mango,✅ VERIFIED PHOTO,1,8
-237,Fruit,Organic Fruit,94311,Organic Mangoes,Organic Tropical,,Code Booklet,images/Fruit/0237_94311.jpg,180,180,Approved,mango,✅ VERIFIED PHOTO,1,8
-238,Fruit,Organic Fruit,94959,Organic Mangoes,Organic Tropical,,Code Booklet,images/Fruit/0238_94959.jpg,180,180,Approved,mango,✅ VERIFIED PHOTO,1,8
-239,Fruit,Organic Fruit,94317,Organic Melon Canary,Organic Melon,,Code Booklet,images/Fruit/0239_94317.jpg,229,229,Approved,canary melon,✅ VERIFIED PHOTO,1,4
-240,Fruit,Organic Fruit,94050,Organic Melon Cantaloupe,Organic Melon,,Code Booklet,images/Fruit/0240_94050.jpg,142,142,Approved,cantaloupe,✅ VERIFIED PHOTO,1,1
-241,Fruit,Organic Fruit,94049,Organic Melon Cantaloupe Small,Organic Melon,,Code Booklet,images/Fruit/0241_94049.jpg,215,215,Approved,cantaloupe,✅ VERIFIED PHOTO,1,10
-242,Fruit,Organic Fruit,94040,Organic Melon Canteloupe Small,Organic Melon,,Code Booklet,images/Fruit/0242_94040.jpg,215,215,Approved,cantaloupe,✅ VERIFIED PHOTO,1,10
-243,Fruit,Organic Fruit,94326,Organic Melon Galia,Organic Melon,,Code Booklet,images/Fruit/0243_94326.jpg,180,180,Approved,Galia melon,✅ VERIFIED PHOTO,1,1
-244,Fruit,Organic Fruit,94329,Organic Melon Honeydew,Organic Melon,,Code Booklet,images/Fruit/0244_94329.jpg,257,257,Approved,honeydew,✅ VERIFIED PHOTO,1,6
-245,Fruit,Organic Fruit,94329,Organic Melon Honeydew Small,Organic Melon,,Code Booklet,images/Fruit/0245_94329.jpg,257,257,Approved,honeydew,✅ VERIFIED PHOTO,1,6
-246,Fruit,Organic Fruit,94332,Organic Melon Musk,Organic Melon,,Code Booklet,images/Fruit/0246_94332.jpg,215,215,Approximate,cantaloupe shown for musk melon,⚠ APPROXIMATE PHOTO MATCH,1,10
-247,Fruit,Organic Fruit,94031,Organic Melon Watermelon,Organic Melon,,Code Booklet,images/Fruit/0247_94031.jpg,205,205,Approved,watermelon,✅ VERIFIED PHOTO,1,7
-248,Fruit,Organic Fruit,94032,Organic Melon Watermelon,Organic Melon,,Code Booklet,images/Fruit/0248_94032.jpg,205,205,Approved,watermelon,✅ VERIFIED PHOTO,1,7
-249,Fruit,Organic Fruit,94321,Organic Melon Watermelon,Organic Melon,,Code Booklet,images/Fruit/0249_94321.jpg,205,205,Approved,watermelon,✅ VERIFIED PHOTO,1,7
-250,Fruit,Organic Fruit,94340,Organic Melon Watermelon,Organic Melon,,Code Booklet,images/Fruit/0250_94340.jpg,205,205,Approved,watermelon,✅ VERIFIED PHOTO,1,7
-251,Fruit,Organic Fruit,94342,Organic Melon Watermelon,Organic Melon,,Code Booklet,images/Fruit/0251_94342.jpg,205,205,Approved,watermelon,✅ VERIFIED PHOTO,1,7
-252,Fruit,Organic Fruit,94342,Organic Melon Watermelon Seedless Slices,Organic Melon,,Code Booklet,images/Fruit/0252_94342.jpg,205,205,Approved,watermelon; seedless not distinguishable,✅ VERIFIED PHOTO,1,7
-253,Fruit,Organic Fruit,94378,Organic Nectarines,Organic Stone Fruit,,Code Booklet,images/Fruit/0253_94378.jpg,212,212,Approved,nectarines,✅ VERIFIED PHOTO,1,5
-254,Fruit,Organic Fruit,94036,Organic Nectarines Large,Organic Stone Fruit,,Code Booklet,images/Fruit/0254_94036.jpg,212,212,Approved,nectarines,✅ VERIFIED PHOTO,1,5
-255,Fruit,Organic Fruit,94035,Organic Nectarines Small,Organic Stone Fruit,,Code Booklet,images/Fruit/0255_94035.jpg,212,212,Approved,nectarines,✅ VERIFIED PHOTO,1,5
-256,Fruit,Organic Fruit,93035,Organic Nectarines White,Organic Stone Fruit,,Code Booklet,images/Fruit/0256_93035.jpg,212,212,Rejected,yellow-flesh nectarine shown; product is White,❌ IMAGE REJECTED – REPLACEMENT NEEDED,1,5
-257,Fruit,Organic Fruit,94381,Organic Oranges Blood,Organic Citrus,,Code Booklet,images/Fruit/0257_94381.jpg,180,180,Approved,blood orange,✅ VERIFIED PHOTO,1,2
-258,Fruit,Organic Fruit,93110,Organic Oranges Cara Cara,Organic Citrus,,Code Booklet,images/Fruit/0258_93110.jpg,188,188,Approximate,cut orange with deep flesh; Cara Cara plausible,⚠ APPROXIMATE PHOTO MATCH,1,3
-259,Fruit,Organic Fruit,93029,Organic Oranges Mandarin,Organic Citrus,,Code Booklet,images/Fruit/0259_93029.jpg,164,164,Approximate,generic mandarin,⚠ APPROXIMATE PHOTO MATCH,1,16
-260,Fruit,Organic Fruit,94391,Organic Oranges Mango,Organic Citrus,,Code Booklet,images/Fruit/0260_94391.jpg,164,164,Approximate,generic mandarin; product Mango/orange unclear,⚠ APPROXIMATE PHOTO MATCH,1,16
-261,Fruit,Organic Fruit,94453,Organic Oranges Murcott,Organic Citrus,,Code Booklet,images/Fruit/0261_94453.jpg,164,164,Approximate,generic mandarin; image reused,⚠ APPROXIMATE PHOTO MATCH,1,16
-262,Fruit,Organic Fruit,94012,Organic Oranges Navel Large,Organic Citrus,,Code Booklet,images/Fruit/0262_94012.jpg,193,193,Approved,navel orange,✅ VERIFIED PHOTO,1,7
-263,Fruit,Organic Fruit,93107,Organic Oranges Navel Medium,Organic Citrus,,Code Booklet,images/Fruit/0263_93107.jpg,193,193,Approved,navel orange,✅ VERIFIED PHOTO,1,7
-264,Fruit,Organic Fruit,93109,Organic Oranges Seville,Organic Citrus,,Code Booklet,images/Fruit/0264_93109.jpg,193,193,Approximate,sweet orange; Seville is bitter and rougher,⚠ APPROXIMATE PHOTO MATCH,1,7
-265,Fruit,Organic Fruit,94456,Organic Oranges Tangelos,Organic Citrus,,Code Booklet,images/Fruit/0265_94456.jpg,202,202,Approved,tangelos,✅ VERIFIED PHOTO,1,2
-266,Fruit,Organic Fruit,94458,Organic Oranges Tangerine,Organic Citrus,,Code Booklet,images/Fruit/0266_94458.jpg,164,164,Approximate,generic mandarin,⚠ APPROXIMATE PHOTO MATCH,1,16
-267,Fruit,Organic Fruit,94457,Organic Oranges TDE Tangerine,Organic Citrus,,Code Booklet,images/Fruit/0267_94457.jpg,164,164,Approximate,generic mandarin,⚠ APPROXIMATE PHOTO MATCH,1,16
-268,Fruit,Organic Fruit,93227,Organic Oranges Torange,Organic Citrus,,Code Booklet,images/Fruit/0268_93227.jpg,164,164,Approximate,generic mandarin; Torange not distinguishable,⚠ APPROXIMATE PHOTO MATCH,1,16
-269,Fruit,Organic Fruit,93108,Organic Oranges Valencia,Organic Citrus,,Code Booklet,images/Fruit/0269_93108.jpg,193,193,Approximate,cut orange; Valencia not distinguishable,⚠ APPROXIMATE PHOTO MATCH,1,7
-270,Fruit,Organic Fruit,94388,Organic Oranges Valencia,Organic Citrus,,Code Booklet,images/Fruit/0270_94388.jpg,193,193,Approximate,cut orange; Valencia not distinguishable,⚠ APPROXIMATE PHOTO MATCH,1,7
-271,Fruit,Organic Fruit,94044,Organic Peaches Tree Ripened,Organic Stone Fruit,,Code Booklet,images/Fruit/0271_94044.jpg,228,228,Approved,peaches,✅ VERIFIED PHOTO,1,4
-272,Fruit,Organic Fruit,94401,Organic Peaches White,Organic Stone Fruit,,Code Booklet,images/Fruit/0272_94401.jpg,280,280,Approved,white peaches,✅ VERIFIED PHOTO,1,2
-273,Fruit,Organic Fruit,94038,Organic Peaches Yellow Lrg,Organic Stone Fruit,,Code Booklet,images/Fruit/0273_94038.jpg,228,228,Approved,peaches,✅ VERIFIED PHOTO,1,4
-274,Fruit,Organic Fruit,93016,Organic Pear Concord,Organic Pear,,Code Booklet,images/Fruit/0274_93016.jpg,114,114,Rejected,tiny pear in corner of image; unusable crop,❌ IMAGE REJECTED – REPLACEMENT NEEDED,1,2
-275,Fruit,Organic Fruit,94416,Organic Pear D'Anjou,Organic Pear,,Code Booklet,images/Fruit/0275_94416.jpg,162,162,Approximate,small green/red pears; D'Anjou is large,⚠ APPROXIMATE PHOTO MATCH,1,1
-276,Fruit,Organic Fruit,94116,Organic Pears Bartlett,Organic Pear,,Code Booklet,images/Fruit/0276_94116.jpg,187,187,Approved,Bartlett pears,✅ VERIFIED PHOTO,1,3
-277,Fruit,Organic Fruit,94409,Organic Pears Bartlett Green,Organic Pear,,Code Booklet,images/Fruit/0277_94409.jpg,187,187,Approved,Bartlett green,✅ VERIFIED PHOTO,1,3
-278,Fruit,Organic Fruit,94410,Organic Pears Bartlett Red,Organic Pear,,Code Booklet,images/Fruit/0278_94410.jpg,199,199,Approved,Bartlett red,✅ VERIFIED PHOTO,1,4
-279,Fruit,Organic Fruit,94413,Organic Pears Bosc,Organic Pear,,Code Booklet,images/Fruit/0279_94413.jpg,180,180,Approved,Bosc pears,✅ VERIFIED PHOTO,1,2
-280,Fruit,Organic Fruit,94430,Organic Pineapple,Organic Tropical,,Code Booklet,images/Fruit/0280_94430.jpg,185,185,Approved,pineapple,✅ VERIFIED PHOTO,1,7
-281,Fruit,Organic Fruit,94433,Organic Pineapple,Organic Tropical,,Code Booklet,images/Fruit/0281_94433.jpg,185,185,Approved,pineapple,✅ VERIFIED PHOTO,1,7
-282,Fruit,Organic Fruit,94281,Organic Pink Grapefruit,Organic Citrus,,Code Booklet,images/Fruit/0282_94281.jpg,206,206,Approved,pink grapefruit,✅ VERIFIED PHOTO,1,8
-283,Fruit,Organic Fruit,94040,Organic Plum Black,Organic Stone Fruit,,AI Generated,images/Fruit/0283_94040.jpg,318,318,Approved,black plums,🤖 AI GENERATED REFERENCE IMAGE,1,4
-284,Fruit,Organic Fruit,94042,Organic Plum Red,Organic Stone Fruit,,Code Booklet,images/Fruit/0284_94042.jpg,180,180,Approved,red plums,✅ VERIFIED PHOTO,1,5
-285,Fruit,Organic Fruit,94039,Organic Plums Black Small,Organic Stone Fruit,,AI Generated,images/Fruit/0285_94039.jpg,318,318,Approved,black plums,🤖 AI GENERATED REFERENCE IMAGE,1,4
-286,Fruit,Organic Fruit,94041,Organic Plums Red Small,Organic Stone Fruit,,Code Booklet,images/Fruit/0286_94041.jpg,180,180,Approved,red plums,✅ VERIFIED PHOTO,1,5
-287,Fruit,Organic Fruit,93127,Organic Pomegrante,Organic Specialty,,Code Booklet,images/Fruit/0287_93127.jpg,202,202,Approved,pomegranate,✅ VERIFIED PHOTO,1,2
-288,Fruit,Organic Fruit,94047,Organic Red Grapefruit,Organic Citrus,,Code Booklet,images/Fruit/0288_94047.jpg,221,221,Approved,red grapefruit,✅ VERIFIED PHOTO,1,1
-289,Fruit,Organic Fruit,94023,Organic Red Seedless Grapes,Organic Grape,,Code Booklet,images/Fruit/0289_94023.jpg,225,225,Approved,red grapes,✅ VERIFIED PHOTO,1,4
-290,Fruit,Organic Fruit,94173,Organic Royal Gala Apples,Organic Apple,,Code Booklet,images/Fruit/0290_94173.jpg,247,247,Approved,Royal Gala,✅ VERIFIED PHOTO,1,6
-291,Fruit,Organic Fruit,94461,Organic Shaddock,Organic Citrus,,Code Booklet,images/Fruit/0291_94461.jpg,180,180,Approved,pomelo/shaddock,✅ VERIFIED PHOTO,1,6
-292,Fruit,Organic Fruit,94252,Organic Strawberry Pint,Organic Berry,,Code Booklet,images/Fruit/0292_94252.jpg,194,194,Approved,strawberries,✅ VERIFIED PHOTO,1,7
-293,Fruit,Organic Fruit,94022,Organic White Grapes,Organic Grape,,Code Booklet,images/Fruit/0293_94022.jpg,271,271,Approved,green grapes,✅ VERIFIED PHOTO,1,8
+189,Fruit,Organic Fruit,94153,Organic Aples MacIntosh,Organic Apple,,Code Booklet,images/Fruit/0189_94153.png,299,299,Approved,MacIntosh apple,✅ VERIFIED PHOTO,1,5
+190,Fruit,Organic Fruit,94099,Organic Apples Akane,Organic Apple,,AI Generated,images/Fruit/0190_94099.png,264,264,Approximate,red-yellow apple; Akane not certain,🤖 AI GENERATED REFERENCE IMAGE,1,1
+191,Fruit,Organic Fruit,93438,Organic Apples Ambrosia,Organic Apple,,Code Booklet,images/Fruit/0191_93438.png,225,225,Approximate,red-yellow apple; Ambrosia not certain,⚠ APPROXIMATE PHOTO MATCH,1,2
+192,Fruit,Organic Fruit,94103,Organic Apples Braeburn,Organic Apple,,AI Generated,images/Fruit/0192_94103.png,292,292,Approximate,red-yellow apple; Braeburn not certain,🤖 AI GENERATED REFERENCE IMAGE,1,2
+193,Fruit,Organic Fruit,93066,Organic Apples Cameo,Organic Apple,,AI Generated,images/Fruit/0193_93066.png,290,290,Approximate,striped apple; Cameo not certain,🤖 AI GENERATED REFERENCE IMAGE,1,1
+194,Fruit,Organic Fruit,94127,Organic Apples Empire,Organic Apple,,AI Generated,images/Fruit/0194_94127.png,287,287,Approximate,dark red apple; Empire plausible,🤖 AI GENERATED REFERENCE IMAGE,1,1
+195,Fruit,Organic Fruit,94131,Organic Apples Fuji,Organic Apple,,Code Booklet,images/Fruit/0195_94131.png,194,194,Approximate,small dull red apple; plausible Fuji,⚠ APPROXIMATE PHOTO MATCH,1,1
+196,Fruit,Organic Fruit,94135,Organic Apples Gala,Organic Apple,,Code Booklet,images/Fruit/0196_94135.png,247,247,Approved,Gala-type apple,✅ VERIFIED PHOTO,1,6
+197,Fruit,Organic Fruit,94174,Organic Apples Gala,Organic Apple,,Code Booklet,images/Fruit/0197_94174.png,247,247,Approved,Gala-type apple,✅ VERIFIED PHOTO,1,6
+198,Fruit,Organic Fruit,94020,Organic Apples Golden Delicious,Organic Apple,,Code Booklet,images/Fruit/0198_94020.png,253,253,Approved,Golden Delicious,✅ VERIFIED PHOTO,1,3
+199,Fruit,Organic Fruit,94097,Organic Apples Golden Delicious,Organic Apple,,Code Booklet,images/Fruit/0199_94097.png,253,253,Approved,Golden Delicious,✅ VERIFIED PHOTO,1,3
+200,Fruit,Organic Fruit,94017,Organic Apples Granny Smith,Organic Apple,,Code Booklet,images/Fruit/0200_94017.png,225,225,Approved,Granny Smith,✅ VERIFIED PHOTO,1,3
+201,Fruit,Organic Fruit,94139,Organic Apples Granny Smith,Organic Apple,,Code Booklet,images/Fruit/0201_94139.png,225,225,Approved,Granny Smith,✅ VERIFIED PHOTO,1,3
+202,Fruit,Organic Fruit,94147,Organic Apples Jona Gold,Organic Apple,,Code Booklet,images/Fruit/0202_94147.png,229,229,Approximate,red-yellow striped apple; Jonagold plausible,⚠ APPROXIMATE PHOTO MATCH,1,1
+203,Fruit,Organic Fruit,93072,Organic Apples Lady,Organic Apple,,Code Booklet,images/Fruit/0203_93072.png,225,225,Approved,Pink Lady,✅ VERIFIED PHOTO,1,3
+204,Fruit,Organic Fruit,94153,Organic Apples MacIntosh,Organic Apple,,Code Booklet,images/Fruit/0204_94153.png,299,299,Approved,MacIntosh,✅ VERIFIED PHOTO,1,5
+205,Fruit,Organic Fruit,94154,Organic Apples MacIntosh,Organic Apple,,Code Booklet,images/Fruit/0205_94154.png,299,299,Approved,MacIntosh,✅ VERIFIED PHOTO,1,5
+206,Fruit,Organic Fruit,94204,Organic Apples Orin,Organic Apple,,AI Generated,images/Fruit/0206_94204.png,291,291,Approximate,yellow-green blush apple; Orin plausible,🤖 AI GENERATED REFERENCE IMAGE,1,1
+207,Fruit,Organic Fruit,94215,Organic Apples Pinata,Organic Apple,,AI Generated,images/Fruit/0207_94215.png,284,284,Approximate,yellow-orange apple; Pinata plausible,🤖 AI GENERATED REFERENCE IMAGE,1,1
+208,Fruit,Organic Fruit,94128,Organic Apples Pink Lady,Organic Apple,,Code Booklet,images/Fruit/0208_94128.png,225,225,Approved,Pink Lady,✅ VERIFIED PHOTO,1,3
+209,Fruit,Organic Fruit,94016,Organic Apples Red Delicious,Organic Apple,,Code Booklet,images/Fruit/0209_94016.png,225,225,Approved,Red Delicious,✅ VERIFIED PHOTO,1,2
+210,Fruit,Organic Fruit,94178,Organic Apples Spartan,Organic Apple,,AI Generated,images/Fruit/0210_94178.png,293,293,Approved,Spartan,🤖 AI GENERATED REFERENCE IMAGE,1,2
+211,Fruit,Organic Fruit,94205,Organic Apples Su Mac,Organic Apple,,AI Generated,images/Fruit/0211_94205.png,270,270,Approximate,red-yellow apple; Su Mac not certain,🤖 AI GENERATED REFERENCE IMAGE,1,1
+212,Fruit,Organic Fruit,94212,Organic Apples Sunrise,Organic Apple,,Code Booklet,images/Fruit/0212_94212.png,199,199,Approximate,pale red apple; Sunrise plausible,⚠ APPROXIMATE PHOTO MATCH,1,1
+213,Fruit,Organic Fruit,94225,Organic Avocado Large Hass,Organic Tropical,,Code Booklet,images/Fruit/0213_94225.png,236,236,Approximate,dark green avocado; Hass pebble texture not visible,⚠ APPROXIMATE PHOTO MATCH,1,3
+214,Fruit,Organic Fruit,94228,Organic Avocado Sharwil,Organic Tropical,,Code Booklet,images/Fruit/0214_94228.png,236,236,Approximate,same image as #213,⚠ APPROXIMATE PHOTO MATCH,1,3
+215,Fruit,Organic Fruit,94011,Organic Bananas,Organic Tropical,,Code Booklet,images/Fruit/0215_94011.png,225,225,Approved,bananas,✅ VERIFIED PHOTO,1,2
+216,Fruit,Organic Fruit,94249,Organic Blueberries Pint,Organic Berry,,Code Booklet,images/Fruit/0216_94249.png,147,147,Approved,blueberries,✅ VERIFIED PHOTO,1,4
+217,Fruit,Organic Fruit,94045,Organic Cherries,Organic Stone Fruit,,Code Booklet,images/Fruit/0217_94045.png,225,225,Approved,cherries,✅ VERIFIED PHOTO,1,2
+218,Fruit,Organic Fruit,94025,Organic D'Anjou Pears,Organic Pear,,Code Booklet,images/Fruit/0218_94025.png,159,159,Approximate,small green/red pears; D'Anjou is large,⚠ APPROXIMATE PHOTO MATCH,1,2
+219,Fruit,Organic Fruit,94027,Organic Grapefruit,Organic Citrus,,Code Booklet,images/Fruit/0219_94027.png,206,206,Approved,red grapefruit,✅ VERIFIED PHOTO,1,8
+220,Fruit,Organic Fruit,94281,Organic Grapefruit Pink,Organic Citrus,,Code Booklet,images/Fruit/0220_94281.png,206,206,Approved,pink grapefruit,✅ VERIFIED PHOTO,1,8
+221,Fruit,Organic Fruit,94461,Organic Grapefruit Shaddock,Organic Citrus,,Code Booklet,images/Fruit/0221_94461.png,180,180,Approved,pomelo/shaddock,✅ VERIFIED PHOTO,1,6
+222,Fruit,Organic Fruit,93129,Organic Grapefuit Pommelo,Organic Citrus,,Code Booklet,images/Fruit/0222_93129.png,180,180,Approved,pomelo,✅ VERIFIED PHOTO,1,6
+223,Fruit,Organic Fruit,94022,Organic Grapes Green Sdls,Organic Grape,,Code Booklet,images/Fruit/0223_94022.png,271,271,Approved,green grapes,✅ VERIFIED PHOTO,1,8
+224,Fruit,Organic Fruit,94497,Organic Grapes Green Sdls,Organic Grape,,Code Booklet,images/Fruit/0224_94497.png,271,271,Approved,green grapes,✅ VERIFIED PHOTO,1,8
+225,Fruit,Organic Fruit,94023,Organic Grapes Red Seedless,Organic Grape,,Code Booklet,images/Fruit/0225_94023.png,225,225,Approved,red grapes,✅ VERIFIED PHOTO,1,4
+226,Fruit,Organic Fruit,94022,Organic Green Grapes Seedless,Organic Grape,,Code Booklet,images/Fruit/0226_94022.png,271,271,Approved,green grapes,✅ VERIFIED PHOTO,1,8
+227,Fruit,Organic Fruit,94034,Organic Honeydew,Organic Melon,,Code Booklet,images/Fruit/0227_94034.png,257,257,Approved,honeydew,✅ VERIFIED PHOTO,1,6
+228,Fruit,Organic Fruit,94030,Organic Kiwi,Organic Specialty,,Code Booklet,images/Fruit/0228_94030.png,180,180,Approved,kiwi,✅ VERIFIED PHOTO,1,3
+229,Fruit,Organic Fruit,94303,Organic KumQuat,Organic Citrus,,Code Booklet,images/Fruit/0229_94303.png,220,220,Approved,kumquats,✅ VERIFIED PHOTO,1,1
+230,Fruit,Organic Fruit,94053,Organic Lemons,Organic Citrus,,Code Booklet,images/Fruit/0230_94053.png,294,294,Approved,lemon,✅ VERIFIED PHOTO,1,2
+231,Fruit,Organic Fruit,94304,Organic Lemons Meyer-Buckbrand,Organic Citrus,,Code Booklet,images/Fruit/0231_94304.png,323,323,Approximate,lemons; Meyer not certain,⚠ APPROXIMATE PHOTO MATCH,1,1
+232,Fruit,Organic Fruit,94328,Organic Limequats,Organic Citrus,,AI Generated,images/Fruit/0232_94328.png,342,342,Approved,limequats,🤖 AI GENERATED REFERENCE IMAGE,1,1
+233,Fruit,Organic Fruit,94048,Organic Limes,Organic Citrus,,Code Booklet,images/Fruit/0233_94048.png,258,258,Approved,limes,✅ VERIFIED PHOTO,1,2
+234,Fruit,Organic Fruit,94024,Organic Limes Finger,Organic Citrus,,AI Generated,images/Fruit/0234_94024.png,346,346,Approved,finger limes,🤖 AI GENERATED REFERENCE IMAGE,1,1
+235,Fruit,Organic Fruit,94306,Organic Limes Sweet,Organic Citrus,,Produce Guide,images/Fruit/0235_94306.png,435,435,Rejected,pink line artifact across top of image,❌ IMAGE REJECTED – REPLACEMENT NEEDED,1,1
+236,Fruit,Organic Fruit,94584,Organic Mango,Organic Tropical,,Code Booklet,images/Fruit/0236_94584.png,180,180,Approved,mango,✅ VERIFIED PHOTO,1,8
+237,Fruit,Organic Fruit,94311,Organic Mangoes,Organic Tropical,,Code Booklet,images/Fruit/0237_94311.png,180,180,Approved,mango,✅ VERIFIED PHOTO,1,8
+238,Fruit,Organic Fruit,94959,Organic Mangoes,Organic Tropical,,Code Booklet,images/Fruit/0238_94959.png,180,180,Approved,mango,✅ VERIFIED PHOTO,1,8
+239,Fruit,Organic Fruit,94317,Organic Melon Canary,Organic Melon,,Code Booklet,images/Fruit/0239_94317.png,229,229,Approved,canary melon,✅ VERIFIED PHOTO,1,4
+240,Fruit,Organic Fruit,94050,Organic Melon Cantaloupe,Organic Melon,,Code Booklet,images/Fruit/0240_94050.png,142,142,Approved,cantaloupe,✅ VERIFIED PHOTO,1,1
+241,Fruit,Organic Fruit,94049,Organic Melon Cantaloupe Small,Organic Melon,,Code Booklet,images/Fruit/0241_94049.png,215,215,Approved,cantaloupe,✅ VERIFIED PHOTO,1,10
+242,Fruit,Organic Fruit,94040,Organic Melon Canteloupe Small,Organic Melon,,Code Booklet,images/Fruit/0242_94040.png,215,215,Approved,cantaloupe,✅ VERIFIED PHOTO,1,10
+243,Fruit,Organic Fruit,94326,Organic Melon Galia,Organic Melon,,Code Booklet,images/Fruit/0243_94326.png,180,180,Approved,Galia melon,✅ VERIFIED PHOTO,1,1
+244,Fruit,Organic Fruit,94329,Organic Melon Honeydew,Organic Melon,,Code Booklet,images/Fruit/0244_94329.png,257,257,Approved,honeydew,✅ VERIFIED PHOTO,1,6
+245,Fruit,Organic Fruit,94329,Organic Melon Honeydew Small,Organic Melon,,Code Booklet,images/Fruit/0245_94329.png,257,257,Approved,honeydew,✅ VERIFIED PHOTO,1,6
+246,Fruit,Organic Fruit,94332,Organic Melon Musk,Organic Melon,,Code Booklet,images/Fruit/0246_94332.png,215,215,Approximate,cantaloupe shown for musk melon,⚠ APPROXIMATE PHOTO MATCH,1,10
+247,Fruit,Organic Fruit,94031,Organic Melon Watermelon,Organic Melon,,Code Booklet,images/Fruit/0247_94031.png,205,205,Approved,watermelon,✅ VERIFIED PHOTO,1,7
+248,Fruit,Organic Fruit,94032,Organic Melon Watermelon,Organic Melon,,Code Booklet,images/Fruit/0248_94032.png,205,205,Approved,watermelon,✅ VERIFIED PHOTO,1,7
+249,Fruit,Organic Fruit,94321,Organic Melon Watermelon,Organic Melon,,Code Booklet,images/Fruit/0249_94321.png,205,205,Approved,watermelon,✅ VERIFIED PHOTO,1,7
+250,Fruit,Organic Fruit,94340,Organic Melon Watermelon,Organic Melon,,Code Booklet,images/Fruit/0250_94340.png,205,205,Approved,watermelon,✅ VERIFIED PHOTO,1,7
+251,Fruit,Organic Fruit,94342,Organic Melon Watermelon,Organic Melon,,Code Booklet,images/Fruit/0251_94342.png,205,205,Approved,watermelon,✅ VERIFIED PHOTO,1,7
+252,Fruit,Organic Fruit,94342,Organic Melon Watermelon Seedless Slices,Organic Melon,,Code Booklet,images/Fruit/0252_94342.png,205,205,Approved,watermelon; seedless not distinguishable,✅ VERIFIED PHOTO,1,7
+253,Fruit,Organic Fruit,94378,Organic Nectarines,Organic Stone Fruit,,Code Booklet,images/Fruit/0253_94378.png,212,212,Approved,nectarines,✅ VERIFIED PHOTO,1,5
+254,Fruit,Organic Fruit,94036,Organic Nectarines Large,Organic Stone Fruit,,Code Booklet,images/Fruit/0254_94036.png,212,212,Approved,nectarines,✅ VERIFIED PHOTO,1,5
+255,Fruit,Organic Fruit,94035,Organic Nectarines Small,Organic Stone Fruit,,Code Booklet,images/Fruit/0255_94035.png,212,212,Approved,nectarines,✅ VERIFIED PHOTO,1,5
+256,Fruit,Organic Fruit,93035,Organic Nectarines White,Organic Stone Fruit,,Code Booklet,images/Fruit/0256_93035.png,212,212,Rejected,yellow-flesh nectarine shown; product is White,❌ IMAGE REJECTED – REPLACEMENT NEEDED,1,5
+257,Fruit,Organic Fruit,94381,Organic Oranges Blood,Organic Citrus,,Code Booklet,images/Fruit/0257_94381.png,180,180,Approved,blood orange,✅ VERIFIED PHOTO,1,2
+258,Fruit,Organic Fruit,93110,Organic Oranges Cara Cara,Organic Citrus,,Code Booklet,images/Fruit/0258_93110.png,188,188,Approximate,cut orange with deep flesh; Cara Cara plausible,⚠ APPROXIMATE PHOTO MATCH,1,3
+259,Fruit,Organic Fruit,93029,Organic Oranges Mandarin,Organic Citrus,,Code Booklet,images/Fruit/0259_93029.png,164,164,Approximate,generic mandarin,⚠ APPROXIMATE PHOTO MATCH,1,16
+260,Fruit,Organic Fruit,94391,Organic Oranges Mango,Organic Citrus,,Code Booklet,images/Fruit/0260_94391.png,164,164,Approximate,generic mandarin; product Mango/orange unclear,⚠ APPROXIMATE PHOTO MATCH,1,16
+261,Fruit,Organic Fruit,94453,Organic Oranges Murcott,Organic Citrus,,Code Booklet,images/Fruit/0261_94453.png,164,164,Approximate,generic mandarin; image reused,⚠ APPROXIMATE PHOTO MATCH,1,16
+262,Fruit,Organic Fruit,94012,Organic Oranges Navel Large,Organic Citrus,,Code Booklet,images/Fruit/0262_94012.png,193,193,Approved,navel orange,✅ VERIFIED PHOTO,1,7
+263,Fruit,Organic Fruit,93107,Organic Oranges Navel Medium,Organic Citrus,,Code Booklet,images/Fruit/0263_93107.png,193,193,Approved,navel orange,✅ VERIFIED PHOTO,1,7
+264,Fruit,Organic Fruit,93109,Organic Oranges Seville,Organic Citrus,,Code Booklet,images/Fruit/0264_93109.png,193,193,Approximate,sweet orange; Seville is bitter and rougher,⚠ APPROXIMATE PHOTO MATCH,1,7
+265,Fruit,Organic Fruit,94456,Organic Oranges Tangelos,Organic Citrus,,Code Booklet,images/Fruit/0265_94456.png,202,202,Approved,tangelos,✅ VERIFIED PHOTO,1,2
+266,Fruit,Organic Fruit,94458,Organic Oranges Tangerine,Organic Citrus,,Code Booklet,images/Fruit/0266_94458.png,164,164,Approximate,generic mandarin,⚠ APPROXIMATE PHOTO MATCH,1,16
+267,Fruit,Organic Fruit,94457,Organic Oranges TDE Tangerine,Organic Citrus,,Code Booklet,images/Fruit/0267_94457.png,164,164,Approximate,generic mandarin,⚠ APPROXIMATE PHOTO MATCH,1,16
+268,Fruit,Organic Fruit,93227,Organic Oranges Torange,Organic Citrus,,Code Booklet,images/Fruit/0268_93227.png,164,164,Approximate,generic mandarin; Torange not distinguishable,⚠ APPROXIMATE PHOTO MATCH,1,16
+269,Fruit,Organic Fruit,93108,Organic Oranges Valencia,Organic Citrus,,Code Booklet,images/Fruit/0269_93108.png,193,193,Approximate,cut orange; Valencia not distinguishable,⚠ APPROXIMATE PHOTO MATCH,1,7
+270,Fruit,Organic Fruit,94388,Organic Oranges Valencia,Organic Citrus,,Code Booklet,images/Fruit/0270_94388.png,193,193,Approximate,cut orange; Valencia not distinguishable,⚠ APPROXIMATE PHOTO MATCH,1,7
+271,Fruit,Organic Fruit,94044,Organic Peaches Tree Ripened,Organic Stone Fruit,,Code Booklet,images/Fruit/0271_94044.png,228,228,Approved,peaches,✅ VERIFIED PHOTO,1,4
+272,Fruit,Organic Fruit,94401,Organic Peaches White,Organic Stone Fruit,,Code Booklet,images/Fruit/0272_94401.png,280,280,Approved,white peaches,✅ VERIFIED PHOTO,1,2
+273,Fruit,Organic Fruit,94038,Organic Peaches Yellow Lrg,Organic Stone Fruit,,Code Booklet,images/Fruit/0273_94038.png,228,228,Approved,peaches,✅ VERIFIED PHOTO,1,4
+274,Fruit,Organic Fruit,93016,Organic Pear Concord,Organic Pear,,Code Booklet,images/Fruit/0274_93016.png,114,114,Rejected,tiny pear in corner of image; unusable crop,❌ IMAGE REJECTED – REPLACEMENT NEEDED,1,2
+275,Fruit,Organic Fruit,94416,Organic Pear D'Anjou,Organic Pear,,Code Booklet,images/Fruit/0275_94416.png,162,162,Approximate,small green/red pears; D'Anjou is large,⚠ APPROXIMATE PHOTO MATCH,1,1
+276,Fruit,Organic Fruit,94116,Organic Pears Bartlett,Organic Pear,,Code Booklet,images/Fruit/0276_94116.png,187,187,Approved,Bartlett pears,✅ VERIFIED PHOTO,1,3
+277,Fruit,Organic Fruit,94409,Organic Pears Bartlett Green,Organic Pear,,Code Booklet,images/Fruit/0277_94409.png,187,187,Approved,Bartlett green,✅ VERIFIED PHOTO,1,3
+278,Fruit,Organic Fruit,94410,Organic Pears Bartlett Red,Organic Pear,,Code Booklet,images/Fruit/0278_94410.png,199,199,Approved,Bartlett red,✅ VERIFIED PHOTO,1,4
+279,Fruit,Organic Fruit,94413,Organic Pears Bosc,Organic Pear,,Code Booklet,images/Fruit/0279_94413.png,180,180,Approved,Bosc pears,✅ VERIFIED PHOTO,1,2
+280,Fruit,Organic Fruit,94430,Organic Pineapple,Organic Tropical,,Code Booklet,images/Fruit/0280_94430.png,185,185,Approved,pineapple,✅ VERIFIED PHOTO,1,7
+281,Fruit,Organic Fruit,94433,Organic Pineapple,Organic Tropical,,Code Booklet,images/Fruit/0281_94433.png,185,185,Approved,pineapple,✅ VERIFIED PHOTO,1,7
+282,Fruit,Organic Fruit,94281,Organic Pink Grapefruit,Organic Citrus,,Code Booklet,images/Fruit/0282_94281.png,206,206,Approved,pink grapefruit,✅ VERIFIED PHOTO,1,8
+283,Fruit,Organic Fruit,94040,Organic Plum Black,Organic Stone Fruit,,AI Generated,images/Fruit/0283_94040.png,318,318,Approved,black plums,🤖 AI GENERATED REFERENCE IMAGE,1,4
+284,Fruit,Organic Fruit,94042,Organic Plum Red,Organic Stone Fruit,,Code Booklet,images/Fruit/0284_94042.png,180,180,Approved,red plums,✅ VERIFIED PHOTO,1,5
+285,Fruit,Organic Fruit,94039,Organic Plums Black Small,Organic Stone Fruit,,AI Generated,images/Fruit/0285_94039.png,318,318,Approved,black plums,🤖 AI GENERATED REFERENCE IMAGE,1,4
+286,Fruit,Organic Fruit,94041,Organic Plums Red Small,Organic Stone Fruit,,Code Booklet,images/Fruit/0286_94041.png,180,180,Approved,red plums,✅ VERIFIED PHOTO,1,5
+287,Fruit,Organic Fruit,93127,Organic Pomegrante,Organic Specialty,,Code Booklet,images/Fruit/0287_93127.png,202,202,Approved,pomegranate,✅ VERIFIED PHOTO,1,2
+288,Fruit,Organic Fruit,94047,Organic Red Grapefruit,Organic Citrus,,Code Booklet,images/Fruit/0288_94047.png,221,221,Approved,red grapefruit,✅ VERIFIED PHOTO,1,1
+289,Fruit,Organic Fruit,94023,Organic Red Seedless Grapes,Organic Grape,,Code Booklet,images/Fruit/0289_94023.png,225,225,Approved,red grapes,✅ VERIFIED PHOTO,1,4
+290,Fruit,Organic Fruit,94173,Organic Royal Gala Apples,Organic Apple,,Code Booklet,images/Fruit/0290_94173.png,247,247,Approved,Royal Gala,✅ VERIFIED PHOTO,1,6
+291,Fruit,Organic Fruit,94461,Organic Shaddock,Organic Citrus,,Code Booklet,images/Fruit/0291_94461.png,180,180,Approved,pomelo/shaddock,✅ VERIFIED PHOTO,1,6
+292,Fruit,Organic Fruit,94252,Organic Strawberry Pint,Organic Berry,,Code Booklet,images/Fruit/0292_94252.png,194,194,Approved,strawberries,✅ VERIFIED PHOTO,1,7
+293,Fruit,Organic Fruit,94022,Organic White Grapes,Organic Grape,,Code Booklet,images/Fruit/0293_94022.png,271,271,Approved,green grapes,✅ VERIFIED PHOTO,1,8
 294,Vegetable,Lettuce,4076,Leaf lettuce green,Lettuce,,Code Booklet,images/Vegetable/0294_4076.jpg,180,180,Approved,green leaf lettuce,✅ VERIFIED PHOTO,1,3
 295,Vegetable,Lettuce,4061,Lettuce Iceberg,Lettuce,,Code Booklet,images/Vegetable/0295_4061.jpg,193,193,Approved,iceberg lettuce,✅ VERIFIED PHOTO,1,2
 296,Vegetable,Lettuce,4075,Lettuce Red Leaf,Lettuce,,Code Booklet,images/Vegetable/0296_4075.jpg,183,183,Approved,red leaf lettuce,✅ VERIFIED PHOTO,1,1
@@ -496,103 +496,103 @@
 495,Vegetable,Specialty Vegetables,4675,Peas Sugar Snap,Specialty Vegetable,,AI Generated,images/Vegetable/0495_4675.jpg,351,351,Approved,sugar snap peas,🤖 AI GENERATED REFERENCE IMAGE,1,1
 496,Vegetable,Specialty Vegetables,4676,Peas Tips,Specialty Vegetable,,AI Generated,images/Vegetable/0496_4676.jpg,346,346,Approved,pea tips,🤖 AI GENERATED REFERENCE IMAGE,1,1
 497,Vegetable,Specialty Vegetables,4745,Rhubarb KG,Specialty Vegetable,,Code Booklet,images/Vegetable/0497_4745.jpg,261,261,Approved,rhubarb,✅ VERIFIED PHOTO,1,2
-498,Vegetable,Organic Vegetables,94885,Organic Basil,Organic Herb,,AI Generated,images/Vegetable/0498_94885.jpg,349,349,Approved,basil,🤖 AI GENERATED REFERENCE IMAGE,1,3
-499,Vegetable,Organic Vegetables,94539,Organic Beets,Organic Root Vegetable,,Code Booklet,images/Vegetable/0499_94539.jpg,286,286,Approved,beets,✅ VERIFIED PHOTO,1,3
-500,Vegetable,Organic Vegetables,93277,Organic Broccolini,Organic Brassica,,AI Generated,images/Vegetable/0500_93277.jpg,350,350,Approved,broccolini,🤖 AI GENERATED REFERENCE IMAGE,1,1
-501,Vegetable,Organic Vegetables,94069,Organic Cabbage Green,Organic Brassica,,Code Booklet,images/Vegetable/0501_94069.jpg,180,180,Approved,green cabbage,✅ VERIFIED PHOTO,1,3
-502,Vegetable,Organic Vegetables,94554,Organic Cabbage Red,Organic Brassica,,Code Booklet,images/Vegetable/0502_94554.jpg,181,181,Approved,red cabbage,✅ VERIFIED PHOTO,1,2
-503,Vegetable,Organic Vegetables,94094,Organic Carrots Bunch,Organic Root Vegetable,,Code Booklet,images/Vegetable/0503_94094.jpg,180,180,Approved,carrot bunch,✅ VERIFIED PHOTO,1,4
-504,Vegetable,Organic Vegetables,94079,Organic Cauliflower,Organic Brassica,,Code Booklet,images/Vegetable/0504_94079.jpg,180,180,Approved,cauliflower,✅ VERIFIED PHOTO,1,2
-505,Vegetable,Organic Vegetables,94070,Organic Celery,Organic Specialty Vegetable,,Code Booklet,images/Vegetable/0505_94070.jpg,232,232,Approved,celery,✅ VERIFIED PHOTO,1,2
-506,Vegetable,Organic Vegetables,94586,Organic Chard Green,Organic Leafy Green,,Code Booklet,images/Vegetable/0506_94586.jpg,257,257,Approved,green chard,✅ VERIFIED PHOTO,1,3
-507,Vegetable,Organic Vegetables,94588,Organic Chard Rainbow,Organic Leafy Green,,Code Booklet,images/Vegetable/0507_94588.jpg,257,257,Approximate,green chard only; rainbow stems not visible,⚠ APPROXIMATE PHOTO MATCH,1,3
-508,Vegetable,Organic Vegetables,94910,Organic Chives,Organic Herb,,AI Generated,images/Vegetable/0508_94910.jpg,349,349,Approved,chives,🤖 AI GENERATED REFERENCE IMAGE,1,1
-509,Vegetable,Organic Vegetables,94889,Organic Cilantro,Organic Herb,,Code Booklet,images/Vegetable/0509_94889.jpg,180,180,Approved,cilantro,✅ VERIFIED PHOTO,1,3
-510,Vegetable,Organic Vegetables,94614,Organic Collard Greens,Organic Leafy Green,,Code Booklet,images/Vegetable/0510_94614.jpg,286,286,Approved,collard greens,✅ VERIFIED PHOTO,1,1
-511,Vegetable,Organic Vegetables,94593,Organic Cucumber European,Organic Cucumber,,Code Booklet,images/Vegetable/0511_94593.jpg,282,282,Approved,European cucumber,✅ VERIFIED PHOTO,1,2
-512,Vegetable,Organic Vegetables,94062,Organic Cucumber Field (Green),Organic Cucumber,,Code Booklet,images/Vegetable/0512_94062.jpg,180,180,Approved,field cucumbers,✅ VERIFIED PHOTO,1,2
-513,Vegetable,Organic Vegetables,94892,Organic Dill,Organic Herb,,Code Booklet,images/Vegetable/0513_94892.jpg,267,267,Approved,dill,✅ VERIFIED PHOTO,1,3
-514,Vegetable,Organic Vegetables,94081,Organic Eggplant,Organic Specialty Vegetable,,Code Booklet,images/Vegetable/0514_94081.jpg,207,207,Approved,eggplant,✅ VERIFIED PHOTO,1,3
-515,Vegetable,Organic Vegetables,94600,Organic Eggplant White,Organic Specialty Vegetable,,AI Generated,images/Vegetable/0515_94600.jpg,332,332,Approved,white eggplant,🤖 AI GENERATED REFERENCE IMAGE,1,1
-516,Vegetable,Organic Vegetables,94608,Organic Garlic,Organic Onion,,Code Booklet,images/Vegetable/0516_94608.jpg,247,247,Approved,garlic,✅ VERIFIED PHOTO,1,2
-517,Vegetable,Organic Vegetables,94096,Organic Ginger Gold,Organic Root Vegetable,,Code Booklet,images/Vegetable/0517_94096.jpg,165,165,Approved,ginger,✅ VERIFIED PHOTO,1,2
-518,Vegetable,Organic Vegetables,94066,Organic Green Beans,Organic Specialty Vegetable,,Code Booklet,images/Vegetable/0518_94066.jpg,289,289,Approved,green beans,✅ VERIFIED PHOTO,1,2
-519,Vegetable,Organic Vegetables,94061,Organic Head Lettuce (iceburg),Organic Lettuce,,Code Booklet,images/Vegetable/0519_94061.jpg,193,193,Approved,iceberg lettuce,✅ VERIFIED PHOTO,1,2
-520,Vegetable,Organic Vegetables,94799,Organic Hot House Tomatoe,Organic Tomato,,Code Booklet,images/Vegetable/0520_94799.jpg,180,180,Approved,hot house tomato,✅ VERIFIED PHOTO,1,3
-521,Vegetable,Organic Vegetables,94621,Organic Kale Black,Organic Leafy Green,,AI Generated,images/Vegetable/0521_94621.jpg,354,354,Approved,black kale,🤖 AI GENERATED REFERENCE IMAGE,1,3
-522,Vegetable,Organic Vegetables,94624,Organic Kale Black,Organic Leafy Green,,AI Generated,images/Vegetable/0522_94624.jpg,354,354,Approved,black kale,🤖 AI GENERATED REFERENCE IMAGE,1,3
-523,Vegetable,Organic Vegetables,94627,Organic Kale Greens,Organic Leafy Green,,Code Booklet,images/Vegetable/0523_94627.jpg,189,189,Approved,curly kale,✅ VERIFIED PHOTO,1,2
-524,Vegetable,Organic Vegetables,94623,Organic Kale Red,Organic Leafy Green,,AI Generated,images/Vegetable/0524_94623.jpg,351,351,Approved,red kale,🤖 AI GENERATED REFERENCE IMAGE,1,4
-525,Vegetable,Organic Vegetables,9463,Organic Kale Red,Organic Leafy Green,,AI Generated,images/Vegetable/0525_9463.jpg,351,351,Approved,red kale,🤖 AI GENERATED REFERENCE IMAGE,1,4
-526,Vegetable,Organic Vegetables,94076,Organic Leaf Lettuce Green,Organic Lettuce,,Code Booklet,images/Vegetable/0526_94076.jpg,180,180,Approved,green leaf lettuce,✅ VERIFIED PHOTO,1,3
-527,Vegetable,Organic Vegetables,94075,Organic Leaf Lettuce Red,Organic Lettuce,,Code Booklet,images/Vegetable/0527_94075.jpg,180,180,Rejected,green leaf lettuce shown; product is Red leaf,❌ IMAGE REJECTED – REPLACEMENT NEEDED,1,3
-528,Vegetable,Organic Vegetables,94629,Organic Leeks,Organic Onion,,Code Booklet,images/Vegetable/0528_94629.jpg,293,293,Approved,leeks,✅ VERIFIED PHOTO,1,2
-529,Vegetable,Organic Vegetables,93097,Organic Lettuc Red Romaine,Organic Lettuce,,AI Generated,images/Vegetable/0529_93097.jpg,322,322,Approved,red romaine,🤖 AI GENERATED REFERENCE IMAGE,1,2
-530,Vegetable,Organic Vegetables,94632,Organic Lettuce Boston/Butter,Organic Lettuce,,AI Generated,images/Vegetable/0530_94632.jpg,357,357,Approved,Boston/butter lettuce,🤖 AI GENERATED REFERENCE IMAGE,1,3
-531,Vegetable,Organic Vegetables,94640,Organic Lettuce Romaine,Organic Lettuce,,Code Booklet,images/Vegetable/0531_94640.jpg,180,180,Approved,romaine,✅ VERIFIED PHOTO,1,3
-532,Vegetable,Organic Vegetables,94896,Organic Mint,Organic Herb,,Code Booklet,images/Vegetable/0532_94896.jpg,225,225,Approved,mint,✅ VERIFIED PHOTO,1,2
-533,Vegetable,Organic Vegetables,94649,Organic Mushroom Oyster,Organic Specialty Vegetable,,AI Generated,images/Vegetable/0533_94649.jpg,347,347,Approved,oyster mushrooms,🤖 AI GENERATED REFERENCE IMAGE,1,1
-534,Vegetable,Organic Vegetables,94657,Organic Mushroom Portabello,Organic Specialty Vegetable,,Code Booklet,images/Vegetable/0534_94657.jpg,253,253,Approved,portabello mushrooms,✅ VERIFIED PHOTO,1,1
-535,Vegetable,Organic Vegetables,94648,Organic Mushrooms Brown,Organic Specialty Vegetable,,Code Booklet,images/Vegetable/0535_94648.jpg,185,185,Approved,brown mushrooms,✅ VERIFIED PHOTO,1,2
-536,Vegetable,Organic Vegetables,94648,Organic Mushrooms Crimini,Organic Specialty Vegetable,,Code Booklet,images/Vegetable/0536_94648.jpg,185,185,Approved,crimini mushrooms,✅ VERIFIED PHOTO,1,2
-537,Vegetable,Organic Vegetables,94651,Organic Mushrooms Shitake,Organic Specialty Vegetable,,AI Generated,images/Vegetable/0537_94651.jpg,376,376,Approved,shiitake mushrooms,🤖 AI GENERATED REFERENCE IMAGE,1,1
-538,Vegetable,Organic Vegetables,94085,Organic Mushrooms White,Organic Specialty Vegetable,,Code Booklet,images/Vegetable/0538_94085.jpg,255,255,Approved,white mushrooms,✅ VERIFIED PHOTO,1,1
-539,Vegetable,Organic Vegetables,94616,Organic Mustard Greens,Organic Leafy Green,,AI Generated,images/Vegetable/0539_94616.jpg,359,359,Approved,mustard greens,🤖 AI GENERATED REFERENCE IMAGE,1,1
-540,Vegetable,Organic Vegetables,94655,Organic Okra,Organic Specialty Vegetable,,Code Booklet,images/Vegetable/0540_94655.jpg,227,227,Approved,okra,✅ VERIFIED PHOTO,1,1
-541,Vegetable,Organic Vegetables,94068,Organic Onion Green,Organic Onion,,Code Booklet,images/Vegetable/0541_94068.jpg,204,204,Approved,green onions,✅ VERIFIED PHOTO,1,2
-542,Vegetable,Organic Vegetables,94082,Organic Onion Red,Organic Onion,,Code Booklet,images/Vegetable/0542_94082.jpg,206,206,Approved,red onion,✅ VERIFIED PHOTO,1,2
-543,Vegetable,Organic Vegetables,94662,Organic Onion Shallots,Organic Onion,,Code Booklet,images/Vegetable/0543_94662.jpg,185,185,Approved,shallots,✅ VERIFIED PHOTO,1,2
-544,Vegetable,Organic Vegetables,94093,Organic Onion Spanish,Organic Onion,,Code Booklet,images/Vegetable/0544_94093.jpg,228,228,Approved,Spanish onions,✅ VERIFIED PHOTO,1,1
-545,Vegetable,Organic Vegetables,94665,Organic Onion Yellow,Organic Onion,,Code Booklet,images/Vegetable/0545_94665.jpg,190,190,Approved,yellow onion,✅ VERIFIED PHOTO,1,3
-546,Vegetable,Organic Vegetables,94666,Organic Onions White,Organic Onion,,Code Booklet,images/Vegetable/0546_94666.jpg,182,182,Approved,white onion,✅ VERIFIED PHOTO,1,2
-547,Vegetable,Organic Vegetables,94093,Organic Onions Yellow,Organic Onion,,Code Booklet,images/Vegetable/0547_94093.jpg,190,190,Approved,yellow onion,✅ VERIFIED PHOTO,1,3
-548,Vegetable,Organic Vegetables,94901,Organic Parsley,Organic Herb,,Code Booklet,images/Vegetable/0548_94901.jpg,180,180,Approved,curly parsley,✅ VERIFIED PHOTO,1,3
-549,Vegetable,Organic Vegetables,94900,Organic Parsley Flat,Organic Herb,,Code Booklet,images/Vegetable/0549_94900.jpg,180,180,Approved,flat parsley,✅ VERIFIED PHOTO,1,3
-550,Vegetable,Organic Vegetables,94323,Organic Pepper Chocolate,Organic Pepper,,AI Generated,images/Vegetable/0550_94323.jpg,335,335,Approved,chocolate bell pepper,🤖 AI GENERATED REFERENCE IMAGE,1,2
-551,Vegetable,Organic Vegetables,94065,Organic Pepper Green,Organic Pepper,,Code Booklet,images/Vegetable/0551_94065.jpg,184,184,Approved,green pepper,✅ VERIFIED PHOTO,1,3
-552,Vegetable,Organic Vegetables,93120,Organic Pepper Green Bell,Organic Pepper,,Code Booklet,images/Vegetable/0552_93120.jpg,184,184,Approved,green bell pepper,✅ VERIFIED PHOTO,1,3
-553,Vegetable,Organic Vegetables,93121,Organic Pepper Orange,Organic Pepper,,Code Booklet,images/Vegetable/0553_93121.jpg,180,180,Approved,orange pepper,✅ VERIFIED PHOTO,1,2
-554,Vegetable,Organic Vegetables,93124,Organic Pepper Purple Bell,Organic Pepper,,AI Generated,images/Vegetable/0554_93124.jpg,303,303,Approved,purple bell pepper,🤖 AI GENERATED REFERENCE IMAGE,1,2
-555,Vegetable,Organic Vegetables,94088,Organic Pepper Red,Organic Pepper,,Code Booklet,images/Vegetable/0555_94088.jpg,256,256,Approved,red pepper,✅ VERIFIED PHOTO,1,3
-556,Vegetable,Organic Vegetables,94689,Organic Pepper Yellow,Organic Pepper,,Code Booklet,images/Vegetable/0556_94689.jpg,185,185,Approved,yellow pepper,✅ VERIFIED PHOTO,1,2
-557,Vegetable,Organic Vegetables,94072,Organic Potato Baking,Organic Potato,,Code Booklet,images/Vegetable/0557_94072.jpg,253,253,Approved,baking potato,✅ VERIFIED PHOTO,1,2
-558,Vegetable,Organic Vegetables,94823,Organic Potato Nugget,Organic Potato,,AI Generated,images/Vegetable/0558_94823.jpg,357,357,Approximate,small yellow potatoes; Nugget plausible,🤖 AI GENERATED REFERENCE IMAGE,1,3
-559,Vegetable,Organic Vegetables,93128,Organic Potato Purple,Organic Potato,,AI Generated,images/Vegetable/0559_93128.jpg,334,334,Approved,purple potatoes,🤖 AI GENERATED REFERENCE IMAGE,1,2
-560,Vegetable,Organic Vegetables,94723,Organic Potato Red,Organic Potato,,Code Booklet,images/Vegetable/0560_94723.jpg,276,276,Approved,red potatoes,✅ VERIFIED PHOTO,1,3
-561,Vegetable,Organic Vegetables,94823,Organic Potato White,Organic Potato,,Code Booklet,images/Vegetable/0561_94823.jpg,276,276,Approved,white potatoes,✅ VERIFIED PHOTO,1,2
-562,Vegetable,Organic Vegetables,94829,Organic Potato Yellow,Organic Potato,,Code Booklet,images/Vegetable/0562_94829.jpg,268,268,Approved,yellow potatoes,✅ VERIFIED PHOTO,1,3
-563,Vegetable,Organic Vegetables,94073,Organic Potatoes Red,Organic Potato,,Code Booklet,images/Vegetable/0563_94073.jpg,276,276,Approved,red potatoes,✅ VERIFIED PHOTO,1,3
-564,Vegetable,Organic Vegetables,94089,Organic Radish Bunch,Organic Root Vegetable,,Code Booklet,images/Vegetable/0564_94089.jpg,178,178,Approved,radishes,✅ VERIFIED PHOTO,1,2
-565,Vegetable,Organic Vegetables,94664,Organic Red Cluster Tomatoes,Organic Tomato,,Code Booklet,images/Vegetable/0565_94664.jpg,188,188,Approved,red cluster tomatoes,✅ VERIFIED PHOTO,1,4
-566,Vegetable,Organic Vegetables,94745,Organic Rhubarb,Organic Specialty Vegetable,,Code Booklet,images/Vegetable/0566_94745.jpg,261,261,Approved,rhubarb,✅ VERIFIED PHOTO,1,2
-567,Vegetable,Organic Vegetables,93320,Organic Romanesco,Organic Brassica,,AI Generated,images/Vegetable/0567_93320.jpg,352,352,Approved,romanesco,🤖 AI GENERATED REFERENCE IMAGE,1,1
-568,Vegetable,Organic Vegetables,94090,Organic Spinach,Organic Leafy Green,,AI Generated,images/Vegetable/0568_94090.jpg,334,334,Approved,spinach,🤖 AI GENERATED REFERENCE IMAGE,1,2
-569,Vegetable,Organic Vegetables,94750,Organic Squash Acorn,Organic Squash,,Code Booklet,images/Vegetable/0569_94750.jpg,302,302,Approved,acorn squash,✅ VERIFIED PHOTO,1,5
-570,Vegetable,Organic Vegetables,94758,Organic Squash Buttercup,Organic Squash,,AI Generated,images/Vegetable/0570_94758.jpg,357,357,Rejected,shows butter lettuce; product is Buttercup squash,❌ IMAGE REJECTED – REPLACEMENT NEEDED,1,3
-571,Vegetable,Organic Vegetables,94759,Organic Squash Butternut,Organic Squash,,AI Generated,images/Vegetable/0571_94759.jpg,357,357,Rejected,shows butter lettuce; product is Butternut squash,❌ IMAGE REJECTED – REPLACEMENT NEEDED,1,3
-572,Vegetable,Organic Vegetables,93142,Organic Squash Carnivale,Organic Squash,,AI Generated,images/Vegetable/0572_93142.jpg,292,292,Approved,carnival squash,🤖 AI GENERATED REFERENCE IMAGE,1,1
-573,Vegetable,Organic Vegetables,94763,Organic Squash Delicata,Organic Squash,,AI Generated,images/Vegetable/0573_94763.jpg,347,347,Approved,delicata squash,🤖 AI GENERATED REFERENCE IMAGE,1,1
-574,Vegetable,Organic Vegetables,94764,Organic Squash Dumpling Sweet,Organic Squash,,AI Generated,images/Vegetable/0574_94764.jpg,301,301,Approved,sweet dumpling squash,🤖 AI GENERATED REFERENCE IMAGE,1,2
-575,Vegetable,Organic Vegetables,93418,Organic Squash Eightball,Organic Squash,,AI Generated,images/Vegetable/0575_93418.jpg,284,284,Approved,eight ball squash,🤖 AI GENERATED REFERENCE IMAGE,1,1
-576,Vegetable,Organic Vegetables,94785,Organic Squash Festival,Organic Squash,,AI Generated,images/Vegetable/0576_94785.jpg,293,293,Approved,festival squash,🤖 AI GENERATED REFERENCE IMAGE,1,1
-577,Vegetable,Organic Vegetables,94769,Organic Squash Kabocha,Organic Squash,,AI Generated,images/Vegetable/0577_94769.jpg,349,349,Approved,kabocha,🤖 AI GENERATED REFERENCE IMAGE,1,4
-578,Vegetable,Organic Vegetables,94773,Organic Squash Patty Pan,Organic Squash,,Produce Guide,images/Vegetable/0578_94773.jpg,388,388,Approved,pattypan squash; stray mark at left edge,✅ VERIFIED PHOTO,1,2
-579,Vegetable,Organic Vegetables,94774,Organic Squash Red Kurri,Organic Squash,,AI Generated,images/Vegetable/0579_94774.jpg,349,349,Approximate,dark green kabocha shown; Red Kuri is orange,🤖 AI GENERATED REFERENCE IMAGE,1,4
-580,Vegetable,Organic Vegetables,94776,Organic Squash Spaghetti,Organic Squash,,Code Booklet,images/Vegetable/0580_94776.jpg,180,180,Approved,spaghetti squash,✅ VERIFIED PHOTO,1,2
-581,Vegetable,Organic Vegetables,94769,Organic Squash Stripetti,Organic Squash,,AI Generated,images/Vegetable/0581_94769.jpg,293,293,Approved,stripetti squash,🤖 AI GENERATED REFERENCE IMAGE,1,2
-582,Vegetable,Organic Vegetables,94777,Organic Squash Sunburst,Organic Squash,,AI Generated,images/Vegetable/0582_94777.jpg,249,249,Approved,sunburst squash,🤖 AI GENERATED REFERENCE IMAGE,1,2
-583,Vegetable,Organic Vegetables,94782,Organic Squash Yellow,Organic Squash,,AI Generated,images/Vegetable/0583_94782.jpg,338,338,Approved,yellow crookneck squash,🤖 AI GENERATED REFERENCE IMAGE,1,3
-584,Vegetable,Organic Vegetables,94587,Organic Swiss Chard Red,Organic Leafy Green,,Code Booklet,images/Vegetable/0584_94587.jpg,268,268,Approved,red Swiss chard,✅ VERIFIED PHOTO,1,2
-585,Vegetable,Organic Vegetables,94993,Organic Tomato Cherry,Organic Tomato,,AI Generated,images/Vegetable/0585_94993.jpg,337,337,Approved,cherry tomatoes,🤖 AI GENERATED REFERENCE IMAGE,1,2
-586,Vegetable,Organic Vegetables,94860,Organic Tomato Field,Organic Tomato,,Code Booklet,images/Vegetable/0586_94860.jpg,224,224,Approved,field tomatoes,✅ VERIFIED PHOTO,1,4
-587,Vegetable,Organic Vegetables,93150,Organic Tomato Grape,Organic Tomato,,AI Generated,images/Vegetable/0587_93150.jpg,327,327,Approved,grape tomatoes,🤖 AI GENERATED REFERENCE IMAGE,1,1
-588,Vegetable,Organic Vegetables,93423,Organic Tomato Heirloom,Organic Tomato,,AI Generated,images/Vegetable/0588_93423.jpg,337,337,Approved,heirloom tomatoes,🤖 AI GENERATED REFERENCE IMAGE,1,2
-589,Vegetable,Organic Vegetables,94664,Organic Tomato On the Vine,Organic Tomato,,Code Booklet,images/Vegetable/0589_94664.jpg,188,188,Approved,tomatoes on the vine,✅ VERIFIED PHOTO,1,4
-590,Vegetable,Organic Vegetables,94087,Organic Tomato Plum Roma,Organic Tomato,,Code Booklet,images/Vegetable/0590_94087.jpg,257,257,Approved,Roma tomatoes,✅ VERIFIED PHOTO,1,2
-591,Vegetable,Organic Vegetables,94063,Organic Tomato Red,Organic Tomato,,Code Booklet,images/Vegetable/0591_94063.jpg,224,224,Approved,red tomatoes,✅ VERIFIED PHOTO,1,4
-592,Vegetable,Organic Vegetables,94064,Organic Tomato Red Large,Organic Tomato,,Code Booklet,images/Vegetable/0592_94064.jpg,224,224,Approved,red tomatoes,✅ VERIFIED PHOTO,1,4
-593,Vegetable,Organic Vegetables,94798,Organic Tomatoes,Organic Tomato,,Code Booklet,images/Vegetable/0593_94798.jpg,224,224,Approved,red tomatoes,✅ VERIFIED PHOTO,1,4
-594,Vegetable,Organic Vegetables,94816,Organic Yam,Organic Potato,,Code Booklet,images/Vegetable/0594_94816.jpg,267,267,Approximate,orange sweet potatoes shown for yam,⚠ APPROXIMATE PHOTO MATCH,1,5
-595,Vegetable,Organic Vegetables,94074,Organic Yams Red Garnet,Organic Potato,,Code Booklet,images/Vegetable/0595_94074.jpg,267,267,Approved,garnet yam,✅ VERIFIED PHOTO,1,5
-596,Vegetable,Organic Vegetables,94067,Organic Zucchini,Organic Squash,,Code Booklet,images/Vegetable/0596_94067.jpg,276,276,Approved,zucchini,✅ VERIFIED PHOTO,1,4
-597,Vegetable,Organic Vegetables,94086,Organic Zucchini Yellow,Organic Squash,,Code Booklet,images/Vegetable/0597_94086.jpg,186,186,Approved,yellow zucchini,✅ VERIFIED PHOTO,1,3
+498,Vegetable,Organic Vegetables,94885,Organic Basil,Organic Herb,,AI Generated,images/Vegetable/0498_94885.png,349,349,Approved,basil,🤖 AI GENERATED REFERENCE IMAGE,1,3
+499,Vegetable,Organic Vegetables,94539,Organic Beets,Organic Root Vegetable,,Code Booklet,images/Vegetable/0499_94539.png,286,286,Approved,beets,✅ VERIFIED PHOTO,1,3
+500,Vegetable,Organic Vegetables,93277,Organic Broccolini,Organic Brassica,,AI Generated,images/Vegetable/0500_93277.png,350,350,Approved,broccolini,🤖 AI GENERATED REFERENCE IMAGE,1,1
+501,Vegetable,Organic Vegetables,94069,Organic Cabbage Green,Organic Brassica,,Code Booklet,images/Vegetable/0501_94069.png,180,180,Approved,green cabbage,✅ VERIFIED PHOTO,1,3
+502,Vegetable,Organic Vegetables,94554,Organic Cabbage Red,Organic Brassica,,Code Booklet,images/Vegetable/0502_94554.png,181,181,Approved,red cabbage,✅ VERIFIED PHOTO,1,2
+503,Vegetable,Organic Vegetables,94094,Organic Carrots Bunch,Organic Root Vegetable,,Code Booklet,images/Vegetable/0503_94094.png,180,180,Approved,carrot bunch,✅ VERIFIED PHOTO,1,4
+504,Vegetable,Organic Vegetables,94079,Organic Cauliflower,Organic Brassica,,Code Booklet,images/Vegetable/0504_94079.png,180,180,Approved,cauliflower,✅ VERIFIED PHOTO,1,2
+505,Vegetable,Organic Vegetables,94070,Organic Celery,Organic Specialty Vegetable,,Code Booklet,images/Vegetable/0505_94070.png,232,232,Approved,celery,✅ VERIFIED PHOTO,1,2
+506,Vegetable,Organic Vegetables,94586,Organic Chard Green,Organic Leafy Green,,Code Booklet,images/Vegetable/0506_94586.png,257,257,Approved,green chard,✅ VERIFIED PHOTO,1,3
+507,Vegetable,Organic Vegetables,94588,Organic Chard Rainbow,Organic Leafy Green,,Code Booklet,images/Vegetable/0507_94588.png,257,257,Approximate,green chard only; rainbow stems not visible,⚠ APPROXIMATE PHOTO MATCH,1,3
+508,Vegetable,Organic Vegetables,94910,Organic Chives,Organic Herb,,AI Generated,images/Vegetable/0508_94910.png,349,349,Approved,chives,🤖 AI GENERATED REFERENCE IMAGE,1,1
+509,Vegetable,Organic Vegetables,94889,Organic Cilantro,Organic Herb,,Code Booklet,images/Vegetable/0509_94889.png,180,180,Approved,cilantro,✅ VERIFIED PHOTO,1,3
+510,Vegetable,Organic Vegetables,94614,Organic Collard Greens,Organic Leafy Green,,Code Booklet,images/Vegetable/0510_94614.png,286,286,Approved,collard greens,✅ VERIFIED PHOTO,1,1
+511,Vegetable,Organic Vegetables,94593,Organic Cucumber European,Organic Cucumber,,Code Booklet,images/Vegetable/0511_94593.png,282,282,Approved,European cucumber,✅ VERIFIED PHOTO,1,2
+512,Vegetable,Organic Vegetables,94062,Organic Cucumber Field (Green),Organic Cucumber,,Code Booklet,images/Vegetable/0512_94062.png,180,180,Approved,field cucumbers,✅ VERIFIED PHOTO,1,2
+513,Vegetable,Organic Vegetables,94892,Organic Dill,Organic Herb,,Code Booklet,images/Vegetable/0513_94892.png,267,267,Approved,dill,✅ VERIFIED PHOTO,1,3
+514,Vegetable,Organic Vegetables,94081,Organic Eggplant,Organic Specialty Vegetable,,Code Booklet,images/Vegetable/0514_94081.png,207,207,Approved,eggplant,✅ VERIFIED PHOTO,1,3
+515,Vegetable,Organic Vegetables,94600,Organic Eggplant White,Organic Specialty Vegetable,,AI Generated,images/Vegetable/0515_94600.png,332,332,Approved,white eggplant,🤖 AI GENERATED REFERENCE IMAGE,1,1
+516,Vegetable,Organic Vegetables,94608,Organic Garlic,Organic Onion,,Code Booklet,images/Vegetable/0516_94608.png,247,247,Approved,garlic,✅ VERIFIED PHOTO,1,2
+517,Vegetable,Organic Vegetables,94096,Organic Ginger Gold,Organic Root Vegetable,,Code Booklet,images/Vegetable/0517_94096.png,165,165,Approved,ginger,✅ VERIFIED PHOTO,1,2
+518,Vegetable,Organic Vegetables,94066,Organic Green Beans,Organic Specialty Vegetable,,Code Booklet,images/Vegetable/0518_94066.png,289,289,Approved,green beans,✅ VERIFIED PHOTO,1,2
+519,Vegetable,Organic Vegetables,94061,Organic Head Lettuce (iceburg),Organic Lettuce,,Code Booklet,images/Vegetable/0519_94061.png,193,193,Approved,iceberg lettuce,✅ VERIFIED PHOTO,1,2
+520,Vegetable,Organic Vegetables,94799,Organic Hot House Tomatoe,Organic Tomato,,Code Booklet,images/Vegetable/0520_94799.png,180,180,Approved,hot house tomato,✅ VERIFIED PHOTO,1,3
+521,Vegetable,Organic Vegetables,94621,Organic Kale Black,Organic Leafy Green,,AI Generated,images/Vegetable/0521_94621.png,354,354,Approved,black kale,🤖 AI GENERATED REFERENCE IMAGE,1,3
+522,Vegetable,Organic Vegetables,94624,Organic Kale Black,Organic Leafy Green,,AI Generated,images/Vegetable/0522_94624.png,354,354,Approved,black kale,🤖 AI GENERATED REFERENCE IMAGE,1,3
+523,Vegetable,Organic Vegetables,94627,Organic Kale Greens,Organic Leafy Green,,Code Booklet,images/Vegetable/0523_94627.png,189,189,Approved,curly kale,✅ VERIFIED PHOTO,1,2
+524,Vegetable,Organic Vegetables,94623,Organic Kale Red,Organic Leafy Green,,AI Generated,images/Vegetable/0524_94623.png,351,351,Approved,red kale,🤖 AI GENERATED REFERENCE IMAGE,1,4
+525,Vegetable,Organic Vegetables,9463,Organic Kale Red,Organic Leafy Green,,AI Generated,images/Vegetable/0525_9463.png,351,351,Approved,red kale,🤖 AI GENERATED REFERENCE IMAGE,1,4
+526,Vegetable,Organic Vegetables,94076,Organic Leaf Lettuce Green,Organic Lettuce,,Code Booklet,images/Vegetable/0526_94076.png,180,180,Approved,green leaf lettuce,✅ VERIFIED PHOTO,1,3
+527,Vegetable,Organic Vegetables,94075,Organic Leaf Lettuce Red,Organic Lettuce,,Code Booklet,images/Vegetable/0527_94075.png,180,180,Rejected,green leaf lettuce shown; product is Red leaf,❌ IMAGE REJECTED – REPLACEMENT NEEDED,1,3
+528,Vegetable,Organic Vegetables,94629,Organic Leeks,Organic Onion,,Code Booklet,images/Vegetable/0528_94629.png,293,293,Approved,leeks,✅ VERIFIED PHOTO,1,2
+529,Vegetable,Organic Vegetables,93097,Organic Lettuc Red Romaine,Organic Lettuce,,AI Generated,images/Vegetable/0529_93097.png,322,322,Approved,red romaine,🤖 AI GENERATED REFERENCE IMAGE,1,2
+530,Vegetable,Organic Vegetables,94632,Organic Lettuce Boston/Butter,Organic Lettuce,,AI Generated,images/Vegetable/0530_94632.png,357,357,Approved,Boston/butter lettuce,🤖 AI GENERATED REFERENCE IMAGE,1,3
+531,Vegetable,Organic Vegetables,94640,Organic Lettuce Romaine,Organic Lettuce,,Code Booklet,images/Vegetable/0531_94640.png,180,180,Approved,romaine,✅ VERIFIED PHOTO,1,3
+532,Vegetable,Organic Vegetables,94896,Organic Mint,Organic Herb,,Code Booklet,images/Vegetable/0532_94896.png,225,225,Approved,mint,✅ VERIFIED PHOTO,1,2
+533,Vegetable,Organic Vegetables,94649,Organic Mushroom Oyster,Organic Specialty Vegetable,,AI Generated,images/Vegetable/0533_94649.png,347,347,Approved,oyster mushrooms,🤖 AI GENERATED REFERENCE IMAGE,1,1
+534,Vegetable,Organic Vegetables,94657,Organic Mushroom Portabello,Organic Specialty Vegetable,,Code Booklet,images/Vegetable/0534_94657.png,253,253,Approved,portabello mushrooms,✅ VERIFIED PHOTO,1,1
+535,Vegetable,Organic Vegetables,94648,Organic Mushrooms Brown,Organic Specialty Vegetable,,Code Booklet,images/Vegetable/0535_94648.png,185,185,Approved,brown mushrooms,✅ VERIFIED PHOTO,1,2
+536,Vegetable,Organic Vegetables,94648,Organic Mushrooms Crimini,Organic Specialty Vegetable,,Code Booklet,images/Vegetable/0536_94648.png,185,185,Approved,crimini mushrooms,✅ VERIFIED PHOTO,1,2
+537,Vegetable,Organic Vegetables,94651,Organic Mushrooms Shitake,Organic Specialty Vegetable,,AI Generated,images/Vegetable/0537_94651.png,376,376,Approved,shiitake mushrooms,🤖 AI GENERATED REFERENCE IMAGE,1,1
+538,Vegetable,Organic Vegetables,94085,Organic Mushrooms White,Organic Specialty Vegetable,,Code Booklet,images/Vegetable/0538_94085.png,255,255,Approved,white mushrooms,✅ VERIFIED PHOTO,1,1
+539,Vegetable,Organic Vegetables,94616,Organic Mustard Greens,Organic Leafy Green,,AI Generated,images/Vegetable/0539_94616.png,359,359,Approved,mustard greens,🤖 AI GENERATED REFERENCE IMAGE,1,1
+540,Vegetable,Organic Vegetables,94655,Organic Okra,Organic Specialty Vegetable,,Code Booklet,images/Vegetable/0540_94655.png,227,227,Approved,okra,✅ VERIFIED PHOTO,1,1
+541,Vegetable,Organic Vegetables,94068,Organic Onion Green,Organic Onion,,Code Booklet,images/Vegetable/0541_94068.png,204,204,Approved,green onions,✅ VERIFIED PHOTO,1,2
+542,Vegetable,Organic Vegetables,94082,Organic Onion Red,Organic Onion,,Code Booklet,images/Vegetable/0542_94082.png,206,206,Approved,red onion,✅ VERIFIED PHOTO,1,2
+543,Vegetable,Organic Vegetables,94662,Organic Onion Shallots,Organic Onion,,Code Booklet,images/Vegetable/0543_94662.png,185,185,Approved,shallots,✅ VERIFIED PHOTO,1,2
+544,Vegetable,Organic Vegetables,94093,Organic Onion Spanish,Organic Onion,,Code Booklet,images/Vegetable/0544_94093.png,228,228,Approved,Spanish onions,✅ VERIFIED PHOTO,1,1
+545,Vegetable,Organic Vegetables,94665,Organic Onion Yellow,Organic Onion,,Code Booklet,images/Vegetable/0545_94665.png,190,190,Approved,yellow onion,✅ VERIFIED PHOTO,1,3
+546,Vegetable,Organic Vegetables,94666,Organic Onions White,Organic Onion,,Code Booklet,images/Vegetable/0546_94666.png,182,182,Approved,white onion,✅ VERIFIED PHOTO,1,2
+547,Vegetable,Organic Vegetables,94093,Organic Onions Yellow,Organic Onion,,Code Booklet,images/Vegetable/0547_94093.png,190,190,Approved,yellow onion,✅ VERIFIED PHOTO,1,3
+548,Vegetable,Organic Vegetables,94901,Organic Parsley,Organic Herb,,Code Booklet,images/Vegetable/0548_94901.png,180,180,Approved,curly parsley,✅ VERIFIED PHOTO,1,3
+549,Vegetable,Organic Vegetables,94900,Organic Parsley Flat,Organic Herb,,Code Booklet,images/Vegetable/0549_94900.png,180,180,Approved,flat parsley,✅ VERIFIED PHOTO,1,3
+550,Vegetable,Organic Vegetables,94323,Organic Pepper Chocolate,Organic Pepper,,AI Generated,images/Vegetable/0550_94323.png,335,335,Approved,chocolate bell pepper,🤖 AI GENERATED REFERENCE IMAGE,1,2
+551,Vegetable,Organic Vegetables,94065,Organic Pepper Green,Organic Pepper,,Code Booklet,images/Vegetable/0551_94065.png,184,184,Approved,green pepper,✅ VERIFIED PHOTO,1,3
+552,Vegetable,Organic Vegetables,93120,Organic Pepper Green Bell,Organic Pepper,,Code Booklet,images/Vegetable/0552_93120.png,184,184,Approved,green bell pepper,✅ VERIFIED PHOTO,1,3
+553,Vegetable,Organic Vegetables,93121,Organic Pepper Orange,Organic Pepper,,Code Booklet,images/Vegetable/0553_93121.png,180,180,Approved,orange pepper,✅ VERIFIED PHOTO,1,2
+554,Vegetable,Organic Vegetables,93124,Organic Pepper Purple Bell,Organic Pepper,,AI Generated,images/Vegetable/0554_93124.png,303,303,Approved,purple bell pepper,🤖 AI GENERATED REFERENCE IMAGE,1,2
+555,Vegetable,Organic Vegetables,94088,Organic Pepper Red,Organic Pepper,,Code Booklet,images/Vegetable/0555_94088.png,256,256,Approved,red pepper,✅ VERIFIED PHOTO,1,3
+556,Vegetable,Organic Vegetables,94689,Organic Pepper Yellow,Organic Pepper,,Code Booklet,images/Vegetable/0556_94689.png,185,185,Approved,yellow pepper,✅ VERIFIED PHOTO,1,2
+557,Vegetable,Organic Vegetables,94072,Organic Potato Baking,Organic Potato,,Code Booklet,images/Vegetable/0557_94072.png,253,253,Approved,baking potato,✅ VERIFIED PHOTO,1,2
+558,Vegetable,Organic Vegetables,94823,Organic Potato Nugget,Organic Potato,,AI Generated,images/Vegetable/0558_94823.png,357,357,Approximate,small yellow potatoes; Nugget plausible,🤖 AI GENERATED REFERENCE IMAGE,1,3
+559,Vegetable,Organic Vegetables,93128,Organic Potato Purple,Organic Potato,,AI Generated,images/Vegetable/0559_93128.png,334,334,Approved,purple potatoes,🤖 AI GENERATED REFERENCE IMAGE,1,2
+560,Vegetable,Organic Vegetables,94723,Organic Potato Red,Organic Potato,,Code Booklet,images/Vegetable/0560_94723.png,276,276,Approved,red potatoes,✅ VERIFIED PHOTO,1,3
+561,Vegetable,Organic Vegetables,94823,Organic Potato White,Organic Potato,,Code Booklet,images/Vegetable/0561_94823.png,276,276,Approved,white potatoes,✅ VERIFIED PHOTO,1,2
+562,Vegetable,Organic Vegetables,94829,Organic Potato Yellow,Organic Potato,,Code Booklet,images/Vegetable/0562_94829.png,268,268,Approved,yellow potatoes,✅ VERIFIED PHOTO,1,3
+563,Vegetable,Organic Vegetables,94073,Organic Potatoes Red,Organic Potato,,Code Booklet,images/Vegetable/0563_94073.png,276,276,Approved,red potatoes,✅ VERIFIED PHOTO,1,3
+564,Vegetable,Organic Vegetables,94089,Organic Radish Bunch,Organic Root Vegetable,,Code Booklet,images/Vegetable/0564_94089.png,178,178,Approved,radishes,✅ VERIFIED PHOTO,1,2
+565,Vegetable,Organic Vegetables,94664,Organic Red Cluster Tomatoes,Organic Tomato,,Code Booklet,images/Vegetable/0565_94664.png,188,188,Approved,red cluster tomatoes,✅ VERIFIED PHOTO,1,4
+566,Vegetable,Organic Vegetables,94745,Organic Rhubarb,Organic Specialty Vegetable,,Code Booklet,images/Vegetable/0566_94745.png,261,261,Approved,rhubarb,✅ VERIFIED PHOTO,1,2
+567,Vegetable,Organic Vegetables,93320,Organic Romanesco,Organic Brassica,,AI Generated,images/Vegetable/0567_93320.png,352,352,Approved,romanesco,🤖 AI GENERATED REFERENCE IMAGE,1,1
+568,Vegetable,Organic Vegetables,94090,Organic Spinach,Organic Leafy Green,,AI Generated,images/Vegetable/0568_94090.png,334,334,Approved,spinach,🤖 AI GENERATED REFERENCE IMAGE,1,2
+569,Vegetable,Organic Vegetables,94750,Organic Squash Acorn,Organic Squash,,Code Booklet,images/Vegetable/0569_94750.png,302,302,Approved,acorn squash,✅ VERIFIED PHOTO,1,5
+570,Vegetable,Organic Vegetables,94758,Organic Squash Buttercup,Organic Squash,,AI Generated,images/Vegetable/0570_94758.png,357,357,Rejected,shows butter lettuce; product is Buttercup squash,❌ IMAGE REJECTED – REPLACEMENT NEEDED,1,3
+571,Vegetable,Organic Vegetables,94759,Organic Squash Butternut,Organic Squash,,AI Generated,images/Vegetable/0571_94759.png,357,357,Rejected,shows butter lettuce; product is Butternut squash,❌ IMAGE REJECTED – REPLACEMENT NEEDED,1,3
+572,Vegetable,Organic Vegetables,93142,Organic Squash Carnivale,Organic Squash,,AI Generated,images/Vegetable/0572_93142.png,292,292,Approved,carnival squash,🤖 AI GENERATED REFERENCE IMAGE,1,1
+573,Vegetable,Organic Vegetables,94763,Organic Squash Delicata,Organic Squash,,AI Generated,images/Vegetable/0573_94763.png,347,347,Approved,delicata squash,🤖 AI GENERATED REFERENCE IMAGE,1,1
+574,Vegetable,Organic Vegetables,94764,Organic Squash Dumpling Sweet,Organic Squash,,AI Generated,images/Vegetable/0574_94764.png,301,301,Approved,sweet dumpling squash,🤖 AI GENERATED REFERENCE IMAGE,1,2
+575,Vegetable,Organic Vegetables,93418,Organic Squash Eightball,Organic Squash,,AI Generated,images/Vegetable/0575_93418.png,284,284,Approved,eight ball squash,🤖 AI GENERATED REFERENCE IMAGE,1,1
+576,Vegetable,Organic Vegetables,94785,Organic Squash Festival,Organic Squash,,AI Generated,images/Vegetable/0576_94785.png,293,293,Approved,festival squash,🤖 AI GENERATED REFERENCE IMAGE,1,1
+577,Vegetable,Organic Vegetables,94769,Organic Squash Kabocha,Organic Squash,,AI Generated,images/Vegetable/0577_94769.png,349,349,Approved,kabocha,🤖 AI GENERATED REFERENCE IMAGE,1,4
+578,Vegetable,Organic Vegetables,94773,Organic Squash Patty Pan,Organic Squash,,Produce Guide,images/Vegetable/0578_94773.png,388,388,Approved,pattypan squash; stray mark at left edge,✅ VERIFIED PHOTO,1,2
+579,Vegetable,Organic Vegetables,94774,Organic Squash Red Kurri,Organic Squash,,AI Generated,images/Vegetable/0579_94774.png,349,349,Approximate,dark green kabocha shown; Red Kuri is orange,🤖 AI GENERATED REFERENCE IMAGE,1,4
+580,Vegetable,Organic Vegetables,94776,Organic Squash Spaghetti,Organic Squash,,Code Booklet,images/Vegetable/0580_94776.png,180,180,Approved,spaghetti squash,✅ VERIFIED PHOTO,1,2
+581,Vegetable,Organic Vegetables,94769,Organic Squash Stripetti,Organic Squash,,AI Generated,images/Vegetable/0581_94769.png,293,293,Approved,stripetti squash,🤖 AI GENERATED REFERENCE IMAGE,1,2
+582,Vegetable,Organic Vegetables,94777,Organic Squash Sunburst,Organic Squash,,AI Generated,images/Vegetable/0582_94777.png,249,249,Approved,sunburst squash,🤖 AI GENERATED REFERENCE IMAGE,1,2
+583,Vegetable,Organic Vegetables,94782,Organic Squash Yellow,Organic Squash,,AI Generated,images/Vegetable/0583_94782.png,338,338,Approved,yellow crookneck squash,🤖 AI GENERATED REFERENCE IMAGE,1,3
+584,Vegetable,Organic Vegetables,94587,Organic Swiss Chard Red,Organic Leafy Green,,Code Booklet,images/Vegetable/0584_94587.png,268,268,Approved,red Swiss chard,✅ VERIFIED PHOTO,1,2
+585,Vegetable,Organic Vegetables,94993,Organic Tomato Cherry,Organic Tomato,,AI Generated,images/Vegetable/0585_94993.png,337,337,Approved,cherry tomatoes,🤖 AI GENERATED REFERENCE IMAGE,1,2
+586,Vegetable,Organic Vegetables,94860,Organic Tomato Field,Organic Tomato,,Code Booklet,images/Vegetable/0586_94860.png,224,224,Approved,field tomatoes,✅ VERIFIED PHOTO,1,4
+587,Vegetable,Organic Vegetables,93150,Organic Tomato Grape,Organic Tomato,,AI Generated,images/Vegetable/0587_93150.png,327,327,Approved,grape tomatoes,🤖 AI GENERATED REFERENCE IMAGE,1,1
+588,Vegetable,Organic Vegetables,93423,Organic Tomato Heirloom,Organic Tomato,,AI Generated,images/Vegetable/0588_93423.png,337,337,Approved,heirloom tomatoes,🤖 AI GENERATED REFERENCE IMAGE,1,2
+589,Vegetable,Organic Vegetables,94664,Organic Tomato On the Vine,Organic Tomato,,Code Booklet,images/Vegetable/0589_94664.png,188,188,Approved,tomatoes on the vine,✅ VERIFIED PHOTO,1,4
+590,Vegetable,Organic Vegetables,94087,Organic Tomato Plum Roma,Organic Tomato,,Code Booklet,images/Vegetable/0590_94087.png,257,257,Approved,Roma tomatoes,✅ VERIFIED PHOTO,1,2
+591,Vegetable,Organic Vegetables,94063,Organic Tomato Red,Organic Tomato,,Code Booklet,images/Vegetable/0591_94063.png,224,224,Approved,red tomatoes,✅ VERIFIED PHOTO,1,4
+592,Vegetable,Organic Vegetables,94064,Organic Tomato Red Large,Organic Tomato,,Code Booklet,images/Vegetable/0592_94064.png,224,224,Approved,red tomatoes,✅ VERIFIED PHOTO,1,4
+593,Vegetable,Organic Vegetables,94798,Organic Tomatoes,Organic Tomato,,Code Booklet,images/Vegetable/0593_94798.png,224,224,Approved,red tomatoes,✅ VERIFIED PHOTO,1,4
+594,Vegetable,Organic Vegetables,94816,Organic Yam,Organic Potato,,Code Booklet,images/Vegetable/0594_94816.png,267,267,Approximate,orange sweet potatoes shown for yam,⚠ APPROXIMATE PHOTO MATCH,1,5
+595,Vegetable,Organic Vegetables,94074,Organic Yams Red Garnet,Organic Potato,,Code Booklet,images/Vegetable/0595_94074.png,267,267,Approved,garnet yam,✅ VERIFIED PHOTO,1,5
+596,Vegetable,Organic Vegetables,94067,Organic Zucchini,Organic Squash,,Code Booklet,images/Vegetable/0596_94067.png,276,276,Approved,zucchini,✅ VERIFIED PHOTO,1,4
+597,Vegetable,Organic Vegetables,94086,Organic Zucchini Yellow,Organic Squash,,Code Booklet,images/Vegetable/0597_94086.png,186,186,Approved,yellow zucchini,✅ VERIFIED PHOTO,1,3

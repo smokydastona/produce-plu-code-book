@@ -40,7 +40,7 @@
 82200,Pears Conference BC,data/images/Fruit/0039_82200.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,312,312
 4005,Pears Honey Belle,data/images/Fruit/0040_4005.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,310,310
 4424,Pears Honey Belle Sweet Green,data/images/Fruit/0041_4424.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,310,310
-2159,Buddha's Hand Organic,data/images/Fruit/0042_2159.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,348,348
+2159,Buddha's Hand Organic,data/images/Fruit/0042_2159.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,348,348
 4450,Clementine,data/images/Fruit/0043_4450.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,200,200
 4458,Clementines Box,data/images/Fruit/0044_4458.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,200,200
 4286,Grapefruit Deep Red,data/images/Fruit/0045_4286.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,206,206
@@ -187,111 +187,111 @@
 4429,Persimmon Large,data/images/Fruit/0186_4429.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
 4427,Persimmons Hachiya,data/images/Fruit/0187_4427.jpg,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,257,257
 4446,Pomegramate Large,data/images/Fruit/0188_4446.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,202,202
-94153,Organic Aples MacIntosh,data/images/Fruit/0189_94153.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,299,299
-94099,Organic Apples Akane,data/images/Fruit/0190_94099.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,264,264
-93438,Organic Apples Ambrosia,data/images/Fruit/0191_93438.jpg,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,225,225
-94103,Organic Apples Braeburn,data/images/Fruit/0192_94103.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,292,292
-93066,Organic Apples Cameo,data/images/Fruit/0193_93066.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,290,290
-94127,Organic Apples Empire,data/images/Fruit/0194_94127.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,287,287
-94131,Organic Apples Fuji,data/images/Fruit/0195_94131.jpg,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,194,194
-94135,Organic Apples Gala,data/images/Fruit/0196_94135.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,247,247
-94174,Organic Apples Gala,data/images/Fruit/0197_94174.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,247,247
-94020,Organic Apples Golden Delicious,data/images/Fruit/0198_94020.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,253,253
-94097,Organic Apples Golden Delicious,data/images/Fruit/0199_94097.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,253,253
-94017,Organic Apples Granny Smith,data/images/Fruit/0200_94017.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,225,225
-94139,Organic Apples Granny Smith,data/images/Fruit/0201_94139.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,225,225
-94147,Organic Apples Jona Gold,data/images/Fruit/0202_94147.jpg,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,229,229
-93072,Organic Apples Lady,data/images/Fruit/0203_93072.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,225,225
-94153,Organic Apples MacIntosh,data/images/Fruit/0204_94153.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,299,299
-94154,Organic Apples MacIntosh,data/images/Fruit/0205_94154.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,299,299
-94204,Organic Apples Orin,data/images/Fruit/0206_94204.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,291,291
-94215,Organic Apples Pinata,data/images/Fruit/0207_94215.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,284,284
-94128,Organic Apples Pink Lady,data/images/Fruit/0208_94128.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,225,225
-94016,Organic Apples Red Delicious,data/images/Fruit/0209_94016.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,225,225
-94178,Organic Apples Spartan,data/images/Fruit/0210_94178.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,293,293
-94205,Organic Apples Su Mac,data/images/Fruit/0211_94205.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,270,270
-94212,Organic Apples Sunrise,data/images/Fruit/0212_94212.jpg,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,199,199
-94225,Organic Avocado Large Hass,data/images/Fruit/0213_94225.jpg,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,236,236
-94228,Organic Avocado Sharwil,data/images/Fruit/0214_94228.jpg,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,236,236
-94011,Organic Bananas,data/images/Fruit/0215_94011.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,225,225
-94249,Organic Blueberries Pint,data/images/Fruit/0216_94249.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,147,147
-94045,Organic Cherries,data/images/Fruit/0217_94045.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,225,225
-94025,Organic D'Anjou Pears,data/images/Fruit/0218_94025.jpg,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,159,159
-94027,Organic Grapefruit,data/images/Fruit/0219_94027.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,206,206
-94281,Organic Grapefruit Pink,data/images/Fruit/0220_94281.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,206,206
-94461,Organic Grapefruit Shaddock,data/images/Fruit/0221_94461.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
-93129,Organic Grapefuit Pommelo,data/images/Fruit/0222_93129.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
-94022,Organic Grapes Green Sdls,data/images/Fruit/0223_94022.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,271,271
-94497,Organic Grapes Green Sdls,data/images/Fruit/0224_94497.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,271,271
-94023,Organic Grapes Red Seedless,data/images/Fruit/0225_94023.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,225,225
-94022,Organic Green Grapes Seedless,data/images/Fruit/0226_94022.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,271,271
-94034,Organic Honeydew,data/images/Fruit/0227_94034.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,257,257
-94030,Organic Kiwi,data/images/Fruit/0228_94030.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
-94303,Organic KumQuat,data/images/Fruit/0229_94303.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,220,220
-94053,Organic Lemons,data/images/Fruit/0230_94053.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,294,294
-94304,Organic Lemons Meyer-Buckbrand,data/images/Fruit/0231_94304.jpg,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,323,323
-94328,Organic Limequats,data/images/Fruit/0232_94328.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,342,342
-94048,Organic Limes,data/images/Fruit/0233_94048.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,258,258
-94024,Organic Limes Finger,data/images/Fruit/0234_94024.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,346,346
-94306,Organic Limes Sweet,data/images/Fruit/0235_94306.jpg,Produce Guide,Supplied-document image; license not independently verified,❌ IMAGE REJECTED – REPLACEMENT NEEDED,435,435
-94584,Organic Mango,data/images/Fruit/0236_94584.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
-94311,Organic Mangoes,data/images/Fruit/0237_94311.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
-94959,Organic Mangoes,data/images/Fruit/0238_94959.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
-94317,Organic Melon Canary,data/images/Fruit/0239_94317.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,229,229
-94050,Organic Melon Cantaloupe,data/images/Fruit/0240_94050.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,142,142
-94049,Organic Melon Cantaloupe Small,data/images/Fruit/0241_94049.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,215,215
-94040,Organic Melon Canteloupe Small,data/images/Fruit/0242_94040.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,215,215
-94326,Organic Melon Galia,data/images/Fruit/0243_94326.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
-94329,Organic Melon Honeydew,data/images/Fruit/0244_94329.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,257,257
-94329,Organic Melon Honeydew Small,data/images/Fruit/0245_94329.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,257,257
-94332,Organic Melon Musk,data/images/Fruit/0246_94332.jpg,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,215,215
-94031,Organic Melon Watermelon,data/images/Fruit/0247_94031.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,205,205
-94032,Organic Melon Watermelon,data/images/Fruit/0248_94032.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,205,205
-94321,Organic Melon Watermelon,data/images/Fruit/0249_94321.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,205,205
-94340,Organic Melon Watermelon,data/images/Fruit/0250_94340.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,205,205
-94342,Organic Melon Watermelon,data/images/Fruit/0251_94342.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,205,205
-94342,Organic Melon Watermelon Seedless Slices,data/images/Fruit/0252_94342.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,205,205
-94378,Organic Nectarines,data/images/Fruit/0253_94378.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,212,212
-94036,Organic Nectarines Large,data/images/Fruit/0254_94036.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,212,212
-94035,Organic Nectarines Small,data/images/Fruit/0255_94035.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,212,212
-93035,Organic Nectarines White,data/images/Fruit/0256_93035.jpg,Code Booklet,Supplied-document image; license not independently verified,❌ IMAGE REJECTED – REPLACEMENT NEEDED,212,212
-94381,Organic Oranges Blood,data/images/Fruit/0257_94381.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
-93110,Organic Oranges Cara Cara,data/images/Fruit/0258_93110.jpg,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,188,188
-93029,Organic Oranges Mandarin,data/images/Fruit/0259_93029.jpg,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,164,164
-94391,Organic Oranges Mango,data/images/Fruit/0260_94391.jpg,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,164,164
-94453,Organic Oranges Murcott,data/images/Fruit/0261_94453.jpg,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,164,164
-94012,Organic Oranges Navel Large,data/images/Fruit/0262_94012.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,193,193
-93107,Organic Oranges Navel Medium,data/images/Fruit/0263_93107.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,193,193
-93109,Organic Oranges Seville,data/images/Fruit/0264_93109.jpg,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,193,193
-94456,Organic Oranges Tangelos,data/images/Fruit/0265_94456.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,202,202
-94458,Organic Oranges Tangerine,data/images/Fruit/0266_94458.jpg,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,164,164
-94457,Organic Oranges TDE Tangerine,data/images/Fruit/0267_94457.jpg,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,164,164
-93227,Organic Oranges Torange,data/images/Fruit/0268_93227.jpg,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,164,164
-93108,Organic Oranges Valencia,data/images/Fruit/0269_93108.jpg,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,193,193
-94388,Organic Oranges Valencia,data/images/Fruit/0270_94388.jpg,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,193,193
-94044,Organic Peaches Tree Ripened,data/images/Fruit/0271_94044.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,228,228
-94401,Organic Peaches White,data/images/Fruit/0272_94401.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,280,280
-94038,Organic Peaches Yellow Lrg,data/images/Fruit/0273_94038.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,228,228
-93016,Organic Pear Concord,data/images/Fruit/0274_93016.jpg,Code Booklet,Supplied-document image; license not independently verified,❌ IMAGE REJECTED – REPLACEMENT NEEDED,114,114
-94416,Organic Pear D'Anjou,data/images/Fruit/0275_94416.jpg,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,162,162
-94116,Organic Pears Bartlett,data/images/Fruit/0276_94116.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,187,187
-94409,Organic Pears Bartlett Green,data/images/Fruit/0277_94409.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,187,187
-94410,Organic Pears Bartlett Red,data/images/Fruit/0278_94410.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,199,199
-94413,Organic Pears Bosc,data/images/Fruit/0279_94413.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
-94430,Organic Pineapple,data/images/Fruit/0280_94430.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,185,185
-94433,Organic Pineapple,data/images/Fruit/0281_94433.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,185,185
-94281,Organic Pink Grapefruit,data/images/Fruit/0282_94281.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,206,206
-94040,Organic Plum Black,data/images/Fruit/0283_94040.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,318,318
-94042,Organic Plum Red,data/images/Fruit/0284_94042.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
-94039,Organic Plums Black Small,data/images/Fruit/0285_94039.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,318,318
-94041,Organic Plums Red Small,data/images/Fruit/0286_94041.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
-93127,Organic Pomegrante,data/images/Fruit/0287_93127.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,202,202
-94047,Organic Red Grapefruit,data/images/Fruit/0288_94047.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,221,221
-94023,Organic Red Seedless Grapes,data/images/Fruit/0289_94023.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,225,225
-94173,Organic Royal Gala Apples,data/images/Fruit/0290_94173.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,247,247
-94461,Organic Shaddock,data/images/Fruit/0291_94461.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
-94252,Organic Strawberry Pint,data/images/Fruit/0292_94252.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,194,194
-94022,Organic White Grapes,data/images/Fruit/0293_94022.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,271,271
+94153,Organic Aples MacIntosh,data/images/Fruit/0189_94153.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,299,299
+94099,Organic Apples Akane,data/images/Fruit/0190_94099.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,264,264
+93438,Organic Apples Ambrosia,data/images/Fruit/0191_93438.png,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,225,225
+94103,Organic Apples Braeburn,data/images/Fruit/0192_94103.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,292,292
+93066,Organic Apples Cameo,data/images/Fruit/0193_93066.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,290,290
+94127,Organic Apples Empire,data/images/Fruit/0194_94127.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,287,287
+94131,Organic Apples Fuji,data/images/Fruit/0195_94131.png,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,194,194
+94135,Organic Apples Gala,data/images/Fruit/0196_94135.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,247,247
+94174,Organic Apples Gala,data/images/Fruit/0197_94174.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,247,247
+94020,Organic Apples Golden Delicious,data/images/Fruit/0198_94020.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,253,253
+94097,Organic Apples Golden Delicious,data/images/Fruit/0199_94097.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,253,253
+94017,Organic Apples Granny Smith,data/images/Fruit/0200_94017.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,225,225
+94139,Organic Apples Granny Smith,data/images/Fruit/0201_94139.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,225,225
+94147,Organic Apples Jona Gold,data/images/Fruit/0202_94147.png,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,229,229
+93072,Organic Apples Lady,data/images/Fruit/0203_93072.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,225,225
+94153,Organic Apples MacIntosh,data/images/Fruit/0204_94153.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,299,299
+94154,Organic Apples MacIntosh,data/images/Fruit/0205_94154.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,299,299
+94204,Organic Apples Orin,data/images/Fruit/0206_94204.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,291,291
+94215,Organic Apples Pinata,data/images/Fruit/0207_94215.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,284,284
+94128,Organic Apples Pink Lady,data/images/Fruit/0208_94128.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,225,225
+94016,Organic Apples Red Delicious,data/images/Fruit/0209_94016.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,225,225
+94178,Organic Apples Spartan,data/images/Fruit/0210_94178.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,293,293
+94205,Organic Apples Su Mac,data/images/Fruit/0211_94205.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,270,270
+94212,Organic Apples Sunrise,data/images/Fruit/0212_94212.png,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,199,199
+94225,Organic Avocado Large Hass,data/images/Fruit/0213_94225.png,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,236,236
+94228,Organic Avocado Sharwil,data/images/Fruit/0214_94228.png,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,236,236
+94011,Organic Bananas,data/images/Fruit/0215_94011.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,225,225
+94249,Organic Blueberries Pint,data/images/Fruit/0216_94249.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,147,147
+94045,Organic Cherries,data/images/Fruit/0217_94045.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,225,225
+94025,Organic D'Anjou Pears,data/images/Fruit/0218_94025.png,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,159,159
+94027,Organic Grapefruit,data/images/Fruit/0219_94027.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,206,206
+94281,Organic Grapefruit Pink,data/images/Fruit/0220_94281.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,206,206
+94461,Organic Grapefruit Shaddock,data/images/Fruit/0221_94461.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
+93129,Organic Grapefuit Pommelo,data/images/Fruit/0222_93129.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
+94022,Organic Grapes Green Sdls,data/images/Fruit/0223_94022.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,271,271
+94497,Organic Grapes Green Sdls,data/images/Fruit/0224_94497.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,271,271
+94023,Organic Grapes Red Seedless,data/images/Fruit/0225_94023.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,225,225
+94022,Organic Green Grapes Seedless,data/images/Fruit/0226_94022.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,271,271
+94034,Organic Honeydew,data/images/Fruit/0227_94034.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,257,257
+94030,Organic Kiwi,data/images/Fruit/0228_94030.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
+94303,Organic KumQuat,data/images/Fruit/0229_94303.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,220,220
+94053,Organic Lemons,data/images/Fruit/0230_94053.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,294,294
+94304,Organic Lemons Meyer-Buckbrand,data/images/Fruit/0231_94304.png,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,323,323
+94328,Organic Limequats,data/images/Fruit/0232_94328.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,342,342
+94048,Organic Limes,data/images/Fruit/0233_94048.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,258,258
+94024,Organic Limes Finger,data/images/Fruit/0234_94024.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,346,346
+94306,Organic Limes Sweet,data/images/Fruit/0235_94306.png,Produce Guide,Supplied-document image; license not independently verified,❌ IMAGE REJECTED – REPLACEMENT NEEDED,435,435
+94584,Organic Mango,data/images/Fruit/0236_94584.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
+94311,Organic Mangoes,data/images/Fruit/0237_94311.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
+94959,Organic Mangoes,data/images/Fruit/0238_94959.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
+94317,Organic Melon Canary,data/images/Fruit/0239_94317.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,229,229
+94050,Organic Melon Cantaloupe,data/images/Fruit/0240_94050.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,142,142
+94049,Organic Melon Cantaloupe Small,data/images/Fruit/0241_94049.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,215,215
+94040,Organic Melon Canteloupe Small,data/images/Fruit/0242_94040.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,215,215
+94326,Organic Melon Galia,data/images/Fruit/0243_94326.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
+94329,Organic Melon Honeydew,data/images/Fruit/0244_94329.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,257,257
+94329,Organic Melon Honeydew Small,data/images/Fruit/0245_94329.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,257,257
+94332,Organic Melon Musk,data/images/Fruit/0246_94332.png,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,215,215
+94031,Organic Melon Watermelon,data/images/Fruit/0247_94031.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,205,205
+94032,Organic Melon Watermelon,data/images/Fruit/0248_94032.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,205,205
+94321,Organic Melon Watermelon,data/images/Fruit/0249_94321.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,205,205
+94340,Organic Melon Watermelon,data/images/Fruit/0250_94340.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,205,205
+94342,Organic Melon Watermelon,data/images/Fruit/0251_94342.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,205,205
+94342,Organic Melon Watermelon Seedless Slices,data/images/Fruit/0252_94342.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,205,205
+94378,Organic Nectarines,data/images/Fruit/0253_94378.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,212,212
+94036,Organic Nectarines Large,data/images/Fruit/0254_94036.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,212,212
+94035,Organic Nectarines Small,data/images/Fruit/0255_94035.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,212,212
+93035,Organic Nectarines White,data/images/Fruit/0256_93035.png,Code Booklet,Supplied-document image; license not independently verified,❌ IMAGE REJECTED – REPLACEMENT NEEDED,212,212
+94381,Organic Oranges Blood,data/images/Fruit/0257_94381.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
+93110,Organic Oranges Cara Cara,data/images/Fruit/0258_93110.png,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,188,188
+93029,Organic Oranges Mandarin,data/images/Fruit/0259_93029.png,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,164,164
+94391,Organic Oranges Mango,data/images/Fruit/0260_94391.png,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,164,164
+94453,Organic Oranges Murcott,data/images/Fruit/0261_94453.png,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,164,164
+94012,Organic Oranges Navel Large,data/images/Fruit/0262_94012.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,193,193
+93107,Organic Oranges Navel Medium,data/images/Fruit/0263_93107.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,193,193
+93109,Organic Oranges Seville,data/images/Fruit/0264_93109.png,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,193,193
+94456,Organic Oranges Tangelos,data/images/Fruit/0265_94456.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,202,202
+94458,Organic Oranges Tangerine,data/images/Fruit/0266_94458.png,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,164,164
+94457,Organic Oranges TDE Tangerine,data/images/Fruit/0267_94457.png,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,164,164
+93227,Organic Oranges Torange,data/images/Fruit/0268_93227.png,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,164,164
+93108,Organic Oranges Valencia,data/images/Fruit/0269_93108.png,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,193,193
+94388,Organic Oranges Valencia,data/images/Fruit/0270_94388.png,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,193,193
+94044,Organic Peaches Tree Ripened,data/images/Fruit/0271_94044.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,228,228
+94401,Organic Peaches White,data/images/Fruit/0272_94401.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,280,280
+94038,Organic Peaches Yellow Lrg,data/images/Fruit/0273_94038.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,228,228
+93016,Organic Pear Concord,data/images/Fruit/0274_93016.png,Code Booklet,Supplied-document image; license not independently verified,❌ IMAGE REJECTED – REPLACEMENT NEEDED,114,114
+94416,Organic Pear D'Anjou,data/images/Fruit/0275_94416.png,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,162,162
+94116,Organic Pears Bartlett,data/images/Fruit/0276_94116.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,187,187
+94409,Organic Pears Bartlett Green,data/images/Fruit/0277_94409.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,187,187
+94410,Organic Pears Bartlett Red,data/images/Fruit/0278_94410.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,199,199
+94413,Organic Pears Bosc,data/images/Fruit/0279_94413.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
+94430,Organic Pineapple,data/images/Fruit/0280_94430.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,185,185
+94433,Organic Pineapple,data/images/Fruit/0281_94433.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,185,185
+94281,Organic Pink Grapefruit,data/images/Fruit/0282_94281.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,206,206
+94040,Organic Plum Black,data/images/Fruit/0283_94040.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,318,318
+94042,Organic Plum Red,data/images/Fruit/0284_94042.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
+94039,Organic Plums Black Small,data/images/Fruit/0285_94039.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,318,318
+94041,Organic Plums Red Small,data/images/Fruit/0286_94041.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
+93127,Organic Pomegrante,data/images/Fruit/0287_93127.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,202,202
+94047,Organic Red Grapefruit,data/images/Fruit/0288_94047.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,221,221
+94023,Organic Red Seedless Grapes,data/images/Fruit/0289_94023.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,225,225
+94173,Organic Royal Gala Apples,data/images/Fruit/0290_94173.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,247,247
+94461,Organic Shaddock,data/images/Fruit/0291_94461.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
+94252,Organic Strawberry Pint,data/images/Fruit/0292_94252.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,194,194
+94022,Organic White Grapes,data/images/Fruit/0293_94022.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,271,271
 4076,Leaf lettuce green,data/images/Vegetable/0294_4076.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
 4061,Lettuce Iceberg,data/images/Vegetable/0295_4061.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,193,193
 4075,Lettuce Red Leaf,data/images/Vegetable/0296_4075.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,183,183
@@ -496,103 +496,103 @@
 4675,Peas Sugar Snap,data/images/Vegetable/0495_4675.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,351,351
 4676,Peas Tips,data/images/Vegetable/0496_4676.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,346,346
 4745,Rhubarb KG,data/images/Vegetable/0497_4745.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,261,261
-94885,Organic Basil,data/images/Vegetable/0498_94885.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,349,349
-94539,Organic Beets,data/images/Vegetable/0499_94539.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,286,286
-93277,Organic Broccolini,data/images/Vegetable/0500_93277.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,350,350
-94069,Organic Cabbage Green,data/images/Vegetable/0501_94069.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
-94554,Organic Cabbage Red,data/images/Vegetable/0502_94554.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,181,181
-94094,Organic Carrots Bunch,data/images/Vegetable/0503_94094.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
-94079,Organic Cauliflower,data/images/Vegetable/0504_94079.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
-94070,Organic Celery,data/images/Vegetable/0505_94070.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,232,232
-94586,Organic Chard Green,data/images/Vegetable/0506_94586.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,257,257
-94588,Organic Chard Rainbow,data/images/Vegetable/0507_94588.jpg,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,257,257
-94910,Organic Chives,data/images/Vegetable/0508_94910.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,349,349
-94889,Organic Cilantro,data/images/Vegetable/0509_94889.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
-94614,Organic Collard Greens,data/images/Vegetable/0510_94614.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,286,286
-94593,Organic Cucumber European,data/images/Vegetable/0511_94593.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,282,282
-94062,Organic Cucumber Field (Green),data/images/Vegetable/0512_94062.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
-94892,Organic Dill,data/images/Vegetable/0513_94892.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,267,267
-94081,Organic Eggplant,data/images/Vegetable/0514_94081.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,207,207
-94600,Organic Eggplant White,data/images/Vegetable/0515_94600.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,332,332
-94608,Organic Garlic,data/images/Vegetable/0516_94608.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,247,247
-94096,Organic Ginger Gold,data/images/Vegetable/0517_94096.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,165,165
-94066,Organic Green Beans,data/images/Vegetable/0518_94066.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,289,289
-94061,Organic Head Lettuce (iceburg),data/images/Vegetable/0519_94061.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,193,193
-94799,Organic Hot House Tomatoe,data/images/Vegetable/0520_94799.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
-94621,Organic Kale Black,data/images/Vegetable/0521_94621.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,354,354
-94624,Organic Kale Black,data/images/Vegetable/0522_94624.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,354,354
-94627,Organic Kale Greens,data/images/Vegetable/0523_94627.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,189,189
-94623,Organic Kale Red,data/images/Vegetable/0524_94623.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,351,351
-9463,Organic Kale Red,data/images/Vegetable/0525_9463.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,351,351
-94076,Organic Leaf Lettuce Green,data/images/Vegetable/0526_94076.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
-94075,Organic Leaf Lettuce Red,data/images/Vegetable/0527_94075.jpg,Code Booklet,Supplied-document image; license not independently verified,❌ IMAGE REJECTED – REPLACEMENT NEEDED,180,180
-94629,Organic Leeks,data/images/Vegetable/0528_94629.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,293,293
-93097,Organic Lettuc Red Romaine,data/images/Vegetable/0529_93097.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,322,322
-94632,Organic Lettuce Boston/Butter,data/images/Vegetable/0530_94632.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,357,357
-94640,Organic Lettuce Romaine,data/images/Vegetable/0531_94640.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
-94896,Organic Mint,data/images/Vegetable/0532_94896.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,225,225
-94649,Organic Mushroom Oyster,data/images/Vegetable/0533_94649.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,347,347
-94657,Organic Mushroom Portabello,data/images/Vegetable/0534_94657.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,253,253
-94648,Organic Mushrooms Brown,data/images/Vegetable/0535_94648.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,185,185
-94648,Organic Mushrooms Crimini,data/images/Vegetable/0536_94648.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,185,185
-94651,Organic Mushrooms Shitake,data/images/Vegetable/0537_94651.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,376,376
-94085,Organic Mushrooms White,data/images/Vegetable/0538_94085.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,255,255
-94616,Organic Mustard Greens,data/images/Vegetable/0539_94616.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,359,359
-94655,Organic Okra,data/images/Vegetable/0540_94655.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,227,227
-94068,Organic Onion Green,data/images/Vegetable/0541_94068.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,204,204
-94082,Organic Onion Red,data/images/Vegetable/0542_94082.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,206,206
-94662,Organic Onion Shallots,data/images/Vegetable/0543_94662.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,185,185
-94093,Organic Onion Spanish,data/images/Vegetable/0544_94093.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,228,228
-94665,Organic Onion Yellow,data/images/Vegetable/0545_94665.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,190,190
-94666,Organic Onions White,data/images/Vegetable/0546_94666.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,182,182
-94093,Organic Onions Yellow,data/images/Vegetable/0547_94093.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,190,190
-94901,Organic Parsley,data/images/Vegetable/0548_94901.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
-94900,Organic Parsley Flat,data/images/Vegetable/0549_94900.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
-94323,Organic Pepper Chocolate,data/images/Vegetable/0550_94323.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,335,335
-94065,Organic Pepper Green,data/images/Vegetable/0551_94065.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,184,184
-93120,Organic Pepper Green Bell,data/images/Vegetable/0552_93120.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,184,184
-93121,Organic Pepper Orange,data/images/Vegetable/0553_93121.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
-93124,Organic Pepper Purple Bell,data/images/Vegetable/0554_93124.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,303,303
-94088,Organic Pepper Red,data/images/Vegetable/0555_94088.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,256,256
-94689,Organic Pepper Yellow,data/images/Vegetable/0556_94689.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,185,185
-94072,Organic Potato Baking,data/images/Vegetable/0557_94072.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,253,253
-94823,Organic Potato Nugget,data/images/Vegetable/0558_94823.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,357,357
-93128,Organic Potato Purple,data/images/Vegetable/0559_93128.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,334,334
-94723,Organic Potato Red,data/images/Vegetable/0560_94723.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,276,276
-94823,Organic Potato White,data/images/Vegetable/0561_94823.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,276,276
-94829,Organic Potato Yellow,data/images/Vegetable/0562_94829.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,268,268
-94073,Organic Potatoes Red,data/images/Vegetable/0563_94073.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,276,276
-94089,Organic Radish Bunch,data/images/Vegetable/0564_94089.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,178,178
-94664,Organic Red Cluster Tomatoes,data/images/Vegetable/0565_94664.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,188,188
-94745,Organic Rhubarb,data/images/Vegetable/0566_94745.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,261,261
-93320,Organic Romanesco,data/images/Vegetable/0567_93320.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,352,352
-94090,Organic Spinach,data/images/Vegetable/0568_94090.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,334,334
-94750,Organic Squash Acorn,data/images/Vegetable/0569_94750.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,302,302
-94758,Organic Squash Buttercup,data/images/Vegetable/0570_94758.jpg,AI Generated,AI generated (internal use),❌ IMAGE REJECTED – REPLACEMENT NEEDED,357,357
-94759,Organic Squash Butternut,data/images/Vegetable/0571_94759.jpg,AI Generated,AI generated (internal use),❌ IMAGE REJECTED – REPLACEMENT NEEDED,357,357
-93142,Organic Squash Carnivale,data/images/Vegetable/0572_93142.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,292,292
-94763,Organic Squash Delicata,data/images/Vegetable/0573_94763.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,347,347
-94764,Organic Squash Dumpling Sweet,data/images/Vegetable/0574_94764.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,301,301
-93418,Organic Squash Eightball,data/images/Vegetable/0575_93418.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,284,284
-94785,Organic Squash Festival,data/images/Vegetable/0576_94785.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,293,293
-94769,Organic Squash Kabocha,data/images/Vegetable/0577_94769.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,349,349
-94773,Organic Squash Patty Pan,data/images/Vegetable/0578_94773.jpg,Produce Guide,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,388,388
-94774,Organic Squash Red Kurri,data/images/Vegetable/0579_94774.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,349,349
-94776,Organic Squash Spaghetti,data/images/Vegetable/0580_94776.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
-94769,Organic Squash Stripetti,data/images/Vegetable/0581_94769.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,293,293
-94777,Organic Squash Sunburst,data/images/Vegetable/0582_94777.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,249,249
-94782,Organic Squash Yellow,data/images/Vegetable/0583_94782.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,338,338
-94587,Organic Swiss Chard Red,data/images/Vegetable/0584_94587.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,268,268
-94993,Organic Tomato Cherry,data/images/Vegetable/0585_94993.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,337,337
-94860,Organic Tomato Field,data/images/Vegetable/0586_94860.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,224,224
-93150,Organic Tomato Grape,data/images/Vegetable/0587_93150.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,327,327
-93423,Organic Tomato Heirloom,data/images/Vegetable/0588_93423.jpg,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,337,337
-94664,Organic Tomato On the Vine,data/images/Vegetable/0589_94664.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,188,188
-94087,Organic Tomato Plum Roma,data/images/Vegetable/0590_94087.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,257,257
-94063,Organic Tomato Red,data/images/Vegetable/0591_94063.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,224,224
-94064,Organic Tomato Red Large,data/images/Vegetable/0592_94064.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,224,224
-94798,Organic Tomatoes,data/images/Vegetable/0593_94798.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,224,224
-94816,Organic Yam,data/images/Vegetable/0594_94816.jpg,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,267,267
-94074,Organic Yams Red Garnet,data/images/Vegetable/0595_94074.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,267,267
-94067,Organic Zucchini,data/images/Vegetable/0596_94067.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,276,276
-94086,Organic Zucchini Yellow,data/images/Vegetable/0597_94086.jpg,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,186,186
+94885,Organic Basil,data/images/Vegetable/0498_94885.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,349,349
+94539,Organic Beets,data/images/Vegetable/0499_94539.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,286,286
+93277,Organic Broccolini,data/images/Vegetable/0500_93277.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,350,350
+94069,Organic Cabbage Green,data/images/Vegetable/0501_94069.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
+94554,Organic Cabbage Red,data/images/Vegetable/0502_94554.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,181,181
+94094,Organic Carrots Bunch,data/images/Vegetable/0503_94094.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
+94079,Organic Cauliflower,data/images/Vegetable/0504_94079.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
+94070,Organic Celery,data/images/Vegetable/0505_94070.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,232,232
+94586,Organic Chard Green,data/images/Vegetable/0506_94586.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,257,257
+94588,Organic Chard Rainbow,data/images/Vegetable/0507_94588.png,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,257,257
+94910,Organic Chives,data/images/Vegetable/0508_94910.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,349,349
+94889,Organic Cilantro,data/images/Vegetable/0509_94889.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
+94614,Organic Collard Greens,data/images/Vegetable/0510_94614.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,286,286
+94593,Organic Cucumber European,data/images/Vegetable/0511_94593.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,282,282
+94062,Organic Cucumber Field (Green),data/images/Vegetable/0512_94062.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
+94892,Organic Dill,data/images/Vegetable/0513_94892.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,267,267
+94081,Organic Eggplant,data/images/Vegetable/0514_94081.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,207,207
+94600,Organic Eggplant White,data/images/Vegetable/0515_94600.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,332,332
+94608,Organic Garlic,data/images/Vegetable/0516_94608.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,247,247
+94096,Organic Ginger Gold,data/images/Vegetable/0517_94096.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,165,165
+94066,Organic Green Beans,data/images/Vegetable/0518_94066.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,289,289
+94061,Organic Head Lettuce (iceburg),data/images/Vegetable/0519_94061.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,193,193
+94799,Organic Hot House Tomatoe,data/images/Vegetable/0520_94799.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
+94621,Organic Kale Black,data/images/Vegetable/0521_94621.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,354,354
+94624,Organic Kale Black,data/images/Vegetable/0522_94624.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,354,354
+94627,Organic Kale Greens,data/images/Vegetable/0523_94627.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,189,189
+94623,Organic Kale Red,data/images/Vegetable/0524_94623.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,351,351
+9463,Organic Kale Red,data/images/Vegetable/0525_9463.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,351,351
+94076,Organic Leaf Lettuce Green,data/images/Vegetable/0526_94076.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
+94075,Organic Leaf Lettuce Red,data/images/Vegetable/0527_94075.png,Code Booklet,Supplied-document image; license not independently verified,❌ IMAGE REJECTED – REPLACEMENT NEEDED,180,180
+94629,Organic Leeks,data/images/Vegetable/0528_94629.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,293,293
+93097,Organic Lettuc Red Romaine,data/images/Vegetable/0529_93097.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,322,322
+94632,Organic Lettuce Boston/Butter,data/images/Vegetable/0530_94632.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,357,357
+94640,Organic Lettuce Romaine,data/images/Vegetable/0531_94640.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
+94896,Organic Mint,data/images/Vegetable/0532_94896.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,225,225
+94649,Organic Mushroom Oyster,data/images/Vegetable/0533_94649.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,347,347
+94657,Organic Mushroom Portabello,data/images/Vegetable/0534_94657.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,253,253
+94648,Organic Mushrooms Brown,data/images/Vegetable/0535_94648.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,185,185
+94648,Organic Mushrooms Crimini,data/images/Vegetable/0536_94648.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,185,185
+94651,Organic Mushrooms Shitake,data/images/Vegetable/0537_94651.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,376,376
+94085,Organic Mushrooms White,data/images/Vegetable/0538_94085.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,255,255
+94616,Organic Mustard Greens,data/images/Vegetable/0539_94616.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,359,359
+94655,Organic Okra,data/images/Vegetable/0540_94655.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,227,227
+94068,Organic Onion Green,data/images/Vegetable/0541_94068.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,204,204
+94082,Organic Onion Red,data/images/Vegetable/0542_94082.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,206,206
+94662,Organic Onion Shallots,data/images/Vegetable/0543_94662.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,185,185
+94093,Organic Onion Spanish,data/images/Vegetable/0544_94093.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,228,228
+94665,Organic Onion Yellow,data/images/Vegetable/0545_94665.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,190,190
+94666,Organic Onions White,data/images/Vegetable/0546_94666.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,182,182
+94093,Organic Onions Yellow,data/images/Vegetable/0547_94093.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,190,190
+94901,Organic Parsley,data/images/Vegetable/0548_94901.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
+94900,Organic Parsley Flat,data/images/Vegetable/0549_94900.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
+94323,Organic Pepper Chocolate,data/images/Vegetable/0550_94323.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,335,335
+94065,Organic Pepper Green,data/images/Vegetable/0551_94065.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,184,184
+93120,Organic Pepper Green Bell,data/images/Vegetable/0552_93120.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,184,184
+93121,Organic Pepper Orange,data/images/Vegetable/0553_93121.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
+93124,Organic Pepper Purple Bell,data/images/Vegetable/0554_93124.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,303,303
+94088,Organic Pepper Red,data/images/Vegetable/0555_94088.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,256,256
+94689,Organic Pepper Yellow,data/images/Vegetable/0556_94689.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,185,185
+94072,Organic Potato Baking,data/images/Vegetable/0557_94072.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,253,253
+94823,Organic Potato Nugget,data/images/Vegetable/0558_94823.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,357,357
+93128,Organic Potato Purple,data/images/Vegetable/0559_93128.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,334,334
+94723,Organic Potato Red,data/images/Vegetable/0560_94723.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,276,276
+94823,Organic Potato White,data/images/Vegetable/0561_94823.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,276,276
+94829,Organic Potato Yellow,data/images/Vegetable/0562_94829.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,268,268
+94073,Organic Potatoes Red,data/images/Vegetable/0563_94073.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,276,276
+94089,Organic Radish Bunch,data/images/Vegetable/0564_94089.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,178,178
+94664,Organic Red Cluster Tomatoes,data/images/Vegetable/0565_94664.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,188,188
+94745,Organic Rhubarb,data/images/Vegetable/0566_94745.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,261,261
+93320,Organic Romanesco,data/images/Vegetable/0567_93320.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,352,352
+94090,Organic Spinach,data/images/Vegetable/0568_94090.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,334,334
+94750,Organic Squash Acorn,data/images/Vegetable/0569_94750.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,302,302
+94758,Organic Squash Buttercup,data/images/Vegetable/0570_94758.png,AI Generated,AI generated (internal use),❌ IMAGE REJECTED – REPLACEMENT NEEDED,357,357
+94759,Organic Squash Butternut,data/images/Vegetable/0571_94759.png,AI Generated,AI generated (internal use),❌ IMAGE REJECTED – REPLACEMENT NEEDED,357,357
+93142,Organic Squash Carnivale,data/images/Vegetable/0572_93142.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,292,292
+94763,Organic Squash Delicata,data/images/Vegetable/0573_94763.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,347,347
+94764,Organic Squash Dumpling Sweet,data/images/Vegetable/0574_94764.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,301,301
+93418,Organic Squash Eightball,data/images/Vegetable/0575_93418.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,284,284
+94785,Organic Squash Festival,data/images/Vegetable/0576_94785.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,293,293
+94769,Organic Squash Kabocha,data/images/Vegetable/0577_94769.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,349,349
+94773,Organic Squash Patty Pan,data/images/Vegetable/0578_94773.png,Produce Guide,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,388,388
+94774,Organic Squash Red Kurri,data/images/Vegetable/0579_94774.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,349,349
+94776,Organic Squash Spaghetti,data/images/Vegetable/0580_94776.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,180,180
+94769,Organic Squash Stripetti,data/images/Vegetable/0581_94769.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,293,293
+94777,Organic Squash Sunburst,data/images/Vegetable/0582_94777.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,249,249
+94782,Organic Squash Yellow,data/images/Vegetable/0583_94782.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,338,338
+94587,Organic Swiss Chard Red,data/images/Vegetable/0584_94587.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,268,268
+94993,Organic Tomato Cherry,data/images/Vegetable/0585_94993.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,337,337
+94860,Organic Tomato Field,data/images/Vegetable/0586_94860.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,224,224
+93150,Organic Tomato Grape,data/images/Vegetable/0587_93150.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,327,327
+93423,Organic Tomato Heirloom,data/images/Vegetable/0588_93423.png,AI Generated,AI generated (internal use),🤖 AI GENERATED REFERENCE IMAGE,337,337
+94664,Organic Tomato On the Vine,data/images/Vegetable/0589_94664.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,188,188
+94087,Organic Tomato Plum Roma,data/images/Vegetable/0590_94087.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,257,257
+94063,Organic Tomato Red,data/images/Vegetable/0591_94063.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,224,224
+94064,Organic Tomato Red Large,data/images/Vegetable/0592_94064.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,224,224
+94798,Organic Tomatoes,data/images/Vegetable/0593_94798.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,224,224
+94816,Organic Yam,data/images/Vegetable/0594_94816.png,Code Booklet,Supplied-document image; license not independently verified,⚠ APPROXIMATE PHOTO MATCH,267,267
+94074,Organic Yams Red Garnet,data/images/Vegetable/0595_94074.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,267,267
+94067,Organic Zucchini,data/images/Vegetable/0596_94067.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,276,276
+94086,Organic Zucchini Yellow,data/images/Vegetable/0597_94086.png,Code Booklet,Supplied-document image; license not independently verified,✅ VERIFIED PHOTO,186,186

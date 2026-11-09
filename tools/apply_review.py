@@ -14,6 +14,7 @@ from collections import Counter
 from pathlib import Path
 import docx
 from docx.oxml.ns import qn
+from check_image_uniqueness import require_unique_entries
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA, REP = ROOT / "data", ROOT / "current/reports"
@@ -38,6 +39,7 @@ def status_for(source, verdict):
 def main():
     notes = load_notes()
     rows = list(csv.DictReader(open(DATA / "entries.csv", encoding="utf-8")))
+    require_unique_entries(rows, DATA)
     hashes = {r["idx"]: hashlib.md5((DATA / r["image"]).read_bytes()).hexdigest() for r in rows}
     reuse = Counter(hashes.values())
     for r in rows:

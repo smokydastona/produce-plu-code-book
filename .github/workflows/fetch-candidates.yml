@@ -2,6 +2,17 @@ name: Fetch unreviewed produce candidates
 
 on:
   workflow_dispatch:
+    inputs:
+      scope:
+        description: Entries to acquire (all searches every produce entry)
+        type: choice
+        options: [rejected, all]
+        default: rejected
+      per_entry:
+        description: Candidate limit per entry (1 to 5)
+        type: choice
+        options: ['1', '2', '3', '4', '5']
+        default: '2'
 
 permissions:
   contents: read
@@ -9,16 +20,22 @@ permissions:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        shard: ${{ fromJSON(inputs.scope == 'all' && '[0,1,2,3,4,5]' || '[0]') }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python -m pip install Pillow
+      - run: python -m pip install Pillow python-docx openpyxl
       - run: python -m unittest discover -s tools -p 'test_*.py'
       - name: Probe alternative libraries and search the four acquisition gaps
         id: source-probes
+        if: matrix.shard == 0
         continue-on-error: true
         run: |
           python tools/probe_image_sources.py \
@@ -27,25 +44,47 @@ jobs:
       - name: Report incomplete source discovery
         if: steps.source-probes.outcome == 'failure'
         run: echo "::warning::Some library probes failed. See source-probes.csv in the source-discovery artifact."
-      - name: Acquire all rejected entries and build review package
+      - name: Acquire entries and build review package
+        env:
+          SCOPE: ${{ inputs.scope }}
+          SHARD: ${{ matrix.shard }}
+          PER_ENTRY: ${{ inputs.per_entry }}
         run: |
+          EXTRA_ARGS=()
+          if [ "$SCOPE" = "all" ]; then
+            EXTRA_ARGS+=(--all-entries --shard-count 6 --shard-index "$SHARD")
+          fi
           python tools/retrieve_commons.py --review data/image_review.csv \
             --leads sources/temp_upload/candidates.json \
-            --output "$RUNNER_TEMP/produce-candidates" --per-entry 5 \
+            --output "$RUNNER_TEMP/produce-candidates" --per-entry "$PER_ENTRY" \
+            "${EXTRA_ARGS[@]}" \
             --user-agent "ProducePLUReview/1.0 (https://github.com/smokydastona/produce-plu-code-book)"
       - name: Upload unreviewed candidates
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: unreviewed-produce-images
+          name: unreviewed-produce-images-${{ matrix.shard }}
           path: ${{ runner.temp }}/produce-candidates/
           if-no-files-found: warn
           retention-days: 7
       - name: Upload source-discovery evidence
-        if: always()
+        if: always() && matrix.shard == 0
         uses: actions/upload-artifact@v4
         with:
           name: source-discovery
           path: ${{ runner.temp }}/source-discovery/
+          if-no-files-found: warn
+          retention-days: 7
+      - name: Upload compact review metadata
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: candidate-review-metadata-${{ matrix.shard }}
+          path: |
+            ${{ runner.temp }}/produce-candidates/provenance.json
+            ${{ runner.temp }}/produce-candidates/license-register.csv
+            ${{ runner.temp }}/produce-candidates/acquisition-report.csv
+            ${{ runner.temp }}/produce-candidates/contact-sheet-*.jpg
+            ${{ runner.temp }}/produce-candidates/REVIEW.txt
           if-no-files-found: warn
           retention-days: 7
