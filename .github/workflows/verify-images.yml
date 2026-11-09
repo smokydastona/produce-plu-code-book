@@ -1,0 +1,32 @@
+name: Verify replacement images
+
+on:
+  pull_request:
+    paths:
+      - 'data/images/**'
+      - 'sources/**'
+      - 'tools/verify_images.py'
+      - 'tools/retrieve_commons.py'
+      - 'tools/test_images.py'
+      - '.github/workflows/verify-images.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install Pillow
+      - run: python -m unittest discover -s tools -p 'test_images.py'
+      - name: Check changed images and provenance
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: python tools/verify_images.py --changed-from "$BASE_SHA"

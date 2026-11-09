@@ -62,4 +62,12 @@ Image paths in the CSV reports point to standalone copies of each booklet image 
 
 ## Keeping the repository organized
 
+### Replacement image retrieval and checks
+
+Run `python3 tools/retrieve_commons.py --user-agent "PLU-image-review/1.0 (YOUR_CONTACT_URL)"` from the repository root (requires Pillow). It searches Wikimedia Commons for public-domain Honeycrisp apple (3283), Concorde pear (3016), and Savoy cabbage (4555) candidates, requiring at least 500 pixels on **both** sides. Network access to Commons and its upload host is required. No result or a network failure is reported explicitly with a nonzero exit code.
+
+Downloads go to `data/images/candidates/PLU.jpg` (or `.png`), with adjacent `.json` provenance records containing creator, source links, declared licence, dimensions, and candidate status. Existing candidates are never overwritten. Search matches and Commons licence declarations are leads, not proof of variety, photographic origin, or rights ownership. Review the original source page and photograph before approval; icons, illustrations, synthetic images, watermarks, and uncertain varieties remain unacceptable. Nothing is automatically assigned to a booklet or marked approved.
+
+The `verify-images.yml` pull-request workflow checks only added or modified images under `data/images/` and `sources/`, including images whose provenance JSON changes. Existing undersized images do not block unrelated changes. Each new image needs an adjacent `filename.ext.json` record following the downloader's format. Run `python3 tools/verify_images.py path/to/image.jpg` locally. Checks reject corrupt, undersized, multiframe images and missing/invalid provenance fields or unsupported licences; they do **not** establish visual accuracy or independently verify licence claims. Cropped candidates must still meet the 500-pixel minimum and have dimensions updated in their records.
+
 Put new supplied inputs in `sources/`, latest outputs in `current/`, and superseded outputs in a clearly named version folder under `archive/`. Retain source files unchanged, preserve duplicate records, and regenerate the PDF and related reports whenever a booklet changes. Keep generated documents out of the repository root.
