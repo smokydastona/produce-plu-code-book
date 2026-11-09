@@ -1,0 +1,40 @@
+FAIL 027: shortest side is 499 px
+FAIL 009: Command 'curl' returned non-zero exit status 22.
+ERROR: manifest has no candidates
+Metadata error for 009: image URL differs from Commons record: https://upload.wikimedia.org/not-the-same.jpg
+SKIP 3283: File:Advertised-large.jpg: advertised dimensions exceed pixel safety limit
+UNRESOLVED 3283: no eligible candidate for Honeycrisp apple
+SKIP 3283: File:Warning.jpg: unsafe or unreadable image: Image size (325000 pixels) exceeds limit of 300000 pixels, could be decompression bomb DOS attack.
+UNRESOLVED 3283: no eligible candidate for Honeycrisp apple
+SKIP 3283: File:Error.jpg: unsafe or unreadable image: Image size (640000 pixels) exceeds limit of 600000 pixels, could be decompression bomb DOS attack.
+UNRESOLVED 3283: no eligible candidate for Honeycrisp apple
+SKIP 3283: File:Corrupt.jpg: unsafe or unreadable image: cannot identify image file <_io.BytesIO object at 0x7fecd66756c0>
+UNRESOLVED 3283: no eligible candidate for Honeycrisp apple
+SKIP 4724: duplicate image already used by /tmp/tmpy9dv885x/package/originals/361/1/4724.jpg
+UNRESOLVED 4724: no eligible candidate for White creamer potato
+SKIP 4555: duplicate image already used by /tmp/tmpcgoaxoya/downloads/3283.jpg
+UNRESOLVED 4555: no eligible candidate for Savoy cabbage
+UNRESOLVED 9999: no eligible candidate for Unsupported
+SKIP 93016: duplicate image already used by /tmp/tmpzrzwsgus/package/originals/027/1/3016.jpg
+UNRESOLVED 93016: no eligible candidate for Organic Pear Concord
+ERROR entry 9: network failure
+HTTP 429: waiting 15s before retry
+Metadata retrieved for 027
+PASS 009: /tmp/tmp7s1kkl9h/out/009_3283.jpg (unreviewed)
+Metadata retrieved for 009
+Downloaded /tmp/tmpoq3qzx1o/package/originals/999/5/3283.jpg; exact variety and photographic suitability NOT verified
+Downloaded /tmp/tmpy9dv885x/package/originals/361/1/4724.jpg; exact variety and photographic suitability NOT verified
+Downloaded /tmp/tmpy9dv885x/package/originals/368/2/4724.jpg; exact variety and photographic suitability NOT verified
+Downloaded /tmp/tmpcgoaxoya/downloads/3283.jpg; exact variety and photographic suitability NOT verified
+Downloaded /tmp/tmpcgoaxoya/downloads/4555.jpg; exact variety and photographic suitability NOT verified
+FAIL duplicate image content: /tmp/tmpsvo5pjku/3283.jpg, /tmp/tmpsvo5pjku/one.jpg, /tmp/tmpsvo5pjku/two.jpg
+PASS /tmp/tmpsvo5pjku/two.jpg (technical checks only; visual review still required)
+PASS /tmp/tmpsvo5pjku/three.jpg (technical checks only; visual review still required)
+Downloaded /tmp/tmpzrzwsgus/package/originals/027/1/3016.jpg; exact variety and photographic suitability NOT verified
+Recorded reviewed image for 03283 / Honeycrisp Apple; full catalogue validation still required before publication
+fruits360-tree : FETCHED_UNVERIFIED HTTP success is not proof of search results or usable image rights; GitHub tree is truncated
+loc 433: ERROR <urlopen error DNS>
+----------------------------------------------------------------------
+Ran 95 tests in 6.227s
+
+OK

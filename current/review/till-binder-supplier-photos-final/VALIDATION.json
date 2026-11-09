@@ -1,0 +1,220 @@
+{
+  "status": "REVIEW_ONLY_NOT_RELEASED",
+  "production_publication": "BLOCKED",
+  "original_binder": "/workspaces/produce-plu-code-book/.copilot/uploads/2026-11-09-1809d215/Complete_Till_Binder_-_Nov_2025.xlsx",
+  "original_binder_sha256": "6b0aeaa153233c5f4917811a3f7a5b2212f7a946a0abede372a31db556ab0f63",
+  "picklist_sha256": "462db3121094008cd1dd5ea2c5836ca4b24de077edb8982c0f43149edbaf2cbb",
+  "total_source_records": 724,
+  "active_source_records": 648,
+  "hidden_or_deleted_records": 76,
+  "known_non_produce_excluded": 46,
+  "produce_records_included": 602,
+  "unique_produce_plus": 549,
+  "duplicate_produce_codes": 49,
+  "duplicate_produce_records": 102,
+  "original_produce_entries": 579,
+  "original_comparison_counts": {
+    "CODE_ACTIVE_DESCRIPTION_DIFFERS_REVIEW": 299,
+    "NOT_IN_CURRENT_SOURCE_UNRESOLVED": 254,
+    "CODE_ONLY_HIDDEN_OR_DELETED": 24,
+    "ORIGINAL_DESCRIPTION_WITHOUT_CODE": 2
+  },
+  "updated_record_counts": {
+    "DESCRIPTION_UPDATED_REVIEW": 309,
+    "CODE_NOT_IN_ORIGINAL": 293
+  },
+  "image_status_counts": {
+    "AI_ILLUSTRATION_REFERENCE_REVIEW": 142,
+    "SUPPLIED_AI_CROP_REVIEW": 114,
+    "SUPPLIED_REFERENCE_REVIEW": 333,
+    "SUPPLIER_REFERENCE_REVIEW": 13
+  },
+  "embedded_references": 602,
+  "missing_or_uncertain_images": 0,
+  "ai_illustrations_embedded": 256,
+  "ai_illustrations_omitted": 0,
+  "new_ai_crops_embedded": 114,
+  "classification_review_required": 5,
+  "placement_review_required": 106,
+  "planned_produce_print_pages": 11,
+  "source_reconciliation": {
+    "source": "sources/plu/PickList.xml",
+    "source_sha256": "462db3121094008cd1dd5ea2c5836ca4b24de077edb8982c0f43149edbaf2cbb",
+    "source_unchanged": true,
+    "total_xml_records": 724,
+    "included_records": 648,
+    "excluded_records": 76,
+    "status": "BLOCKED",
+    "records_needing_review": 602,
+    "missing_image_requests": 5,
+    "inactive_assignments": 0,
+    "organic_placements_needing_review": 103,
+    "blocker_counts": {
+      "APPROVED_IMAGE_REQUIRED": 5,
+      "BELOW_500_PX": 595,
+      "CLASSIFICATION_REQUIRED": 5,
+      "IMAGE_RIGHTS_NOT_VERIFIED": 597,
+      "MISSING_PROVENANCE_ATTRIBUTION": 597,
+      "MISSING_PROVENANCE_CHANGES": 597,
+      "MISSING_PROVENANCE_CREATOR": 597,
+      "MISSING_PROVENANCE_LICENSE_URL": 597,
+      "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL": 597,
+      "MISSING_PROVENANCE_RIGHTS_EVIDENCE": 597,
+      "MISSING_PROVENANCE_SOURCE_PAGE_URL": 597,
+      "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED": 597,
+      "PROHIBITED_IMAGE_REUSE": 439,
+      "SECTION_REQUIRED": 5,
+      "SUPPORTED_IMAGE_LICENCE_REQUIRED": 597,
+      "VISUAL_APPROVAL_REQUIRED": 151
+    }
+  },
+  "validations": {
+    "text": {
+      "status": "PASS",
+      "original_sheet_names": [
+        "Time To Stretch",
+        "Conversions",
+        "Weighed more $100",
+        "Soil",
+        "Misc Codes",
+        "Bakery",
+        "Deli",
+        "Produce",
+        "Bulk",
+        "Bulk (2)",
+        "Bulk (3)",
+        "Bulk (4)",
+        "Delivery Charges",
+        "Store Directory"
+      ],
+      "worksheets_preserved": 14,
+      "produce_records_verified": 602,
+      "produce_images_verified": 0,
+      "original_parts_checked": 104,
+      "original_parts_byte_identical": 99,
+      "unrelated_package_parts_byte_identical": true,
+      "existing_styles_preserved": true,
+      "unrelated_workbook_settings_preserved": true,
+      "internal_relationships_valid": true,
+      "exact_text_codes_and_descriptions": true,
+      "duplicate_highlights_verified": true,
+      "file_sha256": "6d7be306248592f5f56511b8ded241f5340a475def5fbc73b325673239ca2416"
+    },
+    "photos": {
+      "status": "PASS",
+      "original_sheet_names": [
+        "Time To Stretch",
+        "Conversions",
+        "Weighed more $100",
+        "Soil",
+        "Misc Codes",
+        "Bakery",
+        "Deli",
+        "Produce",
+        "Bulk",
+        "Bulk (2)",
+        "Bulk (3)",
+        "Bulk (4)",
+        "Delivery Charges",
+        "Store Directory"
+      ],
+      "worksheets_preserved": 14,
+      "produce_records_verified": 602,
+      "produce_images_verified": 602,
+      "original_parts_checked": 104,
+      "original_parts_byte_identical": 99,
+      "unrelated_package_parts_byte_identical": true,
+      "existing_styles_preserved": true,
+      "unrelated_workbook_settings_preserved": true,
+      "internal_relationships_valid": true,
+      "exact_text_codes_and_descriptions": true,
+      "duplicate_highlights_verified": true,
+      "file_sha256": "33af1f0afd916ec372a9ba9033de8d0bf937b526b539e151caeabed5f1dcee24"
+    }
+  },
+  "print_validation": {
+    "text": {
+      "status": "PASS",
+      "pages": 11,
+      "landscape_us_letter": true,
+      "complete_workbook_opened_and_exported_by_calc": true,
+      "complete_binder_pdf_pages": 39,
+      "every_page_code_count_verified": true,
+      "every_description_found": true,
+      "drawn_images": 0,
+      "preview_pdf": "print-previews/Produce - text.pdf",
+      "visual_review": "REQUIRED; automated text/geometry checks are not a visual print approval"
+    },
+    "photos": {
+      "status": "PASS",
+      "pages": 11,
+      "landscape_us_letter": true,
+      "complete_workbook_opened_and_exported_by_calc": true,
+      "complete_binder_pdf_pages": 39,
+      "every_page_code_count_verified": true,
+      "every_description_found": true,
+      "drawn_images": 602,
+      "preview_pdf": "print-previews/Produce - photos.pdf",
+      "visual_review": "REQUIRED; automated text/geometry checks are not a visual print approval"
+    }
+  },
+  "limitations": [
+    "Both files are complete binder REVIEW copies, not approved for operational till use.",
+    "Image-rights, photographic-origin, minimum-size and uniqueness blockers remain unresolved.",
+    "Approximate photographic, rejected and missing image associations are blank; no placeholders are used.",
+    "Existing and newly supplied identity-linked AI illustrations are visual references at the owner's request; AI provenance and uncertain visual verdicts are recorded only in the external audit report.",
+    "Old descriptions are contextual abbreviations; code-only/name-only differences are not automatic corrections.",
+    "Known non-produce entries are excluded from Produce; unrelated operational sheets remain unchanged, not PLU-reconciled.",
+    "Future unclassified entries are retained for review, not silently discarded or approved."
+  ],
+  "review_booklets": {
+    "Fruit": {
+      "records": 297,
+      "images": 297,
+      "exact_docx_and_excel_text": true,
+      "embedded_image_bytes_and_anchors": true,
+      "cashier_image_labels_absent": true,
+      "stem": "FRUIT_VISUAL_PLU_BOOKLET_REVIEW",
+      "excel_planned_pages": 6,
+      "pdf": {
+        "pages": 50,
+        "drawn_images": 297,
+        "exact_printed_codes": true,
+        "every_description_on_planned_page": true,
+        "landscape_us_letter": true
+      }
+    },
+    "Vegetable": {
+      "records": 305,
+      "images": 305,
+      "exact_docx_and_excel_text": true,
+      "embedded_image_bytes_and_anchors": true,
+      "cashier_image_labels_absent": true,
+      "stem": "VEGETABLE_VISUAL_PLU_BOOKLET_REVIEW",
+      "excel_planned_pages": 6,
+      "pdf": {
+        "pages": 51,
+        "drawn_images": 305,
+        "exact_printed_codes": true,
+        "every_description_on_planned_page": true,
+        "landscape_us_letter": true
+      }
+    },
+    "Non-produce": {
+      "records": 46,
+      "images": 0,
+      "exact_docx_and_excel_text": true,
+      "embedded_image_bytes_and_anchors": true,
+      "cashier_image_labels_absent": true,
+      "stem": "NON_PRODUCE_PLU_BOOKLET_REVIEW",
+      "excel_planned_pages": 1,
+      "pdf": {
+        "pages": 8,
+        "drawn_images": 0,
+        "exact_printed_codes": true,
+        "every_description_on_planned_page": true,
+        "landscape_us_letter": true
+      }
+    }
+  }
+}

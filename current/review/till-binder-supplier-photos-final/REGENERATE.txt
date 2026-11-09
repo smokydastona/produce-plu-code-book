@@ -1,0 +1,3 @@
+Exact generation command (output must be empty; use a new directory when rerunning):
+
+/root/.copilot/session-state/c176c1cf9a17463c86f57fded6ef542c/venv/bin/python /workspaces/produce-plu-code-book/smokydastona/produce-plu-code-book/tools/build_till_binders.py --root /workspaces/produce-plu-code-book/smokydastona/produce-plu-code-book --binder /workspaces/produce-plu-code-book/.copilot/uploads/2026-11-09-1809d215/Complete_Till_Binder_-_Nov_2025.xlsx --output /workspaces/produce-plu-code-book/smokydastona/produce-plu-code-book/current/review/till-binder-supplier-photos-final --verify-print --booklets
