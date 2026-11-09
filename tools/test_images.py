@@ -114,6 +114,9 @@ class ImageChecks(unittest.TestCase):
             {"idx": "50", "name": "Grapefruit White Large"}), "white grapefruit")
         with self.assertRaisesRegex(ValueError, "empty product"):
             retrieve_commons.entry_query({"idx": "999", "name": "Organic"})
+        self.assertEqual(retrieve_commons.entry_query(
+            {"idx": "50", "name": "New product after XML reorder", "query": "specific new variety"}),
+            "specific new variety")
 
     def test_all_entry_selection_shards_cover_every_entry_once(self):
         root = Path(__file__).resolve().parents[1]

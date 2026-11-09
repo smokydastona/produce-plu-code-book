@@ -23,6 +23,50 @@ Fruit, vegetable, and non-produce cashier references, their audit reports, and t
 
 PDFs use landscape US Letter pages. DOCX files are the editable versions; keep each PDF paired with its corresponding DOCX.
 
+## Updating PickList.xml in the future
+
+**Only @smokydastona updates [sources/plu/PickList.xml](sources/plu/PickList.xml).** Upload a replacement at that exact path. The committed XML is assumed correct: scripts and agents never edit, repair or "correct" its product values. Neither the old booklets nor image spreadsheets override it.
+
+The **Sync owner PickList** Actions workflow runs automatically when the XML changes (and after image-assignment changes), or can be run manually:
+
+1. Read the complete XML, keeping code strings (including leading zeros), exact English descriptions, duplicate records and source order. Visible, non-deleted items are included; hidden/deleted items are excluded.
+2. Reconcile image assignments using an identity derived from **code + exact description + department + duplicate occurrence**. Reordering unrelated items or changing XML encoding does not lose assignments. A new/changed code, description or department requires a new review; no approval is guessed from a similar name.
+3. Search Commons automatically for entries with no assigned image, capturing eligible candidate originals, provenance, contact sheets and licence-review records in a `picklist-review-<commit>` artifact. Downloads are **not approvals**. No eligible result remains explicitly unresolved.
+4. **Stop publication if any entry lacks an approved image or fails another gate.** Existing booklets under `current/booklets/` remain unchanged. Review `PICKLIST_SYNC.csv`, `IMAGE_REQUESTS.csv` and `PICKLIST_SYNC.json` in the artifact. Unknown products also need fruit/vegetable/non-produce classification, not a guessed category.
+5. Once all gates pass, build all three DOCX/PDF booklets directly from that XML in an isolated staging directory, verify PDF code order/page size, and provide `picklist-booklets-<commit>` for your final review. The workflow never writes the XML, overwrites published files, or silently publishes a failed build.
+
+The existing 46-entry non-produce code-only supplement is preserved as an explicit exception; new entries are **not** silently made code-only. Every produce image needs visual/photographic and rights approval, a supported licence, provenance, matching checksum and at least 500 pixels on both sides. Every organic photograph gets the uploaded upper-left pink seal during rendering. In the new XML-driven pipeline, photo reuse requires an **explicit reviewed `reuse_from_source_id`** pointing to the matching conventional entry; organic codes are never inferred or rewritten. Any non-permitted repeated photograph blocks the build.
+
+`data/picklist_assignments.json` is the review registry, **not an alternate PLU master**. Removed/hidden product assignments and assets are retained for audit but do not appear in newly generated books. Source descriptions/codes are always read afresh from XML. Truly identical duplicate records have no persistent ID in this XML format, so their occurrence number distinguishes them; adding/removing indistinguishable duplicates can require re-review. Candidate artwork and XML-referenced image filenames alone never establish an approved photo.
+
+Local commands (Pillow, python-docx and openpyxl required):
+
+```bash
+# Catalogue/review reports only, never publication:
+python3 tools/sync_picklist.py --catalog-only --output /tmp/new-picklist-review
+
+# Fail closed unless every required approval passes; output must be empty.
+# PDF mode also needs pypdf, LibreOffice Writer and DejaVu Sans fonts:
+python3 tools/sync_picklist.py --pdf --output /tmp/new-picklist-build
+```
+
+After independently reviewing a candidate's exact product, photographic origin, creator, licence, attribution and any third-party rights, record the approval with:
+
+```bash
+python3 tools/approve_picklist_image.py \
+  --source-id SOURCE_ID_FROM_PICKLIST_SYNC_CSV \
+  --expected-source-sha SHA256_FROM_PICKLIST_SYNC_JSON \
+  --candidate /path/to/original.jpg --book Fruit --section Apples \
+  --rights-evidence "Source-page and individual rights-review evidence" \
+  --approve-visual --verify-photo --verify-rights
+```
+
+The candidate needs its adjacent acquisition JSON and exact PLU/product association. Use `--replace` only when intentionally replacing an existing assignment; for permitted organic reuse also supply `--reuse-from CONVENTIONAL_SOURCE_ID`. This helper copies the unchanged original to `data/images/approved/`, records the checksum and review evidence, updates only the registry, and refuses stale-source reviews. Commit the new asset and registry; Actions reconciles and tries the gated build again. Don't set approval flags without doing the review.
+
+**Owner-only enforcement:** `AGENTS.md` forbids agent edits to XML, `.github/CODEOWNERS` names @smokydastona, and the sync workflow refuses non-owner actors. These are **not a repository write ACL**: enable branch rules requiring pull requests, code-owner approval and the relevant checks, with direct-push/bypass access limited to the owner, and do not give other accounts write access. Protect CODEOWNERS and workflow changes too. This session cannot configure branch protection (GitHub returns 403 for that integration permission); those GitHub settings must be applied by the owner. A failing workflow cannot undo or prevent an already accepted direct push.
+
+Initial reconciliation of the current XML finds **648 visible records**: 643 legacy booklet associations plus **five previously omitted duplicate produce records**, all included in the new catalogue. The old books are not a complete release. The new registry preserves existing verdicts but does not invent missing rights or photographic-origin approval, so the first full build remains blocked until that backlog is reviewed.
+
 ## Verification status
 
 **Current means latest, not certified for production use.**
@@ -45,7 +89,7 @@ Open problems:
 - The non-produce supplement (46 visible PickList records, 45 distinct codes) is a code-and-label reference only; both `77974` entries (Cheese Bun and Pizza Bun) are preserved. Hidden PickList items are not in the booklets.
 - A "verified" photo means the image was visually judged to match the product name by a reviewer; it is not a laboratory or supplier-confirmed variety identification.
 
-Regenerate with `python3 tools/extract_entries.py`, edit `data/review_notes.txt`, then `python3 tools/apply_review.py` and re-export the PDFs (`soffice --headless --convert-to pdf`). Requires python-docx, openpyxl and Pillow. `apply_review.py` refuses to write booklets or reports while prohibited image reuse or missing organic watermarks remain; existing visual-match verdicts do not satisfy uniqueness.
+For **legacy booklet image audits only**, use `python3 tools/extract_entries.py`, edit `data/review_notes.txt`, then `python3 tools/apply_review.py` and re-export the PDFs (`soffice --headless --convert-to pdf`). Requires python-docx, openpyxl and Pillow. These legacy commands do not implement PickList updates; use the XML-driven workflow above for those. `apply_review.py` refuses to write booklets or reports while prohibited image reuse or missing organic watermarks remain; existing visual-match verdicts do not satisfy uniqueness.
 
 ### Unique image requirement
 
@@ -73,6 +117,8 @@ Current reports:
 - [DUPLICATE_PLU_REPORT.csv](current/reports/DUPLICATE_PLU_REPORT.csv): duplicate codes in the fruit and vegetable books.
 - [DUPLICATE_IMAGE_REPORT.csv](current/reports/DUPLICATE_IMAGE_REPORT.csv): entries sharing identical image content, independent of PLU-code duplication.
 - [PRODUCTION_BLOCKERS.csv](current/reports/PRODUCTION_BLOCKERS.csv) and [PRODUCTION_READINESS.json](current/reports/PRODUCTION_READINESS.json): per-entry release blockers and counts measured from current files.
+- [PICKLIST_CATALOG.csv](current/reports/PICKLIST_CATALOG.csv), [PICKLIST_SYNC.csv](current/reports/PICKLIST_SYNC.csv) and [PICKLIST_SYNC.json](current/reports/PICKLIST_SYNC.json): full XML catalogue and authoritative reconciliation, including records omitted by legacy books.
+- [IMAGE_REQUESTS.csv](current/reports/IMAGE_REQUESTS.csv): new/unassigned records needing candidate image discovery; [INACTIVE_ASSIGNMENTS.csv](current/reports/INACTIVE_ASSIGNMENTS.csv): removed/hidden/replaced associations retained for review.
 - [MASTER_IMAGE_LIBRARY.csv](current/reports/MASTER_IMAGE_LIBRARY.csv): entry-to-image assignments and reported sources.
 - [IMAGE_MATCH_REPORT.csv](current/reports/IMAGE_MATCH_REPORT.csv): automated match confidence and image-quality notes.
 

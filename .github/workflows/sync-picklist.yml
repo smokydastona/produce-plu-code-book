@@ -1,0 +1,123 @@
+name: Sync owner PickList
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - sources/plu/PickList.xml
+      - data/picklist_assignments.json
+      - data/images/**
+      - data/branding/**
+      - tools/picklist_catalog.py
+      - tools/sync_picklist.py
+      - tools/test_picklist_sync.py
+      - tools/approve_picklist_image.py
+      - tools/retrieve_commons.py
+      - tools/organic_watermarks.py
+      - .github/workflows/sync-picklist.yml
+  pull_request:
+    paths:
+      - sources/plu/PickList.xml
+      - data/picklist_assignments.json
+      - .github/CODEOWNERS
+      - .github/workflows/sync-picklist.yml
+      - tools/picklist_catalog.py
+      - tools/sync_picklist.py
+      - tools/test_picklist_sync.py
+      - tools/approve_picklist_image.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: picklist-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    outputs:
+      ready: ${{ steps.catalog.outputs.ready }}
+    steps:
+      - name: Require owner for the source update pipeline
+        env:
+          SOURCE_ACTOR: ${{ github.actor }}
+        run: |
+          if [ "$SOURCE_ACTOR" != "smokydastona" ]; then
+            echo "::error::Only smokydastona may initiate PickList updates. Source XML is never repaired or edited by this pipeline."
+            exit 1
+          fi
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install Pillow python-docx openpyxl
+      - run: python -m unittest discover -s tools -p 'test_*.py'
+      - name: Derive current catalogue without modifying the source or published files
+        id: catalog
+        run: |
+          python tools/sync_picklist.py --catalog-only --output "$RUNNER_TEMP/picklist-sync"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          report = json.loads((Path(os.environ["RUNNER_TEMP"]) / "picklist-sync/PICKLIST_SYNC.json").read_text())
+          with open(os.environ["GITHUB_OUTPUT"], "a") as out:
+              out.write("ready=" + str(report["status"] == "READY_TO_BUILD").lower() + "\n")
+              out.write("missing=" + str(report["missing_image_requests"]) + "\n")
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as out:
+              out.write("## PickList reconciliation\n\n```json\n" + json.dumps(report, indent=2) + "\n```\n")
+          PY
+      - name: Find candidate images for newly introduced or unassigned entries
+        if: steps.catalog.outputs.missing != '0' && steps.catalog.outcome == 'success'
+        run: |
+          python tools/retrieve_commons.py \
+            --review "$RUNNER_TEMP/picklist-sync/IMAGE_REQUESTS.csv" --all-entries \
+            --per-entry 2 --output "$RUNNER_TEMP/new-entry-candidates" \
+            --user-agent "ProducePLUReview/1.0 (https://github.com/smokydastona/produce-plu-code-book)"
+      - name: Preserve reconciliation and image candidates
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: picklist-review-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/picklist-sync/
+            ${{ runner.temp }}/new-entry-candidates/
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Stop publication while any product is unapproved
+        if: steps.catalog.outputs.ready != 'true'
+        run: |
+          echo "::error::PickList reconciliation is blocked. Review PICKLIST_SYNC.csv and candidate images. Published booklets were not changed."
+          exit 1
+
+  build:
+    needs: reconcile
+    if: needs.reconcile.outputs.ready == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install Pillow python-docx openpyxl pypdf
+      - run: sudo apt-get update -qq && sudo apt-get install -y libreoffice-writer fonts-dejavu-core fonts-dejavu-extra
+      - name: Build exact-source DOCX and verified PDF files in staging only
+        run: python tools/sync_picklist.py --pdf --output "$RUNNER_TEMP/picklist-build"
+      - name: Provide verified booklets for owner release review
+        uses: actions/upload-artifact@v4
+        with:
+          name: picklist-booklets-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/picklist-build/*.docx
+            ${{ runner.temp }}/picklist-build/*.pdf
+            ${{ runner.temp }}/picklist-build/*.csv
+            ${{ runner.temp }}/picklist-build/*.json
+          if-no-files-found: error
+          retention-days: 30

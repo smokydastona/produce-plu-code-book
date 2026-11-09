@@ -1,0 +1,5 @@
+/sources/plu/PickList.xml @smokydastona
+/.github/CODEOWNERS @smokydastona
+/.github/workflows/sync-picklist.yml @smokydastona
+/data/picklist_assignments.json @smokydastona
+/AGENTS.md @smokydastona

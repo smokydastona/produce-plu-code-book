@@ -1,0 +1,30 @@
+{
+  "source": "sources/plu/PickList.xml",
+  "source_sha256": "462db3121094008cd1dd5ea2c5836ca4b24de077edb8982c0f43149edbaf2cbb",
+  "source_unchanged": true,
+  "total_xml_records": 724,
+  "included_records": 648,
+  "excluded_records": 76,
+  "status": "BLOCKED",
+  "records_needing_review": 602,
+  "missing_image_requests": 5,
+  "inactive_assignments": 0,
+  "blocker_counts": {
+    "APPROVED_IMAGE_REQUIRED": 5,
+    "BELOW_500_PX": 595,
+    "CLASSIFICATION_REQUIRED": 5,
+    "IMAGE_RIGHTS_NOT_VERIFIED": 597,
+    "MISSING_PROVENANCE_ATTRIBUTION": 597,
+    "MISSING_PROVENANCE_CHANGES": 597,
+    "MISSING_PROVENANCE_CREATOR": 597,
+    "MISSING_PROVENANCE_LICENSE_URL": 597,
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL": 597,
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE": 597,
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL": 597,
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED": 597,
+    "PROHIBITED_IMAGE_REUSE": 439,
+    "SECTION_REQUIRED": 5,
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED": 597,
+    "VISUAL_APPROVAL_REQUIRED": 151
+  }
+}

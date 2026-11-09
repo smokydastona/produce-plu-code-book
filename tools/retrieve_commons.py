@@ -174,6 +174,8 @@ def rejected_entries(path):
 
 
 def entry_query(entry):
+    if entry.get("query"):
+        return entry["query"]
     if entry["idx"] in QUERIES:
         return QUERIES[entry["idx"]]
     query = re.sub(r"\b(organic|small|large|medium)\b", "", entry["name"], flags=re.I)
@@ -236,7 +238,7 @@ def acquire(entries, output, user_agent, limit, leads=()):
                             licenses=LICENSES, pages=[page], used_images=used_images):
                     path = next(folder.glob("*.json"))
                     metadata = json.loads(path.read_text(encoding="utf-8"))
-                    metadata.update(idx=idx, query=query,
+                    metadata.update(idx=idx, source_id=entry.get("source_id", ""), query=query,
                                     image=str(path.with_suffix("").relative_to(output)))
                     records.append(metadata)
                     row["candidates"] += 1
