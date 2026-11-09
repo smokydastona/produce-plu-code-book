@@ -11,8 +11,7 @@ from urllib.parse import urlsplit
 
 from PIL import Image
 
-REQUIRED = ("id", "plu", "product", "image_url", "source_page_url",
-            "license", "license_url")
+REQUIRED = ("id", "plu", "product", "source_page_url")
 
 
 def https_url(value, *, image=False):
@@ -20,7 +19,7 @@ def https_url(value, *, image=False):
         parsed = urlsplit(value)
         if (parsed.scheme != "https" or not parsed.hostname or parsed.username
                 or parsed.password or parsed.port not in (None, 443)
-                or any(c.isspace() or c in "<>()\\" for c in value)):
+                or any(c.isspace() or c in "<>\\" for c in value)):
             return False
         return not image or parsed.hostname.lower() == "upload.wikimedia.org"
     except ValueError:
@@ -45,9 +44,13 @@ def read_manifest(path):
         seen.add(candidate["id"])
         if not re.fullmatch(r"[0-9]+", candidate["plu"]):
             raise ValueError("PLU must contain only digits")
-        for key in ("image_url", "source_page_url", "license_url"):
-            if not https_url(candidate[key], image=key == "image_url"):
-                raise ValueError(f"invalid or unsupported {key} for {candidate['id']}")
+        source = urlsplit(candidate["source_page_url"])
+        if not https_url(candidate["source_page_url"]) or source.hostname != "commons.wikimedia.org":
+            raise ValueError(f"invalid source_page_url for {candidate['id']}")
+        if candidate.get("image_url") and not https_url(candidate["image_url"], image=True):
+            raise ValueError(f"invalid or unsupported image_url for {candidate['id']}")
+        if candidate.get("license_url") and not https_url(candidate["license_url"]):
+            raise ValueError(f"invalid or unsupported license_url for {candidate['id']}")
     return data
 
 
@@ -64,10 +67,12 @@ def render(candidates):
         lines += [
             f"### PLU {c['plu']}: {escaped(c['product'])} ({escaped(c['id'])})",
             "",
-            f"![Candidate preview]({c['image_url']})",
+            (f"![Candidate preview]({c['image_url']})" if c.get("image_url")
+             else f"[Source page / preview]({c['source_page_url']})"),
             "",
-            f"[Source page]({c['source_page_url']}) | "
-            f"[Suspected licence: {escaped(c['license'])}]({c['license_url']})",
+            (f"[Source page]({c['source_page_url']})" +
+             (f" | [Suspected licence: {escaped(c['license'])}]({c['license_url']})"
+              if c.get("license") and c.get("license_url") else " | Licence not checked")),
             "",
             "- [ ] **Visual review:** photograph of the correct variety, without watermarks or artifacts",
             "- [ ] **Rights review:** creator and commercial reuse rights verified at the source",
@@ -82,6 +87,8 @@ def download(candidates, output):
     failures = []
     for c in candidates:
         try:
+            if not c.get("image_url"):
+                raise ValueError("direct image_url is required by this downloader")
             with tempfile.TemporaryDirectory() as tmp:
                 path = Path(tmp) / "download"
                 subprocess.run([

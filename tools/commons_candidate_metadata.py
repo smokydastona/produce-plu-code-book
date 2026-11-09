@@ -32,8 +32,8 @@ def main(manifest, destination):
             page = next(iter(data["query"]["pages"].values()))
             info = page["imageinfo"][0]
             api_url = urlsplit(info["url"])
-            supplied_url = urlsplit(candidate["image_url"])
-            if (api_url.scheme, api_url.netloc, api_url.path) != (
+            supplied_url = urlsplit(candidate["image_url"]) if candidate.get("image_url") else None
+            if supplied_url and (api_url.scheme, api_url.netloc, api_url.path) != (
                     supplied_url.scheme, supplied_url.netloc, supplied_url.path):
                 raise ValueError(f"image URL differs from Commons record: {info['url']}")
             results.append({"candidate_id": candidate["id"], "page": page})

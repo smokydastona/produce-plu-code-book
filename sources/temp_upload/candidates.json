@@ -1,38 +1,27 @@
 [
-  {
-    "id": "009",
-    "plu": "3283",
-    "product": "Apples Honey Crisp",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/07/Honeycrisp-Apple.jpg",
-    "source_page_url": "https://commons.wikimedia.org/wiki/File:Honeycrisp-Apple.jpg",
-    "license": "CC0 (unverified)",
-    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
-  },
-  {
-    "id": "154",
-    "plu": "4313",
-    "product": "Mango Julie",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/71/Mangue-julie.jpg",
-    "source_page_url": "https://commons.wikimedia.org/wiki/File:Mangue-julie.jpg",
-    "license": "CC BY-SA 4.0 (unverified)",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
-  },
-  {
-    "id": "334",
-    "plu": "4555",
-    "product": "Cabbage Savoy",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Savoy_Cabbage.jpg",
-    "source_page_url": "https://commons.wikimedia.org/wiki/File:Savoy_Cabbage.jpg",
-    "license": "CC BY-SA 3.0 (unverified)",
-    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
-  },
-  {
-    "id": "415",
-    "plu": "4963",
-    "product": "Tomatillos",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Tomatillo.jpg",
-    "source_page_url": "https://commons.wikimedia.org/wiki/File:Tomatillo.jpg",
-    "license": "Public domain (unverified)",
-    "license_url": "https://creativecommons.org/publicdomain/mark/1.0/"
-  }
+  {"id":"009","plu":"3283","product":"Apples Honey Crisp","source_page_url":"https://commons.wikimedia.org/wiki/File:Honeycrisp-Apple.jpg"},
+  {"id":"027","plu":"3016","product":"Pear Concorde","source_page_url":"https://commons.wikimedia.org/wiki/File:Concorde,_Franc-Picard,_Vron,_Somme,Fr.JPG"},
+  {"id":"050","plu":"4293","product":"Grapefruit White Large","source_page_url":"https://commons.wikimedia.org/wiki/File:Grapefruit_(1).jpg"},
+  {"id":"148","plu":"3038","product":"Granadilla","source_page_url":"https://commons.wikimedia.org/wiki/File:Granadilla.jpg"},
+  {"id":"154","plu":"4313","product":"Mango Julie","source_page_url":"https://commons.wikimedia.org/wiki/File:%27Julie%27_mango_on_white_background.jpg"},
+  {"id":"175","plu":"3041","product":"Ramboutan","source_page_url":"https://commons.wikimedia.org/wiki/File:RambutanFruit.jpg"},
+  {"id":"235","plu":"94306","product":"Organic Limes Sweet","source_page_url":"https://commons.wikimedia.org/wiki/File:Sweet_limes_of_Salem.jpg"},
+  {"id":"274","plu":"93016","product":"Organic Pear Concord","source_page_url":"https://commons.wikimedia.org/wiki/File:Concorde,_Franc-Picard,_Vron,_Somme,Fr.JPG"},
+  {"id":"334","plu":"4555","product":"Cabbage Savoy","source_page_url":"https://commons.wikimedia.org/wiki/File:Savoy_Cabbage.jpg"},
+  {"id":"344","plu":"4565","product":"Carrot - Red","source_page_url":"https://commons.wikimedia.org/wiki/File:Red_Carrot.jpg"},
+  {"id":"391","plu":"4677","product":"Pepper Anaheim","source_page_url":"https://commons.wikimedia.org/wiki/File:Anaheim_peppers.jpg"},
+  {"id":"399","plu":"4692","product":"Pepper Hungarian","source_page_url":"https://commons.wikimedia.org/wiki/File:Hungarian_wax_peppers_IMG_5535.JPG"},
+  {"id":"403","plu":"4706","product":"Pepper Poblano","source_page_url":"https://commons.wikimedia.org/wiki/File:Stacked_Poblano_Peppers_-_Flickr_-_joncutrer.jpg"},
+  {"id":"412","plu":"4705","product":"Peppers Poblano","source_page_url":"https://commons.wikimedia.org/wiki/File:Stacked_Poblano_Peppers_-_Flickr_-_joncutrer.jpg"},
+  {"id":"415","plu":"4963","product":"Tomatillos","source_page_url":"https://commons.wikimedia.org/wiki/File:Tomatillo.jpg"},
+  {"id":"424","plu":"4999","product":"Cucumber Mini","source_page_url":"https://commons.wikimedia.org/wiki/File:Mini_cucumber.png"},
+  {"id":"432","plu":"4751","product":"Squash Acorn Golden","source_page_url":"https://commons.wikimedia.org/wiki/File:Orange_and_yellow_acorn_squash.jpg"},
+  {"id":"457","plu":"3060","product":"Zucchini Grey","source_page_url":"https://commons.wikimedia.org/wiki/File:Cucurbita_pepo_%27Grey_Zucchini%27_(top)_and_%27Black_Zucchini%27_(bottom).jpg"},
+  {"id":"465","plu":"4552","product":"Cabbage Chinois Napa","source_page_url":"https://commons.wikimedia.org/wiki/File:Napa_Cabbage.jpg"},
+  {"id":"466","plu":"4552","product":"Cabbage Suey","source_page_url":"https://commons.wikimedia.org/wiki/File:Napa_Cabbage.jpg"},
+  {"id":"472","plu":"4552","product":"Nappa","source_page_url":"https://commons.wikimedia.org/wiki/File:Napa_Cabbage.jpg"},
+  {"id":"475","plu":"4656","product":"Sing Qua","source_page_url":"https://commons.wikimedia.org/wiki/File:Luffa_acutangula_vegetable_019.jpg"},
+  {"id":"527","plu":"94075","product":"Organic Leaf Lettuce Red","source_page_url":"https://commons.wikimedia.org/wiki/File:Red_leaf_lettuce_J1.JPG"},
+  {"id":"570","plu":"94758","product":"Organic Squash Buttercup","source_page_url":"https://commons.wikimedia.org/wiki/File:Buttercupsquash.JPG"},
+  {"id":"571","plu":"94759","product":"Organic Squash Butternut","source_page_url":"https://commons.wikimedia.org/wiki/File:Butternut_squash.jpg"}
 ]

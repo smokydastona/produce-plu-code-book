@@ -38,12 +38,30 @@ class CandidateTests(unittest.TestCase):
         self.assertEqual(text.count("- [ ]"), 3)
         self.assertIn("unverified", text)
 
+    def test_commons_source_page_without_known_direct_url(self):
+        entry = {"id": "027", "plu": "3016", "product": "Concorde pear",
+                 "source_page_url": "https://commons.wikimedia.org/wiki/File:Concorde.jpg"}
+        self.write([entry])
+        parsed = candidates.read_manifest(self.manifest)
+        self.assertIn("[Source page / preview]", candidates.render(parsed))
+        with patch.object(metadata, "urlopen",
+                          return_value=io.BytesIO(json.dumps({
+                              "query": {"pages": {"1": {"imageinfo": [{
+                                  "url": "https://upload.wikimedia.org/c.jpg",
+                                  "extmetadata": {}}]}}}
+                          }).encode())):
+            destination = self.root / "metadata.json"
+            self.assertEqual(metadata.main(self.manifest, destination), 0)
+
     def test_rejects_bad_urls_and_duplicate_ids(self):
         for url in ("http://upload.wikimedia.org/a", "https://example.com/a",
                     "https://upload.wikimedia.org@evil.example/a"):
             self.write([{**self.entry, "image_url": url}])
             with self.assertRaises(ValueError):
                 candidates.read_manifest(self.manifest)
+        self.write([{**self.entry, "source_page_url": "https://example.com/wiki/File:Bad.jpg"}])
+        with self.assertRaises(ValueError):
+            candidates.read_manifest(self.manifest)
         self.write([self.entry, self.entry])
         with self.assertRaises(ValueError):
             candidates.read_manifest(self.manifest)
