@@ -10,7 +10,7 @@ Fruit, vegetable, and non-produce cashier references, their audit reports, and t
 | [current/review-booklets/](current/review-booklets/) | Standalone review editions in DOCX/PDF/XLSX, with image mapping and validation results; not a production release. |
 | [current/review/till-binder-supplier-photos-final/](current/review/till-binder-supplier-photos-final/) | Complete text-only and photo till-binder review copies in XLSX/PDF, Produce previews, standalone booklets, reconciliation and validation reports. |
 | [current/reports/](current/reports/) | Latest booklet audit, duplicate-code report, image inventory, and image-match report. |
-| [sources/plu/](sources/plu/) | Unmodified authoritative `PickList.xml`. |
+| [sources/plu/](sources/plu/) | Unmodified authoritative `PickList.xml` and a point-in-time `WorkingList.xml` snapshot. |
 | [sources/visual/](sources/visual/) | Supplied visual DOCX inputs, retained unchanged despite their `_CORRECTED` filenames. |
 | [archive/provisional/booklets/](archive/provisional/booklets/) | Earlier PDF exports of the supplied visual documents. |
 | [archive/provisional/reports/](archive/provisional/reports/) | Earlier provisional spreadsheets, not the current reports. |
@@ -74,6 +74,8 @@ The generator verifies source hashes, supplier originals and crop bounds and ref
 ## Updating PickList.xml in the future
 
 **Only @smokydastona updates [sources/plu/PickList.xml](sources/plu/PickList.xml).** Upload a replacement at that exact path. The committed XML is assumed correct: scripts and agents never edit, repair or "correct" its product values. Neither the old booklets nor image spreadsheets override it.
+
+`sources/plu/WorkingList.xml` is a byte-for-byte snapshot of the PickList as it stood when the snapshot was created. It is not automatically refreshed and is not used as a generator input. The cashier-facing catalogues must continue to preserve the authoritative PickList's descriptions, visibility and duplicate records.
 
 The **Sync owner PickList** Actions workflow runs automatically when the XML changes (and after image-assignment changes), or can be run manually:
 
