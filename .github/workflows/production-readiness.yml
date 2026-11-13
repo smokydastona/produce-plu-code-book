@@ -14,7 +14,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python -m pip install Pillow python-docx openpyxl
+      - run: python -m pip install -r requirements.txt
       - run: python -m unittest discover -s tools -p 'test_*.py'
       - run: python tools/organic_watermarks.py --check
       - name: Inventory blockers without granting approval

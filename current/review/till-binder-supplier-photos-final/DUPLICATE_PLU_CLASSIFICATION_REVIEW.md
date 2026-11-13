@@ -62,9 +62,14 @@ reviews; existing image rights, photographic-origin, resolution, classification
 and reuse gates remain; and PLU 94093 still needs supplier confirmation. The
 last production booklets have not been overwritten.
 
-The complete binder copies were not regenerated because the exact original
-workbook is unavailable at
-`/workspaces/produce-plu-code-book/.copilot/uploads/2026-11-09-1809d215/Complete_Till_Binder_-_Nov_2025.xlsx`
-(expected SHA-256
+The owner reuploaded the exact original workbook, now committed at
+`sources/binders/Complete_Till_Binder_-_Nov_2025.xlsx`
+(verified SHA-256
 `6b0aeaa153233c5f4917811a3f7a5b2212f7a946a0abede372a31db556ab0f63`).
-Existing binder outputs were not reconstructed from prior outputs.
+Both complete binder review editions were regenerated from WorkingList using
+that unchanged original, never reconstructed from prior outputs. Each complete
+PDF has 38 pages, including 10 Produce pages with 550 entries. The photo edition
+embeds 502 unchanged-identity references; the 48 changed identities remain blank.
+All 14 worksheets and unrelated workbook objects, package parts, styles and
+settings are preserved. See the complete-binder validation and preservation
+reports in `current/review/till-binder-supplier-photos-final/`.

@@ -25,6 +25,8 @@ from review_image_references import load_references
 from sync_picklist import BOOKS, booklet_order, csv_output
 from working_list import read_working_list, rebuild_working_list
 
+ORIGINAL_BINDER_SHA256 = "6b0aeaa153233c5f4917811a3f7a5b2212f7a946a0abede372a31db556ab0f63"
+
 
 def build_document(path, book, rows, images, digest):
     document = Document()
@@ -206,6 +208,10 @@ def build_review_booklets(output, rows, images, assignments, digest, pdf=False):
 
 def build_working_list_review(root, output, pdf=False):
     root, output = Path(root), Path(output)
+    binder_path = root / "sources/binders/Complete_Till_Binder_-_Nov_2025.xlsx"
+    binder_available = binder_path.is_file()
+    if binder_available and hashlib.sha256(binder_path.read_bytes()).hexdigest() != ORIGINAL_BINDER_SHA256:
+        raise ValueError("Original binder checksum differs; do not reconstruct or replace it")
     if output.exists() and any(output.iterdir()):
         raise ValueError("output must be empty; existing production and review files are never overwritten")
     output.mkdir(parents=True, exist_ok=True)
@@ -278,11 +284,11 @@ def build_working_list_review(root, output, pdf=False):
             row.get("status") == "WORKING_IDENTITY_REVIEW_REQUIRED" and
             row.get("decision") == "SUPPLIER_REFERENCE" for row in reference_audit),
         review_booklets=results,
-        limitation="Complete till-binder copies require the unavailable original binder; production booklets remain untouched.",
+        limitation="This command generates standalone reviews only; production booklets remain untouched.",
         complete_binder_regeneration=dict(
-            status="BLOCKED_MISSING_ORIGINAL",
-            expected_path="/workspaces/produce-plu-code-book/.copilot/uploads/2026-11-09-1809d215/Complete_Till_Binder_-_Nov_2025.xlsx",
-            expected_sha256="6b0aeaa153233c5f4917811a3f7a5b2212f7a946a0abede372a31db556ab0f63",
+            status="ORIGINAL_AVAILABLE_NOT_RUN" if binder_available else "BLOCKED_MISSING_ORIGINAL",
+            expected_path=str(binder_path.relative_to(root)),
+            expected_sha256=ORIGINAL_BINDER_SHA256,
         ),
     )
     pdf_layouts = ", ".join(
@@ -307,7 +313,8 @@ def build_working_list_review(root, output, pdf=False):
         + pdf_summary
         + "PDF checks verify exact PLUs and names, image counts and landscape US Letter geometry; "
         "image references, rights and product suitability still require review.\n\n"
-        "Complete till binders were not regenerated. The exact original workbook is missing:\n"
+        "This standalone command does not regenerate complete till binders.\n"
+        f"Original workbook: {'available and checksum-verified' if binder_available else 'missing'}.\n"
         f"  {report['complete_binder_regeneration']['expected_path']}\n"
         f"Expected SHA-256: {report['complete_binder_regeneration']['expected_sha256']}\n"
         "Do not reconstruct it from prior outputs. Existing binder copies were not overwritten. "
@@ -328,6 +335,8 @@ def build_working_list_review(root, output, pdf=False):
         root / "sources/plu/WorkingList.xml",
         root / "data/working_list_decisions.json",
     ])
+    if binder_available:
+        checksum_paths.append(binder_path)
     (output / "SHA256SUMS.txt").write_text("".join(
         f"{hashlib.sha256(path.read_bytes()).hexdigest()}  "
         f"{path.relative_to(output) if path.is_relative_to(output) else

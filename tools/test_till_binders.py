@@ -6,6 +6,7 @@ import unittest
 import xml.etree.ElementTree as ET
 import zipfile
 from pathlib import Path
+from unittest.mock import patch
 
 from docx import Document
 from openpyxl import Workbook, load_workbook
@@ -20,7 +21,7 @@ from build_till_binders import (FILENAMES, VISUALS, comparisons, generate, layou
                                sha, validate_package, visual_records)
 from picklist_catalog import read_picklist, read_assignments
 from review_image_references import load_references
-from review_booklets import build_review_booklets
+from review_booklets import build_review_booklets, build_working_list_review
 from organic_watermarks import render_watermark
 
 
@@ -447,6 +448,32 @@ class TillBinderChecks(unittest.TestCase):
         self.assertTrue(all(result["cashier_image_labels_absent"] for result in results.values()))
         self.assertEqual(len(list((self.root / "booklets").glob("*.docx"))), 3)
         self.assertEqual(len(list((self.root / "booklets").glob("*.xlsx"))), 3)
+
+    def test_standalone_review_reports_available_binder_and_rejects_changed_original(self):
+        registry_path = self.root / "data/picklist_assignments.json"
+        registry = json.loads(registry_path.read_text())
+        registry["assignments"][1].update(book="Vegetable", section="Vegetables")
+        registry_path.write_text(json.dumps(registry))
+        reports = self.root / "current/review-booklets"
+        reports.mkdir(parents=True)
+        for name in ("DUPLICATE_PLU_CLASSIFICATIONS.csv", "DUPLICATE_PLU_CLASSIFICATION_REVIEW.md"):
+            (reports / name).write_text("Fixture decision report\n")
+        missing = build_working_list_review(self.root, self.output)
+        self.assertEqual(missing["complete_binder_regeneration"]["status"], "BLOCKED_MISSING_ORIGINAL")
+        binder_path = self.root / "sources/binders/Complete_Till_Binder_-_Nov_2025.xlsx"
+        binder_path.parent.mkdir()
+        binder_path.write_bytes(self.binder.read_bytes())
+        with patch("review_booklets.ORIGINAL_BINDER_SHA256", sha(self.binder.read_bytes())):
+            output = self.root / "available-review"
+            available = build_working_list_review(self.root, output)
+            self.assertEqual(available["complete_binder_regeneration"]["status"], "ORIGINAL_AVAILABLE_NOT_RUN")
+            self.assertIn("available and checksum-verified", (output / "BUILD_NOTES.txt").read_text())
+            self.assertNotIn("workbook is missing", (output / "BUILD_NOTES.txt").read_text())
+            self.assertIn(str(binder_path.relative_to(self.root)), (output / "SHA256SUMS.txt").read_text())
+            binder_path.write_bytes(b"Changed original")
+            with self.assertRaisesRegex(ValueError, "binder checksum differs"):
+                build_working_list_review(self.root, self.root / "changed-review")
+        self.assertFalse((self.root / "changed-review").exists())
 
     def test_supplier_photos_override_ai_with_permission_and_checksum_evidence_only(self):
         self.write_ai_manifest([self.ai_panel(3)])

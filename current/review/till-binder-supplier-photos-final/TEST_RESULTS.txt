@@ -1,9 +1,3 @@
-HISTORICAL TEST OUTPUT: This log belongs to the pre-WorkingList binder build.
-It does not validate the current WorkingList pipeline or current cashier
-presentations. The current implementation separately passed all 104 Python
-tests; binder regeneration remains blocked because the exact original workbook
-is unavailable.
-
 FAIL 027: shortest side is 499 px
 FAIL 009: Command 'curl' returned non-zero exit status 22.
 ERROR: manifest has no candidates
@@ -14,33 +8,34 @@ SKIP 3283: File:Warning.jpg: unsafe or unreadable image: Image size (325000 pixe
 UNRESOLVED 3283: no eligible candidate for Honeycrisp apple
 SKIP 3283: File:Error.jpg: unsafe or unreadable image: Image size (640000 pixels) exceeds limit of 600000 pixels, could be decompression bomb DOS attack.
 UNRESOLVED 3283: no eligible candidate for Honeycrisp apple
-SKIP 3283: File:Corrupt.jpg: unsafe or unreadable image: cannot identify image file <_io.BytesIO object at 0x7fecd66756c0>
+SKIP 3283: File:Corrupt.jpg: unsafe or unreadable image: cannot identify image file <_io.BytesIO object at 0x7f5e76294310>
 UNRESOLVED 3283: no eligible candidate for Honeycrisp apple
-SKIP 4724: duplicate image already used by /tmp/tmpy9dv885x/package/originals/361/1/4724.jpg
+SKIP 4724: duplicate image already used by /tmp/tmpvnz8r9ul/package/originals/361/1/4724.jpg
 UNRESOLVED 4724: no eligible candidate for White creamer potato
-SKIP 4555: duplicate image already used by /tmp/tmpcgoaxoya/downloads/3283.jpg
+SKIP 4555: duplicate image already used by /tmp/tmp6h778y2d/downloads/3283.jpg
 UNRESOLVED 4555: no eligible candidate for Savoy cabbage
 UNRESOLVED 9999: no eligible candidate for Unsupported
-SKIP 93016: duplicate image already used by /tmp/tmpzrzwsgus/package/originals/027/1/3016.jpg
+SKIP 93016: duplicate image already used by /tmp/tmp_tbhzbyn/package/originals/027/1/3016.jpg
 UNRESOLVED 93016: no eligible candidate for Organic Pear Concord
 ERROR entry 9: network failure
 HTTP 429: waiting 15s before retry
 Metadata retrieved for 027
-PASS 009: /tmp/tmp7s1kkl9h/out/009_3283.jpg (unreviewed)
+PASS 009: /tmp/tmp11bt6q4c/out/009_3283.jpg (unreviewed)
 Metadata retrieved for 009
-Downloaded /tmp/tmpoq3qzx1o/package/originals/999/5/3283.jpg; exact variety and photographic suitability NOT verified
-Downloaded /tmp/tmpy9dv885x/package/originals/361/1/4724.jpg; exact variety and photographic suitability NOT verified
-Downloaded /tmp/tmpy9dv885x/package/originals/368/2/4724.jpg; exact variety and photographic suitability NOT verified
-Downloaded /tmp/tmpcgoaxoya/downloads/3283.jpg; exact variety and photographic suitability NOT verified
-Downloaded /tmp/tmpcgoaxoya/downloads/4555.jpg; exact variety and photographic suitability NOT verified
-FAIL duplicate image content: /tmp/tmpsvo5pjku/3283.jpg, /tmp/tmpsvo5pjku/one.jpg, /tmp/tmpsvo5pjku/two.jpg
-PASS /tmp/tmpsvo5pjku/two.jpg (technical checks only; visual review still required)
-PASS /tmp/tmpsvo5pjku/three.jpg (technical checks only; visual review still required)
-Downloaded /tmp/tmpzrzwsgus/package/originals/027/1/3016.jpg; exact variety and photographic suitability NOT verified
-Recorded reviewed image for 03283 / Honeycrisp Apple; full catalogue validation still required before publication
+Downloaded /tmp/tmpj8ct22yq/package/originals/999/5/3283.jpg; exact variety and photographic suitability NOT verified
+Downloaded /tmp/tmpvnz8r9ul/package/originals/361/1/4724.jpg; exact variety and photographic suitability NOT verified
+Downloaded /tmp/tmpvnz8r9ul/package/originals/368/2/4724.jpg; exact variety and photographic suitability NOT verified
+Downloaded /tmp/tmp6h778y2d/downloads/3283.jpg; exact variety and photographic suitability NOT verified
+Downloaded /tmp/tmp6h778y2d/downloads/4555.jpg; exact variety and photographic suitability NOT verified
+FAIL duplicate image content: /tmp/tmpqnv6jne7/3283.jpg, /tmp/tmpqnv6jne7/one.jpg, /tmp/tmpqnv6jne7/two.jpg
+PASS /tmp/tmpqnv6jne7/two.jpg (technical checks only; visual review still required)
+PASS /tmp/tmpqnv6jne7/three.jpg (technical checks only; visual review still required)
+Downloaded /tmp/tmp_tbhzbyn/package/originals/027/1/3016.jpg; exact variety and photographic suitability NOT verified
+Recorded reviewed WorkingList image for 03283 / Reviewed Working Apple; full catalogue validation still required before publication
+Recorded reviewed WorkingList image for 03283 / Honeycrisp Apple; full catalogue validation still required before publication
 fruits360-tree : FETCHED_UNVERIFIED HTTP success is not proof of search results or usable image rights; GitHub tree is truncated
 loc 433: ERROR <urlopen error DNS>
 ----------------------------------------------------------------------
-Ran 95 tests in 6.227s
+Ran 105 tests in 8.369s
 
 OK

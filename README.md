@@ -11,6 +11,7 @@ Fruit, vegetable, and non-produce cashier references, their audit reports, and t
 | [current/review/till-binder-supplier-photos-final/](current/review/till-binder-supplier-photos-final/) | Complete text-only and photo till-binder review copies in XLSX/PDF, Produce previews, standalone booklets, reconciliation and validation reports. |
 | [current/reports/](current/reports/) | Latest booklet audit, duplicate-code report, image inventory, and image-match report. |
 | [sources/plu/](sources/plu/) | Immutable owner-maintained `PickList.xml` and generated, decision-reviewed `WorkingList.xml`. |
+| [sources/binders/](sources/binders/) | Untouched original complete November 2025 binder and its SHA-256 checksum, retained as a reproducible build dependency. |
 | [sources/visual/](sources/visual/) | Supplied visual DOCX inputs, retained unchanged despite their `_CORRECTED` filenames. |
 | [archive/provisional/booklets/](archive/provisional/booklets/) | Earlier PDF exports of the supplied visual documents. |
 | [archive/provisional/reports/](archive/provisional/reports/) | Earlier provisional spreadsheets, not the current reports. |
@@ -36,16 +37,27 @@ Owner-provided duplicate PLU classifications and canonical-name recommendations 
 - `Complete Till Binder - Updated - Text Only.xlsx`
 - `Complete Till Binder - Updated - Photos.xlsx`
 
-Keep the original `Complete Till Binder - Nov 2025.xlsx` unchanged. The uploaded original is an external input, not fabricated from repository booklets. Run from the repository root with Pillow, python-docx (including lxml), openpyxl and pypdf installed. Print verification additionally requires **LibreOffice Calc**, not just Writer, and DejaVu Sans fonts.
+Keep `sources/binders/Complete_Till_Binder_-_Nov_2025.xlsx` unchanged. The owner reuploaded the exact original, verified against SHA-256 `6b0aeaa153233c5f4917811a3f7a5b2212f7a946a0abede372a31db556ab0f63`; it is committed as a build dependency, never reconstructed from outputs. Python runtime dependencies (including transitive packages and PDF inspection) are pinned in `requirements.txt`; all workflows install that manifest. Install dependencies from the repository root with Python 3.12:
 
 ```bash
-python tools/build_till_binders.py \
-  --binder "/path/to/Complete Till Binder - Nov 2025.xlsx" \
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+sudo apt-get update -qq
+sudo apt-get install -y libreoffice-calc libreoffice-writer fonts-dejavu-core fonts-dejavu-extra
+```
+
+LibreOffice **Calc and Writer** plus DejaVu fonts are system dependencies, installed locally or by Actions rather than committed as binaries. The checked-in visual DOCX files, AI contact sheets, supplier assets, branding and decision registries supply the remaining build inputs; generation needs no new image downloads.
+
+A tracked-files-only checkout successfully regenerated both complete binders, PDFs, previews and standalone booklets with these dependencies. No uploaded or untracked local assets were needed.
+
+```bash
+.venv/bin/python tools/build_till_binders.py \
+  --binder sources/binders/Complete_Till_Binder_-_Nov_2025.xlsx \
   --output "/path/to/empty/till-binder-review" \
   --verify-print --booklets
 ```
 
-The output directory must be empty. Neither the original workbook nor the owner-maintained XML is modified. After a future owner XML upload, repeat the same command with a new empty output directory. Alternatively, the manually triggered **Build till-binder review copies** Actions workflow accepts the repository-relative path of an original workbook you have deliberately uploaded to the repository; it fails explicitly if that file is missing. Do not upload internal operational/contact information to a public repository merely to run Actions: local generation works with an external file.
+The output directory must be empty. Neither the original workbook nor the owner-maintained XML is modified. After a future owner XML upload, repeat the same command with a new empty output directory. Alternatively, the manually triggered **Build till-binder review copies** Actions workflow defaults to the committed original; it fails explicitly if the selected file is missing. Do not upload any different workbook or additional operational/contact information without owner authorization.
 
 Both editions use the same compact three-block layout, WorkingList PLUs and approved cashier-facing names, with organic entries following their confidently identified conventional counterparts and unresolved duplicate PLUs highlighted red. Unknown classifications and ambiguous counterparts are retained and flagged in separate reports. Known non-produce records are excluded from Produce; unrelated operational sheets are never rewritten from the PLU master.
 
@@ -57,7 +69,7 @@ Each binder generation writes `PRODUCE_CHANGE_AND_VALIDATION_REPORT.txt`, `VALID
 
 `--verify-print` opens/exports the **actual assembled complete workbooks** in Calc and retains **Produce-only PDF previews** in `print-previews/`. It verifies page count and landscape US Letter size, finds every code/description on its planned page, and checks actually drawn image counts. With `--booklets`, the complete binder PDFs are included with the review deliverables, alongside three standalone review booklets in `booklets/` (fruit, vegetable and non-produce), each in DOCX, XLSX and, with `--verify-print`, PDF. Booklet PDF export additionally requires LibreOffice Writer. Booklets show only product names, PLUs and available images; duplicate codes remain red and image metadata stays in the external reports. The non-produce supplement remains code-only.
 
-These checks do not replace visual inspection or a store-printer test. Standalone review booklets were regenerated from `WorkingList.xml`; publication remains blocked by 48 fresh image reviews, unresolved supplier confirmation for PLU 94093, and existing image/classification gates. The exact original `/workspaces/produce-plu-code-book/.copilot/uploads/2026-11-09-1809d215/Complete_Till_Binder_-_Nov_2025.xlsx` is missing (expected SHA-256 `6b0aeaa153233c5f4917811a3f7a5b2212f7a946a0abede372a31db556ab0f63`), so complete binders could not be regenerated. Existing committed binder copies are pre-WorkingList review editions, not the current approved cashier presentation; they were not reconstructed or overwritten. Previously published production booklets remain intact. The owner explicitly authorized repository sharing of complete binders when generated from the original; do not upload a different workbook or operational information without authorization. The convenience ZIP remains excluded.
+Complete binder review copies and standalone booklets were regenerated from `WorkingList.xml` using the checksum-verified original. Both complete binder PDFs have 38 pages, including 10 Produce pages with 550 entries; the photo edition embeds 502 references and leaves 48 changed identities blank for fresh review. All 14 original worksheets and all unrelated OOXML parts, styles and settings are preserved. These checks do not replace visual inspection or a store-printer test. Publication remains blocked by fresh image reviews, unresolved supplier confirmation for PLU 94093, and existing image/classification gates. Previously published production booklets remain intact. The owner explicitly authorized repository sharing of complete binders and requested committing build dependencies. The convenience ZIP remains excluded.
 
 ### Supplied AI contact-sheet references
 

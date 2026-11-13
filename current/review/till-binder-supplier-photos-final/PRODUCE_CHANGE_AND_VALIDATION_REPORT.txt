@@ -1,24 +1,17 @@
 PRODUCE TILL BINDER - CHANGE AND VALIDATION REPORT
 REVIEW COPIES ONLY - NOT RELEASED FOR OPERATIONAL TILL USE
 
-HISTORICAL OUTPUTS: These binder copies were generated before WorkingList
-decision application. They do not reflect current approved names or duplicate
-resolution and are not the current cashier presentation. Their package and
-print checks apply only to these earlier files.
-
 Source XML SHA-256: 462db3121094008cd1dd5ea2c5836ca4b24de077edb8982c0f43149edbaf2cbb
 Original workbook SHA-256: 6b0aeaa153233c5f4917811a3f7a5b2212f7a946a0abede372a31db556ab0f63
 XML records: 724; active: 648; hidden/deleted: 76
-Produce included: 602; unique PLUs: 549; duplicate codes: 49
+Produce included: 550; unique PLUs: 549; duplicate codes: 1
 Known non-produce records retained only in original operational sections: 46
 Original Produce entries compared: 579
-Embedded supplied references: 602; missing/uncertain images left blank: 0
-AI illustrations included as visual references: 256
-New owner-supplied AI crops: 114
+Embedded supplied references: 502; missing/uncertain images left blank: 48
+AI illustrations included as visual references: 221
+New owner-supplied AI crops: 96
 AI illustrations omitted (if rejected or invalid association): 0
-Assignment classification review: 5; organic placement review: 106
-Owner duplicate-code classifications: 49 recorded; 48 are now applied to WorkingList,
-but not to these pre-WorkingList binder files
+Classification review: 5; organic placement review: 95
 
 Both complete workbook copies retain original worksheet names/order.
 Every original package part outside the Produce sheet, its relationships, append-only styles,
@@ -34,20 +27,19 @@ Original-sheet comparison outcomes (no uncertain mapping silently resolved):
   ORIGINAL_DESCRIPTION_WITHOUT_CODE: 2
 
 Image outcomes:
-  AI_ILLUSTRATION_REFERENCE_REVIEW: 142
-  SUPPLIED_AI_CROP_REVIEW: 114
-  SUPPLIED_REFERENCE_REVIEW: 333
-  SUPPLIER_REFERENCE_REVIEW: 13
+  AI_ILLUSTRATION_REFERENCE_REVIEW: 125
+  SUPPLIED_AI_CROP_REVIEW: 96
+  SUPPLIED_REFERENCE_REVIEW: 270
+  MISSING: 48
+  SUPPLIER_REFERENCE_REVIEW: 11
 
-Print validation: {"text": {"status": "PASS", "pages": 11, "landscape_us_letter": true, "complete_workbook_opened_and_exported_by_calc": true, "complete_binder_pdf_pages": 39, "every_page_code_count_verified": true, "every_description_found": true, "drawn_images": 0, "preview_pdf": "print-previews/Produce - text.pdf", "visual_review": "REQUIRED; automated text/geometry checks are not a visual print approval"}, "photos": {"status": "PASS", "pages": 11, "landscape_us_letter": true, "complete_workbook_opened_and_exported_by_calc": true, "complete_binder_pdf_pages": 39, "every_page_code_count_verified": true, "every_description_found": true, "drawn_images": 602, "preview_pdf": "print-previews/Produce - photos.pdf", "visual_review": "REQUIRED; automated text/geometry checks are not a visual print approval"}}
+Print validation: {"text": {"status": "PASS", "pages": 10, "landscape_us_letter": true, "complete_workbook_opened_and_exported_by_calc": true, "complete_binder_pdf_pages": 38, "every_page_code_count_verified": true, "every_description_found": true, "drawn_images": 0, "preview_pdf": "print-previews/Produce - text.pdf", "visual_review": "REQUIRED; automated text/geometry checks are not a visual print approval"}, "photos": {"status": "PASS", "pages": 10, "landscape_us_letter": true, "complete_workbook_opened_and_exported_by_calc": true, "complete_binder_pdf_pages": 38, "every_page_code_count_verified": true, "every_description_found": true, "drawn_images": 502, "preview_pdf": "print-previews/Produce - photos.pdf", "visual_review": "REQUIRED; automated text/geometry checks are not a visual print approval"}}
 
 Detailed reports:
   VALIDATION.json: checks, hashes, counts and publication blockers
   ORIGINAL_PRODUCE_CHANGES.csv: every original entry and current-source candidates
   UPDATED_PRODUCE_RECORDS.csv: every included source record versus the original sheet
   DUPLICATE_PLU_RECORDS.csv: all included records with ambiguous/repeated codes
-  DUPLICATE_PLU_CLASSIFICATIONS.csv / DUPLICATE_PLU_CLASSIFICATION_REVIEW.md:
-    current owner decisions; this directory's binder XLSX/PDF files do not reflect them
   ACTIVE_SOURCE_DUPLICATES.csv: every active source record sharing a code, including non-produce
   EXCLUDED_RECORDS.csv: hidden/deleted and known non-produce exclusions
   PHOTO_MAPPING.csv: per-record source, image status, dimensions, hashes and missing-image reasons

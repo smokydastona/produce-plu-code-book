@@ -10,7 +10,8 @@ All original PickList records, including excluded associations, are retained in 
 Verified PDF layouts: Fruit: 269 entries, 45 pages, Vegetable: 281 entries, 47 pages, Non-produce: 46 entries, 8 pages.
 PDF checks verify exact PLUs and names, image counts and landscape US Letter geometry; image references, rights and product suitability still require review.
 
-Complete till binders were not regenerated. The exact original workbook is missing:
-  /workspaces/produce-plu-code-book/.copilot/uploads/2026-11-09-1809d215/Complete_Till_Binder_-_Nov_2025.xlsx
+This standalone command does not regenerate complete till binders.
+Original workbook: available and checksum-verified.
+  sources/binders/Complete_Till_Binder_-_Nov_2025.xlsx
 Expected SHA-256: 6b0aeaa153233c5f4917811a3f7a5b2212f7a946a0abede372a31db556ab0f63
 Do not reconstruct it from prior outputs. Existing binder copies were not overwritten. Previously published production booklets and approval registries remain unchanged.

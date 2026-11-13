@@ -17,7 +17,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python -m pip install PyMuPDF
+      - run: python -m pip install -r requirements.txt
       - name: Fetch and inspect reference PDF without approving images
         env:
           OUTPUT: ${{ runner.temp }}/buck-brand-reference

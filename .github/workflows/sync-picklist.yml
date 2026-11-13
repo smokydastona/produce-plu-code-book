@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
     paths:
+      - requirements.txt
       - sources/plu/PickList.xml
       - sources/plu/WorkingList.xml
       - data/picklist_assignments.json
@@ -24,6 +25,7 @@ on:
       - .github/workflows/sync-picklist.yml
   pull_request:
     paths:
+      - requirements.txt
       - sources/plu/PickList.xml
       - sources/plu/WorkingList.xml
       - data/picklist_assignments.json
@@ -69,7 +71,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python -m pip install Pillow python-docx openpyxl
+      - run: python -m pip install -r requirements.txt
       - run: python -m unittest discover -s tools -p 'test_*.py'
       - name: Derive current catalogue without modifying the source or published files
         id: catalog
@@ -120,7 +122,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python -m pip install Pillow python-docx openpyxl pypdf
+      - run: python -m pip install -r requirements.txt
       - run: sudo apt-get update -qq && sudo apt-get install -y libreoffice-writer fonts-dejavu-core fonts-dejavu-extra
       - name: Build exact-source DOCX, Excel and verified PDF files in staging only
         run: python tools/sync_picklist.py --pdf --output "$RUNNER_TEMP/picklist-build"
