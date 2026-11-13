@@ -34,6 +34,9 @@ OWNER_CONFIRMED_PERMISSION_ASSETS = {
     ("58e6af2c6946076a9375ec1c8424364eb3e99c8ad4e2117fd0035771533dd38b",
      "4889", "Cilantro",
      "60ca8b961bca92e700d048723f1f57038be5e60377d6b96532761abc7048e883"),
+    ("211ce953f2a57e0f1c217fd7c6c2db5b14665f10f322dfbdcc38d2791133c565",
+     "4458", "Tangerine Seedless",
+     "f05f37d3982f0277cb7d7eb67ca44a0993c264f8dbb30f8f98dd658ddd80ad5a"),
 }
 EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".tif", ".tiff", ".gif",
               ".bmp", ".avif", ".svg"}

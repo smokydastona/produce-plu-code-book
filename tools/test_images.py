@@ -108,6 +108,17 @@ class ImageChecks(unittest.TestCase):
                 self.assertFalse(verify_images.owner_permission_metadata(
                     dict(metadata, **{field: "different"})))
 
+    def test_owner_permission_for_tangerine_is_exact_identity(self):
+        root = Path(__file__).resolve().parents[1]
+        candidate = root / "data/review-references/owner-alternates/4458-tangerine.jpg"
+        metadata = json.loads(candidate.with_suffix(".jpg.json").read_text())
+        self.assertEqual(validate(candidate), [])
+        self.assertTrue(verify_images.owner_permission_metadata(metadata))
+        for field in ("sha256", "plu", "product", "working_list_id"):
+            with self.subTest(field=field):
+                self.assertFalse(verify_images.owner_permission_metadata(
+                    dict(metadata, **{field: "different"})))
+
     def test_shortest_side_not_longest(self):
         Image.new("RGB", (1000, 499)).save(self.path)
         self.assertTrue(any("minimum is 500" in e for e in validate(self.path)))

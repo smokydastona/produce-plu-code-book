@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "plu": "4458",
+  "product": "Tangerine Seedless",
+  "working_list_id": "f05f37d3982f0277cb7d7eb67ca44a0993c264f8dbb30f8f98dd658ddd80ad5a",
+  "source_identity_ids": [
+    "2b95c285e44d2e7c5d9870e564051c94fad9c641b4171df33cea1c2d08bb8bbb"
+  ],
+  "creator": "Not identified in source",
+  "source_page_url": "https://chefsmandala.com/wp-content/uploads/2018/03/Tangerine.jpg",
+  "original_image_url": "https://chefsmandala.com/wp-content/uploads/2018/03/Tangerine.jpg",
+  "sha256": "211ce953f2a57e0f1c217fd7c6c2db5b14665f10f322dfbdcc38d2791133c565",
+  "width": 1920,
+  "height": 1080,
+  "license": "OWNER_CONFIRMED_PERMISSION",
+  "license_url": "",
+  "attribution": "Chef's Mandala-hosted tangerine image; creator not identified in source. Owner-confirmed permission for this specific use; no public reuse licence is asserted.",
+  "changes": "Original image unchanged",
+  "approval_status": "CANDIDATE",
+  "visual_approval_status": "APPROVED",
+  "photographic_origin": "VERIFIED_PHOTO",
+  "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+  "rights_evidence": "User confirmed permission to use this exact larger tangerine image in the public repository and cashier binders. Owner-confirmed, not independently documented.",
+  "production_status": "NOT_APPROVED",
+  "note": "User approved this exact photograph for PLU 4458 under the confirmed permission; not a public reuse licence or blanket approval."
+}
