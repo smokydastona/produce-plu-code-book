@@ -67,13 +67,17 @@ Validation:
 Outstanding review:
   Exact blood-orange and African Shaddock cultivars are not confirmed by XML.
   Meyer lemon supplier asset is 470 px high, below the 500 px minimum.
-  Five duplicate-record classifications and 106 organic placements need review.
+  Owner classifications for all 49 repeated codes are recorded separately.
+  Five Verify and seven Investigate cases remain unresolved; no classification
+  alters a source or cashier-facing record. 106 organic placements need review.
   Remaining AI, legacy photo, resolution, uniqueness and provenance gates still
   block production publication. Owner permission for supplier photos does not
   approve the entire catalogue or unrelated images.
   Store-printer and final product-variety review remain required.
 
 Reports:
+  DUPLICATE_PLU_CLASSIFICATIONS.csv and DUPLICATE_PLU_CLASSIFICATION_REVIEW.md:
+    owner-provided review decisions; no cashier-facing record or description changed.
   REVIEW_VALIDATION.json: actual format checks and file hashes.
   PHOTO_MAPPING.csv: actual selected image, provenance and concerns per record.
   AI_REFERENCE_REVIEW.csv: source panels and supplier mappings, including

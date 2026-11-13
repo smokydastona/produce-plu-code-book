@@ -9,3 +9,7 @@ python tools/build_till_binders.py \
 The original binder is an external input and is not included in this repository.
 Use a new empty output directory when regenerating. See README.md for dependencies
 and details. These outputs are review copies, not approved for operational use.
+The owner-provided duplicate PLU classifications are separately maintained in
+current/review-booklets/DUPLICATE_PLU_CLASSIFICATIONS.csv and its companion
+review note. They annotate recommendations only; generated PLU descriptions and
+duplicate records remain exactly as provided by PickList.xml.

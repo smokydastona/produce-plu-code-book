@@ -27,6 +27,8 @@ PDFs use landscape US Letter pages. DOCX files are the editable versions; keep e
 
 Every future approved build also includes one Excel (`.xlsx`) version per booklet, using the same filename stem as its DOCX/PDF. Excel versions are not yet published for the blocked current catalogue.
 
+Owner-provided duplicate PLU classifications and canonical-name recommendations are recorded in [the review CSV](current/review-booklets/DUPLICATE_PLU_CLASSIFICATIONS.csv) and [the decision summary](current/review-booklets/DUPLICATE_PLU_CLASSIFICATION_REVIEW.md). These are audit annotations only: cashier-facing descriptions and duplicate records remain exactly as in the authoritative PickList XML.
+
 ## Updating the complete till binder
 
 `tools/build_till_binders.py` creates two **complete copies** of an existing till binder, replacing only its Produce section:

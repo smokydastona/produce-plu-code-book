@@ -11,7 +11,8 @@ Embedded supplied references: 602; missing/uncertain images left blank: 0
 AI illustrations included as visual references: 256
 New owner-supplied AI crops: 114
 AI illustrations omitted (if rejected or invalid association): 0
-Classification review: 5; organic placement review: 106
+Assignment classification review: 5; organic placement review: 106
+Owner duplicate-code classifications: 49 documented separately; cashier entries unchanged
 
 Both complete workbook copies retain original worksheet names/order.
 Every original package part outside the Produce sheet, its relationships, append-only styles,
@@ -39,6 +40,8 @@ Detailed reports:
   ORIGINAL_PRODUCE_CHANGES.csv: every original entry and current-source candidates
   UPDATED_PRODUCE_RECORDS.csv: every included source record versus the original sheet
   DUPLICATE_PLU_RECORDS.csv: all included records with ambiguous/repeated codes
+  DUPLICATE_PLU_CLASSIFICATIONS.csv / DUPLICATE_PLU_CLASSIFICATION_REVIEW.md:
+    owner-provided recommendations; annotation only, exact XML records retained
   ACTIVE_SOURCE_DUPLICATES.csv: every active source record sharing a code, including non-produce
   EXCLUDED_RECORDS.csv: hidden/deleted and known non-produce exclusions
   PHOTO_MAPPING.csv: per-record source, image status, dimensions, hashes and missing-image reasons
