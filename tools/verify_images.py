@@ -40,6 +40,9 @@ OWNER_CONFIRMED_PERMISSION_ASSETS = {
     ("b50be3217c32e08d35ac39824c83a39617c83f6519a31e6a2e5efbbcbc92e037",
      "4724", "White Creamer Potatoes",
      "4d1579b29ca61345f1ce202b9cbc37c8d37f3c4e014ac093dad497c29348cd7b"),
+    ("0e90773e3a6c7f59866cec2e342659de0330b5a4ee76449e4203b72cb9523b6f",
+     "4723", "Red Creamer Potatoes",
+     "e715b10aaa4049d45fad378f21e196bfc305b8d1dc90b8ff46162d7bd632fafd"),
 }
 EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".tif", ".tiff", ".gif",
               ".bmp", ".avif", ".svg"}

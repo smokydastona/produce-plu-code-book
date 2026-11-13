@@ -7,7 +7,7 @@ XML records: 724; active: 648; hidden/deleted: 76
 Produce included: 550; unique PLUs: 549; duplicate codes: 1
 Known non-produce records retained only in original operational sections: 46
 Original Produce entries compared: 579
-Embedded supplied references: 509; missing/uncertain images left blank: 41
+Embedded supplied references: 510; missing/uncertain images left blank: 40
 AI illustrations included as visual references: 221
 New owner-supplied AI crops: 96
 AI illustrations omitted (if rejected or invalid association): 0
@@ -30,11 +30,11 @@ Image outcomes:
   AI_ILLUSTRATION_REFERENCE_REVIEW: 125
   SUPPLIED_AI_CROP_REVIEW: 96
   SUPPLIED_REFERENCE_REVIEW: 270
-  MISSING: 41
-  APPROVED_WORKINGLIST_IMAGE: 7
+  MISSING: 40
+  APPROVED_WORKINGLIST_IMAGE: 8
   SUPPLIER_REFERENCE_REVIEW: 11
 
-Print validation: {"text": {"status": "PASS", "pages": 10, "landscape_us_letter": true, "complete_workbook_opened_and_exported_by_calc": true, "complete_binder_pdf_pages": 38, "every_page_code_count_verified": true, "every_description_found": true, "drawn_images": 0, "preview_pdf": "print-previews/Produce - text.pdf", "visual_review": "REQUIRED; automated text/geometry checks are not a visual print approval"}, "photos": {"status": "PASS", "pages": 10, "landscape_us_letter": true, "complete_workbook_opened_and_exported_by_calc": true, "complete_binder_pdf_pages": 38, "every_page_code_count_verified": true, "every_description_found": true, "drawn_images": 509, "preview_pdf": "print-previews/Produce - photos.pdf", "visual_review": "REQUIRED; automated text/geometry checks are not a visual print approval"}}
+Print validation: {"text": {"status": "PASS", "pages": 10, "landscape_us_letter": true, "complete_workbook_opened_and_exported_by_calc": true, "complete_binder_pdf_pages": 38, "every_page_code_count_verified": true, "every_description_found": true, "drawn_images": 0, "preview_pdf": "print-previews/Produce - text.pdf", "visual_review": "REQUIRED; automated text/geometry checks are not a visual print approval"}, "photos": {"status": "PASS", "pages": 10, "landscape_us_letter": true, "complete_workbook_opened_and_exported_by_calc": true, "complete_binder_pdf_pages": 38, "every_page_code_count_verified": true, "every_description_found": true, "drawn_images": 510, "preview_pdf": "print-previews/Produce - photos.pdf", "visual_review": "REQUIRED; automated text/geometry checks are not a visual print approval"}}
 
 Detailed reports:
   VALIDATION.json: checks, hashes, counts and publication blockers

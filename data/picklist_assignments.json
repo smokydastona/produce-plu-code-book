@@ -11298,6 +11298,37 @@
         "rights_evidence": "User confirmed permission to use this exact white creamer potato image in the public repository and cashier binders. Owner-confirmed, not independently documented."
       },
       "reuse_from_source_id": ""
+    },
+    {
+      "source_id": "e715b10aaa4049d45fad378f21e196bfc305b8d1dc90b8ff46162d7bd632fafd",
+      "book": "Vegetable",
+      "section": "Potatoes",
+      "image": "data/images/approved/0e90773e3a6c7f59866cec2e342659de0330b5a4ee76449e4203b72cb9523b6f.jpg",
+      "image_mode": "PHOTO",
+      "reviewed_plu": "4723",
+      "reviewed_product": "Red Creamer Potatoes",
+      "working_source_ids": [
+        "f32e6ebff6b2b83fd65f1a0a70df906e8f7e7647b7e66bcdc8574db7bdf74392",
+        "2defd855692b17f7605295004c9c9c89a8bc3212d4c01d8e7fb2b7d62fcc7038",
+        "7a0f118b4c8fa8f5d3904e10c2f74bde22b0b1ae65cfabe521e9ee8e8a33d440"
+      ],
+      "working_decision_id": "4723",
+      "image_sha256": "0e90773e3a6c7f59866cec2e342659de0330b5a4ee76449e4203b72cb9523b6f",
+      "photographic_origin": "VERIFIED_PHOTO",
+      "visual_approval_status": "APPROVED",
+      "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+      "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+      "provenance": {
+        "creator": "Not identified in source",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "https://m.media-amazon.com/images/I/41+OONcZpJL._SL1500_.jpg",
+        "original_image_url": "https://m.media-amazon.com/images/I/41+OONcZpJL._SL1500_.jpg",
+        "attribution": "Amazon-hosted potato image; creator not identified in source. Owner-confirmed permission for this specific use; no public reuse licence is asserted.",
+        "changes": "Downloaded image unchanged",
+        "rights_evidence": "User confirmed permission to use this exact larger red creamer potato image in the public repository and cashier binders. Owner-confirmed, not independently documented."
+      },
+      "reuse_from_source_id": ""
     }
   ]
 }
