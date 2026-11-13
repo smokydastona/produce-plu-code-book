@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "plu": "4889",
+  "product": "Cilantro",
+  "working_list_id": "60ca8b961bca92e700d048723f1f57038be5e60377d6b96532761abc7048e883",
+  "source_identity_ids": [
+    "211accfa00b1af40ece0140fdaddf2196b7bedeffd633f3dee7f0001fdb91474",
+    "51e7026b387d21cb2c6ccccf3fcf4fd6cf362f62eb39fa25e7ac024a96e22cfd"
+  ],
+  "creator": "Not identified in source",
+  "source_page_url": "https://i5.walmartimages.ca/images/Enlarge/094/548/6000200094548.jpg?skipOpt=1",
+  "original_image_url": "https://i5.walmartimages.ca/images/Enlarge/094/548/6000200094548.jpg?skipOpt=1",
+  "sha256": "58e6af2c6946076a9375ec1c8424364eb3e99c8ad4e2117fd0035771533dd38b",
+  "width": 1500,
+  "height": 1500,
+  "license": "OWNER_CONFIRMED_PERMISSION",
+  "license_url": "",
+  "attribution": "Owner-provided cilantro image; creator not identified in source. Owner-confirmed permission for this specific use; no public reuse licence is asserted.",
+  "changes": "Original image unchanged",
+  "approval_status": "CANDIDATE",
+  "visual_approval_status": "APPROVED",
+  "photographic_origin": "VERIFIED_PHOTO",
+  "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+  "rights_evidence": "User confirmed permission to use this exact cilantro image in the public repository and cashier binders. Owner-confirmed, not independently documented.",
+  "production_status": "NOT_APPROVED",
+  "note": "User approved this exact photograph for PLU 4889 under the confirmed permission; not a public reuse licence or blanket approval."
+}

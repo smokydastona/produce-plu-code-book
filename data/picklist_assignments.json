@@ -11209,6 +11209,36 @@
         "rights_evidence": "Owner confirmed permission from the rights holder to use and horizontally mirror this exact basil photo in the public repository and cashier-facing binders; user confirmed it is an actual photograph and visually suitable for Basil. Owner-confirmed, not independently documented; no public reuse licence is asserted."
       },
       "reuse_from_source_id": ""
+    },
+    {
+      "source_id": "60ca8b961bca92e700d048723f1f57038be5e60377d6b96532761abc7048e883",
+      "book": "Vegetable",
+      "section": "Herbs",
+      "image": "data/images/approved/58e6af2c6946076a9375ec1c8424364eb3e99c8ad4e2117fd0035771533dd38b.jpg",
+      "image_mode": "PHOTO",
+      "reviewed_plu": "4889",
+      "reviewed_product": "Cilantro",
+      "working_source_ids": [
+        "211accfa00b1af40ece0140fdaddf2196b7bedeffd633f3dee7f0001fdb91474",
+        "51e7026b387d21cb2c6ccccf3fcf4fd6cf362f62eb39fa25e7ac024a96e22cfd"
+      ],
+      "working_decision_id": "4889",
+      "image_sha256": "58e6af2c6946076a9375ec1c8424364eb3e99c8ad4e2117fd0035771533dd38b",
+      "photographic_origin": "VERIFIED_PHOTO",
+      "visual_approval_status": "APPROVED",
+      "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+      "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+      "provenance": {
+        "creator": "Not identified in source",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "https://i5.walmartimages.ca/images/Enlarge/094/548/6000200094548.jpg?skipOpt=1",
+        "original_image_url": "https://i5.walmartimages.ca/images/Enlarge/094/548/6000200094548.jpg?skipOpt=1",
+        "attribution": "Owner-provided cilantro image; creator not identified in source. Owner-confirmed permission for this specific use; no public reuse licence is asserted.",
+        "changes": "Original image unchanged",
+        "rights_evidence": "User confirmed permission to use this exact cilantro image in the public repository and cashier binders. Owner-confirmed, not independently documented."
+      },
+      "reuse_from_source_id": ""
     }
   ]
 }

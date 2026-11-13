@@ -31,6 +31,9 @@ OWNER_CONFIRMED_PERMISSION_ASSETS = {
     ("f42ed4640a1fdee6a371d45494e810d3231e53997c217458aafd4debddee9af6",
      "4885", "Basil",
      "c14af7546903339dbb6cffef40aa7e283bb28919139912d49a2d5311fb74be76"),
+    ("58e6af2c6946076a9375ec1c8424364eb3e99c8ad4e2117fd0035771533dd38b",
+     "4889", "Cilantro",
+     "60ca8b961bca92e700d048723f1f57038be5e60377d6b96532761abc7048e883"),
 }
 EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".tif", ".tiff", ".gif",
               ".bmp", ".avif", ".svg"}
