@@ -1,0 +1,20 @@
+{
+  "status": "VISUAL_REVIEW_COMPLETE_PRODUCTION_BLOCKED",
+  "production_publication": "BLOCKED",
+  "scope": "Visual product-image suitability only for the 48 changed WorkingList identities. No rights, photographic-origin, licence, resolution, variety, or production approvals are granted.",
+  "source": "sources/plu/PickList.xml",
+  "source_sha256": "462db3121094008cd1dd5ea2c5836ca4b24de077edb8982c0f43149edbaf2cbb",
+  "reviewed_working_list_entries": 48,
+  "decision_counts": {
+    "REJECTED": 14,
+    "VISUALLY_SUITABLE": 33,
+    "VISUALLY_SUITABLE_WITH_VARIETY_CAVEAT": 1
+  },
+  "rights_and_production_approval": "NOT_GRANTED",
+  "alternate_candidate_urls_proposed": 14,
+  "alternate_candidate_urls_fetchable_in_this_session": 0,
+  "alternate_candidate_review_status": "UNAVAILABLE_OR_UNVERIFIED",
+  "cashier_image_assignments_changed": false,
+  "production_booklets_changed": false,
+  "audit_csv": "IMAGE_VISUAL_REVIEW.csv"
+}

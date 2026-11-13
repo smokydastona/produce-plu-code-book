@@ -23,9 +23,12 @@ source identity to its resulting WorkingList entry or exclusion.
   displays **Yellow Potatoes**; the Yukon Gold alias was not added because
   inventory confirmation is absent.
 - 48 changed WorkingList identities have no inherited image approval. Their
-  images are blank pending fresh product-specific review. The regenerated
-  review booklets embed 502 unchanged-identity references and are not a
-  production release.
+  candidates have completed a visual product-match review; the exact decisions
+  and source identities are in `IMAGE_VISUAL_REVIEW.csv` and its JSON summary.
+  These visual-only decisions do not approve rights, photographic origin,
+  resolution or production use. All 48 remain blank in cashier-facing files.
+  The regenerated review booklets embed 502 unchanged-identity references and
+  are not a production release.
 
 ## Owner-reviewed cases
 
@@ -57,10 +60,12 @@ image associations, exact text, PLU strings and leading zeros were checked.
 Organic images retain the consistent pink upper-left badge. Provenance,
 conflicts and review issues stay in external reports.
 
-Publication remains **BLOCKED**. The 48 changed identities need fresh image
-reviews; existing image rights, photographic-origin, resolution, classification
-and reuse gates remain; and PLU 94093 still needs supplier confirmation. The
-last production booklets have not been overwritten.
+Publication remains **BLOCKED**. Visual review of the 48 changed identities is
+complete, but visual suitability alone does not clear image rights,
+photographic-origin, resolution, provenance or production gates; rejected
+candidates still need replacements. Existing classification and reuse gates
+remain, and PLU 94093 still needs supplier confirmation. The last production
+booklets have not been overwritten.
 
 The owner reuploaded the exact original workbook, now committed at
 `sources/binders/Complete_Till_Binder_-_Nov_2025.xlsx`
@@ -69,7 +74,8 @@ The owner reuploaded the exact original workbook, now committed at
 Both complete binder review editions were regenerated from WorkingList using
 that unchanged original, never reconstructed from prior outputs. Each complete
 PDF has 38 pages, including 10 Produce pages with 550 entries. The photo edition
-embeds 502 unchanged-identity references; the 48 changed identities remain blank.
+embeds 502 unchanged-identity references; the 48 changed identities remain blank
+despite their completed visual-only review.
 All 14 worksheets and unrelated workbook objects, package parts, styles and
 settings are preserved. See the complete-binder validation and preservation
 reports in `current/review/till-binder-supplier-photos-final/`.
