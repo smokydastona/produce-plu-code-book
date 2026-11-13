@@ -46,6 +46,20 @@ class OwnerAlternativesTest(unittest.TestCase):
             with (root / "output/FETCH_REPORT.csv").open(newline="") as file:
                 self.assertIn("unavailable", next(csv.DictReader(file))["detail"])
 
+    def test_multiple_candidates_can_target_one_plu(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            manifest = root / "manifest.json"
+            manifest.write_text(json.dumps([
+                {"plu": "4055", "product": "Murcott Tangerines", "url": "https://foxy.com/a.png"},
+                {"candidate_id": "4055-melissas", "plu": "4055",
+                 "product": "Murcott Tangerines", "url": "https://foxy.com/b.png"},
+            ]))
+            with patch("fetch_owner_alternatives.build_opener") as opener:
+                opener.return_value.open.side_effect = URLError("unavailable")
+                report = acquire(manifest, root / "output")
+            self.assertEqual([row["candidate_id"] for row in report], ["4055", "4055-melissas"])
+
 
 if __name__ == "__main__":
     unittest.main()

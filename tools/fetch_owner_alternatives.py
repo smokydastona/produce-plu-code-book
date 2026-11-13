@@ -61,9 +61,11 @@ def acquire(manifest, output):
         raise ValueError("manifest must contain a nonempty list")
     seen = set()
     for entry in entries:
-        if not re.fullmatch(r"\d+", entry["plu"]) or entry["plu"] in seen:
-            raise ValueError(f"invalid or duplicate PLU: {entry['plu']}")
-        seen.add(entry["plu"])
+        entry.setdefault("candidate_id", entry["plu"])
+        if not re.fullmatch(r"\d+", entry["plu"]) or not re.fullmatch(
+                r"[A-Za-z0-9_-]+", entry["candidate_id"]) or entry["candidate_id"] in seen:
+            raise ValueError(f"invalid or duplicate candidate ID: {entry['candidate_id']}")
+        seen.add(entry["candidate_id"])
         validate_url(entry["url"])
     output.mkdir(parents=True, exist_ok=False)
     opener = build_opener(SafeRedirect())
@@ -80,7 +82,7 @@ def acquire(manifest, output):
                 content = response.read(MAX_BYTES + 1)
             if len(content) > MAX_BYTES:
                 raise ValueError("response exceeds 25 MiB")
-            name, width, height, mirrored = save_image(content, output, entry["plu"])
+            name, width, height, mirrored = save_image(content, output, entry["candidate_id"])
             row.update(status="FETCHED_UNVERIFIED", image_file=name,
                        sha256=hashlib.sha256(content).hexdigest(), width=width, height=height,
                        mirrored_file=mirrored)
