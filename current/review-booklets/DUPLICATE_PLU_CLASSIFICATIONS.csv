@@ -1,50 +1,50 @@
-plu,classification,existing_source_descriptions,recommended_canonical_description,owner_decision_or_condition,application_status
-3038,Verify,"Granadilla; Passion Fruit",Granadilla,Verify species before merging; related but not necessarily identical products,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-3110,Merge,"Orange Cara Cara; Oranges Navel Cara",Cara Cara Orange,Merge,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-3129,Standardize,"Pomelos; Grapefruit Pummelo",Pomelo,Standardize,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-3141,Merge,"Squash Long; Squash Opo",Opo Squash,Merge,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-4050,Merge,"Cantaloupe Large; Melon Cantaloupe Jumbo",Cantaloupe – Large,Merge,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-4055,Verify,"Tangerines; Oranges Murcott",Tangerine / Mandarin,Keep generic description; Murcott is a specific variety,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-4059,Investigate,"Apples Red Prince; Kiwi Small",No safe canonical choice,Investigate – different fruits,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-4067,Merge,"Zucchini; Zucchini Squash; Squash Zucchini",Zucchini,Merge all three,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-4074,Standardize,"Yam Garnet Red; Sweet Potato red",Red-Fleshed Sweet Potato,Standardize,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-4086,Merge,"Squash Zucchini Yellow; Zucchini Yellow",Yellow Zucchini,Merge,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-4253,Investigate,"Blueberries Quart; Strawberries Flat",No safe canonical choice,Investigate – different fruits,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-4336,Merge,"Santa Claus Melon; Melon Santa Clause",Santa Claus Melon,Merge; correct spelling,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-4425,Investigate,"Pear Shingo; Pear Taylor Gold",Shingo Pear,Investigate – different pear varieties; Taylor's Gold is separately listed as PLU 4553,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-4436,Merge,"Plum Italian; Plum Italian Prune",Italian Prune Plum,Merge,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-4450,Merge,"Oranges Clementine; Clementine",Clementine,Merge,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-4458,Verify,"Clementines Box; Tangerine Seedless",Seedless Clementines,Verify variety and packaging distinction,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-4552,Merge,"Cabbage Suey; Cabbage Chinois Napa; Nappa",Napa Cabbage,Merge,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-4598,Merge,"Lo Bok Daikon; Daikon Root",Daikon Radish,Merge,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-4640,Merge,"Romaine; Lettuce Romaine",Romaine Lettuce,Merge,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-4688,Standardize,"Pepper Sweet Red; Pepper Red",Red Sweet Bell Pepper,Standardize,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-4723,Merge,"Potato Mini red; Potato Red Creamer; Potato red creamer",Red Creamer Potatoes,Merge all three,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-4724,Merge,"Potato Mini white; Potato White Creamer",White Creamer Potatoes,Merge,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-4727,Standardize,"Potato Yukon Gold; Potato Yellow",Yellow Potatoes,Standardize; retain Yukon Gold as an alias only if inventory confirms it,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-4884,Merge,"Herbs  Arugula; Arugla",Arugula,Merge; correct spelling,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-4885,Merge,"Herbs  Basil; Basil",Basil,Merge,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-4889,Merge,"Cilantro; Herbs  Cilantro",Cilantro,Merge,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-4893,Verify,"Dill Pickling; Herbs Dill Long",Dill,Standardize; verify whether long dill is a separate product,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-4899,Merge,"Parsley Bunch; Herbs Parsley",Parsley,Merge,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-4901,Merge,"Parsley Italian; Herbs Italian Parsley",Italian Parsley,Merge,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-41519,Merge,"Jumbo Carrot; Jumbo Carrots",Jumbo Carrots,Merge; local/custom code,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-60271,Verify,"Potato Early Nugget; Warba",Warba Potatoes,Verify variety; do not automatically combine two potato varieties,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-94022,Merge,"Organic Green Grapes Seedless; Organic White Grapes; Organic Grapes Green Sdls",Organic Green Seedless Grapes,Merge,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-94023,Merge,"Organic Grapes Red Seedless; Organic Red Seedless Grapes",Organic Red Seedless Grapes,Merge,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-94031,Merge,"Organic Melon Watermelon; Organic Melon Watermelon",Organic Watermelon,Remove exact duplicate,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-94040,Investigate,"Organic Melon Canteloupe Small; Organic Plum Black",No safe canonical choice,Investigate – different fruits,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-94049,Merge,"Organic Melon Cantaloupe Small; Organic Melon Cantaloupe Small",Organic Cantaloupe – Small,Remove exact duplicate,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-94093,Standardize,"Organic Onions Yellow; Organic Onion Spanish",Organic Yellow Spanish Onion,Standardize subject to supplier confirmation,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-94153,Merge,"Organic Apples MacIntosh; Organic Aples MacIntosh",Organic McIntosh Apples,Merge; correct spelling,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-94281,Merge,"Organic Pink Grapefruit; Organic Grapefruit Pink",Organic Pink Grapefruit,Merge,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-94317,Merge,"Organic Melon Canary; Organic Melon Canary",Organic Canary Melon,Remove exact duplicate,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-94321,Merge,"Organic Melon Watermelon; Organic Melon Watermelon",Organic Watermelon,Remove exact duplicate,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-94329,Standardize,"Organic Melon Honeydew Small; Organic Melon Honeydew",Organic Honeydew Melon,Standardize; retain size as an attribute if needed,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-94342,Investigate,"Organic Melon Watermelon Seedless Slices; Organic Melon Watermelon",Organic Watermelon,Investigate – sliced versus whole product,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-94461,Standardize,"Organic Grapefruit Shaddock; Organic Shaddock",Organic Shaddock (Pomelo),Standardize; do not call it grapefruit,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-94648,Merge,"Organic Mushrooms Crimini; Organic Mushrooms Brown",Organic Cremini Mushrooms,Merge,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-94657,Merge,"Organic Mushroom Portabello; Organic Mushroom Portabello",Organic Portobello Mushrooms,Remove exact duplicate; correct spelling,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-94664,Merge,"Organic Tomato On the Vine; Organic Red Cluster Tomatoes",Organic Red Cluster Tomatoes (On the Vine),Merge,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-94769,Investigate,"Organic Squash Stripetti; Organic Squash Kabocha",Organic Kabocha Squash,Investigate – different squash varieties,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
-94823,Investigate,"Organic Potato White; Organic Potato Nugget",Organic White Potatoes,Investigate – potentially different potato varieties,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+﻿plu,classification,existing_source_descriptions,recommended_canonical_description,owner_decision_or_condition,owner_review_outcome,owner_review_note,application_status
+3038,Verify,Granadilla; Passion Fruit,Orange Granadilla,Owner identifies orange granadilla as a sweet variety of passion fruit; conventional tropical/exotic fruit; organic variant identified as 93038,OWNER_CONFIRMED_PRODUCT,All sizes conventionally grown; hard yellow-orange rind; sweet aromatic fragrance; juicy clear non-acidic pulp with edible seeds. Organic variant noted as 93038.,ANNOTATION_ONLY_SOURCE_AND_CASHIER_RECORDS_PRESERVED
+3110,Merge,Orange Cara Cara; Oranges Navel Cara,Cara Cara Orange,Merge,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+3129,Standardize,Pomelos; Grapefruit Pummelo,Pomelo,Standardize,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+3141,Merge,Squash Long; Squash Opo,Opo Squash,Merge,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+4050,Merge,Cantaloupe Large; Melon Cantaloupe Jumbo,Cantaloupe – Large,Merge,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+4055,Verify,Tangerines; Oranges Murcott,Murcott Tangerines,Owner confirms the descriptions refer to one product,OWNER_CONFIRMED_SAME_PRODUCT,Recommend Murcott Tangerines.,ANNOTATION_ONLY_SOURCE_AND_CASHIER_RECORDS_PRESERVED
+4059,Investigate,Apples Red Prince; Kiwi Small,Red Prince Apples,Owner confirms Red Prince apples are intended,OWNER_CONFIRMED_INTENDED_PRODUCT,Kiwi Small is the conflicting source association.,ANNOTATION_ONLY_SOURCE_AND_CASHIER_RECORDS_PRESERVED
+4067,Merge,Zucchini; Zucchini Squash; Squash Zucchini,Zucchini,Merge all three,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+4074,Standardize,Yam Garnet Red; Sweet Potato red,Red-Fleshed Sweet Potato,Standardize,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+4086,Merge,Squash Zucchini Yellow; Zucchini Yellow,Yellow Zucchini,Merge,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+4253,Investigate,Blueberries Quart; Strawberries Flat,Strawberries by the Flat,Owner confirms strawberries by the flat are intended,OWNER_CONFIRMED_INTENDED_PRODUCT,Blueberries Quart is the conflicting source association.,ANNOTATION_ONLY_SOURCE_AND_CASHIER_RECORDS_PRESERVED
+4336,Merge,Santa Claus Melon; Melon Santa Clause,Santa Claus Melon,Merge; correct spelling,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+4425,Investigate,Pear Shingo; Pear Taylor Gold,Shinko (Shingo) Asian Pear,Owner confirms Shinko/Shingo Asian Pear is intended; Taylor's Gold separately listed as PLU 4553,OWNER_CONFIRMED_INTENDED_PRODUCT,Taylor Gold is the conflicting source association.,ANNOTATION_ONLY_SOURCE_AND_CASHIER_RECORDS_PRESERVED
+4436,Merge,Plum Italian; Plum Italian Prune,Italian Prune Plum,Merge,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+4450,Merge,Oranges Clementine; Clementine,Clementine,Merge,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+4458,Verify,Clementines Box; Tangerine Seedless,Tangerine Seedless,Owner identifies Tangerine Seedless as the intended product,OWNER_CONFIRMED_INTENDED_PRODUCT,Clementines Box remains the conflicting source wording; equivalence/packaging relationship was not confirmed.,ANNOTATION_ONLY_SOURCE_AND_CASHIER_RECORDS_PRESERVED
+4552,Merge,Cabbage Suey; Cabbage Chinois Napa; Nappa,Napa Cabbage,Merge,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+4598,Merge,Lo Bok Daikon; Daikon Root,Daikon Radish,Merge,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+4640,Merge,Romaine; Lettuce Romaine,Romaine Lettuce,Merge,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+4688,Standardize,Pepper Sweet Red; Pepper Red,Red Sweet Bell Pepper,Standardize,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+4723,Merge,Potato Mini red; Potato Red Creamer; Potato red creamer,Red Creamer Potatoes,Merge all three,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+4724,Merge,Potato Mini white; Potato White Creamer,White Creamer Potatoes,Merge,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+4727,Standardize,Potato Yukon Gold; Potato Yellow,Yellow Potatoes,Standardize; retain Yukon Gold as an alias only if inventory confirms it,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+4884,Merge,Herbs  Arugula; Arugla,Arugula,Merge; correct spelling,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+4885,Merge,Herbs  Basil; Basil,Basil,Merge,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+4889,Merge,Cilantro; Herbs  Cilantro,Cilantro,Merge,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+4893,Verify,Dill Pickling; Herbs Dill Long,Dill,Owner confirms the descriptions are equivalent and recommends standardizing to Dill,OWNER_CONFIRMED_SAME_PRODUCT,Recommend Dill.,ANNOTATION_ONLY_SOURCE_AND_CASHIER_RECORDS_PRESERVED
+4899,Merge,Parsley Bunch; Herbs Parsley,Parsley,Merge,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+4901,Merge,Parsley Italian; Herbs Italian Parsley,Italian Parsley,Merge,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+41519,Merge,Jumbo Carrot; Jumbo Carrots,Jumbo Carrots,Merge; local/custom code,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+60271,Verify,Potato Early Nugget; Warba,Early Nugget (Warba) Potatoes,Owner confirms these refer to the same variety and recommends Early Nugget (Warba) Potatoes,OWNER_CONFIRMED_SAME_VARIETY,Owner describes Early Nugget as “garbage potatoes.”,ANNOTATION_ONLY_SOURCE_AND_CASHIER_RECORDS_PRESERVED
+94022,Merge,Organic Green Grapes Seedless; Organic White Grapes; Organic Grapes Green Sdls,Organic Green Seedless Grapes,Merge,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+94023,Merge,Organic Grapes Red Seedless; Organic Red Seedless Grapes,Organic Red Seedless Grapes,Merge,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+94031,Merge,Organic Melon Watermelon; Organic Melon Watermelon,Organic Watermelon,Remove exact duplicate,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+94040,Investigate,Organic Melon Canteloupe Small; Organic Plum Black,Organic Black Plums,Owner confirms organic black plums are intended,OWNER_CONFIRMED_INTENDED_PRODUCT,Organic Melon Canteloupe Small is the conflicting source association.,ANNOTATION_ONLY_SOURCE_AND_CASHIER_RECORDS_PRESERVED
+94049,Merge,Organic Melon Cantaloupe Small; Organic Melon Cantaloupe Small,Organic Cantaloupe – Small,Remove exact duplicate,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+94093,Standardize,Organic Onions Yellow; Organic Onion Spanish,Organic Yellow Spanish Onion,Standardize subject to supplier confirmation,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+94153,Merge,Organic Apples MacIntosh; Organic Aples MacIntosh,Organic McIntosh Apples,Merge; correct spelling,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+94281,Merge,Organic Pink Grapefruit; Organic Grapefruit Pink,Organic Pink Grapefruit,Merge,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+94317,Merge,Organic Melon Canary; Organic Melon Canary,Organic Canary Melon,Remove exact duplicate,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+94321,Merge,Organic Melon Watermelon; Organic Melon Watermelon,Organic Watermelon,Remove exact duplicate,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+94329,Standardize,Organic Melon Honeydew Small; Organic Melon Honeydew,Organic Honeydew Melon,Standardize; retain size as an attribute if needed,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+94342,Investigate,Organic Melon Watermelon Seedless Slices; Organic Melon Watermelon,Organic Watermelon,Owner confirms these descriptions refer to the same product and recommends Organic Watermelon,OWNER_CONFIRMED_SAME_PRODUCT,Recommend Organic Watermelon.,ANNOTATION_ONLY_SOURCE_AND_CASHIER_RECORDS_PRESERVED
+94461,Standardize,Organic Grapefruit Shaddock; Organic Shaddock,Organic Shaddock (Pomelo),Standardize; do not call it grapefruit,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+94648,Merge,Organic Mushrooms Crimini; Organic Mushrooms Brown,Organic Cremini Mushrooms,Merge,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+94657,Merge,Organic Mushroom Portabello; Organic Mushroom Portabello,Organic Portobello Mushrooms,Remove exact duplicate; correct spelling,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+94664,Merge,Organic Tomato On the Vine; Organic Red Cluster Tomatoes,Organic Red Cluster Tomatoes (On the Vine),Merge,,,ANNOTATED_ONLY_SOURCE_RECORDS_PRESERVED
+94769,Investigate,Organic Squash Stripetti; Organic Squash Kabocha,Organic Kabocha Squash,Owner confirms organic Kabocha squash is intended,OWNER_CONFIRMED_INTENDED_PRODUCT,Organic Stripetti is the conflicting source association.,ANNOTATION_ONLY_SOURCE_AND_CASHIER_RECORDS_PRESERVED
+94823,Investigate,Organic Potato White; Organic Potato Nugget,Organic White Potatoes,Owner confirms organic white potatoes are intended,OWNER_CONFIRMED_INTENDED_PRODUCT,Organic Potato Nugget is the conflicting source association.,ANNOTATION_ONLY_SOURCE_AND_CASHIER_RECORDS_PRESERVED

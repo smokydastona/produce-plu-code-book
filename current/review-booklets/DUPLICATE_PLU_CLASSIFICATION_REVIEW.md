@@ -1,24 +1,34 @@
 # Owner-Provided Duplicate PLU Classifications
 
-These are the owner's classifications and recommended canonical labels for the
-49 repeated PLU codes. They are review annotations only. The authoritative
-`sources/plu/PickList.xml` remains unchanged, and its exact descriptions and
-duplicate records remain unchanged in every cashier-facing binder and booklet.
-The recommendations below do not alter a code's product identity, remove
-records, approve an image, or authorize publication.
+The owner reviewed the five Verify and seven Investigate cases one by one.
+These decisions are annotations for the duplicate-code review only. The
+authoritative `sources/plu/PickList.xml`, its exact product descriptions and
+duplicate records, and all cashier-facing binder/booklet entries remain
+unchanged. No image approval or production release is implied.
 
-The CSV beside this report contains the exact existing descriptions,
-classification, recommendation, and condition for each code. The key decisions
-that require confirmation or must not be automatically merged are:
+## Case-by-case decisions
 
-- **3038, 4055, 4059, 4253, 4425, 4458, 4893, 60271:** verify or investigate
-  species, fruit identity, variety, packaging, or product association.
-- **94040, 94342, 94769, 94823:** investigate potentially different products
-  (including whole versus sliced watermelon).
-- **94093:** supplier confirmation is required before standardizing yellow and
-  Spanish onion descriptions.
-- **4727:** use “Yukon Gold” only as an alias if inventory confirms that variety.
+| PLU | Original descriptions | Owner's decision for review |
+|---|---|---|
+| 3038 | Granadilla; Passion Fruit | Same product: **Orange Granadilla**, a sweet variety of passion fruit; tropical/exotic fruit. Organic variant identified as `93038`. |
+| 4055 | Tangerines; Oranges Murcott | Same product; recommend **Murcott Tangerines**. |
+| 4059 | Apples Red Prince; Kiwi Small | Intended product: **Red Prince apples**. “Kiwi Small” is the conflicting association. |
+| 4253 | Blueberries Quart; Strawberries Flat | Intended product: **strawberries by the flat**. “Blueberries Quart” is the conflicting association. |
+| 4425 | Pear Shingo; Pear Taylor Gold | Intended product: **Shinko (Shingo) Asian Pear**. Taylor's Gold is the conflicting association; it is separately listed as PLU 4553. |
+| 4458 | Clementines Box; Tangerine Seedless | Intended product: **Tangerine Seedless**. The relationship to “Clementines Box” (including any packaging distinction) was not confirmed. |
+| 4893 | Dill Pickling; Herbs Dill Long | Same product; recommend **Dill**. |
+| 60271 | Potato Early Nugget; Warba | Same variety; recommend **Early Nugget (Warba) Potatoes**. The owner described Early Nugget as “garbage potatoes.” |
+| 94040 | Organic Melon Canteloupe Small; Organic Plum Black | Intended product: **Organic Black Plums**. “Organic Melon Canteloupe Small” is the conflicting association. |
+| 94342 | Organic Melon Watermelon Seedless Slices; Organic Melon Watermelon | Same product; recommend **Organic Watermelon**. |
+| 94769 | Organic Squash Stripetti; Organic Squash Kabocha | Intended product: **Organic Kabocha Squash**. “Organic Squash Stripetti” is the conflicting association. |
+| 94823 | Organic Potato White; Organic Potato Nugget | Intended product: **Organic White Potatoes**. “Organic Potato Nugget” is the conflicting association. |
 
-All other suggested merges/standardizations remain recommendations for review.
-They have not been applied to cashier-facing names or records. This report does
-not override the XML or the image-review and publication gates.
+The CSV beside this report records all 49 repeated PLUs, their original
+descriptions, earlier classification and recommendation, plus these owner
+follow-up decisions. Rows not listed above retain their earlier recommendation
+only; they were not re-reviewed in this conversation.
+
+The owner's decisions clarify review intent but do not alter source values,
+remove or merge XML records, change cashier-facing descriptions, resolve image
+mapping/approval, or override production gates. The 4458 packaging/equivalence
+question also remains noted as unconfirmed.
