@@ -6,6 +6,7 @@ from collections import defaultdict
 
 from PIL import Image
 
+from picklist_catalog import read_picklist
 from sync_picklist import safe_asset
 
 MANIFESTS = (
@@ -17,19 +18,44 @@ MANIFESTS = (
 
 def load_references(root, rows):
     references, audit = {}, []
+    source_items, _ = read_picklist(root / "sources/plu/PickList.xml")
     for name in MANIFESTS:
-        selected, records = load_manifest(root, rows, root / name)
+        selected, records = load_manifest(root, rows, root / name, source_items)
         if references.keys() & selected.keys():
             raise ValueError("multiple AI references for the same source identity")
         references.update(selected)
         audit.extend(records)
-    supplier, records = load_supplier(root, rows)
+    supplier, records = load_supplier(root, rows, source_items)
     references.update(supplier)
     audit.extend(records)
     return references, audit
 
 
-def load_supplier(root, rows):
+def _working_matches(rows, source_items, plu, product, source_id=""):
+    originals = [item for item in source_items
+                 if (item["plu"], item["name"]) == (plu, product)]
+    exact_rows = [row for row in rows if (row["plu"], row["name"]) == (plu, product)]
+    if not source_id and len(exact_rows) > 1:
+        return [], "AMBIGUOUS_DUPLICATE_IDENTITY", [
+            item["source_id"] for item in originals]
+    if source_id:
+        originals = [item for item in originals if item["source_id"] == source_id]
+        if not originals:
+            return [], "NO_ACTIVE_EXACT_IDENTITY", []
+    if len(originals) > 1:
+        return [], "AMBIGUOUS_DUPLICATE_IDENTITY", [
+            item["source_id"] for item in originals]
+    if originals:
+        identity = originals[0]["source_id"]
+        matches = [row for row in rows
+                   if row["plu"] == plu and
+                   identity in row.get("source_ids", [row["source_id"]])]
+        return matches, "", [identity]
+    return [row for row in rows
+            if (row["plu"], row["name"]) == (plu, product)], "", []
+
+
+def load_supplier(root, rows, source_items):
     path = root / "data/review-references/buck-brand.json"
     if not path.exists():
         return {}, []
@@ -47,7 +73,8 @@ def load_supplier(root, rows):
         if not all(isinstance(value, str) and value for value in identity) or identity in seen:
             raise ValueError("supplier references require unique exact string identities")
         seen.add(identity)
-        matches = [row for row in rows if (row["plu"], row["name"]) == identity]
+        matches, identity_status, source_ids = _working_matches(
+            rows, source_items, *identity)
         asset = assets[mapping["asset"]]
         content = safe_asset(root, folder + mapping["asset"]).read_bytes()
         if hashlib.sha256(content).hexdigest() != asset["sha256"]:
@@ -60,9 +87,12 @@ def load_supplier(root, rows):
             image.convert("RGB").save(rendered, format="PNG")
         record = dict(
             source_id=matches[0]["source_id"] if len(matches) == 1 else "",
+            source_identity_ids=";".join(source_ids),
             plu=identity[0], product=identity[1], decision="SUPPLIER_REFERENCE",
-            status="SUPPLIER_REFERENCE" if len(matches) == 1 else
-                   "NO_ACTIVE_EXACT_IDENTITY" if not matches else "AMBIGUOUS_DUPLICATE_IDENTITY",
+            status="SUPPLIER_REFERENCE" if len(matches) == 1 and
+                   not matches[0].get("identity_changed") and matches[0]["name"] == identity[1] else
+                   identity_status or
+                   ("NO_ACTIVE_EXACT_IDENTITY" if not matches else "AMBIGUOUS_DUPLICATE_IDENTITY"),
             source_document=manifest["source_url"], source_sha256=manifest["pdf_sha256"],
             crop_box="", crop_sha256=asset["sha256"], width=asset["width"], height=asset["height"],
             source_member=mapping["asset"], image_source="Four Seasons Produce / Buck Brand",
@@ -73,13 +103,17 @@ def load_supplier(root, rows):
                               manifest["note"], "PDF label: " + mapping["label"],
                               mapping.get("note", "")]),
         )
-        if len(matches) == 1:
+        if len(matches) == 1 and (
+                matches[0].get("identity_changed") or matches[0]["name"] != identity[1]):
+            record["status"] = "WORKING_IDENTITY_REVIEW_REQUIRED"
+            record["details"] += " Product identity changed in WorkingList; fresh image review is required."
+        elif len(matches) == 1:
             references[record["source_id"]] = dict(record, content=rendered.getvalue())
         audit.append(record)
     return references, audit
 
 
-def load_manifest(root, rows, path):
+def load_manifest(root, rows, path, source_items):
     if not path.exists():
         return {}, []
     manifest = json.loads(path.read_text(encoding="utf-8"))
@@ -109,11 +143,15 @@ def load_manifest(root, rows, path):
                 raise ValueError(f"{identity}: invalid reviewed crop box")
             if panel["decision"] not in {"REVIEW_REFERENCE", "REJECTED"}:
                 raise ValueError(f"{identity}: invalid review-reference decision")
-            matches = by_identity[identity]
-            if panel.get("source_id"):
-                matches = [row for row in matches if row["source_id"] == panel["source_id"]]
+            matches, identity_status, source_ids = _working_matches(
+                rows, source_items, *identity, panel.get("source_id", ""))
+            if not source_ids and not panel.get("source_id"):
+                matches = by_identity[identity]
+            changed_identity = len(matches) == 1 and (
+                matches[0].get("identity_changed") or matches[0]["name"] != panel["product"])
             record = dict(
                 source_id=matches[0]["source_id"] if len(matches) == 1 else "",
+                source_identity_ids=";".join(source_ids),
                 plu=panel["plu"], product=panel["product"], decision=panel["decision"],
                 status=panel["decision"], source_document=manifest["source"],
                 source_sha256=manifest["source_sha256"], crop_box=json.dumps(box),
@@ -122,8 +160,11 @@ def load_manifest(root, rows, path):
                     manifest["origin"], manifest["review_note"], panel.get("note", ""),
                 ])),
             )
-            if not matches:
-                record["status"] = "NO_ACTIVE_EXACT_IDENTITY"
+            if changed_identity:
+                record["status"] = "WORKING_IDENTITY_REVIEW_REQUIRED"
+                record["details"] += " Product identity changed in WorkingList; fresh image review is required."
+            elif not matches:
+                record["status"] = identity_status or "NO_ACTIVE_EXACT_IDENTITY"
             elif len(matches) != 1:
                 record["status"] = "AMBIGUOUS_DUPLICATE_IDENTITY"
                 record["details"] += " Not copied to multiple XML records; individual review required."

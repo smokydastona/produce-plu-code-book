@@ -7,21 +7,22 @@ import shutil
 from pathlib import Path
 
 from check_image_uniqueness import image_fingerprint
-from picklist_catalog import read_assignments, read_picklist
+from picklist_catalog import read_assignments
 from sync_picklist import organic, original_image
 from verify_images import validate
+from working_list import read_working_list
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def approve(root, source_id, candidate, book, section, source_sha, evidence,
             reuse_from="", replace=False):
-    items, digest = read_picklist(root / "sources/plu/PickList.xml")
+    items, digest = read_working_list(root)
     if digest != source_sha:
-        raise ValueError("PickList changed since review; rerun reconciliation and review the current source")
+        raise ValueError("PickList changed since review; rerun WorkingList reconciliation and review the current source")
     included = {item["source_id"]: item for item in items if item["included"]}
     if source_id not in included:
-        raise ValueError("source_id is not an included record in the current PickList")
+        raise ValueError("source_id is not an included WorkingList entry")
     item = included[source_id]
     registry = root / "data/picklist_assignments.json"
     assignments = read_assignments(registry)
@@ -65,6 +66,7 @@ def approve(root, source_id, candidate, book, section, source_sha, evidence,
     assignments[source_id] = dict(
         source_id=source_id, book=book, section=section, image=str(destination.relative_to(root)),
         image_mode="PHOTO", reviewed_plu=item["plu"], reviewed_product=item["name"],
+        working_source_ids=item["source_ids"], working_decision_id=item["decision_id"],
         image_sha256=checksum, photographic_origin="VERIFIED_PHOTO",
         visual_approval_status="APPROVED", rights_verification_status="VERIFIED",
         provenance=provenance, reuse_from_source_id=reuse_from,
@@ -78,7 +80,7 @@ def approve(root, source_id, candidate, book, section, source_sha, evidence,
         json.dump(saved, file, ensure_ascii=False, indent=2)
         file.write("\n")
     temporary.replace(registry)
-    print(f"Recorded reviewed image for {item['plu']} / {item['name']}; "
+    print(f"Recorded reviewed WorkingList image for {item['plu']} / {item['name']}; "
           "full catalogue validation still required before publication")
 
 

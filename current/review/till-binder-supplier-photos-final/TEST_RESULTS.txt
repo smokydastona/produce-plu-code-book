@@ -1,3 +1,9 @@
+HISTORICAL TEST OUTPUT: This log belongs to the pre-WorkingList binder build.
+It does not validate the current WorkingList pipeline or current cashier
+presentations. The current implementation separately passed all 104 Python
+tests; binder regeneration remains blocked because the exact original workbook
+is unavailable.
+
 FAIL 027: shortest side is 499 px
 FAIL 009: Command 'curl' returned non-zero exit status 22.
 ERROR: manifest has no candidates

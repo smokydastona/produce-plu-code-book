@@ -1,10 +1,14 @@
 """Render cashier-only review booklets without bypassing production publication gates."""
+import argparse
+import csv
 import io
 import hashlib
 import json
 import re
+import shutil
 import subprocess
 import tempfile
+from collections import Counter
 from pathlib import Path
 
 from docx import Document
@@ -16,7 +20,10 @@ from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter
 from PIL import Image
 
+from picklist_catalog import read_assignments
+from review_image_references import load_references
 from sync_picklist import BOOKS, booklet_order, csv_output
+from working_list import read_working_list, rebuild_working_list
 
 
 def build_document(path, book, rows, images, digest):
@@ -195,3 +202,157 @@ def build_review_booklets(output, rows, images, assignments, digest, pdf=False):
         ],
     ), indent=2) + "\n", encoding="utf-8")
     return results
+
+
+def build_working_list_review(root, output, pdf=False):
+    root, output = Path(root), Path(output)
+    if output.exists() and any(output.iterdir()):
+        raise ValueError("output must be empty; existing production and review files are never overwritten")
+    output.mkdir(parents=True, exist_ok=True)
+    reconciliation = output / "reconciliation"
+    rebuild_working_list(root, reconciliation)
+    items, digest = read_working_list(root)
+    assignments = read_assignments(root / "data/picklist_assignments.json")
+    from build_till_binders import map_images, produce_catalog, visual_records
+
+    rows, _ = produce_catalog(items, assignments)
+    images, photo_report = map_images(root, rows, assignments, visual_records(root))
+    _, reference_audit = load_references(root, rows)
+    active_counts = Counter(item["plu"] for item in items if item["included"])
+    non_produce = [
+        dict(item, book="Non-produce",
+             section=assignments[item["classification_source_id"]]["section"],
+             organic=False, duplicate_count=active_counts[item["plu"]])
+        for item in items if item["included"] and
+        assignments.get(item["classification_source_id"], {}).get("book") == "Non-produce"
+    ]
+    booklet_stage = output / "_booklets"
+    results = build_review_booklets(
+        booklet_stage, rows + non_produce, images, assignments, digest, pdf=pdf)
+    csv_output(output / "PHOTO_MAPPING.csv", photo_report, [
+        "source_id", "source_identity_ids", "plu", "product", "image_status", "embedded",
+        "image_source", "source_document", "source_member", "original_sha256",
+        "embedded_sha256", "width", "height", "visual_verdict", "visual_review_note",
+        "rights_status", "photograph_status", "organic_badge", "reused_by_entries", "details",
+    ])
+    csv_output(output / "MISSING_IMAGES.csv", [
+        row for row in photo_report if not row["embedded"]
+    ], ["source_id", "source_identity_ids", "plu", "product", "image_status",
+        "visual_review_note", "details"])
+    csv_output(output / "AI_REFERENCE_REVIEW.csv", reference_audit, [
+        "source_id", "source_identity_ids", "plu", "product", "decision", "status", "source_document",
+        "source_sha256", "source_member", "crop_box", "crop_sha256", "width", "height",
+        "image_source", "rights_status", "details",
+    ])
+    csv_output(output / "PLACEMENT_REVIEW.csv", [
+        row for row in rows if row["placement_status"] == "PLACEMENT_REVIEW_REQUIRED" or
+        row["classification_status"] != "EXISTING_CLASSIFICATION"
+    ], ["source_id", "plu", "name", "display_section", "classification_status",
+        "placement_status", "counterpart_source_ids", "placement_note"])
+    for name in ("DUPLICATE_PLU_CLASSIFICATIONS.csv",
+                 "DUPLICATE_PLU_CLASSIFICATION_REVIEW.md"):
+        shutil.copy2(root / "current/review-booklets" / name, output / name)
+    for path in booklet_stage.iterdir():
+        if path.is_file() and path.name not in {
+                "AI_REFERENCE_REVIEW.csv", "MISSING_IMAGES.csv",
+                "PHOTO_MAPPING.csv", "PLACEMENT_REVIEW.csv"}:
+            shutil.copy2(path, output / path.name)
+    shutil.rmtree(booklet_stage)
+    report = json.loads((reconciliation / "WORKING_LIST_RECONCILIATION.json").read_text(
+        encoding="utf-8"))
+    report.update(
+        status="REVIEW_ONLY_NOT_RELEASED",
+        production_publication="BLOCKED",
+        active_working_records=sum(item["included"] for item in items),
+        produce_records=len(rows),
+        non_produce_records=len(non_produce),
+        image_references_embedded=len(images),
+        image_review_required=sum(row["identity_changed"] for row in rows),
+        missing_or_unapproved_images=sum(not row["embedded"] for row in photo_report),
+        image_status_counts=dict(sorted(Counter(row["image_status"] for row in photo_report).items())),
+        image_reference_audit_status_counts=dict(sorted(
+            Counter(row["status"] for row in reference_audit).items())),
+        supplier_reference_mappings=sum(
+            row.get("decision") == "SUPPLIER_REFERENCE" for row in reference_audit),
+        supplier_mappings_requiring_fresh_review=sum(
+            row.get("status") == "WORKING_IDENTITY_REVIEW_REQUIRED" and
+            row.get("decision") == "SUPPLIER_REFERENCE" for row in reference_audit),
+        review_booklets=results,
+        limitation="Complete till-binder copies require the unavailable original binder; production booklets remain untouched.",
+        complete_binder_regeneration=dict(
+            status="BLOCKED_MISSING_ORIGINAL",
+            expected_path="/workspaces/produce-plu-code-book/.copilot/uploads/2026-11-09-1809d215/Complete_Till_Binder_-_Nov_2025.xlsx",
+            expected_sha256="6b0aeaa153233c5f4917811a3f7a5b2212f7a946a0abede372a31db556ab0f63",
+        ),
+    )
+    pdf_layouts = ", ".join(
+        f"{book}: {result['records']} entries, {result['pdf']['pages']} pages"
+        for book, result in results.items() if isinstance(result["pdf"], dict))
+    pdf_summary = ("Verified PDF layouts: " + pdf_layouts + ".\n"
+                   if pdf_layouts else "PDF layout verification was not run.\n")
+    (output / "BUILD_NOTES.txt").write_text(
+        "WORKINGLIST CASHIER REVIEW EDITIONS - NOT A PRODUCTION RELEASE\n\n"
+        f"PickList SHA-256: {digest}\n"
+        f"Source records: {report['source_records']}; WorkingList records: "
+        f"{report['working_records']}; cashier entries: {report['produce_records']} Produce "
+        f"and {report['non_produce_records']} non-produce.\n"
+        f"Embedded unchanged-identity image references: {report['image_references_embedded']}.\n"
+        f"Changed identities held blank for fresh image review: {report['image_review_required']}.\n"
+        f"Supplier references: {report['supplier_reference_mappings']} exact mappings; "
+        f"{report['supplier_mappings_requiring_fresh_review']} require fresh identity review.\n"
+        "PLU 94093 remains unstandardized pending supplier confirmation. PLU 4727 displays "
+        "Yellow Potatoes; the Yukon Gold alias remains unconfirmed and is not included.\n"
+        "All original PickList records, including excluded associations, are retained in the "
+        "reconciliation audit. Cashier entries show only PLU, product name and optional image.\n"
+        + pdf_summary
+        + "PDF checks verify exact PLUs and names, image counts and landscape US Letter geometry; "
+        "image references, rights and product suitability still require review.\n\n"
+        "Complete till binders were not regenerated. The exact original workbook is missing:\n"
+        f"  {report['complete_binder_regeneration']['expected_path']}\n"
+        f"Expected SHA-256: {report['complete_binder_regeneration']['expected_sha256']}\n"
+        "Do not reconstruct it from prior outputs. Existing binder copies were not overwritten. "
+        "Previously published production booklets and approval registries remain unchanged.\n",
+        encoding="utf-8")
+    report["file_sha256"] = {
+        str(path.relative_to(output)): hashlib.sha256(path.read_bytes()).hexdigest()
+        for path in sorted(output.rglob("*")) if path.is_file()
+    }
+    (output / "WORKING_LIST_REVIEW.json").write_text(
+        json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    checksum_paths = [
+        path for path in sorted(output.rglob("*"))
+        if path.is_file() and path.name != "SHA256SUMS.txt"
+    ]
+    checksum_paths.extend([
+        root / "sources/plu/PickList.xml",
+        root / "sources/plu/WorkingList.xml",
+        root / "data/working_list_decisions.json",
+    ])
+    (output / "SHA256SUMS.txt").write_text("".join(
+        f"{hashlib.sha256(path.read_bytes()).hexdigest()}  "
+        f"{path.relative_to(output) if path.is_relative_to(output) else
+           path.relative_to(root) if path.is_relative_to(root) else path.name}\n"
+        for path in checksum_paths), encoding="utf-8")
+    if hashlib.sha256((root / "sources/plu/PickList.xml").read_bytes()).hexdigest() != digest:
+        raise ValueError("PickList changed during review generation; discard output and retry")
+    return report
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
+    parser.add_argument("--output", type=Path, required=True, help="Empty review output directory")
+    parser.add_argument("--pdf", action="store_true", help="Export and verify landscape US Letter PDFs")
+    args = parser.parse_args()
+    try:
+        report = build_working_list_review(args.root, args.output, args.pdf)
+    except (OSError, ValueError, KeyError, subprocess.SubprocessError) as exc:
+        parser.exit(1, f"ERROR: {exc}\n")
+    print(json.dumps({key: report[key] for key in (
+        "source_sha256", "source_records", "working_records", "produce_records",
+        "image_references_embedded", "missing_or_unapproved_images",
+        "production_publication")}, indent=2))
+
+
+if __name__ == "__main__":
+    main()

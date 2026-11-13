@@ -14,6 +14,7 @@ from PIL import Image, ImageOps
 from check_image_uniqueness import image_fingerprint
 from organic_watermarks import badge_artwork, render_watermark
 from picklist_catalog import read_assignments, read_picklist
+from working_list import read_working_list, rebuild_working_list
 
 ROOT = Path(__file__).resolve().parents[1]
 BOOKS = {"Fruit": "FRUIT_VISUAL_PLU_BOOKLET_PRODUCTION",
@@ -83,7 +84,11 @@ def csv_output(path, rows, fields):
 
 
 def reconcile(root, output):
-    items, digest = read_picklist(root / "sources/plu/PickList.xml")
+    _, source_digest = read_picklist(root / "sources/plu/PickList.xml")
+    rebuild_working_list(root, output)
+    items, digest = read_working_list(root)
+    if digest != source_digest:
+        raise ValueError("WorkingList reconciliation used a different PickList version")
     assignments = read_assignments(root / "data/picklist_assignments.json")
     rows, requests, all_image_requests, images, groups = [], [], [], {}, defaultdict(list)
     active_ids = set()
@@ -92,13 +97,22 @@ def reconcile(root, output):
             continue
         active_ids.add(item["source_id"])
         assignment = assignments.get(item["source_id"])
+        classification_assignment = assignments.get(item["classification_source_id"]) or assignment
         errors = []
-        row = dict(item, book=assignment["book"] if assignment else "",
-                   section=assignment.get("section", "") if assignment else "",
+        row = dict(item, book=classification_assignment["book"] if classification_assignment else "",
+                   section=classification_assignment.get("section", "") if classification_assignment else "",
                    image=assignment.get("image", "") if assignment else "",
                    organic=organic(item), width=0, height=0)
+        if item["working_list_status"] not in {
+                "UNCHANGED_SOURCE_IDENTITY", "APPLIED_TO_EXACT_SOURCE_IDENTITIES"}:
+            errors.append("WORKING_LIST_REVIEW_REQUIRED")
+        if item["identity_changed"] and (
+                not assignment or
+                (assignment.get("reviewed_plu"), assignment.get("reviewed_product")) !=
+                (item["plu"], item["name"])):
+            errors.append("PRODUCT_IMAGE_REVIEW_REQUIRED")
         if not assignment:
-            errors.extend(["CLASSIFICATION_REQUIRED", "APPROVED_IMAGE_REQUIRED"])
+            errors.append("APPROVED_IMAGE_REQUIRED")
         elif assignment["book"] == "Non-produce" and assignment.get("image_mode") == "CODE_ONLY":
             if assignment.get("code_only_approved") is not True:
                 errors.append("CODE_ONLY_APPROVAL_REQUIRED")
@@ -116,12 +130,15 @@ def reconcile(root, output):
                 groups[image_fingerprint(io.BytesIO(content))].append(row)
             except (OSError, ValueError, KeyError) as exc:
                 errors.append("INVALID_IMAGE: " + str(exc))
+        if not classification_assignment and "CLASSIFICATION_REQUIRED" not in errors:
+            errors.append("CLASSIFICATION_REQUIRED")
         if not row["section"]:
             errors.append("SECTION_REQUIRED")
         row["blockers"] = errors
         rows.append(row)
         request = dict(
             idx=str(item["source_position"]), source_id=item["source_id"],
+            source_ids=";".join(item["source_ids"]),
             plu=item["plu"], name=item["name"], query=search_query(item["name"]),
         )
         approved_code_only = (assignment and assignment["book"] == "Non-produce" and
@@ -151,30 +168,45 @@ def reconcile(root, output):
                      reviewed_plu=value.get("reviewed_plu", ""),
                      reviewed_product=value.get("reviewed_product", ""))
                 for key, value in assignments.items() if key not in active_ids]
-    fields = ["source_id", "source_position", "occurrence", "plu", "name", "department",
-              "visible", "deleted", "included", "picture_references"]
-    csv_output(output / "PICKLIST_CATALOG.csv", items, fields)
+    fields = ["source_id", "source_ids", "source_positions", "source_position", "occurrence",
+              "plu", "name", "department", "visible", "deleted", "included",
+              "picture_references", "decision_id", "classification_source_id",
+              "identity_changed", "working_list_status", "working_list_details"]
+    csv_output(output / "PICKLIST_CATALOG.csv", [
+        dict(item, source_ids=";".join(item["source_ids"]),
+             source_positions=";".join(map(str, item["source_positions"])))
+        for item in items
+    ], fields)
     csv_output(output / "PICKLIST_SYNC.csv",
-               [dict(row, blockers="; ".join(row["blockers"])) for row in rows],
+               [dict(row, source_ids=";".join(row["source_ids"]),
+                     source_positions=";".join(map(str, row["source_positions"])),
+                     blockers="; ".join(row["blockers"])) for row in rows],
                fields + ["book", "section", "image", "organic", "width", "height", "blockers"])
     csv_output(output / "IMAGE_REQUESTS.csv", requests,
-               ["idx", "source_id", "plu", "name", "query"])
+               ["idx", "source_id", "source_ids", "plu", "name", "query"])
     csv_output(output / "ALL_IMAGE_REQUESTS.csv", all_image_requests,
-               ["idx", "source_id", "plu", "name", "query"])
+               ["idx", "source_id", "source_ids", "plu", "name", "query"])
     csv_output(output / "INACTIVE_ASSIGNMENTS.csv", inactive,
                ["source_id", "book", "reviewed_plu", "reviewed_product"])
     csv_output(output / "BOOKLET_ORDER.csv", presentation,
                ["book", "booklet_position", "source_id", "source_position", "plu", "name",
                 "display_section", "placement_status", "counterpart_source_ids", "placement_note"])
     summary = dict(
-        source="sources/plu/PickList.xml", source_sha256=digest, source_unchanged=True,
-        total_xml_records=len(items), included_records=len(rows),
+        source="sources/plu/PickList.xml", cashier_source="sources/plu/WorkingList.xml",
+        source_sha256=digest, source_unchanged=True,
+        total_xml_records=len(read_picklist(root / "sources/plu/PickList.xml")[0]),
+        total_working_records=len(items), included_records=len(rows),
         excluded_records=len(items) - len(rows),
         status="BLOCKED" if any(row["blockers"] for row in rows) else "READY_TO_BUILD",
         records_needing_review=sum(bool(row["blockers"]) for row in rows),
         missing_image_requests=len(requests), inactive_assignments=len(inactive),
         organic_placements_needing_review=sum(
             row["placement_status"] == "PLACEMENT_REVIEW_REQUIRED" for row in presentation),
+        working_list_review_records=sum(
+            row["working_list_status"] not in {
+                "UNCHANGED_SOURCE_IDENTITY", "APPLIED_TO_EXACT_SOURCE_IDENTITIES"
+            } for row in items),
+        identity_changed_entries=sum(row["identity_changed"] for row in items),
         blocker_counts=dict(sorted(Counter(
             error for row in rows for error in row["blockers"]).items())),
     )
@@ -317,8 +349,6 @@ def build_documents(root, output, rows, images, assignments, digest):
         style.paragraph_format.space_after = Pt(2)
         document.core_properties.identifier = "picklist-sha256:" + digest
         document.add_heading(book + " PLU Reference", 0)
-        document.add_paragraph("Generated from owner-maintained PickList.xml. Exact source values retained.")
-        document.add_paragraph("Source SHA-256: " + digest)
         if not selected:
             document.add_paragraph("No visible products in this booklet.")
         for start in range(0, len(selected), 6):
@@ -331,7 +361,6 @@ def build_documents(root, output, rows, images, assignments, digest):
                 cell = table.cell(offset // 2, offset % 2)
                 cell.paragraphs[0].add_run("PLU: " + row["plu"]).bold = True
                 cell.add_paragraph(row["name"])
-                cell.add_paragraph("Section: " + row["display_section"])
                 if row["source_id"] in images:
                     content = booklet_image(row, images)
                     with Image.open(io.BytesIO(content)) as image:
@@ -340,22 +369,6 @@ def build_documents(root, output, rows, images, assignments, digest):
                     cell.add_paragraph().add_run().add_picture(
                         io.BytesIO(content), width=Inches(width * scale),
                         height=Inches(height * scale))
-                    cell.add_paragraph("Reviewed photographic reference" +
-                                       ("; organic label is not certification." if row["organic"] else ""))
-                else:
-                    cell.add_paragraph("CODE-ONLY REFERENCE; no photograph.")
-        photo_rows = [row for row in selected if row["source_id"] in images]
-        if photo_rows:
-            document.add_page_break()
-            document.add_heading("Photograph credits and modifications", 1)
-            for row in photo_rows:
-                provenance = assignments[row["source_id"]]["provenance"]
-                document.add_paragraph(row["name"] + " (code " + row["plu"] + ")", style="Heading 2")
-                document.add_paragraph(provenance["attribution"])
-                document.add_paragraph("Source: " + provenance["source_page_url"])
-                document.add_paragraph(provenance["license"] + ": " + provenance["license_url"])
-                changes = provenance["changes"] + ("; pink organic badge added" if row["organic"] else "")
-                document.add_paragraph("Modifications: " + changes)
         document.save(output / (filename + ".docx"))
     credits = []
     for row in rows:
@@ -393,66 +406,35 @@ def build_workbooks(output, rows, images, assignments, digest):
         sheet = workbook.active
         sheet.title = "Booklet"
         excel_row(sheet, 1, [book + " PLU Reference"])
-        sheet.merge_cells("A1:F1")
-        excel_row(sheet, 2, ["Source SHA-256", digest])
-        sheet.merge_cells("B2:F2")
-        excel_row(sheet, 4, ["PLU", "Product", "Section", "Organic", "Photograph", "Notes"])
-        for number, row in enumerate(selected, 5):
+        sheet.merge_cells("A1:C1")
+        excel_row(sheet, 3, ["PLU", "Product", "Photo"])
+        for number, row in enumerate(selected, 4):
             has_image = row["source_id"] in images
-            note = "CODE-ONLY REFERENCE; no photograph."
-            if has_image:
-                note = "Reviewed photographic reference"
-                if row["organic"]:
-                    note += "; organic label is not certification."
-            if row["placement_note"]:
-                note = "; ".join(filter(None, [note, row["placement_note"]]))
-            excel_row(sheet, number, [row["plu"], row["name"], row["display_section"],
-                                      "YES" if row["organic"] else "NO", "", note])
+            excel_row(sheet, number, [row["plu"], row["name"], ""])
             sheet.row_dimensions[number].height = 90 if has_image else 36
             if has_image:
                 picture = ExcelImage(io.BytesIO(booklet_image(row, images)))
                 scale = min(224 / picture.width, 112 / picture.height)
                 picture.width *= scale
                 picture.height *= scale
-                sheet.add_image(picture, f"E{number}")
-        sheet.freeze_panes = "B5"
-        sheet.auto_filter.ref = f"A4:F{max(4, sheet.max_row)}"
-        sheet.print_title_rows = "1:4"
-        sheet.print_area = f"A1:F{sheet.max_row}"
+                sheet.add_image(picture, f"C{number}")
+        sheet.freeze_panes = "B4"
+        sheet.auto_filter.ref = f"A3:C{max(3, sheet.max_row)}"
+        sheet.print_title_rows = "1:3"
+        sheet.print_area = f"A1:C{sheet.max_row}"
         sheet.page_setup.orientation = "landscape"
         sheet.page_setup.paperSize = sheet.PAPERSIZE_LETTER
         sheet.page_setup.fitToWidth = 1
         sheet.page_setup.fitToHeight = 0
         sheet.sheet_properties.pageSetUpPr.fitToPage = True
-        credits = workbook.create_sheet("Photo credits")
-        excel_row(credits, 1, [
-            "PLU", "Product", "Creator", "Licence", "Licence URL", "Source page URL",
-            "Original image URL", "Attribution", "Changes", "Rights evidence", "Source ID",
-        ])
-        for row in selected:
-            if row["source_id"] not in images:
-                continue
-            provenance = assignments[row["source_id"]]["provenance"]
-            changes = provenance["changes"] + ("; pink organic badge added" if row["organic"] else "")
-            excel_row(credits, credits.max_row + 1, [
-                row["plu"], row["name"], provenance["creator"], provenance["license"],
-                provenance["license_url"], provenance["source_page_url"],
-                provenance["original_image_url"], provenance["attribution"], changes,
-                provenance["rights_evidence"], row["source_id"],
-            ])
-        credits.freeze_panes = "C2"
-        credits.auto_filter.ref = credits.dimensions
-        for worksheet, header, widths in (
-                (sheet, 4, [18, 38, 24, 12, 34, 48]),
-                (credits, 1, [18, 38, 28, 18, 42, 48, 48, 48, 40, 48, 68])):
-            for cells in worksheet.iter_rows(min_row=header):
-                for cell in cells:
-                    cell.alignment = Alignment(vertical="top", wrap_text=True)
-            for cell in worksheet[header]:
-                cell.font = Font(bold=True, color="FFFFFF")
-                cell.fill = PatternFill("solid", fgColor="305040")
-            for column, width in enumerate(widths, 1):
-                worksheet.column_dimensions[worksheet.cell(header, column).column_letter].width = width
+        for cells in sheet.iter_rows(min_row=3):
+            for cell in cells:
+                cell.alignment = Alignment(vertical="top", wrap_text=True)
+        for cell in sheet[3]:
+            cell.font = Font(bold=True, color="FFFFFF")
+            cell.fill = PatternFill("solid", fgColor="305040")
+        for column, width in enumerate([18, 42, 38], 1):
+            sheet.column_dimensions[sheet.cell(3, column).column_letter].width = width
         workbook.save(output / (filename + ".xlsx"))
 
 
@@ -467,12 +449,13 @@ def verify_workbooks(output, rows, assignments, digest):
                 raise ValueError(f"{book}: Excel source checksum differs from current PickList")
             sheet = workbook["Booklet"]
             selected = [row for row in presentation if row["book"] == book]
-            actual = [(a.value, b.value, c.value, d.value)
-                      for a, b, c, d in sheet.iter_rows(min_row=5, max_col=4)]
-            expected = [(row["plu"], row["name"] or None, row["display_section"] or None,
-                         "YES" if row["organic"] else "NO") for row in selected]
+            actual = [(a.value, b.value) for a, b in
+                      sheet.iter_rows(min_row=4, max_col=2)]
+            expected = [(row["plu"], row["name"] or None) for row in selected]
             if actual != expected:
                 raise ValueError(f"{book}: Excel entries differ from XML-derived booklet order")
+            if workbook.sheetnames != ["Booklet"]:
+                raise ValueError(f"{book}: cashier workbook contains non-cashier audit sheets")
             if any(cell.data_type == "f" for worksheet in workbook for cells in worksheet
                    for cell in cells):
                 raise ValueError(f"{book}: Excel must contain literal text, not formulas")

@@ -32,6 +32,7 @@ from picklist_catalog import read_assignments, read_picklist
 from review_image_references import load_references
 from sync_picklist import (booklet_order, csv_output, organic, organic_display_section,
                            reconcile)
+from working_list import read_working_list
 
 ROOT = Path(__file__).resolve().parents[1]
 S = "http://schemas.openxmlformats.org/spreadsheetml/2006/main"
@@ -124,12 +125,14 @@ def produce_catalog(items, assignments):
             exclusions.append(dict(item, reason="HIDDEN_OR_DELETED"))
             continue
         assignment = assignments.get(item["source_id"], {})
-        if assignment.get("book") == "Non-produce":
+        classification_assignment = assignments.get(
+            item.get("classification_source_id", item["source_id"])) or assignment
+        if classification_assignment.get("book") == "Non-produce":
             exclusions.append(dict(item, reason="NON_PRODUCE_IN_OTHER_BINDER_SECTIONS"))
             continue
-        book = assignment.get("book")
-        status = "EXISTING_CLASSIFICATION"
-        section = assignment.get("section", "")
+        book = classification_assignment.get("book")
+        section = classification_assignment.get("section", "")
+        status = "EXISTING_CLASSIFICATION" if book else "CLASSIFICATION_REVIEW_REQUIRED"
         if not book:
             status = "CLASSIFICATION_REVIEW_REQUIRED"
             if re.search(r"\bmelon\b", item["name"], re.I):
@@ -161,7 +164,8 @@ def map_images(root, rows, assignments, visuals):
     for row in rows:
         assignment = assignments.get(row["source_id"], {})
         record = dict(
-            source_id=row["source_id"], plu=row["plu"], product=row["name"],
+            source_id=row["source_id"], source_identity_ids=";".join(row.get("source_ids", [])),
+            plu=row["plu"], product=row["name"],
             image_status="MISSING", embedded=False, image_source="", source_document="",
             source_member="", original_sha256="", embedded_sha256="", width=0, height=0,
             visual_verdict="", visual_review_note="", rights_status="NOT_VERIFIED", photograph_status="NOT_VERIFIED",
@@ -197,7 +201,10 @@ def map_images(root, rows, assignments, visuals):
         if not candidates or not assignment or (
                 assignment.get("reviewed_plu"), assignment.get("reviewed_product")) != (
                     row["plu"], row["name"]):
-            record["details"] = "No reviewed identity-linked association to a supplied visual reference"
+            record["details"] = (
+                "WorkingList product identity changed; fresh product-specific image review is required. "
+                "No prior image association was reused." if row.get("identity_changed") else
+                "No reviewed identity-linked association to a supplied visual reference")
         elif len({candidate["original_sha256"] for candidate in candidates}) != 1:
             record["image_status"] = "AMBIGUOUS_REFERENCE"
             record["details"] = "Exact code/description has multiple different source images; left blank"
@@ -791,11 +798,14 @@ def generate(root, binder, output, verify_print=False, booklets=False):
     if any(output.iterdir()):
         raise ValueError("output must be empty; the original and previous outputs are never overwritten")
     original_checksum = sha(binder.read_bytes())
-    items, digest = read_picklist(root / "sources/plu/PickList.xml")
+    source_items, digest = read_picklist(root / "sources/plu/PickList.xml")
     assignments = read_assignments(root / "data/picklist_assignments.json")
     reconciliation = output / "reconciliation"
     reconciliation.mkdir()
     _, _, _, source_summary = reconcile(root, reconciliation)
+    items, working_digest = read_working_list(root)
+    if working_digest != digest:
+        raise ValueError("WorkingList reconciliation used a different PickList version")
     rows, exclusions = produce_catalog(items, assignments)
     if not rows:
         raise ValueError("no visible Produce records to generate")
@@ -805,7 +815,7 @@ def generate(root, binder, output, verify_print=False, booklets=False):
     images, image_report = map_images(root, rows, assignments, visuals)
     _, reference_audit = load_references(root, rows)
     csv_output(output / "AI_REFERENCE_REVIEW.csv", reference_audit, [
-        "source_id", "plu", "product", "decision", "status", "source_document",
+        "source_id", "source_identity_ids", "plu", "product", "decision", "status", "source_document",
         "source_sha256", "source_member", "crop_box", "crop_sha256", "width", "height",
         "image_source", "rights_status", "details",
     ])
@@ -826,7 +836,7 @@ def generate(root, binder, output, verify_print=False, booklets=False):
     csv_output(output / "PRODUCE_LAYOUT.csv", coordinates,
                ["source_id", "plu", "product", "code_cell", "description_cell", "image_cell", "page", "duplicate_count"])
     csv_output(output / "PHOTO_MAPPING.csv", image_report, [
-        "source_id", "plu", "product", "image_status", "embedded", "image_source",
+        "source_id", "source_identity_ids", "plu", "product", "image_status", "embedded", "image_source",
         "source_document", "source_member", "original_sha256", "embedded_sha256",
         "width", "height", "visual_verdict", "visual_review_note", "rights_status", "photograph_status",
         "organic_badge", "reused_by_entries", "details",
@@ -840,11 +850,12 @@ def generate(root, binder, output, verify_print=False, booklets=False):
                ["source_id", "source_position", "plu", "name", "visible", "deleted", "reason"])
     duplicates = [dict(row) for row in rows if row["duplicate_count"] > 1]
     csv_output(output / "DUPLICATE_PLU_RECORDS.csv", duplicates,
-               ["source_id", "plu", "name", "duplicate_count", "source_position"])
-    active_code_counts = Counter(item["plu"] for item in items if item["included"])
+               ["source_id", "source_ids", "plu", "name", "duplicate_count", "source_position"])
+    active_source_code_counts = Counter(item["plu"] for item in source_items if item["included"])
+    active_working_code_counts = Counter(item["plu"] for item in items if item["included"])
     csv_output(output / "ACTIVE_SOURCE_DUPLICATES.csv", [
-        dict(item, active_code_count=active_code_counts[item["plu"]])
-        for item in items if item["included"] and active_code_counts[item["plu"]] > 1
+        dict(item, active_code_count=active_source_code_counts[item["plu"]])
+        for item in source_items if item["included"] and active_source_code_counts[item["plu"]] > 1
     ], ["source_id", "source_position", "plu", "name", "department", "active_code_count"])
     csv_output(output / "PLACEMENT_REVIEW.csv",
                [row for row in rows if row["placement_status"] == "PLACEMENT_REVIEW_REQUIRED" or
@@ -854,9 +865,9 @@ def generate(root, binder, output, verify_print=False, booklets=False):
     summary = dict(
         status="REVIEW_ONLY_NOT_RELEASED", production_publication="BLOCKED",
         original_binder=str(binder), original_binder_sha256=original_checksum,
-        picklist_sha256=digest, total_source_records=len(items),
-        active_source_records=sum(item["included"] for item in items),
-        hidden_or_deleted_records=sum(not item["included"] for item in items),
+        picklist_sha256=digest, total_source_records=len(source_items),
+        active_source_records=sum(item["included"] for item in source_items),
+        hidden_or_deleted_records=sum(not item["included"] for item in source_items),
         known_non_produce_excluded=sum(row["reason"] == "NON_PRODUCE_IN_OTHER_BINDER_SECTIONS" for row in exclusions),
         produce_records_included=len(rows), unique_produce_plus=len({row["plu"] for row in rows}),
         duplicate_produce_codes=len({row["plu"] for row in duplicates}),
@@ -872,7 +883,9 @@ def generate(root, binder, output, verify_print=False, booklets=False):
         new_ai_crops_embedded=sum(row["image_status"] == "SUPPLIED_AI_CROP_REVIEW" for row in image_report),
         classification_review_required=sum(row["classification_status"] != "EXISTING_CLASSIFICATION" for row in rows),
         placement_review_required=sum(row["placement_status"] == "PLACEMENT_REVIEW_REQUIRED" for row in rows),
-        planned_produce_print_pages=pages, source_reconciliation=source_summary,
+        planned_produce_print_pages=pages,         source_reconciliation=source_summary,
+        working_list_reconciliation=json.loads(
+            (reconciliation / "WORKING_LIST_RECONCILIATION.json").read_text(encoding="utf-8")),
         validations=validations, print_validation="NOT_RUN",
         limitations=[
             "Both files are complete binder REVIEW copies, not approved for operational till use.",
@@ -891,10 +904,11 @@ def generate(root, binder, output, verify_print=False, booklets=False):
     if booklets:
         from review_booklets import build_review_booklets
 
-        non_produce = [dict(item, book="Non-produce", section=assignments[item["source_id"]]["section"],
-                            organic=organic(item), duplicate_count=active_code_counts[item["plu"]])
+        non_produce = [dict(item, book="Non-produce",
+                            section=assignments[item["classification_source_id"]]["section"],
+                            organic=organic(item), duplicate_count=active_working_code_counts[item["plu"]])
                        for item in items if item["included"] and
-                       assignments.get(item["source_id"], {}).get("book") == "Non-produce"]
+                       assignments.get(item["classification_source_id"], {}).get("book") == "Non-produce"]
         summary["review_booklets"] = build_review_booklets(
             output / "booklets", rows + non_produce, images, assignments, digest, pdf=verify_print)
         for name in ("AI_REFERENCE_REVIEW.csv", "MISSING_IMAGES.csv", "PHOTO_MAPPING.csv",

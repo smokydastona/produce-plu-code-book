@@ -21,6 +21,7 @@ from sync_picklist import (BOOKS, build_documents, original_image, reconcile,
 from approve_picklist_image import approve
 from check_image_uniqueness import image_fingerprint
 from organic_watermarks import render_watermark
+from working_list import read_working_list, rebuild_working_list
 
 
 class PickListSyncChecks(unittest.TestCase):
@@ -36,7 +37,8 @@ class PickListSyncChecks(unittest.TestCase):
         self.image = self.root / "data/apple.png"
         Image.new("RGB", (600, 500), "red").save(self.image)
         self.write_source([("03283", "Honeycrisp Apple", True)])
-        self.items, _ = read_picklist(self.source)
+        self.items, self.digest = read_picklist(self.source)
+        self.write_registry(self.items)
         self.assignment = self.approved_assignment(self.items[0])
         self.write_assignments([self.assignment])
 
@@ -74,6 +76,18 @@ class PickListSyncChecks(unittest.TestCase):
     def write_assignments(self, rows):
         (self.root / "data/picklist_assignments.json").write_text(
             json.dumps(dict(schema_version=1, assignments=rows)), encoding="utf-8")
+
+    def write_registry(self, items, decisions=None):
+        baseline = [dict(source_id=row["source_id"], plu=row["plu"], name=row["name"],
+                         department=row["department"], occurrence=row["occurrence"],
+                         visible=row["visible"], deleted=row["deleted"]) for row in items]
+        (self.root / "data/working_list_decisions.json").write_text(json.dumps(dict(
+            schema_version=1, baseline_source_sha256=self.digest,
+            baseline=baseline, decisions=decisions or [])), encoding="utf-8")
+
+    def register_current_source(self, items):
+        self.digest = hashlib.sha256(self.source.read_bytes()).hexdigest()
+        self.write_registry(items)
 
     def test_exact_strings_duplicates_and_visibility_are_preserved(self):
         self.write_source([
@@ -198,6 +212,7 @@ class PickListSyncChecks(unittest.TestCase):
     def test_matching_organic_pair_renders_same_upper_left_badge(self):
         self.write_source([("03283", "Honeycrisp Apple", True), ("903283", "Organic Apple", True)])
         items, _ = read_picklist(self.source)
+        self.register_current_source(items)
         first, second = [self.approved_assignment(item) for item in items]
         second["reuse_from_source_id"] = first["source_id"]
         self.write_assignments([first, second])
@@ -305,7 +320,9 @@ class PickListSyncChecks(unittest.TestCase):
                  if cell.text.startswith("PLU: ")]
         self.assertEqual([cell.paragraphs[0].text for cell in cells],
                          ["PLU: " + row["plu"] for row in report])
-        self.assertTrue(all("Section: Apples" in cell.text for cell in cells))
+        self.assertTrue(all("Section:" not in cell.text and "review" not in cell.text.lower()
+                            for cell in cells))
+        self.assertTrue((self.output / "PHOTO_ATTRIBUTIONS.csv").is_file())
         self.assertEqual(self.source.read_bytes(), before)
 
     def test_pdf_verification_requires_interleaved_sequence_not_xml_order(self):
@@ -344,35 +361,31 @@ class PickListSyncChecks(unittest.TestCase):
         verify_workbooks(self.output, rows, assignments, digest)
         workbook = load_workbook(self.output / (BOOKS["Fruit"] + ".xlsx"))
         self.addCleanup(workbook.close)
-        self.assertEqual(workbook.sheetnames, ["Booklet", "Photo credits"])
+        self.assertEqual(workbook.sheetnames, ["Booklet"])
         sheet = workbook["Booklet"]
-        self.assertEqual([sheet.cell(number, 1).value for number in range(5, 9)],
+        self.assertEqual([sheet.cell(number, 1).value for number in range(4, 8)],
                          ["00042", "00042", "900042", "00043"])
-        self.assertEqual(sheet["B8"].value, "=Unusual Product")
-        self.assertEqual(sheet["B8"].data_type, "s")
-        self.assertEqual(sheet["A5"].number_format, "@")
-        self.assertEqual(sheet["A5"].data_type, "s")
-        self.assertEqual(sheet["C7"].value, "Apples")
-        self.assertEqual(sheet["D7"].value, "YES")
-        self.assertEqual(sheet.freeze_panes, "B5")
-        self.assertEqual(sheet.auto_filter.ref, "A4:F8")
+        self.assertEqual(sheet["B7"].value, "=Unusual Product")
+        self.assertEqual(sheet["B7"].data_type, "s")
+        self.assertEqual(sheet["A4"].number_format, "@")
+        self.assertEqual(sheet["A4"].data_type, "s")
+        self.assertEqual(sheet.freeze_panes, "B4")
+        self.assertEqual(sheet.auto_filter.ref, "A3:C7")
         self.assertEqual(sheet.page_setup.orientation, "landscape")
         self.assertEqual(str(sheet.page_setup.paperSize), sheet.PAPERSIZE_LETTER)
-        self.assertEqual(sheet["B2"].value, digest)
+        self.assertIsNone(sheet["B2"].value)
+        self.assertEqual(workbook.properties.identifier, "picklist-sha256:" + digest)
         self.assertEqual(len(sheet._images), 4)
         for index, picture in enumerate(sheet._images):
-            self.assertEqual(picture.anchor._from.row, 4 + index)
-            self.assertEqual(picture.anchor._from.col, 4)
+            self.assertEqual(picture.anchor._from.row, 3 + index)
+            self.assertEqual(picture.anchor._from.col, 2)
             expected = render_watermark(self.image.read_bytes()) if index == 2 else self.image.read_bytes()
             self.assertEqual(image_fingerprint(io.BytesIO(picture._data())),
                              image_fingerprint(io.BytesIO(expected)))
-        credits = workbook["Photo credits"]
-        self.assertEqual(credits.max_row, 5)
-        self.assertEqual(credits["A4"].value, "900042")
-        self.assertEqual(credits["C4"].value, "=Literal Creator")
-        self.assertEqual(credits["C4"].data_type, "s")
-        self.assertIn("pink organic badge added", credits["I4"].value)
-        self.assertEqual(credits["J4"].value, assignments[items[0]["source_id"]]["provenance"]["rights_evidence"])
+        self.assertEqual([cell.value for row in sheet.iter_rows() for cell in row if cell.value],
+                         ["Fruit PLU Reference", "PLU", "Product", "Photo",
+                          "00042", "Apple Gala", "00042", "Apple Gala",
+                          "900042", "Organic Apple Gala", "00043", "=Unusual Product"])
         self.assertEqual(self.source.read_bytes(), before)
 
     def test_excel_verification_rejects_changed_values_formulas_and_source_checksum(self):
@@ -384,9 +397,9 @@ class PickListSyncChecks(unittest.TestCase):
                 path = self.output / (BOOKS["Fruit"] + ".xlsx")
                 workbook = load_workbook(path)
                 if change == "code":
-                    workbook["Booklet"]["A5"] = 3283
+                    workbook["Booklet"]["A4"] = 3283
                 elif change == "formula":
-                    workbook["Photo credits"]["C2"] = "=1+1"
+                    workbook["Booklet"]["C4"] = "=1+1"
                 else:
                     workbook.properties.identifier = "picklist-sha256:stale"
                 workbook.save(path)
@@ -416,10 +429,10 @@ class PickListSyncChecks(unittest.TestCase):
         self.assertTrue(json.loads((staging / "BUILD_VERIFIED.json").read_text())["workbooks_verified"])
         workbook = load_workbook(staging / (BOOKS["Non-produce"] + ".xlsx"))
         self.addCleanup(workbook.close)
-        self.assertEqual(workbook["Booklet"]["A5"].value, "03283")
-        self.assertIn("CODE-ONLY", workbook["Booklet"]["F5"].value)
+        self.assertEqual(workbook["Booklet"]["A4"].value, "03283")
+        self.assertEqual(workbook.sheetnames, ["Booklet"])
+        self.assertEqual(workbook["Booklet"]["C4"].value, None)
         self.assertEqual(len(workbook["Booklet"]._images), 0)
-        self.assertEqual(workbook["Photo credits"].max_row, 1)
         self.assertEqual(self.source.read_bytes(), before)
 
     def test_catalog_only_never_creates_excel_or_docx_files(self):
@@ -435,6 +448,7 @@ class PickListSyncChecks(unittest.TestCase):
     def test_organic_matching_is_explicit_not_guessed_from_codes(self):
         self.write_source([("03283", "Honeycrisp Apple", True), ("903283", "Organic Apple", True)])
         items, _ = read_picklist(self.source)
+        self.register_current_source(items)
         first, second = [self.approved_assignment(item) for item in items]
         self.write_assignments([first, second])
         self.assertIn("PROHIBITED_IMAGE_REUSE", reconcile(self.root, self.output)[0][1]["blockers"])
@@ -493,6 +507,7 @@ class PickListSyncChecks(unittest.TestCase):
 
     def test_explicit_approval_promotes_exact_product_with_persisted_evidence(self):
         self.candidate_metadata()
+        rebuild_working_list(self.root, self.root / "audit")
         digest = hashlib.sha256(self.source.read_bytes()).hexdigest()
         source_before = self.source.read_bytes()
         approve(self.root, self.items[0]["source_id"], self.image, "Fruit", "Apples",
@@ -506,8 +521,34 @@ class PickListSyncChecks(unittest.TestCase):
         self.assertEqual(self.source.read_bytes(), source_before)
         self.assertEqual(reconcile(self.root, self.output)[3]["status"], "READY_TO_BUILD")
 
+    def test_changed_working_identity_can_receive_a_fresh_image_approval(self):
+        source_item = self.items[0]
+        self.write_registry(self.items, decisions=[dict(
+            plu=source_item["plu"], canonical_name="Reviewed Working Apple", mode="MERGE",
+            source_ids=[source_item["source_id"]],
+            selected_source_ids=[source_item["source_id"]],
+            condition="Owner-approved display name")])
+        rebuild_working_list(self.root, self.root / "audit")
+        working, digest = read_working_list(self.root)
+        item = working[0]
+        self.assertTrue(item["identity_changed"])
+        self.candidate_metadata()
+        metadata_path = self.image.with_suffix(".png.json")
+        metadata = json.loads(metadata_path.read_text())
+        metadata["product"] = item["name"]
+        metadata_path.write_text(json.dumps(metadata))
+        source_before = self.source.read_bytes()
+        approve(self.root, item["source_id"], self.image, "Fruit", "Apples",
+                digest, "Reviewed exact product source and rights", replace=True)
+        assignments = read_assignments(self.root / "data/picklist_assignments.json")
+        self.assertEqual(assignments[item["source_id"]]["working_source_ids"],
+                         [source_item["source_id"]])
+        self.assertEqual(reconcile(self.root, self.output)[3]["status"], "READY_TO_BUILD")
+        self.assertEqual(self.source.read_bytes(), source_before)
+
     def test_approval_rejects_stale_xml_wrong_products_and_unrequested_replacements(self):
         self.candidate_metadata()
+        rebuild_working_list(self.root, self.root / "audit")
         digest = hashlib.sha256(self.source.read_bytes()).hexdigest()
         with self.assertRaisesRegex(ValueError, "changed since review"):
             approve(self.root, self.items[0]["source_id"], self.image, "Fruit", "Apples",

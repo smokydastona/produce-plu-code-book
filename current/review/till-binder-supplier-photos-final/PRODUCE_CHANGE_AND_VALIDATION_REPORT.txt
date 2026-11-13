@@ -1,6 +1,11 @@
 PRODUCE TILL BINDER - CHANGE AND VALIDATION REPORT
 REVIEW COPIES ONLY - NOT RELEASED FOR OPERATIONAL TILL USE
 
+HISTORICAL OUTPUTS: These binder copies were generated before WorkingList
+decision application. They do not reflect current approved names or duplicate
+resolution and are not the current cashier presentation. Their package and
+print checks apply only to these earlier files.
+
 Source XML SHA-256: 462db3121094008cd1dd5ea2c5836ca4b24de077edb8982c0f43149edbaf2cbb
 Original workbook SHA-256: 6b0aeaa153233c5f4917811a3f7a5b2212f7a946a0abede372a31db556ab0f63
 XML records: 724; active: 648; hidden/deleted: 76
@@ -12,7 +17,8 @@ AI illustrations included as visual references: 256
 New owner-supplied AI crops: 114
 AI illustrations omitted (if rejected or invalid association): 0
 Assignment classification review: 5; organic placement review: 106
-Owner duplicate-code classifications: 49 documented separately; cashier entries unchanged
+Owner duplicate-code classifications: 49 recorded; 48 are now applied to WorkingList,
+but not to these pre-WorkingList binder files
 
 Both complete workbook copies retain original worksheet names/order.
 Every original package part outside the Produce sheet, its relationships, append-only styles,
@@ -41,7 +47,7 @@ Detailed reports:
   UPDATED_PRODUCE_RECORDS.csv: every included source record versus the original sheet
   DUPLICATE_PLU_RECORDS.csv: all included records with ambiguous/repeated codes
   DUPLICATE_PLU_CLASSIFICATIONS.csv / DUPLICATE_PLU_CLASSIFICATION_REVIEW.md:
-    owner-provided recommendations; annotation only, exact XML records retained
+    current owner decisions; this directory's binder XLSX/PDF files do not reflect them
   ACTIVE_SOURCE_DUPLICATES.csv: every active source record sharing a code, including non-produce
   EXCLUDED_RECORDS.csv: hidden/deleted and known non-produce exclusions
   PHOTO_MAPPING.csv: per-record source, image status, dimensions, hashes and missing-image reasons

@@ -84,6 +84,12 @@ class TillBinderChecks(unittest.TestCase):
             ("00050", "=Unusual Apple", True, False),
         ])
         self.items, self.digest = read_picklist(self.root / "sources/plu/PickList.xml")
+        (self.root / "data/working_list_decisions.json").write_text(json.dumps(dict(
+            schema_version=1, baseline_source_sha256=self.digest,
+            baseline=[dict(source_id=item["source_id"], plu=item["plu"], name=item["name"],
+                           department=item["department"], occurrence=item["occurrence"],
+                           visible=item["visible"], deleted=item["deleted"]) for item in self.items],
+            decisions=[])))
         assignments, reviews = [], []
         fruit = Document()
         for number, item in enumerate(self.items):
@@ -192,6 +198,36 @@ class TillBinderChecks(unittest.TestCase):
         self.assertEqual(sheet.page_setup.orientation, "landscape")
         self.assertEqual(sheet.page_setup.fitToWidth, 1)
         self.assertEqual(sheet.page_setup.fitToHeight, 0)
+
+    def test_binder_uses_working_list_and_requires_fresh_image_for_merged_identity(self):
+        first, second = self.items[1], self.items[2]
+        registry_path = self.root / "data/working_list_decisions.json"
+        registry = json.loads(registry_path.read_text())
+        registry["decisions"] = [dict(
+            plu=first["plu"], canonical_name="Apple Gala", mode="MERGE",
+            source_ids=[first["source_id"], second["source_id"]],
+            selected_source_ids=[first["source_id"], second["source_id"]],
+            condition="Owner-approved duplicate merge")]
+        registry_path.write_text(json.dumps(registry))
+        source_before, binder_before = (
+            (self.root / "sources/plu/PickList.xml").read_bytes(), self.binder.read_bytes())
+        summary = generate(self.root, self.binder, self.output)
+        self.assertEqual(summary["produce_records_included"], 6)
+        self.assertEqual((self.root / "sources/plu/PickList.xml").read_bytes(), source_before)
+        self.assertEqual(self.binder.read_bytes(), binder_before)
+        with (self.output / "PRODUCE_LAYOUT.csv").open(
+                encoding="utf-8-sig", newline="") as file:
+            layout = list(csv.DictReader(file))
+        matching = [row for row in layout if row["plu"] == "00042"]
+        self.assertEqual(len(matching), 1)
+        self.assertEqual(matching[0]["product"], "Apple Gala")
+        with (self.output / "PHOTO_MAPPING.csv").open(
+                encoding="utf-8-sig", newline="") as file:
+            photos = list(csv.DictReader(file))
+        image = next(row for row in photos if row["product"] == "Apple Gala")
+        self.assertEqual(image["image_status"], "MISSING")
+        self.assertFalse(image["embedded"] == "True")
+        self.assertIn("No prior image association was reused", image["details"])
 
     def test_mapping_requires_exact_identity_legacy_review_and_source_checksum(self):
         assignments = read_assignments(self.root / "data/picklist_assignments.json")
@@ -335,7 +371,7 @@ class TillBinderChecks(unittest.TestCase):
         self.assertEqual(set(refs), {self.items[3]["source_id"]})
         refs, audit = load_references(self.root, [dict(self.items[3], name="Changed product")])
         self.assertEqual(refs, {})
-        self.assertEqual(audit[0]["status"], "NO_ACTIVE_EXACT_IDENTITY")
+        self.assertEqual(audit[0]["status"], "WORKING_IDENTITY_REVIEW_REQUIRED")
         manifest["panels"][0]["decision"] = "REJECTED"
         path.write_text(json.dumps(manifest))
         refs, audit = load_references(self.root, self.items)
@@ -346,6 +382,18 @@ class TillBinderChecks(unittest.TestCase):
         _, report = map_images(self.root, rows, assignments, visual_records(self.root))
         record = next(row for row in report if row["plu"] == self.items[3]["plu"])
         self.assertIn("New AI panel excluded:", record["details"])
+
+    def test_working_identity_change_requires_fresh_ai_reference_review(self):
+        self.write_ai_manifest([self.ai_panel(3)])
+        assignments = read_assignments(self.root / "data/picklist_assignments.json")
+        rows, _ = produce_catalog(self.items, assignments)
+        original = next(row for row in rows if row["source_position"] == 4)
+        changed = dict(original, name="WorkingList canonical name",
+                       source_id="working-identity-123",
+                       source_ids=[original["source_id"]], identity_changed=True)
+        references, audit = load_references(self.root, [changed])
+        self.assertEqual(references, {})
+        self.assertEqual(audit[0]["status"], "WORKING_IDENTITY_REVIEW_REQUIRED")
 
     def test_small_ai_crops_keep_proportional_badge_without_changing_legacy_renderer(self):
         panel = self.ai_panel(8)
@@ -428,6 +476,8 @@ class TillBinderChecks(unittest.TestCase):
         self.assertEqual(before, (self.root / "data/picklist_assignments.json").read_bytes())
         refs, _ = load_references(self.root, [dict(self.items[3], name="New identity")])
         self.assertNotIn(self.items[3]["source_id"], refs)
+        _, audit = load_references(self.root, [dict(self.items[3], name="New identity")])
+        self.assertEqual(audit[0]["status"], "WORKING_IDENTITY_REVIEW_REQUIRED")
         manifest["rights_status"] = "UNKNOWN"
         path.write_text(json.dumps(manifest))
         with self.assertRaisesRegex(ValueError, "permission"):

@@ -5,12 +5,19 @@ on:
     branches: [main]
     paths:
       - sources/plu/PickList.xml
+      - sources/plu/WorkingList.xml
       - data/picklist_assignments.json
+      - data/working_list_decisions.json
       - data/images/**
       - data/branding/**
       - tools/picklist_catalog.py
+      - tools/working_list.py
       - tools/sync_picklist.py
+      - tools/review_booklets.py
+      - tools/build_till_binders.py
+      - tools/review_image_references.py
       - tools/test_picklist_sync.py
+      - tools/test_working_list.py
       - tools/approve_picklist_image.py
       - tools/retrieve_commons.py
       - tools/organic_watermarks.py
@@ -18,12 +25,19 @@ on:
   pull_request:
     paths:
       - sources/plu/PickList.xml
+      - sources/plu/WorkingList.xml
       - data/picklist_assignments.json
+      - data/working_list_decisions.json
       - .github/CODEOWNERS
       - .github/workflows/sync-picklist.yml
       - tools/picklist_catalog.py
+      - tools/working_list.py
       - tools/sync_picklist.py
+      - tools/review_booklets.py
+      - tools/build_till_binders.py
+      - tools/review_image_references.py
       - tools/test_picklist_sync.py
+      - tools/test_working_list.py
       - tools/approve_picklist_image.py
   workflow_dispatch:
 
