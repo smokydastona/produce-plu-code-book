@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "plu": "4885",
+  "product": "Basil",
+  "working_list_id": "c14af7546903339dbb6cffef40aa7e283bb28919139912d49a2d5311fb74be76",
+  "source_identity_ids": [
+    "80c0f783da9769f5aa2b6d8536a57f3a340c94473f648dcdf68380551eb64a63",
+    "1b05da4898bf2fc28c61878049f29044ae4dc1ac98b07a5f7e0432e8c9d69d59"
+  ],
+  "creator": "Not identified in source",
+  "source_page_url": "https://gmfgcdn.azureedge.net/gmfgcdn-41100db7-5d96-426e-a77b-dbba44febaba/0000000004885_00.jpg?width=500",
+  "original_image_url": "https://gmfgcdn.azureedge.net/gmfgcdn-41100db7-5d96-426e-a77b-dbba44febaba/0000000004885_00.jpg?width=500",
+  "original_sha256": "18a1e4cc650899e1fa64e384170206fbd5d862c4cadaaeb97b97c7f93093b927",
+  "original_path": "data/review-references/owner-alternates/4885-original.jpg",
+  "sha256": "f42ed4640a1fdee6a371d45494e810d3231e53997c217458aafd4debddee9af6",
+  "width": 500,
+  "height": 500,
+  "license": "OWNER_CONFIRMED_PERMISSION",
+  "license_url": "",
+  "attribution": "Owner-provided basil source image; creator not identified in source. Owner-confirmed permission for this specific use; no public reuse licence is asserted.",
+  "changes": "Horizontally mirrored and saved as PNG at owner's request",
+  "approval_status": "CANDIDATE",
+  "visual_approval_status": "APPROVED",
+  "photographic_origin": "VERIFIED_PHOTO",
+  "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+  "rights_evidence": "User confirmed permission from the rights holder to use and horizontally mirror this exact basil photo in the public repository and cashier binders. Owner-confirmed, not independently documented.",
+  "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+  "note": "User approved this exact mirrored photograph for PLU 4885 under the confirmed permission; not a public reuse licence or blanket approval.",
+  "production_approved_source_id": "c14af7546903339dbb6cffef40aa7e283bb28919139912d49a2d5311fb74be76"
+}

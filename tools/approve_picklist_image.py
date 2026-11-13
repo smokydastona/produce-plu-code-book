@@ -73,7 +73,8 @@ def approve(root, source_id, candidate, book, section, source_sha, evidence,
     temporary_sidecar.replace(sidecar)
     provenance = {key: metadata[key] for key in
                   ("creator", "license", "license_url", "source_page_url", "original_image_url", "attribution")}
-    provenance.update(changes="Original photograph unchanged", rights_evidence=evidence)
+    provenance.update(changes=metadata.get("changes", "Original photograph unchanged"),
+                      rights_evidence=evidence)
     assignments[source_id] = dict(
         source_id=source_id, book=book, section=section, image=str(destination.relative_to(root)),
         image_mode="PHOTO", reviewed_plu=item["plu"], reviewed_product=item["name"],

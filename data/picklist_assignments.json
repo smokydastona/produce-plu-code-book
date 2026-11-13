@@ -11179,6 +11179,36 @@
         "rights_evidence": "Owner confirmed permission from the rights holder for this exact image and its reproduction in the public repository and cashier-facing binders; user confirmed it is an actual photograph and visually suitable for Strawberries by the Flat. Owner-confirmed, not independently documented; no public reuse licence is asserted."
       },
       "reuse_from_source_id": ""
+    },
+    {
+      "source_id": "c14af7546903339dbb6cffef40aa7e283bb28919139912d49a2d5311fb74be76",
+      "book": "Vegetable",
+      "section": "Herbs",
+      "image": "data/images/approved/f42ed4640a1fdee6a371d45494e810d3231e53997c217458aafd4debddee9af6.png",
+      "image_mode": "PHOTO",
+      "reviewed_plu": "4885",
+      "reviewed_product": "Basil",
+      "working_source_ids": [
+        "80c0f783da9769f5aa2b6d8536a57f3a340c94473f648dcdf68380551eb64a63",
+        "1b05da4898bf2fc28c61878049f29044ae4dc1ac98b07a5f7e0432e8c9d69d59"
+      ],
+      "working_decision_id": "4885",
+      "image_sha256": "f42ed4640a1fdee6a371d45494e810d3231e53997c217458aafd4debddee9af6",
+      "photographic_origin": "VERIFIED_PHOTO",
+      "visual_approval_status": "APPROVED",
+      "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+      "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+      "provenance": {
+        "creator": "Not identified in source",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "https://gmfgcdn.azureedge.net/gmfgcdn-41100db7-5d96-426e-a77b-dbba44febaba/0000000004885_00.jpg?width=500",
+        "original_image_url": "https://gmfgcdn.azureedge.net/gmfgcdn-41100db7-5d96-426e-a77b-dbba44febaba/0000000004885_00.jpg?width=500",
+        "attribution": "Owner-provided basil source image; creator not identified in source. Owner-confirmed permission for this specific use; no public reuse licence is asserted.",
+        "changes": "Horizontally mirrored and saved as PNG at owner's request",
+        "rights_evidence": "Owner confirmed permission from the rights holder to use and horizontally mirror this exact basil photo in the public repository and cashier-facing binders; user confirmed it is an actual photograph and visually suitable for Basil. Owner-confirmed, not independently documented; no public reuse licence is asserted."
+      },
+      "reuse_from_source_id": ""
     }
   ]
 }

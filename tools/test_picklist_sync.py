@@ -536,6 +536,10 @@ class PickListSyncChecks(unittest.TestCase):
 
     def test_explicit_approval_promotes_exact_product_with_persisted_evidence(self):
         self.candidate_metadata()
+        metadata_path = self.image.with_suffix(".png.json")
+        metadata = json.loads(metadata_path.read_text())
+        metadata["changes"] = "Horizontally mirrored"
+        metadata_path.write_text(json.dumps(metadata))
         rebuild_working_list(self.root, self.root / "audit")
         digest = hashlib.sha256(self.source.read_bytes()).hexdigest()
         source_before = self.source.read_bytes()
@@ -547,6 +551,7 @@ class PickListSyncChecks(unittest.TestCase):
         image = self.root / entry["image"]
         self.assertTrue(image.with_suffix(image.suffix + ".json").is_file())
         self.assertEqual(entry["rights_verification_status"], "VERIFIED")
+        self.assertEqual(entry["provenance"]["changes"], "Horizontally mirrored")
         self.assertEqual(self.source.read_bytes(), source_before)
         self.assertEqual(reconcile(self.root, self.output)[3]["status"], "READY_TO_BUILD")
 

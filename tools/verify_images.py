@@ -28,6 +28,9 @@ OWNER_CONFIRMED_PERMISSION_ASSETS = {
     ("7b7ecf98feeff7e3efd7f636d69dded824fb7d70c399608ac56284bd771ba33e",
      "4253", "Strawberries by the Flat",
      "831477f2fab34a6c4c61d3462e135ee1da505cd870459c90f8258a057fd59ebb"),
+    ("f42ed4640a1fdee6a371d45494e810d3231e53997c217458aafd4debddee9af6",
+     "4885", "Basil",
+     "c14af7546903339dbb6cffef40aa7e283bb28919139912d49a2d5311fb74be76"),
 }
 EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".tif", ".tiff", ".gif",
               ".bmp", ".avif", ".svg"}

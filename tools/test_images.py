@@ -7,7 +7,7 @@ from pathlib import Path
 from unittest.mock import patch
 from urllib.error import HTTPError
 
-from PIL import Image
+from PIL import Image, ImageOps
 
 import retrieve_commons
 import verify_images
@@ -83,6 +83,19 @@ class ImageChecks(unittest.TestCase):
             with self.subTest(field=field):
                 self.assertFalse(verify_images.owner_permission_metadata(
                     dict(metadata, **{field: "different"})))
+
+    def test_owner_approved_basil_is_exact_mirror_for_exact_identity(self):
+        root = Path(__file__).resolve().parents[1]
+        candidate = root / "data/review-references/owner-alternates/4885-mirrored.png"
+        original = root / "data/review-references/owner-alternates/4885-original.jpg"
+        metadata = json.loads(candidate.with_suffix(".png.json").read_text())
+        self.assertEqual(validate(candidate), [])
+        self.assertTrue(verify_images.owner_permission_metadata(metadata))
+        with Image.open(original) as source, Image.open(candidate) as mirrored:
+            self.assertEqual(ImageOps.mirror(ImageOps.exif_transpose(source)).convert("RGBA").tobytes(),
+                             mirrored.convert("RGBA").tobytes())
+        self.assertFalse(verify_images.owner_permission_metadata(
+            dict(metadata, working_list_id="different")))
 
     def test_shortest_side_not_longest(self):
         Image.new("RGB", (1000, 499)).save(self.path)
