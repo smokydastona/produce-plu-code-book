@@ -2,8 +2,8 @@ WORKINGLIST CASHIER REVIEW EDITIONS - NOT A PRODUCTION RELEASE
 
 PickList SHA-256: 462db3121094008cd1dd5ea2c5836ca4b24de077edb8982c0f43149edbaf2cbb
 Source records: 724; WorkingList records: 672; cashier entries: 550 Produce and 46 non-produce.
-Embedded image references, including exact-identity approvals: 508.
-Changed identities still needing fresh image approval: 42.
+Embedded image references, including exact-identity approvals: 509.
+Changed identities still needing fresh image approval: 41.
 Supplier references: 13 exact mappings; 2 require fresh identity review.
 PLU 94093 remains unstandardized pending supplier confirmation. PLU 4727 displays Yellow Potatoes; the Yukon Gold alias remains unconfirmed and is not included.
 All original PickList records, including excluded associations, are retained in the reconciliation audit. Cashier entries show only PLU, product name and optional image.

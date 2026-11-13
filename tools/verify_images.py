@@ -37,6 +37,9 @@ OWNER_CONFIRMED_PERMISSION_ASSETS = {
     ("211ce953f2a57e0f1c217fd7c6c2db5b14665f10f322dfbdcc38d2791133c565",
      "4458", "Tangerine Seedless",
      "f05f37d3982f0277cb7d7eb67ca44a0993c264f8dbb30f8f98dd658ddd80ad5a"),
+    ("b50be3217c32e08d35ac39824c83a39617c83f6519a31e6a2e5efbbcbc92e037",
+     "4724", "White Creamer Potatoes",
+     "4d1579b29ca61345f1ce202b9cbc37c8d37f3c4e014ac093dad497c29348cd7b"),
 }
 EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".tif", ".tiff", ".gif",
               ".bmp", ".avif", ".svg"}

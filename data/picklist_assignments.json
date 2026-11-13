@@ -11268,6 +11268,36 @@
         "rights_evidence": "User confirmed permission to use this exact larger tangerine image in the public repository and cashier binders. Owner-confirmed, not independently documented."
       },
       "reuse_from_source_id": ""
+    },
+    {
+      "source_id": "4d1579b29ca61345f1ce202b9cbc37c8d37f3c4e014ac093dad497c29348cd7b",
+      "book": "Vegetable",
+      "section": "Potatoes",
+      "image": "data/images/approved/b50be3217c32e08d35ac39824c83a39617c83f6519a31e6a2e5efbbcbc92e037.png",
+      "image_mode": "PHOTO",
+      "reviewed_plu": "4724",
+      "reviewed_product": "White Creamer Potatoes",
+      "working_source_ids": [
+        "cdb80d93aa2a249cd5a21f755ba7896cbbf436e6c9408df1a3250df93da404e9",
+        "a5dcefbf46308a9cff2156aed32cee8e1e8dfada215c45114a4ae0eb90b1098a"
+      ],
+      "working_decision_id": "4724",
+      "image_sha256": "b50be3217c32e08d35ac39824c83a39617c83f6519a31e6a2e5efbbcbc92e037",
+      "photographic_origin": "VERIFIED_PHOTO",
+      "visual_approval_status": "APPROVED",
+      "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+      "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+      "provenance": {
+        "creator": "Not identified in source",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "https://specialtyproduce.com/sppics/20151.png",
+        "original_image_url": "https://specialtyproduce.com/sppics/20151.png",
+        "attribution": "Specialty Produce-hosted potato image; creator not identified in source. Owner-confirmed permission for this specific use; no public reuse licence is asserted.",
+        "changes": "Original image unchanged",
+        "rights_evidence": "User confirmed permission to use this exact white creamer potato image in the public repository and cashier binders. Owner-confirmed, not independently documented."
+      },
+      "reuse_from_source_id": ""
     }
   ]
 }

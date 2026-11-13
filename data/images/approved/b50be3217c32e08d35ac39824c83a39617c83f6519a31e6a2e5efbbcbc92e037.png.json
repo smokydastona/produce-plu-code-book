@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "plu": "4724",
+  "product": "White Creamer Potatoes",
+  "working_list_id": "4d1579b29ca61345f1ce202b9cbc37c8d37f3c4e014ac093dad497c29348cd7b",
+  "source_identity_ids": [
+    "cdb80d93aa2a249cd5a21f755ba7896cbbf436e6c9408df1a3250df93da404e9",
+    "a5dcefbf46308a9cff2156aed32cee8e1e8dfada215c45114a4ae0eb90b1098a"
+  ],
+  "creator": "Not identified in source",
+  "source_page_url": "https://specialtyproduce.com/sppics/20151.png",
+  "original_image_url": "https://specialtyproduce.com/sppics/20151.png",
+  "sha256": "b50be3217c32e08d35ac39824c83a39617c83f6519a31e6a2e5efbbcbc92e037",
+  "width": 872,
+  "height": 537,
+  "license": "OWNER_CONFIRMED_PERMISSION",
+  "license_url": "",
+  "attribution": "Specialty Produce-hosted potato image; creator not identified in source. Owner-confirmed permission for this specific use; no public reuse licence is asserted.",
+  "changes": "Original image unchanged",
+  "approval_status": "CANDIDATE",
+  "visual_approval_status": "APPROVED",
+  "photographic_origin": "VERIFIED_PHOTO",
+  "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+  "rights_evidence": "User confirmed permission to use this exact white creamer potato image in the public repository and cashier binders. Owner-confirmed, not independently documented.",
+  "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+  "note": "User approved this exact photograph for PLU 4724 under the confirmed permission; not a public reuse licence or blanket approval.",
+  "production_approved_source_id": "4d1579b29ca61345f1ce202b9cbc37c8d37f3c4e014ac093dad497c29348cd7b"
+}
