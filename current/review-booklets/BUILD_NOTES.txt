@@ -2,8 +2,8 @@ WORKINGLIST CASHIER REVIEW EDITIONS - NOT A PRODUCTION RELEASE
 
 PickList SHA-256: 462db3121094008cd1dd5ea2c5836ca4b24de077edb8982c0f43149edbaf2cbb
 Source records: 724; WorkingList records: 672; cashier entries: 550 Produce and 46 non-produce.
-Embedded unchanged-identity image references: 502.
-Changed identities held blank for fresh image review: 48.
+Embedded image references, including exact-identity approvals: 503.
+Changed identities still needing fresh image approval: 47.
 Supplier references: 13 exact mappings; 2 require fresh identity review.
 PLU 94093 remains unstandardized pending supplier confirmation. PLU 4727 displays Yellow Potatoes; the Yukon Gold alias remains unconfirmed and is not included.
 All original PickList records, including excluded associations, are retained in the reconciliation audit. Cashier entries show only PLU, product name and optional image.
@@ -14,4 +14,4 @@ This standalone command does not regenerate complete till binders.
 Original workbook: available and checksum-verified.
   sources/binders/Complete_Till_Binder_-_Nov_2025.xlsx
 Expected SHA-256: 6b0aeaa153233c5f4917811a3f7a5b2212f7a946a0abede372a31db556ab0f63
-Do not reconstruct it from prior outputs. Existing binder copies were not overwritten. Previously published production booklets and approval registries remain unchanged.
+Do not reconstruct it from prior outputs. Existing binder copies were not overwritten. Previously published production booklets remain unchanged; the exact PLU 4055 approved assignment is recorded in the image registry.

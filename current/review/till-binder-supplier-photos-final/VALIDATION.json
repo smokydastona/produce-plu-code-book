@@ -27,11 +27,12 @@
     "AI_ILLUSTRATION_REFERENCE_REVIEW": 125,
     "SUPPLIED_AI_CROP_REVIEW": 96,
     "SUPPLIED_REFERENCE_REVIEW": 270,
-    "MISSING": 48,
-    "SUPPLIER_REFERENCE_REVIEW": 11
+    "MISSING": 47,
+    "SUPPLIER_REFERENCE_REVIEW": 11,
+    "APPROVED_WORKINGLIST_IMAGE": 1
   },
-  "embedded_references": 502,
-  "missing_or_uncertain_images": 48,
+  "embedded_references": 503,
+  "missing_or_uncertain_images": 47,
   "ai_illustrations_embedded": 221,
   "ai_illustrations_omitted": 0,
   "new_ai_crops_embedded": 96,
@@ -48,14 +49,14 @@
     "included_records": 596,
     "excluded_records": 76,
     "status": "BLOCKED",
-    "records_needing_review": 550,
-    "missing_image_requests": 48,
+    "records_needing_review": 549,
+    "missing_image_requests": 47,
     "inactive_assignments": 95,
     "organic_placements_needing_review": 91,
     "working_list_review_records": 2,
     "identity_changed_entries": 48,
     "blocker_counts": {
-      "APPROVED_IMAGE_REQUIRED": 48,
+      "APPROVED_IMAGE_REQUIRED": 47,
       "BELOW_500_PX": 500,
       "CLASSIFICATION_REQUIRED": 5,
       "IMAGE_RIGHTS_NOT_VERIFIED": 502,
@@ -67,7 +68,7 @@
       "MISSING_PROVENANCE_RIGHTS_EVIDENCE": 502,
       "MISSING_PROVENANCE_SOURCE_PAGE_URL": 502,
       "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED": 502,
-      "PRODUCT_IMAGE_REVIEW_REQUIRED": 48,
+      "PRODUCT_IMAGE_REVIEW_REQUIRED": 47,
       "PROHIBITED_IMAGE_REUSE": 329,
       "SECTION_REQUIRED": 5,
       "SUPPORTED_IMAGE_LICENCE_REQUIRED": 502,
@@ -388,7 +389,7 @@
       ],
       "worksheets_preserved": 14,
       "produce_records_verified": 550,
-      "produce_images_verified": 502,
+      "produce_images_verified": 503,
       "original_parts_checked": 104,
       "original_parts_byte_identical": 99,
       "unrelated_package_parts_byte_identical": true,
@@ -397,7 +398,7 @@
       "internal_relationships_valid": true,
       "exact_text_codes_and_descriptions": true,
       "duplicate_highlights_verified": true,
-      "file_sha256": "90058b68f8cb11fc84d4842f0d3c3b984eda3b397c241b6525678246544acd2d"
+      "file_sha256": "b4f3996e4c0e914531dd26d495ab2ea4eee3b42fe0fa7d11f2e408a690f62a9b"
     }
   },
   "print_validation": {
@@ -421,7 +422,7 @@
       "complete_binder_pdf_pages": 38,
       "every_page_code_count_verified": true,
       "every_description_found": true,
-      "drawn_images": 502,
+      "drawn_images": 503,
       "preview_pdf": "print-previews/Produce - photos.pdf",
       "visual_review": "REQUIRED; automated text/geometry checks are not a visual print approval"
     }
@@ -438,7 +439,7 @@
   "review_booklets": {
     "Fruit": {
       "records": 269,
-      "images": 248,
+      "images": 249,
       "exact_docx_and_excel_text": true,
       "embedded_image_bytes_and_anchors": true,
       "cashier_image_labels_absent": true,
@@ -446,7 +447,7 @@
       "excel_planned_pages": 5,
       "pdf": {
         "pages": 45,
-        "drawn_images": 248,
+        "drawn_images": 249,
         "exact_printed_codes": true,
         "every_description_on_planned_page": true,
         "landscape_us_letter": true

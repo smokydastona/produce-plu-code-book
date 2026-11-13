@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "plu": "4055",
+  "product": "Murcott Tangerines",
+  "working_list_id": "09df42d831061953e2d95b5f3e2071ef7f26a68b008377ecb6ce871b0b546186",
+  "source_identity_ids": [
+    "2d8d90099db1dcef519e9f507003cd866ba1038341e2890908df1cbae9648ca2",
+    "d42229b05135916f40ec076d37a9486386cf5a94a21f9c16fad82054f8848cb5"
+  ],
+  "source_url": "https://www.melissas.com/cdn/shop/files/image-of-murcott-mandarines-fruit-1261183981_700x700.jpg?v=1791232632",
+  "creator": "Not identified in source",
+  "source_page_url": "https://www.melissas.com/cdn/shop/files/image-of-murcott-mandarines-fruit-1261183981_700x700.jpg?v=1791232632",
+  "original_image_url": "https://www.melissas.com/cdn/shop/files/image-of-murcott-mandarines-fruit-1261183981_700x700.jpg?v=1791232632",
+  "sha256": "aa097e83f41a5a55b85d443f14cebb150d36a318feaf94c0fdeaffea1cebf2d9",
+  "width": 700,
+  "height": 700,
+  "license": "OWNER_CONFIRMED_PERMISSION",
+  "license_url": "",
+  "attribution": "Melissa's Produce image listing; creator not identified in source. Owner-confirmed permission for this specific use; no public reuse licence is asserted.",
+  "changes": "Original image unchanged",
+  "approval_status": "CANDIDATE",
+  "visual_approval_status": "APPROVED",
+  "photographic_origin": "VERIFIED_PHOTO",
+  "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+  "rights_evidence": "User confirmed permission from Melissa's or the image rights holder to reproduce this specific image in the public repository and cashier-facing binders. Owner-confirmed, not independently documented.",
+  "production_status": "NOT_APPROVED",
+  "note": "Candidate approved for the exact Murcott WorkingList assignment only after the explicit image, photo-origin and owner-permission confirmations; not a public reuse licence or blanket approval."
+}

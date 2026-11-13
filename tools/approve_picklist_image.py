@@ -56,10 +56,21 @@ def approve(root, source_id, candidate, book, section, source_sha, evidence,
     if not destination.exists():
         shutil.copyfile(candidate, destination)
     sidecar = destination.with_suffix(destination.suffix + ".json")
-    if not sidecar.exists():
-        with sidecar.open("x", encoding="utf-8") as file:
-            json.dump(metadata, file, ensure_ascii=False, indent=2)
-            file.write("\n")
+    approved_metadata = dict(
+        metadata, production_status="APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+        production_approved_source_id=source_id,
+    )
+    if sidecar.exists():
+        existing_metadata = json.loads(sidecar.read_text(encoding="utf-8"))
+        if (existing_metadata.get("sha256"), existing_metadata.get("plu"),
+                existing_metadata.get("product")) != (
+                checksum, item["plu"], item["name"]):
+            raise ValueError("approved image sidecar identifies different image/product data")
+    temporary_sidecar = sidecar.with_suffix(sidecar.suffix + ".tmp")
+    with temporary_sidecar.open("x", encoding="utf-8") as file:
+        json.dump(approved_metadata, file, ensure_ascii=False, indent=2)
+        file.write("\n")
+    temporary_sidecar.replace(sidecar)
     provenance = {key: metadata[key] for key in
                   ("creator", "license", "license_url", "source_page_url", "original_image_url", "attribution")}
     provenance.update(changes="Original photograph unchanged", rights_evidence=evidence)
@@ -68,7 +79,9 @@ def approve(root, source_id, candidate, book, section, source_sha, evidence,
         image_mode="PHOTO", reviewed_plu=item["plu"], reviewed_product=item["name"],
         working_source_ids=item["source_ids"], working_decision_id=item["decision_id"],
         image_sha256=checksum, photographic_origin="VERIFIED_PHOTO",
-        visual_approval_status="APPROVED", rights_verification_status="VERIFIED",
+        visual_approval_status="APPROVED",
+        rights_verification_status=metadata.get("rights_verification_status", "VERIFIED"),
+        production_status="APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
         provenance=provenance, reuse_from_source_id=reuse_from,
     )
     saved = json.loads(registry.read_text(encoding="utf-8"))

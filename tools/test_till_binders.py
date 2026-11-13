@@ -247,6 +247,37 @@ class TillBinderChecks(unittest.TestCase):
         self.assertEqual(next(row for row in report if row["plu"] == "00050")["image_status"],
                          "SOURCE_CHECKSUM_CHANGED")
 
+    def test_explicit_working_list_approval_is_embedded_only_for_its_exact_identity(self):
+        assignments = read_assignments(self.root / "data/picklist_assignments.json")
+        rows, _ = produce_catalog(self.items, assignments)
+        row = next(item for item in rows if item["plu"] == "00042")
+        assignment = assignments[row["source_id"]]
+        assignment.update(
+            image="data/reference.png", image_sha256=sha(self.content),
+            reviewed_plu=row["plu"], reviewed_product=row["name"],
+            visual_approval_status="APPROVED", photographic_origin="VERIFIED_PHOTO",
+            rights_verification_status="VERIFIED",
+            provenance=dict(
+                creator="Test photographer", license="CC0",
+                license_url="https://creativecommons.org/publicdomain/zero/1.0/",
+                source_page_url="https://example.org/apple",
+                original_image_url="https://example.org/apple.png",
+                attribution="Test photographer / CC0", changes="Original image unchanged",
+                rights_evidence="Test fixture rights evidence",
+            ),
+        )
+        images, report = map_images(self.root, rows, assignments, visual_records(self.root))
+        record = next(item for item in report if item["source_id"] == row["source_id"])
+        self.assertEqual(record["image_status"], "APPROVED_WORKINGLIST_IMAGE")
+        self.assertTrue(record["embedded"])
+        self.assertEqual(images[row["source_id"]], self.content)
+        row["name"] = "Different Apple"
+        row["identity_changed"] = True
+        images, report = map_images(self.root, rows, assignments, visual_records(self.root))
+        record = next(item for item in report if item["source_id"] == row["source_id"])
+        self.assertEqual(record["image_status"], "APPROVED_ASSIGNMENT_INVALID")
+        self.assertNotIn(row["source_id"], images)
+
     def test_uncertain_old_mappings_are_reported_without_guessing(self):
         original = [
             dict(original_code="00042", original_description="Old name", cell="A1", heading="Apple", issue=""),

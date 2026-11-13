@@ -46,6 +46,22 @@ class ImageChecks(unittest.TestCase):
                 self.write_record()
                 self.assertEqual(validate(self.path), [])
 
+    def test_owner_permission_is_exact_asset_and_working_identity_only(self):
+        root = Path(__file__).resolve().parents[1]
+        candidate = root / "data/review-references/owner-alternates/4055-melissas.jpg"
+        metadata = json.loads(candidate.with_suffix(".jpg.json").read_text())
+        self.assertEqual(validate(candidate), [])
+        self.assertTrue(verify_images.owner_permission_metadata(metadata))
+        for field, value in (
+                ("sha256", "different"), ("plu", "4056"),
+                ("product", "Clementines"), ("working_list_id", "different"),
+                ("license", "CC0"), ("rights_verification_status", "VERIFIED"),
+                ("photographic_origin", "UNVERIFIED"),
+                ("visual_approval_status", "CANDIDATE")):
+            with self.subTest(field=field):
+                altered = dict(metadata, **{field: value})
+                self.assertFalse(verify_images.owner_permission_metadata(altered))
+
     def test_shortest_side_not_longest(self):
         Image.new("RGB", (1000, 499)).save(self.path)
         self.assertTrue(any("minimum is 500" in e for e in validate(self.path)))

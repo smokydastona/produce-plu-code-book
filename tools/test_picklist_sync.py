@@ -471,6 +471,35 @@ class PickListSyncChecks(unittest.TestCase):
             self.assertIn("SUPPORTED_IMAGE_LICENCE_REQUIRED",
                           reviewed_image(self.root, self.items[0], self.assignment)[3])
 
+    def test_owner_confirmed_permission_is_limited_to_approved_murcott_identity(self):
+        repository = Path(__file__).resolve().parents[1]
+        candidate = repository / "data/review-references/owner-alternates/4055-melissas.jpg"
+        content = candidate.read_bytes()
+        image_path = self.root / "data/murcott.jpg"
+        image_path.write_bytes(content)
+        item = dict(source_id="09df42d831061953e2d95b5f3e2071ef7f26a68b008377ecb6ce871b0b546186",
+                    plu="4055", name="Murcott Tangerines")
+        assignment = dict(
+            image="data/murcott.jpg",
+            image_sha256=hashlib.sha256(content).hexdigest(),
+            reviewed_plu="4055", reviewed_product="Murcott Tangerines",
+            rights_verification_status="OWNER_CONFIRMED_PERMISSION",
+            production_status="APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+            photographic_origin="VERIFIED_PHOTO", visual_approval_status="APPROVED",
+            provenance=dict(
+                creator="Not identified in source", license="OWNER_CONFIRMED_PERMISSION",
+                source_page_url="https://www.melissas.com/image.jpg",
+                original_image_url="https://www.melissas.com/image.jpg",
+                attribution="Owner-confirmed for this use", changes="Original image unchanged",
+                rights_evidence="User confirmed permission for this exact image and use.",
+            ),
+        )
+        self.assertEqual(reviewed_image(self.root, item, assignment)[3], [])
+        item["name"] = "Clementines"
+        errors = reviewed_image(self.root, item, assignment)[3]
+        self.assertIn("IMAGE_RIGHTS_NOT_VERIFIED", errors)
+        self.assertIn("SUPPORTED_IMAGE_LICENCE_REQUIRED", errors)
+
     def test_non_produce_code_only_exception_requires_explicit_approval(self):
         self.assignment.update(book="Non-produce", image="", image_mode="CODE_ONLY",
                                code_only_approved=True)

@@ -11089,6 +11089,36 @@
       "migration_note": "Existing visual verdict preserved; original source/rights not verified.",
       "image_sha256": "5251f42d99e82098d793790d03f617aa99b2923ffe0775746131a964745e791f",
       "source_id": "d6af8a897f6395093e638e11c2f6877c587bfc7295858a4dda3398df217e2253"
+    },
+    {
+      "source_id": "09df42d831061953e2d95b5f3e2071ef7f26a68b008377ecb6ce871b0b546186",
+      "book": "Fruit",
+      "section": "Citrus",
+      "image": "data/images/approved/aa097e83f41a5a55b85d443f14cebb150d36a318feaf94c0fdeaffea1cebf2d9.jpg",
+      "image_mode": "PHOTO",
+      "reviewed_plu": "4055",
+      "reviewed_product": "Murcott Tangerines",
+      "working_source_ids": [
+        "2d8d90099db1dcef519e9f507003cd866ba1038341e2890908df1cbae9648ca2",
+        "d42229b05135916f40ec076d37a9486386cf5a94a21f9c16fad82054f8848cb5"
+      ],
+      "working_decision_id": "4055",
+      "image_sha256": "aa097e83f41a5a55b85d443f14cebb150d36a318feaf94c0fdeaffea1cebf2d9",
+      "photographic_origin": "VERIFIED_PHOTO",
+      "visual_approval_status": "APPROVED",
+      "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+      "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+      "provenance": {
+        "creator": "Not identified in source",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "https://www.melissas.com/cdn/shop/files/image-of-murcott-mandarines-fruit-1261183981_700x700.jpg?v=1791232632",
+        "original_image_url": "https://www.melissas.com/cdn/shop/files/image-of-murcott-mandarines-fruit-1261183981_700x700.jpg?v=1791232632",
+        "attribution": "Melissa's Produce image listing; creator not identified in source. Owner-confirmed permission for this specific use; no public reuse licence is asserted.",
+        "changes": "Original photograph unchanged",
+        "rights_evidence": "Owner confirmed permission from Melissa's or the image rights holder for this exact image and its reproduction in the public repository and cashier-facing binders; user confirmed it is an actual photograph and visually matches Murcott Tangerines. No public licence or creator attribution is asserted."
+      },
+      "reuse_from_source_id": ""
     }
   ]
 }

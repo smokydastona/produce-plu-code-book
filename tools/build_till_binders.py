@@ -171,6 +171,41 @@ def map_images(root, rows, assignments, visuals):
             visual_verdict="", visual_review_note="", rights_status="NOT_VERIFIED", photograph_status="NOT_VERIFIED",
             organic_badge=False, reused_by_entries=0, details="",
         )
+        if assignment.get("visual_approval_status") == "APPROVED":
+            from sync_picklist import reviewed_image
+
+            content, width, height, errors = reviewed_image(root, row, assignment)
+            if errors:
+                if row.get("identity_changed"):
+                    record.update(
+                        image_status="APPROVED_ASSIGNMENT_INVALID",
+                        details="Explicit WorkingList image assignment failed validation: " +
+                                "; ".join(errors),
+                    )
+                    report.append(record)
+                    continue
+            else:
+                provenance = assignment.get("provenance", {})
+                rendered = render_watermark(content) if row["organic"] else content
+                images[row["source_id"]] = rendered
+                record.update(
+                    image_status="APPROVED_WORKINGLIST_IMAGE", embedded=True,
+                    image_source=provenance.get("source_page_url", ""),
+                    original_sha256=sha(content), embedded_sha256=sha(rendered),
+                    width=width, height=height, visual_verdict="Approved",
+                    visual_review_note="Approved for this exact WorkingList assignment",
+                    rights_status=assignment.get("rights_verification_status", "NOT_VERIFIED"),
+                    photograph_status=assignment.get("photographic_origin", "NOT_VERIFIED"),
+                    organic_badge=row["organic"],
+                    details="Explicitly approved for this exact WorkingList identity; " +
+                            ("owner-confirmed permission, not a public licence."
+                             if assignment.get("rights_verification_status") ==
+                             "OWNER_CONFIRMED_PERMISSION" else
+                             "rights status recorded in the external assignment audit."),
+                    fingerprint=image_fingerprint(io.BytesIO(content)),
+                )
+                report.append(record)
+                continue
         reference = references.get(row["source_id"])
         if reference:
             supplier = reference["status"] == "SUPPLIER_REFERENCE"
