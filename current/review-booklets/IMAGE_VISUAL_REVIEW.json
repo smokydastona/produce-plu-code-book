@@ -12,8 +12,11 @@
   },
   "rights_and_production_approval": "NOT_GRANTED",
   "alternate_candidate_urls_proposed": 14,
-  "alternate_candidate_urls_fetchable_in_this_session": 0,
-  "alternate_candidate_review_status": "UNAVAILABLE_OR_UNVERIFIED",
+  "alternate_candidate_urls_fetched_for_review": 13,
+  "alternate_candidate_urls_unavailable": 1,
+  "alternate_candidate_review_status": "FETCHED_REFERENCES_UNVERIFIED",
+  "alternate_candidate_fetch_report": "OWNER_ALTERNATE_FETCH_REPORT.csv",
+  "alternate_candidate_workflow_run": "https://github.com/smokydastona/produce-plu-code-book/actions/runs/43519735416",
   "cashier_image_assignments_changed": false,
   "production_booklets_changed": false,
   "audit_csv": "IMAGE_VISUAL_REVIEW.csv"
