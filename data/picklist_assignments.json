@@ -11119,6 +11119,37 @@
         "rights_evidence": "Owner confirmed permission from Melissa's or the image rights holder for this exact image and its reproduction in the public repository and cashier-facing binders; user confirmed it is an actual photograph and visually matches Murcott Tangerines. No public licence or creator attribution is asserted."
       },
       "reuse_from_source_id": ""
+    },
+    {
+      "source_id": "074b0d50fb0eb911404fbe4dc12ab58c6b40d3b7a135ef9a1a8c7f967819a740",
+      "book": "Vegetable",
+      "section": "Asian Vegetables",
+      "image": "data/images/approved/57e11bf34fbcbb165bda477a1ffd366ad23d482df185872fa7cd1612f064b012.png",
+      "image_mode": "PHOTO",
+      "reviewed_plu": "4552",
+      "reviewed_product": "Napa Cabbage",
+      "working_source_ids": [
+        "d5e21a5993860f97c8f8a6f641c5b7baa7f41bb257c7c4feb7494a90133b5e18",
+        "dddc82219c5903c6a299fe2dac8504b29a54b7856017732447352a011a2845b0",
+        "ef993415f0929e5c5152f7f6063e7c1013c3383b782ba577cb75a84620f726ca"
+      ],
+      "working_decision_id": "4552",
+      "image_sha256": "57e11bf34fbcbb165bda477a1ffd366ad23d482df185872fa7cd1612f064b012",
+      "photographic_origin": "VERIFIED_PHOTO",
+      "visual_approval_status": "APPROVED",
+      "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+      "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+      "provenance": {
+        "creator": "Not identified in source",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "https://foxy.com/assets/uploads/product-images/detail/NapaCabbage_Trimmed.png",
+        "original_image_url": "https://foxy.com/assets/uploads/product-images/detail/NapaCabbage_Trimmed.png",
+        "attribution": "Foxy Produce image; creator not identified in source. Owner-confirmed permission for this specific use; no public reuse licence is asserted.",
+        "changes": "Original photograph unchanged",
+        "rights_evidence": "Owner confirmed permission from Foxy or the rights holder for this exact image and its reproduction in the public repository and cashier-facing binders; user confirmed it is an actual photograph and visually matches Napa Cabbage. Owner-confirmed, not independently documented; no public reuse licence is asserted."
+      },
+      "reuse_from_source_id": ""
     }
   ]
 }

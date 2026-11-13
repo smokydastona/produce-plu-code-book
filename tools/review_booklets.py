@@ -200,7 +200,7 @@ def build_review_booklets(output, rows, images, assignments, digest, pdf=False):
             "AI visual references are not photographs or rights approvals.",
             "Source classifications, organic pairings, image suitability, resolution and reuse still need review.",
             "Automated text, image and page checks do not replace store-printer and visual approval.",
-            "Previously published production booklets remain unchanged; the exact PLU 4055 approved assignment is recorded in the image registry.",
+            "Previously published production booklets remain unchanged; exact-identity image approvals are recorded in the image registry.",
         ],
     ), indent=2) + "\n", encoding="utf-8")
     return results
@@ -325,7 +325,7 @@ def build_working_list_review(root, output, pdf=False):
         f"  {report['complete_binder_regeneration']['expected_path']}\n"
         f"Expected SHA-256: {report['complete_binder_regeneration']['expected_sha256']}\n"
         "Do not reconstruct it from prior outputs. Existing binder copies were not overwritten. "
-        "Previously published production booklets remain unchanged; the exact PLU 4055 approved assignment is recorded in the image registry.\n",
+        "Previously published production booklets remain unchanged; exact-identity image approvals are recorded in the image registry.\n",
         encoding="utf-8")
     report["file_sha256"] = {
         str(path.relative_to(output)): hashlib.sha256(path.read_bytes()).hexdigest()

@@ -22,6 +22,9 @@ OWNER_CONFIRMED_PERMISSION_ASSETS = {
     ("aa097e83f41a5a55b85d443f14cebb150d36a318feaf94c0fdeaffea1cebf2d9",
      "4055", "Murcott Tangerines",
      "09df42d831061953e2d95b5f3e2071ef7f26a68b008377ecb6ce871b0b546186"),
+    ("57e11bf34fbcbb165bda477a1ffd366ad23d482df185872fa7cd1612f064b012",
+     "4552", "Napa Cabbage",
+     "074b0d50fb0eb911404fbe4dc12ab58c6b40d3b7a135ef9a1a8c7f967819a740"),
 }
 EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".tif", ".tiff", ".gif",
               ".bmp", ".avif", ".svg"}
