@@ -25,6 +25,9 @@ OWNER_CONFIRMED_PERMISSION_ASSETS = {
     ("57e11bf34fbcbb165bda477a1ffd366ad23d482df185872fa7cd1612f064b012",
      "4552", "Napa Cabbage",
      "074b0d50fb0eb911404fbe4dc12ab58c6b40d3b7a135ef9a1a8c7f967819a740"),
+    ("7b7ecf98feeff7e3efd7f636d69dded824fb7d70c399608ac56284bd771ba33e",
+     "4253", "Strawberries by the Flat",
+     "831477f2fab34a6c4c61d3462e135ee1da505cd870459c90f8258a057fd59ebb"),
 }
 EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".tif", ".tiff", ".gif",
               ".bmp", ".avif", ".svg"}

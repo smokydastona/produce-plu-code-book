@@ -11150,6 +11150,35 @@
         "rights_evidence": "Owner confirmed permission from Foxy or the rights holder for this exact image and its reproduction in the public repository and cashier-facing binders; user confirmed it is an actual photograph and visually matches Napa Cabbage. Owner-confirmed, not independently documented; no public reuse licence is asserted."
       },
       "reuse_from_source_id": ""
+    },
+    {
+      "source_id": "831477f2fab34a6c4c61d3462e135ee1da505cd870459c90f8258a057fd59ebb",
+      "book": "Fruit",
+      "section": "Berries",
+      "image": "data/images/approved/7b7ecf98feeff7e3efd7f636d69dded824fb7d70c399608ac56284bd771ba33e.jpg",
+      "image_mode": "PHOTO",
+      "reviewed_plu": "4253",
+      "reviewed_product": "Strawberries by the Flat",
+      "working_source_ids": [
+        "0739ff34cc3f91508f4916830a13b20c4d7b1d1f532197559944a1dfda9b2513"
+      ],
+      "working_decision_id": "4253",
+      "image_sha256": "7b7ecf98feeff7e3efd7f636d69dded824fb7d70c399608ac56284bd771ba33e",
+      "photographic_origin": "VERIFIED_PHOTO",
+      "visual_approval_status": "APPROVED",
+      "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+      "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+      "provenance": {
+        "creator": "Not identified in source",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "https://media.koelnmesse.io/aft2021/redaktionell/aft/img/magazin/ecko-tray/ecko-tray_m24_full_m36_1025.jpg",
+        "original_image_url": "https://media.koelnmesse.io/aft2021/redaktionell/aft/img/magazin/ecko-tray/ecko-tray_m24_full_m36_1025.jpg",
+        "attribution": "Koelnmesse-hosted image; creator not identified in source. Owner-confirmed permission for this specific use; no public reuse licence is asserted.",
+        "changes": "Original photograph unchanged",
+        "rights_evidence": "Owner confirmed permission from the rights holder for this exact image and its reproduction in the public repository and cashier-facing binders; user confirmed it is an actual photograph and visually suitable for Strawberries by the Flat. Owner-confirmed, not independently documented; no public reuse licence is asserted."
+      },
+      "reuse_from_source_id": ""
     }
   ]
 }

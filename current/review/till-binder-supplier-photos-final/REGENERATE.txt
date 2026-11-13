@@ -1,3 +1,3 @@
 Exact generation command (output must be empty; use a new directory when rerunning):
 
-/root/produce-plu-code-book/.venv/bin/python /root/produce-plu-code-book/tools/build_till_binders.py --root /root/produce-plu-code-book --binder /root/produce-plu-code-book/sources/binders/Complete_Till_Binder_-_Nov_2025.xlsx --output /tmp/napa-binder --verify-print --booklets
+/root/produce-plu-code-book/.venv/bin/python /root/produce-plu-code-book/tools/build_till_binders.py --root /root/produce-plu-code-book --binder /root/produce-plu-code-book/sources/binders/Complete_Till_Binder_-_Nov_2025.xlsx --output /tmp/strawberries-binder --verify-print --booklets
