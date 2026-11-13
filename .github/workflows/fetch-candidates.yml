@@ -6,7 +6,7 @@ on:
       scope:
         description: Entries to acquire (all searches every produce entry)
         type: choice
-        options: [rejected, all]
+        options: [rejected, all, owner-urls]
         default: rejected
       per_entry:
         description: Candidate limit per entry (1 to 5)
@@ -24,6 +24,7 @@ permissions:
 
 jobs:
   fetch:
+    if: inputs.scope != 'owner-urls'
     runs-on: ubuntu-latest
     timeout-minutes: 90
     strategy:
@@ -98,4 +99,28 @@ jobs:
             ${{ runner.temp }}/produce-candidates/contact-sheet-*.jpg
             ${{ runner.temp }}/produce-candidates/REVIEW.txt
           if-no-files-found: warn
+          retention-days: 7
+  owner-alternatives:
+    if: inputs.scope == 'owner-urls'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements.txt
+      - name: Fetch owner-proposed URLs and mirror basil for review
+        run: |
+          python tools/fetch_owner_alternatives.py \
+            --manifest data/review-references/owner-alternate-urls.json \
+            --output "$RUNNER_TEMP/owner-alternatives"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: owner-alternatives-unverified
+          path: ${{ runner.temp }}/owner-alternatives/
+          if-no-files-found: error
           retention-days: 7
