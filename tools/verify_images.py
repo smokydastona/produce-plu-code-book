@@ -43,6 +43,9 @@ OWNER_CONFIRMED_PERMISSION_ASSETS = {
     ("0e90773e3a6c7f59866cec2e342659de0330b5a4ee76449e4203b72cb9523b6f",
      "4723", "Red Creamer Potatoes",
      "e715b10aaa4049d45fad378f21e196bfc305b8d1dc90b8ff46162d7bd632fafd"),
+    ("37d199942d6fd74d002843f3820399b668608b933cda7a9791b2bb4ab24eb5d4",
+     "4074", "Red-Fleshed Sweet Potato",
+     "2ef9f5b01cd9e311877e44de695382686e1e4f162dca4e7a8f805c9966a341f4"),
 }
 EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".tif", ".tiff", ".gif",
               ".bmp", ".avif", ".svg"}

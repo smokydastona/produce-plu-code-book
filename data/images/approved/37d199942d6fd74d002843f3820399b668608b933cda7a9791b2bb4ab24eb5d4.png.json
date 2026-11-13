@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "plu": "4074",
+  "product": "Red-Fleshed Sweet Potato",
+  "working_list_id": "2ef9f5b01cd9e311877e44de695382686e1e4f162dca4e7a8f805c9966a341f4",
+  "source_identity_ids": [
+    "0481e67f6d5b84b6296d40f3590e2bee63521ce7e9a8d397d090f93eb31f1448",
+    "a4ca2e065052b367bb2c2bfe278b2c1cef24a93d2f1c15592bc21bb213aa9c90"
+  ],
+  "creator": "Not identified in source",
+  "source_page_url": "https://storage.googleapis.com/images-lnb-prd-8936dd0.lnb.prd.v8.commerce.mi9cloud.com/product-images/00244817000000.png",
+  "original_image_url": "https://storage.googleapis.com/images-lnb-prd-8936dd0.lnb.prd.v8.commerce.mi9cloud.com/product-images/00244817000000.png",
+  "sha256": "37d199942d6fd74d002843f3820399b668608b933cda7a9791b2bb4ab24eb5d4",
+  "width": 1500,
+  "height": 1500,
+  "license": "OWNER_CONFIRMED_PERMISSION",
+  "license_url": "",
+  "attribution": "Owner-provided sweet potato image; creator not identified in source. Owner-confirmed permission for this specific use; no public reuse licence is asserted.",
+  "changes": "Downloaded image unchanged",
+  "approval_status": "CANDIDATE",
+  "visual_approval_status": "APPROVED",
+  "photographic_origin": "VERIFIED_PHOTO",
+  "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+  "rights_evidence": "User confirmed permission to use this exact larger sweet potato image in the public repository and cashier binders. Owner-confirmed, not independently documented.",
+  "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+  "note": "User approved this exact photograph for PLU 4074 under the confirmed permission; not a public reuse licence or blanket approval.",
+  "production_approved_source_id": "2ef9f5b01cd9e311877e44de695382686e1e4f162dca4e7a8f805c9966a341f4"
+}
