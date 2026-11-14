@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "plu": "2159",
+  "product": "Buddha's Hand Organic",
+  "working_list_id": "3eb8f7fad521d56014759c80ccc0b7cbd219d5246301f3b09244e28d860e5d49",
+  "source_identity_ids": [
+    "3eb8f7fad521d56014759c80ccc0b7cbd219d5246301f3b09244e28d860e5d49"
+  ],
+  "creator": "Not individually credited in source",
+  "source_page_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+  "original_image_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+  "sha256": "a6712490d83c8a4c5ffb23a8b073665cf4792bc059687a5c7c2976e2dc637759",
+  "width": 1155,
+  "height": 968,
+  "license": "OWNER_CONFIRMED_PERMISSION",
+  "license_url": "",
+  "attribution": "Copyright Four Seasons Produce; Buck Brand / Deer Creek Heights Ranch specialty citrus infographic. Individual creator not credited; owner-confirmed permission for this use; no public reuse licence is asserted.",
+  "changes": "Supplier image extracted unchanged from the source PDF",
+  "approval_status": "CANDIDATE",
+  "visual_approval_status": "APPROVED",
+  "photographic_origin": "VERIFIED_PHOTO",
+  "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+  "rights_evidence": "Owner confirmed permission from Four Seasons Produce/Buck Brand to use matching supplier images in binders and the repository, as recorded in data/review-references/buck-brand.json. Owner-confirmed, not independently documented.",
+  "production_status": "NOT_APPROVED",
+  "note": "User approved all exact Buck Brand mappings and confirmed all assets are photographs. "
+}

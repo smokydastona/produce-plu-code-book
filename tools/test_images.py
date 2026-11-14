@@ -14,6 +14,9 @@ import verify_images
 from check_image_uniqueness import audit_entries, image_fingerprint, require_unique_entries
 from verify_images import LICENSES, validate
 from organic_watermarks import badge_artwork, is_organic, render_watermark, verified_original, VERSION
+from picklist_catalog import read_assignments
+from sync_picklist import reviewed_image
+from working_list import read_working_list
 
 
 class ImageChecks(unittest.TestCase):
@@ -195,6 +198,26 @@ class ImageChecks(unittest.TestCase):
             with self.subTest(field=field):
                 self.assertFalse(verify_images.owner_permission_metadata(
                     dict(metadata, **{field: "different"})))
+
+    def test_owner_approved_supplier_assignments_match_exact_working_identities(self):
+        root = Path(__file__).resolve().parents[1]
+        items, _ = read_working_list(root)
+        assignments = read_assignments(root / "data/picklist_assignments.json")
+        plus = {"94391", "94306", "94328", "94024", "2159", "94457",
+                "4452", "3110", "93110", "4381", "94381", "94461"}
+        approved = [item for item in items if item["included"] and item["plu"] in plus]
+        self.assertEqual(len(approved), len(plus))
+        for item in approved:
+            with self.subTest(plu=item["plu"]):
+                assignment = assignments[item["source_id"]]
+                candidate = root / assignment["image"]
+                metadata = json.loads(candidate.with_suffix(candidate.suffix + ".json").read_text())
+                self.assertEqual(metadata["working_list_id"], item["source_id"])
+                self.assertEqual(metadata["source_identity_ids"], item["source_ids"])
+                self.assertTrue(verify_images.owner_permission_metadata(metadata))
+                self.assertEqual(reviewed_image(root, item, assignment)[3], [])
+                self.assertFalse(verify_images.owner_permission_assignment(
+                    dict(item, source_id="different"), assignment))
 
     def test_shortest_side_not_longest(self):
         Image.new("RGB", (1000, 499)).save(self.path)

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "plu": "94381",
+  "product": "Organic Oranges Blood",
+  "working_list_id": "a5609a68871339a70827f5abe2cbe78bd847ffe072ce1f9c9a82b30fdfd20030",
+  "source_identity_ids": [
+    "a5609a68871339a70827f5abe2cbe78bd847ffe072ce1f9c9a82b30fdfd20030"
+  ],
+  "creator": "Not individually credited in source",
+  "source_page_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+  "original_image_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+  "sha256": "ff15e902aef020fed0c5ed431ab60de2b9ddca39de9cd4aca703858fd5d0ec55",
+  "width": 1156,
+  "height": 880,
+  "license": "OWNER_CONFIRMED_PERMISSION",
+  "license_url": "",
+  "attribution": "Copyright Four Seasons Produce; Buck Brand / Deer Creek Heights Ranch specialty citrus infographic. Individual creator not credited; owner-confirmed permission for this use; no public reuse licence is asserted.",
+  "changes": "Supplier image extracted unchanged from the source PDF",
+  "approval_status": "CANDIDATE",
+  "visual_approval_status": "APPROVED",
+  "photographic_origin": "VERIFIED_PHOTO",
+  "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+  "rights_evidence": "Owner confirmed permission from Four Seasons Produce/Buck Brand to use matching supplier images in binders and the repository, as recorded in data/review-references/buck-brand.json. Owner-confirmed, not independently documented.",
+  "production_status": "NOT_APPROVED",
+  "note": "User approved all exact Buck Brand mappings and confirmed all assets are photographs. Moro is a blood-orange variety; exact cultivar of store entry remains unconfirmed."
+}

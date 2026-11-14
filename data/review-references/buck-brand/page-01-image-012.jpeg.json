@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "plu": "94306",
+  "product": "Organic Limes Sweet",
+  "working_list_id": "ec75ae9646144d0482811aedbf930241176c867a2667f80bd7f97a884834ae25",
+  "source_identity_ids": [
+    "ec75ae9646144d0482811aedbf930241176c867a2667f80bd7f97a884834ae25"
+  ],
+  "creator": "Not individually credited in source",
+  "source_page_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+  "original_image_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+  "sha256": "34a88ed354f1f4376c8f6a39fd522d3c427a5e85350ce93bb37c92b25dd39d4a",
+  "width": 1155,
+  "height": 952,
+  "license": "OWNER_CONFIRMED_PERMISSION",
+  "license_url": "",
+  "attribution": "Copyright Four Seasons Produce; Buck Brand / Deer Creek Heights Ranch specialty citrus infographic. Individual creator not credited; owner-confirmed permission for this use; no public reuse licence is asserted.",
+  "changes": "Supplier image extracted unchanged from the source PDF",
+  "approval_status": "CANDIDATE",
+  "visual_approval_status": "APPROVED",
+  "photographic_origin": "VERIFIED_PHOTO",
+  "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+  "rights_evidence": "Owner confirmed permission from Four Seasons Produce/Buck Brand to use matching supplier images in binders and the repository, as recorded in data/review-references/buck-brand.json. Owner-confirmed, not independently documented.",
+  "production_status": "NOT_APPROVED",
+  "note": "User approved all exact Buck Brand mappings and confirmed all assets are photographs. "
+}

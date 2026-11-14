@@ -27,12 +27,12 @@
     "AI_ILLUSTRATION_REFERENCE_REVIEW": 125,
     "SUPPLIED_AI_CROP_REVIEW": 96,
     "SUPPLIED_REFERENCE_REVIEW": 270,
-    "MISSING": 35,
-    "APPROVED_WORKINGLIST_IMAGE": 13,
-    "SUPPLIER_REFERENCE_REVIEW": 11
+    "MISSING": 34,
+    "APPROVED_WORKINGLIST_IMAGE": 24,
+    "SUPPLIER_REFERENCE_REVIEW": 1
   },
-  "embedded_references": 515,
-  "missing_or_uncertain_images": 35,
+  "embedded_references": 516,
+  "missing_or_uncertain_images": 34,
   "ai_illustrations_embedded": 221,
   "ai_illustrations_omitted": 0,
   "new_ai_crops_embedded": 96,
@@ -49,30 +49,30 @@
     "included_records": 596,
     "excluded_records": 76,
     "status": "BLOCKED",
-    "records_needing_review": 537,
-    "missing_image_requests": 35,
+    "records_needing_review": 526,
+    "missing_image_requests": 34,
     "inactive_assignments": 95,
     "organic_placements_needing_review": 91,
     "working_list_review_records": 2,
     "identity_changed_entries": 48,
     "blocker_counts": {
-      "APPROVED_IMAGE_REQUIRED": 35,
-      "BELOW_500_PX": 500,
+      "APPROVED_IMAGE_REQUIRED": 34,
+      "BELOW_500_PX": 490,
       "CLASSIFICATION_REQUIRED": 5,
-      "IMAGE_RIGHTS_NOT_VERIFIED": 502,
-      "MISSING_PROVENANCE_ATTRIBUTION": 502,
-      "MISSING_PROVENANCE_CHANGES": 502,
-      "MISSING_PROVENANCE_CREATOR": 502,
-      "MISSING_PROVENANCE_LICENSE_URL": 502,
-      "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL": 502,
-      "MISSING_PROVENANCE_RIGHTS_EVIDENCE": 502,
-      "MISSING_PROVENANCE_SOURCE_PAGE_URL": 502,
-      "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED": 502,
-      "PRODUCT_IMAGE_REVIEW_REQUIRED": 35,
-      "PROHIBITED_IMAGE_REUSE": 329,
+      "IMAGE_RIGHTS_NOT_VERIFIED": 492,
+      "MISSING_PROVENANCE_ATTRIBUTION": 492,
+      "MISSING_PROVENANCE_CHANGES": 492,
+      "MISSING_PROVENANCE_CREATOR": 492,
+      "MISSING_PROVENANCE_LICENSE_URL": 492,
+      "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL": 492,
+      "MISSING_PROVENANCE_RIGHTS_EVIDENCE": 492,
+      "MISSING_PROVENANCE_SOURCE_PAGE_URL": 492,
+      "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED": 492,
+      "PRODUCT_IMAGE_REVIEW_REQUIRED": 34,
+      "PROHIBITED_IMAGE_REUSE": 324,
       "SECTION_REQUIRED": 5,
-      "SUPPORTED_IMAGE_LICENCE_REQUIRED": 502,
-      "VISUAL_APPROVAL_REQUIRED": 130,
+      "SUPPORTED_IMAGE_LICENCE_REQUIRED": 492,
+      "VISUAL_APPROVAL_REQUIRED": 125,
       "WORKING_LIST_REVIEW_REQUIRED": 2
     }
   },
@@ -389,7 +389,7 @@
       ],
       "worksheets_preserved": 14,
       "produce_records_verified": 550,
-      "produce_images_verified": 515,
+      "produce_images_verified": 516,
       "original_parts_checked": 104,
       "original_parts_byte_identical": 99,
       "unrelated_package_parts_byte_identical": true,
@@ -398,7 +398,7 @@
       "internal_relationships_valid": true,
       "exact_text_codes_and_descriptions": true,
       "duplicate_highlights_verified": true,
-      "file_sha256": "75f13246674e085a0b22da3f61acef51683c2dff57a10f6215bad33a26bd6611"
+      "file_sha256": "03d4b99831cd94644760e99357fa6ffd2d85678d3646575c28111349c61fcfbb"
     }
   },
   "print_validation": {
@@ -422,7 +422,7 @@
       "complete_binder_pdf_pages": 38,
       "every_page_code_count_verified": true,
       "every_description_found": true,
-      "drawn_images": 515,
+      "drawn_images": 516,
       "preview_pdf": "print-previews/Produce - photos.pdf",
       "visual_review": "REQUIRED; automated text/geometry checks are not a visual print approval"
     }
@@ -439,7 +439,7 @@
   "review_booklets": {
     "Fruit": {
       "records": 269,
-      "images": 253,
+      "images": 254,
       "exact_docx_and_excel_text": true,
       "embedded_image_bytes_and_anchors": true,
       "cashier_image_labels_absent": true,
@@ -447,7 +447,7 @@
       "excel_planned_pages": 5,
       "pdf": {
         "pages": 45,
-        "drawn_images": 253,
+        "drawn_images": 254,
         "exact_printed_codes": true,
         "every_description_on_planned_page": true,
         "landscape_us_letter": true

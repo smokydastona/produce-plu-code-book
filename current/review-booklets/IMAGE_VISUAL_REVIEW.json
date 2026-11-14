@@ -2,6 +2,7 @@
   "status": "VISUAL_REVIEW_COMPLETE_PRODUCTION_BLOCKED",
   "production_publication": "BLOCKED",
   "scope": "Visual product-image suitability only for the 48 changed WorkingList identities. No rights, photographic-origin, licence, resolution, variety, or production approvals are granted.",
+  "scope_note": "This JSON records the initial visual-only review; subsequent exact-image approvals and blockers are recorded separately in IMAGE_VISUAL_REVIEW_SUPPLEMENTS.csv and current PHOTO_MAPPING.csv.",
   "source": "sources/plu/PickList.xml",
   "source_sha256": "462db3121094008cd1dd5ea2c5836ca4b24de077edb8982c0f43149edbaf2cbb",
   "reviewed_working_list_entries": 48,

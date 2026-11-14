@@ -555,6 +555,35 @@ class PickListSyncChecks(unittest.TestCase):
         self.assertEqual(self.source.read_bytes(), source_before)
         self.assertEqual(reconcile(self.root, self.output)[3]["status"], "READY_TO_BUILD")
 
+    def test_explicit_organic_reuse_keeps_separate_product_sidecars(self):
+        self.write_source([("03283", "Honeycrisp Apple", True),
+                           ("93283", "Organic Honeycrisp Apple", True)])
+        items, _ = read_picklist(self.source)
+        self.register_current_source(items)
+        self.write_assignments([])
+        rebuild_working_list(self.root, self.output)
+        self.candidate_metadata()
+        approve(self.root, items[0]["source_id"], self.image, "Fruit", "Apples",
+                self.digest, "Reviewed photo and rights")
+        metadata_path = self.image.with_suffix(".png.json")
+        metadata = json.loads(metadata_path.read_text())
+        metadata.update(plu="93283", product="Organic Honeycrisp Apple")
+        metadata_path.write_text(json.dumps(metadata))
+        approve(self.root, items[1]["source_id"], self.image, "Fruit", "Apples",
+                self.digest, "Reviewed organic reuse and rights", reuse_from=items[0]["source_id"])
+        assignments = read_assignments(self.root / "data/picklist_assignments.json")
+        conventional = self.root / assignments[items[0]["source_id"]]["image"]
+        organic = self.root / assignments[items[1]["source_id"]]["image"]
+        self.assertNotEqual(conventional, organic)
+        self.assertEqual(conventional.read_bytes(), organic.read_bytes())
+        self.assertEqual(json.loads(conventional.with_suffix(".png.json").read_text())["product"],
+                         "Honeycrisp Apple")
+        self.assertEqual(json.loads(organic.with_suffix(".png.json").read_text())["product"],
+                         "Organic Honeycrisp Apple")
+        rows, _, _, _ = reconcile(self.root, self.output)
+        self.assertTrue(all("PROHIBITED_IMAGE_REUSE" not in row["blockers"] for row in rows))
+        self.assertEqual(reconcile(self.root, self.output)[3]["status"], "READY_TO_BUILD")
+
     def test_changed_working_identity_can_receive_a_fresh_image_approval(self):
         source_item = self.items[0]
         self.write_registry(self.items, decisions=[dict(

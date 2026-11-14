@@ -1573,25 +1573,33 @@
       "source_id": "11708d7532a1b588bd7ceed66d1504c9d9e0bcede00bc796db8ced3e28a5fe5a"
     },
     {
+      "source_id": "d47cb3f64984aa177f5ea1cd3b535e05d175cddf888fdc54d740c292ffadd5b4",
       "book": "Fruit",
       "section": "Organic Fruit",
-      "image": "data/images/Fruit/0267_94457.png",
+      "image": "data/images/approved/6c503d6389284ea7d2075c7d6e8d8a7c532a685a875bb8d3cde8a51dba905d02.jpeg",
       "image_mode": "PHOTO",
       "reviewed_plu": "94457",
       "reviewed_product": "Organic Oranges TDE Tangerine",
-      "visual_approval_status": "NOT_APPROVED",
-      "photographic_origin": "NOT_VERIFIED",
-      "rights_verification_status": "NOT_VERIFIED",
-      "provenance": {},
-      "legacy_entry_idx": "267",
-      "migration_note": "Existing visual verdict preserved; original source/rights not verified.",
-      "legacy_organic_original": {
-        "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
-        "source_member": "word/media/image40.jpg",
-        "original_sha256": "5d77c12d5d63e8d360dc2f2bfadc832b42e1be0809ffa8abaad89b02740d0541"
+      "working_source_ids": [
+        "d47cb3f64984aa177f5ea1cd3b535e05d175cddf888fdc54d740c292ffadd5b4"
+      ],
+      "working_decision_id": "",
+      "image_sha256": "6c503d6389284ea7d2075c7d6e8d8a7c532a685a875bb8d3cde8a51dba905d02",
+      "photographic_origin": "VERIFIED_PHOTO",
+      "visual_approval_status": "APPROVED",
+      "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+      "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+      "provenance": {
+        "creator": "Not individually credited in source",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+        "original_image_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+        "attribution": "Copyright Four Seasons Produce; Buck Brand / Deer Creek Heights Ranch specialty citrus infographic. Individual creator not credited; owner-confirmed permission for this use; no public reuse licence is asserted.",
+        "changes": "Supplier image extracted unchanged from the source PDF",
+        "rights_evidence": "Owner confirmed permission from Four Seasons Produce/Buck Brand to use matching supplier images in binders and the repository, as recorded in data/review-references/buck-brand.json. Owner-confirmed, not independently documented."
       },
-      "image_sha256": "5d77c12d5d63e8d360dc2f2bfadc832b42e1be0809ffa8abaad89b02740d0541",
-      "source_id": "d47cb3f64984aa177f5ea1cd3b535e05d175cddf888fdc54d740c292ffadd5b4"
+      "reuse_from_source_id": ""
     },
     {
       "book": "Vegetable",
@@ -5295,25 +5303,33 @@
       "source_id": "76d5d67cb80ddd19b839e950e55c73ea5461c64927e9247296c6e2520d282e56"
     },
     {
+      "source_id": "9ce718ddee1ef98686a90f61238eca2c28f77cc582493ce43f2e3b5309d7749f",
       "book": "Fruit",
       "section": "Organic Fruit",
-      "image": "data/images/Fruit/0232_94328.png",
+      "image": "data/images/approved/3edffb9954c971ff3893d3019d4e74cd6ff7148f9f2fce0257211dd059d59c32.jpeg",
       "image_mode": "PHOTO",
       "reviewed_plu": "94328",
       "reviewed_product": "Organic Limequats",
+      "working_source_ids": [
+        "9ce718ddee1ef98686a90f61238eca2c28f77cc582493ce43f2e3b5309d7749f"
+      ],
+      "working_decision_id": "",
+      "image_sha256": "3edffb9954c971ff3893d3019d4e74cd6ff7148f9f2fce0257211dd059d59c32",
+      "photographic_origin": "VERIFIED_PHOTO",
       "visual_approval_status": "APPROVED",
-      "photographic_origin": "NOT_VERIFIED",
-      "rights_verification_status": "NOT_VERIFIED",
-      "provenance": {},
-      "legacy_entry_idx": "232",
-      "migration_note": "Existing visual verdict preserved; original source/rights not verified.",
-      "legacy_organic_original": {
-        "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
-        "source_member": "word/media/image120.jpg",
-        "original_sha256": "d667d342aa66230ec4672b5ad33211d3d079b02ab79d48f25a3afe9df72c008c"
+      "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+      "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+      "provenance": {
+        "creator": "Not individually credited in source",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+        "original_image_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+        "attribution": "Copyright Four Seasons Produce; Buck Brand / Deer Creek Heights Ranch specialty citrus infographic. Individual creator not credited; owner-confirmed permission for this use; no public reuse licence is asserted.",
+        "changes": "Supplier image extracted unchanged from the source PDF",
+        "rights_evidence": "Owner confirmed permission from Four Seasons Produce/Buck Brand to use matching supplier images in binders and the repository, as recorded in data/review-references/buck-brand.json. Owner-confirmed, not independently documented."
       },
-      "image_sha256": "d667d342aa66230ec4672b5ad33211d3d079b02ab79d48f25a3afe9df72c008c",
-      "source_id": "9ce718ddee1ef98686a90f61238eca2c28f77cc582493ce43f2e3b5309d7749f"
+      "reuse_from_source_id": ""
     },
     {
       "book": "Fruit",
@@ -5337,46 +5353,62 @@
       "source_id": "bfdacc2fd0c41bdb49bc7ab7de89b6067d44b96f52cc79753d959cefb0549a2d"
     },
     {
+      "source_id": "263fbf19ac6ed17b90317d37dcc9386e707322d093696c74925e49bab92bfdf9",
       "book": "Fruit",
       "section": "Organic Fruit",
-      "image": "data/images/Fruit/0234_94024.png",
+      "image": "data/images/approved/bf94230f222a96dd60a6f3f2e7089affe1275fcf12c66fa595cfd7ede902b8cf.jpeg",
       "image_mode": "PHOTO",
       "reviewed_plu": "94024",
       "reviewed_product": "Organic Limes Finger",
+      "working_source_ids": [
+        "263fbf19ac6ed17b90317d37dcc9386e707322d093696c74925e49bab92bfdf9"
+      ],
+      "working_decision_id": "",
+      "image_sha256": "bf94230f222a96dd60a6f3f2e7089affe1275fcf12c66fa595cfd7ede902b8cf",
+      "photographic_origin": "VERIFIED_PHOTO",
       "visual_approval_status": "APPROVED",
-      "photographic_origin": "NOT_VERIFIED",
-      "rights_verification_status": "NOT_VERIFIED",
-      "provenance": {},
-      "legacy_entry_idx": "234",
-      "migration_note": "Existing visual verdict preserved; original source/rights not verified.",
-      "legacy_organic_original": {
-        "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
-        "source_member": "word/media/image121.jpg",
-        "original_sha256": "6695692e82f46bd0475fd9882751c9c4ce703f6fe52a797d2707be64fc5e028f"
+      "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+      "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+      "provenance": {
+        "creator": "Not individually credited in source",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+        "original_image_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+        "attribution": "Copyright Four Seasons Produce; Buck Brand / Deer Creek Heights Ranch specialty citrus infographic. Individual creator not credited; owner-confirmed permission for this use; no public reuse licence is asserted.",
+        "changes": "Supplier image extracted unchanged from the source PDF",
+        "rights_evidence": "Owner confirmed permission from Four Seasons Produce/Buck Brand to use matching supplier images in binders and the repository, as recorded in data/review-references/buck-brand.json. Owner-confirmed, not independently documented."
       },
-      "image_sha256": "6695692e82f46bd0475fd9882751c9c4ce703f6fe52a797d2707be64fc5e028f",
-      "source_id": "263fbf19ac6ed17b90317d37dcc9386e707322d093696c74925e49bab92bfdf9"
+      "reuse_from_source_id": ""
     },
     {
+      "source_id": "ec75ae9646144d0482811aedbf930241176c867a2667f80bd7f97a884834ae25",
       "book": "Fruit",
       "section": "Organic Fruit",
-      "image": "data/images/Fruit/0235_94306.png",
+      "image": "data/images/approved/34a88ed354f1f4376c8f6a39fd522d3c427a5e85350ce93bb37c92b25dd39d4a.jpeg",
       "image_mode": "PHOTO",
       "reviewed_plu": "94306",
       "reviewed_product": "Organic Limes Sweet",
-      "visual_approval_status": "NOT_APPROVED",
-      "photographic_origin": "NOT_VERIFIED",
-      "rights_verification_status": "NOT_VERIFIED",
-      "provenance": {},
-      "legacy_entry_idx": "235",
-      "migration_note": "Existing visual verdict preserved; original source/rights not verified.",
-      "legacy_organic_original": {
-        "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
-        "source_member": "word/media/image122.jpg",
-        "original_sha256": "34e0569a45f9683f851481532e75547ffb9649af9aca7ada27f8acbfa84bc8b9"
+      "working_source_ids": [
+        "ec75ae9646144d0482811aedbf930241176c867a2667f80bd7f97a884834ae25"
+      ],
+      "working_decision_id": "",
+      "image_sha256": "34a88ed354f1f4376c8f6a39fd522d3c427a5e85350ce93bb37c92b25dd39d4a",
+      "photographic_origin": "VERIFIED_PHOTO",
+      "visual_approval_status": "APPROVED",
+      "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+      "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+      "provenance": {
+        "creator": "Not individually credited in source",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+        "original_image_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+        "attribution": "Copyright Four Seasons Produce; Buck Brand / Deer Creek Heights Ranch specialty citrus infographic. Individual creator not credited; owner-confirmed permission for this use; no public reuse licence is asserted.",
+        "changes": "Supplier image extracted unchanged from the source PDF",
+        "rights_evidence": "Owner confirmed permission from Four Seasons Produce/Buck Brand to use matching supplier images in binders and the repository, as recorded in data/review-references/buck-brand.json. Owner-confirmed, not independently documented."
       },
-      "image_sha256": "34e0569a45f9683f851481532e75547ffb9649af9aca7ada27f8acbfa84bc8b9",
-      "source_id": "ec75ae9646144d0482811aedbf930241176c867a2667f80bd7f97a884834ae25"
+      "reuse_from_source_id": ""
     },
     {
       "book": "Fruit",
@@ -6009,46 +6041,62 @@
       "source_id": "4d3da4c6dae2ae11d8ad956975ab6a6f519f1c9aea04c22ce00694039d1b74ff"
     },
     {
+      "source_id": "a5609a68871339a70827f5abe2cbe78bd847ffe072ce1f9c9a82b30fdfd20030",
       "book": "Fruit",
       "section": "Organic Fruit",
-      "image": "data/images/Fruit/0257_94381.png",
+      "image": "data/images/approved/ff15e902aef020fed0c5ed431ab60de2b9ddca39de9cd4aca703858fd5d0ec55-a5609a68871339a70827f5abe2cbe78bd847ffe072ce1f9c9a82b30fdfd20030.jpeg",
       "image_mode": "PHOTO",
       "reviewed_plu": "94381",
       "reviewed_product": "Organic Oranges Blood",
+      "working_source_ids": [
+        "a5609a68871339a70827f5abe2cbe78bd847ffe072ce1f9c9a82b30fdfd20030"
+      ],
+      "working_decision_id": "",
+      "image_sha256": "ff15e902aef020fed0c5ed431ab60de2b9ddca39de9cd4aca703858fd5d0ec55",
+      "photographic_origin": "VERIFIED_PHOTO",
       "visual_approval_status": "APPROVED",
-      "photographic_origin": "NOT_VERIFIED",
-      "rights_verification_status": "NOT_VERIFIED",
-      "provenance": {},
-      "legacy_entry_idx": "257",
-      "migration_note": "Existing visual verdict preserved; original source/rights not verified.",
-      "legacy_organic_original": {
-        "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
-        "source_member": "word/media/image42.jpg",
-        "original_sha256": "b397f9102bb26231acfd62b064be19ed2437e09b021c982272575d3eb180f534"
+      "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+      "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+      "provenance": {
+        "creator": "Not individually credited in source",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+        "original_image_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+        "attribution": "Copyright Four Seasons Produce; Buck Brand / Deer Creek Heights Ranch specialty citrus infographic. Individual creator not credited; owner-confirmed permission for this use; no public reuse licence is asserted.",
+        "changes": "Supplier image extracted unchanged from the source PDF",
+        "rights_evidence": "Owner confirmed permission from Four Seasons Produce/Buck Brand to use matching supplier images in binders and the repository, as recorded in data/review-references/buck-brand.json. Owner-confirmed, not independently documented."
       },
-      "image_sha256": "b397f9102bb26231acfd62b064be19ed2437e09b021c982272575d3eb180f534",
-      "source_id": "a5609a68871339a70827f5abe2cbe78bd847ffe072ce1f9c9a82b30fdfd20030"
+      "reuse_from_source_id": "d602997ac785bdd5a07d6443cd9bdc1b0624ca1cbaa0c52224f7b41521842900"
     },
     {
+      "source_id": "5a2f29a91bd52b9ec429214d6616258c14d2b2426d7d148b2e867c5126a98b34",
       "book": "Fruit",
       "section": "Organic Fruit",
-      "image": "data/images/Fruit/0258_93110.png",
+      "image": "data/images/approved/8121d470b27fe433b4a1643663f74e8ac57e6468b85b50cffce1605b14e81b35-5a2f29a91bd52b9ec429214d6616258c14d2b2426d7d148b2e867c5126a98b34.jpeg",
       "image_mode": "PHOTO",
       "reviewed_plu": "93110",
       "reviewed_product": "Organic Oranges Cara Cara",
-      "visual_approval_status": "NOT_APPROVED",
-      "photographic_origin": "NOT_VERIFIED",
-      "rights_verification_status": "NOT_VERIFIED",
-      "provenance": {},
-      "legacy_entry_idx": "258",
-      "migration_note": "Existing visual verdict preserved; original source/rights not verified.",
-      "legacy_organic_original": {
-        "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
-        "source_member": "word/media/image41.jpg",
-        "original_sha256": "bedc860ce3e5015592eff30a9fb13fa6f43d034aea1b5b22a710c9b0e43ae903"
+      "working_source_ids": [
+        "5a2f29a91bd52b9ec429214d6616258c14d2b2426d7d148b2e867c5126a98b34"
+      ],
+      "working_decision_id": "",
+      "image_sha256": "8121d470b27fe433b4a1643663f74e8ac57e6468b85b50cffce1605b14e81b35",
+      "photographic_origin": "VERIFIED_PHOTO",
+      "visual_approval_status": "APPROVED",
+      "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+      "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+      "provenance": {
+        "creator": "Not individually credited in source",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+        "original_image_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+        "attribution": "Copyright Four Seasons Produce; Buck Brand / Deer Creek Heights Ranch specialty citrus infographic. Individual creator not credited; owner-confirmed permission for this use; no public reuse licence is asserted.",
+        "changes": "Supplier image extracted unchanged from the source PDF",
+        "rights_evidence": "Owner confirmed permission from Four Seasons Produce/Buck Brand to use matching supplier images in binders and the repository, as recorded in data/review-references/buck-brand.json. Owner-confirmed, not independently documented."
       },
-      "image_sha256": "bedc860ce3e5015592eff30a9fb13fa6f43d034aea1b5b22a710c9b0e43ae903",
-      "source_id": "5a2f29a91bd52b9ec429214d6616258c14d2b2426d7d148b2e867c5126a98b34"
+      "reuse_from_source_id": "094a1dd4aefa28808c726d1a3641318b98d543ca432c9298959bd029a00060af"
     },
     {
       "book": "Fruit",
@@ -7917,20 +7965,33 @@
       "source_id": "691adc0127ade54b099f1de6f35cd79860413884ac166bf2ff452a43c3a5c954"
     },
     {
+      "source_id": "659bfcee94a828f4029651998bac7a7bf8f4354d76f1da45f7c2093325739d14",
       "book": "Fruit",
       "section": "Citrus",
-      "image": "data/images/Fruit/0066_4452.jpg",
+      "image": "data/images/approved/21b534af24521b7fdf1e951a42b97bf744d8fcecbf6d9ba3535bbf978e6035bb.jpeg",
       "image_mode": "PHOTO",
       "reviewed_plu": "4452",
       "reviewed_product": "Tangerine Fairchild",
-      "visual_approval_status": "NOT_APPROVED",
-      "photographic_origin": "NOT_VERIFIED",
-      "rights_verification_status": "NOT_VERIFIED",
-      "provenance": {},
-      "legacy_entry_idx": "66",
-      "migration_note": "Existing visual verdict preserved; original source/rights not verified.",
-      "image_sha256": "5d77c12d5d63e8d360dc2f2bfadc832b42e1be0809ffa8abaad89b02740d0541",
-      "source_id": "659bfcee94a828f4029651998bac7a7bf8f4354d76f1da45f7c2093325739d14"
+      "working_source_ids": [
+        "659bfcee94a828f4029651998bac7a7bf8f4354d76f1da45f7c2093325739d14"
+      ],
+      "working_decision_id": "",
+      "image_sha256": "21b534af24521b7fdf1e951a42b97bf744d8fcecbf6d9ba3535bbf978e6035bb",
+      "photographic_origin": "VERIFIED_PHOTO",
+      "visual_approval_status": "APPROVED",
+      "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+      "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+      "provenance": {
+        "creator": "Not individually credited in source",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+        "original_image_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+        "attribution": "Copyright Four Seasons Produce; Buck Brand / Deer Creek Heights Ranch specialty citrus infographic. Individual creator not credited; owner-confirmed permission for this use; no public reuse licence is asserted.",
+        "changes": "Supplier image extracted unchanged from the source PDF",
+        "rights_evidence": "Owner confirmed permission from Four Seasons Produce/Buck Brand to use matching supplier images in binders and the repository, as recorded in data/review-references/buck-brand.json. Owner-confirmed, not independently documented."
+      },
+      "reuse_from_source_id": ""
     },
     {
       "book": "Fruit",
@@ -9953,62 +10014,91 @@
       "source_id": "6768412b474e808af9dd33605121057979a73a968515c56f187aa202b9afad70"
     },
     {
+      "source_id": "d602997ac785bdd5a07d6443cd9bdc1b0624ca1cbaa0c52224f7b41521842900",
       "book": "Fruit",
       "section": "Citrus",
-      "image": "data/images/Fruit/0056_4381.jpg",
+      "image": "data/images/approved/ff15e902aef020fed0c5ed431ab60de2b9ddca39de9cd4aca703858fd5d0ec55.jpeg",
       "image_mode": "PHOTO",
       "reviewed_plu": "4381",
       "reviewed_product": "Oranges Blood",
+      "working_source_ids": [
+        "d602997ac785bdd5a07d6443cd9bdc1b0624ca1cbaa0c52224f7b41521842900"
+      ],
+      "working_decision_id": "",
+      "image_sha256": "ff15e902aef020fed0c5ed431ab60de2b9ddca39de9cd4aca703858fd5d0ec55",
+      "photographic_origin": "VERIFIED_PHOTO",
       "visual_approval_status": "APPROVED",
-      "photographic_origin": "NOT_VERIFIED",
-      "rights_verification_status": "NOT_VERIFIED",
-      "provenance": {},
-      "legacy_entry_idx": "56",
-      "migration_note": "Existing visual verdict preserved; original source/rights not verified.",
-      "image_sha256": "b397f9102bb26231acfd62b064be19ed2437e09b021c982272575d3eb180f534",
-      "source_id": "d602997ac785bdd5a07d6443cd9bdc1b0624ca1cbaa0c52224f7b41521842900"
+      "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+      "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+      "provenance": {
+        "creator": "Not individually credited in source",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+        "original_image_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+        "attribution": "Copyright Four Seasons Produce; Buck Brand / Deer Creek Heights Ranch specialty citrus infographic. Individual creator not credited; owner-confirmed permission for this use; no public reuse licence is asserted.",
+        "changes": "Supplier image extracted unchanged from the source PDF",
+        "rights_evidence": "Owner confirmed permission from Four Seasons Produce/Buck Brand to use matching supplier images in binders and the repository, as recorded in data/review-references/buck-brand.json. Owner-confirmed, not independently documented."
+      },
+      "reuse_from_source_id": ""
     },
     {
+      "source_id": "3eb8f7fad521d56014759c80ccc0b7cbd219d5246301f3b09244e28d860e5d49",
       "book": "Fruit",
       "section": "Citrus",
-      "image": "data/images/Fruit/0042_2159.png",
+      "image": "data/images/approved/a6712490d83c8a4c5ffb23a8b073665cf4792bc059687a5c7c2976e2dc637759.jpeg",
       "image_mode": "PHOTO",
       "reviewed_plu": "2159",
       "reviewed_product": "Buddha's Hand Organic",
+      "working_source_ids": [
+        "3eb8f7fad521d56014759c80ccc0b7cbd219d5246301f3b09244e28d860e5d49"
+      ],
+      "working_decision_id": "",
+      "image_sha256": "a6712490d83c8a4c5ffb23a8b073665cf4792bc059687a5c7c2976e2dc637759",
+      "photographic_origin": "VERIFIED_PHOTO",
       "visual_approval_status": "APPROVED",
-      "photographic_origin": "NOT_VERIFIED",
-      "rights_verification_status": "NOT_VERIFIED",
-      "provenance": {},
-      "legacy_entry_idx": "42",
-      "migration_note": "Existing visual verdict preserved; original source/rights not verified.",
-      "legacy_organic_original": {
-        "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
-        "source_member": "word/media/image34.jpg",
-        "original_sha256": "8dc63b4f8b0c74b292c6282e45bb21705c4fb1a521d5ab0b9f200a5979139ae7"
+      "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+      "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+      "provenance": {
+        "creator": "Not individually credited in source",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+        "original_image_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+        "attribution": "Copyright Four Seasons Produce; Buck Brand / Deer Creek Heights Ranch specialty citrus infographic. Individual creator not credited; owner-confirmed permission for this use; no public reuse licence is asserted.",
+        "changes": "Supplier image extracted unchanged from the source PDF",
+        "rights_evidence": "Owner confirmed permission from Four Seasons Produce/Buck Brand to use matching supplier images in binders and the repository, as recorded in data/review-references/buck-brand.json. Owner-confirmed, not independently documented."
       },
-      "image_sha256": "8dc63b4f8b0c74b292c6282e45bb21705c4fb1a521d5ab0b9f200a5979139ae7",
-      "source_id": "3eb8f7fad521d56014759c80ccc0b7cbd219d5246301f3b09244e28d860e5d49"
+      "reuse_from_source_id": ""
     },
     {
+      "source_id": "b85f1d9517fde1a6f8334781cf8799616ebf7c822d34e20c03178b60227711e3",
       "book": "Fruit",
       "section": "Organic Fruit",
-      "image": "data/images/Fruit/0260_94391.png",
+      "image": "data/images/approved/e957069f56770ce00ecc19dc6667863f0b0da38270c50bdc262acbf2e4811815.jpeg",
       "image_mode": "PHOTO",
       "reviewed_plu": "94391",
       "reviewed_product": "Organic Oranges Mango",
-      "visual_approval_status": "NOT_APPROVED",
-      "photographic_origin": "NOT_VERIFIED",
-      "rights_verification_status": "NOT_VERIFIED",
-      "provenance": {},
-      "legacy_entry_idx": "260",
-      "migration_note": "Existing visual verdict preserved; original source/rights not verified.",
-      "legacy_organic_original": {
-        "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
-        "source_member": "word/media/image40.jpg",
-        "original_sha256": "5d77c12d5d63e8d360dc2f2bfadc832b42e1be0809ffa8abaad89b02740d0541"
+      "working_source_ids": [
+        "b85f1d9517fde1a6f8334781cf8799616ebf7c822d34e20c03178b60227711e3"
+      ],
+      "working_decision_id": "",
+      "image_sha256": "e957069f56770ce00ecc19dc6667863f0b0da38270c50bdc262acbf2e4811815",
+      "photographic_origin": "VERIFIED_PHOTO",
+      "visual_approval_status": "APPROVED",
+      "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+      "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+      "provenance": {
+        "creator": "Not individually credited in source",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+        "original_image_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+        "attribution": "Copyright Four Seasons Produce; Buck Brand / Deer Creek Heights Ranch specialty citrus infographic. Individual creator not credited; owner-confirmed permission for this use; no public reuse licence is asserted.",
+        "changes": "Supplier image extracted unchanged from the source PDF",
+        "rights_evidence": "Owner confirmed permission from Four Seasons Produce/Buck Brand to use matching supplier images in binders and the repository, as recorded in data/review-references/buck-brand.json. Owner-confirmed, not independently documented."
       },
-      "image_sha256": "5d77c12d5d63e8d360dc2f2bfadc832b42e1be0809ffa8abaad89b02740d0541",
-      "source_id": "b85f1d9517fde1a6f8334781cf8799616ebf7c822d34e20c03178b60227711e3"
+      "reuse_from_source_id": ""
     },
     {
       "book": "Fruit",
@@ -11475,6 +11565,36 @@
         "source_page_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
         "original_image_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
         "attribution": "Copyright Four Seasons Produce; Buck Brand / Deer Creek Heights Ranch specialty citrus infographic. Individual creator not credited. Owner-confirmed permission for this specific use; no public reuse licence is asserted.",
+        "changes": "Supplier image extracted unchanged from the source PDF",
+        "rights_evidence": "Owner confirmed permission from Four Seasons Produce/Buck Brand to use matching supplier images in binders and the repository, as recorded in data/review-references/buck-brand.json. Owner-confirmed, not independently documented."
+      },
+      "reuse_from_source_id": ""
+    },
+    {
+      "source_id": "70302e03e25f7912c941786ccd9d7f260f68dd1a7115af3a617aacada7d21c02",
+      "book": "Fruit",
+      "section": "Organic Fruit",
+      "image": "data/images/approved/df4aa3deb6125ea2bfd521bf24e478fb30cd74a8305776acfe89790fa68d1726.jpeg",
+      "image_mode": "PHOTO",
+      "reviewed_plu": "94461",
+      "reviewed_product": "Organic Shaddock (Pomelo)",
+      "working_source_ids": [
+        "e7105783128c26e52ad5e13edabb2670f587faccbec4a0fb67d276a12f18c3aa",
+        "22a452eb045d6bdf739074e6ee440f494868fa206b45eb8dc638b98046b558ca"
+      ],
+      "working_decision_id": "94461",
+      "image_sha256": "df4aa3deb6125ea2bfd521bf24e478fb30cd74a8305776acfe89790fa68d1726",
+      "photographic_origin": "VERIFIED_PHOTO",
+      "visual_approval_status": "APPROVED",
+      "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+      "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+      "provenance": {
+        "creator": "Not individually credited in source",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+        "original_image_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+        "attribution": "Copyright Four Seasons Produce; Buck Brand / Deer Creek Heights Ranch specialty citrus infographic. Individual creator not credited; owner-confirmed permission for this use; no public reuse licence is asserted.",
         "changes": "Supplier image extracted unchanged from the source PDF",
         "rights_evidence": "Owner confirmed permission from Four Seasons Produce/Buck Brand to use matching supplier images in binders and the repository, as recorded in data/review-references/buck-brand.json. Owner-confirmed, not independently documented."
       },

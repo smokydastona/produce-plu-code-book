@@ -40,6 +40,9 @@ def approve(root, source_id, candidate, book, section, source_sha, evidence,
         raise ValueError("candidate checksum does not match captured provenance")
     if (metadata.get("plu"), metadata.get("product")) != (item["plu"], item["name"]):
         raise ValueError("candidate provenance does not identify this exact product and PLU")
+    if (metadata.get("rights_verification_status") == "OWNER_CONFIRMED_PERMISSION" and
+            metadata.get("working_list_id") != source_id):
+        raise ValueError("owner-confirmed candidate provenance does not identify this WorkingList entry")
     if reuse_from:
         if not organic(item) or reuse_from not in included or reuse_from not in assignments:
             raise ValueError("reuse requires an organic entry and an assigned current counterpart")
@@ -49,7 +52,8 @@ def approve(root, source_id, candidate, book, section, source_sha, evidence,
             raise ValueError("reuse counterpart must be conventional and in the same booklet")
         if image_fingerprint(io.BytesIO(original_image(root, reference))) != image_fingerprint(io.BytesIO(content)):
             raise ValueError("reuse counterpart has a different original photograph")
-    destination = root / "data/images/approved" / (checksum + candidate.suffix.lower())
+    filename = checksum + ("-" + source_id if reuse_from else "") + candidate.suffix.lower()
+    destination = root / "data/images/approved" / filename
     destination.parent.mkdir(parents=True, exist_ok=True)
     if destination.exists() and destination.read_bytes() != content:
         raise ValueError("destination exists with different content")
