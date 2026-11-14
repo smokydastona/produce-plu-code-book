@@ -3401,20 +3401,36 @@
       "source_id": "9a2f20feefdd0c7ef86513fd41dc2b78844b48f370199e9cbb9ce254682fb94f"
     },
     {
+      "source_id": "d9d0d4fc2a854301cbc2e2c42029f8f4b9a0ef9dbcaae1377fbad66e3ae40df2",
       "book": "Vegetable",
       "section": "Potatoes",
-      "image": "data/images/Vegetable/0363_4073.jpg",
+      "image": "data/images/approved/9742ae5c3dcaccd4880360fff36c661e9b0e6c8810f51d7899acef01aade32c6.png",
       "image_mode": "PHOTO",
       "reviewed_plu": "4073",
       "reviewed_product": "Potato Red",
+      "working_source_ids": [
+        "d9d0d4fc2a854301cbc2e2c42029f8f4b9a0ef9dbcaae1377fbad66e3ae40df2"
+      ],
+      "working_decision_id": "",
+      "image_sha256": "9742ae5c3dcaccd4880360fff36c661e9b0e6c8810f51d7899acef01aade32c6",
+      "photographic_origin": "VERIFIED_PHOTO",
       "visual_approval_status": "APPROVED",
-      "photographic_origin": "NOT_VERIFIED",
-      "rights_verification_status": "NOT_VERIFIED",
-      "provenance": {},
-      "legacy_entry_idx": "363",
-      "migration_note": "Existing visual verdict preserved; original source/rights not verified.",
-      "image_sha256": "452e2387c171c4431f4e36eedbde70cc8f41c0b43be544da6c2a9c21436ccb83",
-      "source_id": "d9d0d4fc2a854301cbc2e2c42029f8f4b9a0ef9dbcaae1377fbad66e3ae40df2"
+      "rights_verification_status": "VERIFIED",
+      "provenance": {
+        "creator": "Not separately identified; ownership attested by user",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "",
+        "original_image_url": "",
+        "source_reference": "Owner-uploaded file: Red_potatoes_02.png (Copilot session attachment; no public source URL supplied)",
+        "rights_status": "OWNER_CONFIRMED_PERMISSION",
+        "photographic_origin_evidence": "User confirmed: \"Yes—it is an actual photograph\" for Red_potatoes_02.png.",
+        "visual_approval_evidence": "Owner supplied this replacement for red potatoes. Visual review shows uncooked red-skinned potatoes, including cut halves, isolated on transparency with no visible watermark. Assigned only to Potato Red, PLU 4073.",
+        "attribution": "Owner-provided image; creator not separately identified",
+        "changes": "Original uploaded image bytes unchanged",
+        "rights_evidence": "User confirmed: \"Yes—I own the rights and approve all those uses\" in response to ownership and permission for public repository distribution, resizing, and booklet use for this specific image."
+      },
+      "reuse_from_source_id": ""
     },
     {
       "book": "Vegetable",
