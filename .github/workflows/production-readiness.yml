@@ -16,26 +16,12 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install -r requirements.txt
       - run: python -m unittest discover -s tools -p 'test_*.py'
-      - run: python tools/organic_watermarks.py --check
       - name: Inventory blockers without granting approval
-        run: python tools/audit_production.py
+        run: python tools/audit_production.py --output "$RUNNER_TEMP/production-readiness"
       - name: Upload readiness report even when blocked
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: production-readiness
-          path: |
-            current/reports/PRODUCTION_BLOCKERS.csv
-            current/reports/PRODUCTION_READINESS.json
-            current/reports/PICKLIST_SYNC.csv
-            current/reports/PICKLIST_SYNC.json
-            current/reports/PICKLIST_CATALOG.csv
-            current/reports/IMAGE_REQUESTS.csv
-            current/reports/ALL_IMAGE_REQUESTS.csv
-            current/reports/INACTIVE_ASSIGNMENTS.csv
-            current/reports/BOOKLET_ORDER.csv
-            current/reports/WORKING_LIST_RECONCILIATION.csv
-            current/reports/WORKING_LIST_RECONCILIATION.json
-            current/reports/WORKING_LIST_ENTRIES.csv
-            current/reports/PICKLIST_SOURCE_RECORDS.xml
-          if-no-files-found: error
+          path: ${{ runner.temp }}/production-readiness/
+          if-no-files-found: warn

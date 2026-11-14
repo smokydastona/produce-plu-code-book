@@ -8,7 +8,7 @@ from pathlib import Path
 
 from check_image_uniqueness import image_fingerprint
 from picklist_catalog import read_assignments
-from sync_picklist import organic, original_image
+from sync_picklist import matching_product, organic, original_image
 from verify_images import OWNER_PERMISSION, validate
 from working_list import read_working_list
 
@@ -53,6 +53,8 @@ def approve(root, source_id, candidate, book, section, source_sha, evidence,
         reference = assignments[reuse_from]
         if organic(counterpart) or reference["book"] != book:
             raise ValueError("reuse counterpart must be conventional and in the same booklet")
+        if not matching_product(item, counterpart):
+            raise ValueError("reuse counterpart must identify the same product")
         if image_fingerprint(io.BytesIO(original_image(root, reference))) != image_fingerprint(io.BytesIO(content)):
             raise ValueError("reuse counterpart has a different original photograph")
     filename = checksum + ("-" + source_id if reuse_from else "") + candidate.suffix.lower()

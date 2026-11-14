@@ -1,18 +1,5 @@
 {
   "status": "BLOCKED",
-  "entries": 597,
-  "organic_entries": 206,
-  "prohibited_duplicate_groups": 103,
-  "entries_with_blockers": 597,
-  "blocker_counts": {
-    "AI_REFERENCE_NOT_PHOTOGRAPH": 150,
-    "BELOW_500_PX": 595,
-    "MISSING_IMAGE_PROVENANCE_AND_RIGHTS_VERIFICATION": 597,
-    "PROHIBITED_IMAGE_REUSE": 365,
-    "VISUAL_APPROXIMATE": 120,
-    "VISUAL_REJECTED": 31
-  },
-  "scope": "Fruit and vegetable image readiness only. Does not certify varieties, organic status, licences, source-code accuracy, or final print layout. Non-produce remains a code-only supplement; final release review is mandatory.",
   "picklist_sync": {
     "source": "sources/plu/PickList.xml",
     "cashier_source": "sources/plu/WorkingList.xml",
@@ -28,6 +15,8 @@
     "inactive_assignments": 96,
     "organic_placements_needing_review": 91,
     "working_list_review_records": 2,
+    "reconciliation_review_records": 2,
+    "reconciliation_review_decisions": 1,
     "identity_changed_entries": 48,
     "blocker_counts": {
       "APPROVED_IMAGE_REQUIRED": 33,
@@ -49,5 +38,22 @@
       "VISUAL_APPROVAL_REQUIRED": 130,
       "WORKING_LIST_REVIEW_REQUIRED": 2
     }
+  },
+  "scope": "Current WorkingList reconciliation and image readiness. Final source, licence, variety and print-layout review is mandatory.",
+  "legacy_image_audit": {
+    "status": "BLOCKED",
+    "entries": 597,
+    "organic_entries": 206,
+    "prohibited_duplicate_groups": 103,
+    "entries_with_blockers": 597,
+    "blocker_counts": {
+      "AI_REFERENCE_NOT_PHOTOGRAPH": 150,
+      "BELOW_500_PX": 595,
+      "MISSING_IMAGE_PROVENANCE_AND_RIGHTS_VERIFICATION": 597,
+      "PROHIBITED_IMAGE_REUSE": 365,
+      "VISUAL_APPROXIMATE": 120,
+      "VISUAL_REJECTED": 31
+    },
+    "scope": "Fruit and vegetable image readiness only. Does not certify varieties, organic status, licences, source-code accuracy, or final print layout. Non-produce remains a code-only supplement; final release review is mandatory."
   }
 }

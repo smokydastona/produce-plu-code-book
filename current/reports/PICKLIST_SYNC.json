@@ -13,6 +13,8 @@
   "inactive_assignments": 96,
   "organic_placements_needing_review": 91,
   "working_list_review_records": 2,
+  "reconciliation_review_records": 2,
+  "reconciliation_review_decisions": 1,
   "identity_changed_entries": 48,
   "blocker_counts": {
     "APPROVED_IMAGE_REQUIRED": 33,

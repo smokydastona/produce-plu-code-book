@@ -95,7 +95,7 @@ def csv_output(path, rows, fields):
 
 def reconcile(root, output):
     _, source_digest = read_picklist(root / "sources/plu/PickList.xml")
-    rebuild_working_list(root, output)
+    _, _, working_summary = rebuild_working_list(root, output)
     items, digest = read_working_list(root)
     if digest != source_digest:
         raise ValueError("WorkingList reconciliation used a different PickList version")
@@ -166,7 +166,8 @@ def reconcile(root, output):
         conventional = [row for row in group if not row["organic"]]
         permitted = len(conventional) == 1 and all(
             row["book"] == conventional[0]["book"] and
-            assignments[row["source_id"]].get("reuse_from_source_id") == conventional[0]["source_id"]
+            assignments[row["source_id"]].get("reuse_from_source_id") == conventional[0]["source_id"] and
+            matching_product(row, conventional[0])
             for row in group if row["organic"])
         if not permitted:
             for row in group:
@@ -201,13 +202,17 @@ def reconcile(root, output):
     csv_output(output / "BOOKLET_ORDER.csv", presentation,
                ["book", "booklet_position", "source_id", "source_position", "plu", "name",
                 "display_section", "placement_status", "counterpart_source_ids", "placement_note"])
+    review_decisions = sum(decision["status"] != "APPLIED_TO_EXACT_SOURCE_IDENTITIES"
+                           for decision in working_summary["decisions"])
     summary = dict(
         source="sources/plu/PickList.xml", cashier_source="sources/plu/WorkingList.xml",
         source_sha256=digest, source_unchanged=True,
         total_xml_records=len(read_picklist(root / "sources/plu/PickList.xml")[0]),
         total_working_records=len(items), included_records=len(rows),
         excluded_records=len(items) - len(rows),
-        status="BLOCKED" if any(row["blockers"] for row in rows) else "READY_TO_BUILD",
+        status="BLOCKED" if (any(row["blockers"] for row in rows) or
+                             working_summary["review_required_records"] or review_decisions)
+               else "READY_TO_BUILD",
         records_needing_review=sum(bool(row["blockers"]) for row in rows),
         missing_image_requests=len(requests), inactive_assignments=len(inactive),
         organic_placements_needing_review=sum(
@@ -216,6 +221,8 @@ def reconcile(root, output):
             row["working_list_status"] not in {
                 "UNCHANGED_SOURCE_IDENTITY", "APPLIED_TO_EXACT_SOURCE_IDENTITIES"
             } for row in items),
+        reconciliation_review_records=working_summary["review_required_records"],
+        reconciliation_review_decisions=review_decisions,
         identity_changed_entries=sum(row["identity_changed"] for row in items),
         blocker_counts=dict(sorted(Counter(
             error for row in rows for error in row["blockers"]).items())),
@@ -238,6 +245,11 @@ def placement_key(name):
                      mangoes="mango", lemons="lemon", limes="lime", yams="yam")
     return tuple(sorted(singulars.get(word, word) for word in words
                         if word not in {"organic", "small", "medium", "large", "sml", "lrg"}))
+
+
+def matching_product(organic_item, conventional_item):
+    organic_key = placement_key(organic_item["name"])
+    return bool(organic_key) and organic_key == placement_key(conventional_item["name"])
 
 
 def organic_display_section(row):

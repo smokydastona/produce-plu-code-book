@@ -144,6 +144,32 @@ class PickListSyncChecks(unittest.TestCase):
         self.assertTrue(self.image.exists())
         self.assertIn("03283", (self.output / "INACTIVE_ASSIGNMENTS.csv").read_text())
 
+    def test_new_hidden_source_identity_blocks_reconciliation(self):
+        self.write_source([
+            ("03283", "Honeycrisp Apple", True), ("42", "New Hidden Item", False),
+        ])
+        rows, _, _, summary = reconcile(self.root, self.output)
+        self.assertEqual(rows[0]["blockers"], [])
+        self.assertEqual(summary["reconciliation_review_records"], 1)
+        self.assertEqual(summary["status"], "BLOCKED")
+
+    def test_removed_decision_sources_block_even_without_a_current_matching_record(self):
+        self.write_source([
+            ("03283", "Honeycrisp Apple", True), ("42", "Pear", True),
+        ])
+        items, _ = read_picklist(self.source)
+        self.digest = hashlib.sha256(self.source.read_bytes()).hexdigest()
+        self.write_registry(items, [dict(
+            plu="03283", source_ids=[items[0]["source_id"]],
+            canonical_name="Honeycrisp Apple", mode="STANDARDIZE",
+        )])
+        self.write_assignments([self.approved_assignment(items[1])])
+        self.write_source([("42", "Pear", True)])
+        rows, _, _, summary = reconcile(self.root, self.output)
+        self.assertEqual(rows[0]["blockers"], [])
+        self.assertEqual(summary["reconciliation_review_decisions"], 1)
+        self.assertEqual(summary["status"], "BLOCKED")
+
     def test_full_candidate_requests_follow_xml_and_skip_only_reviewed_code_only(self):
         self.write_source([
             ("03283", "Honeycrisp Apple", True), ("00042", "New Apple", True),
@@ -182,6 +208,18 @@ class PickListSyncChecks(unittest.TestCase):
         self.assertEqual(self.source.read_bytes(), before)
         self.assertTrue((self.output / "PHOTO_ATTRIBUTIONS.csv").exists())
 
+    def test_current_production_audit_matches_ready_build_without_legacy_booklets(self):
+        output = self.root / "audit"
+        result = subprocess.run(
+            [sys.executable, str(Path(__file__).with_name("audit_production.py")),
+             "--root", str(self.root), "--output", str(output)],
+            capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        report = json.loads((output / "PRODUCTION_READINESS.json").read_text())
+        self.assertEqual(report["status"], "AUTOMATED_CHECKS_PASSED_REQUIRES_RELEASE_REVIEW")
+        self.assertEqual(report["picklist_sync"]["status"], "READY_TO_BUILD")
+        self.assertNotIn("legacy_image_audit", report)
+
     def test_blocked_cli_never_creates_booklets_and_never_touches_current(self):
         current = self.root / "current/booklets"
         current.mkdir(parents=True)
@@ -212,7 +250,7 @@ class PickListSyncChecks(unittest.TestCase):
         self.assertTrue(all("PROHIBITED_IMAGE_REUSE" in row["blockers"] for row in rows))
 
     def test_matching_organic_pair_renders_same_upper_left_badge(self):
-        self.write_source([("03283", "Honeycrisp Apple", True), ("903283", "Organic Apple", True)])
+        self.write_source([("03283", "Honeycrisp Apple", True), ("903283", "Organic Honeycrisp Apple", True)])
         items, _ = read_picklist(self.source)
         self.register_current_source(items)
         first, second = [self.approved_assignment(item) for item in items]
@@ -510,7 +548,7 @@ class PickListSyncChecks(unittest.TestCase):
         self.assertEqual(list(staging.glob("*.docx")), [])
 
     def test_organic_matching_is_explicit_not_guessed_from_codes(self):
-        self.write_source([("03283", "Honeycrisp Apple", True), ("903283", "Organic Apple", True)])
+        self.write_source([("03283", "Honeycrisp Apple", True), ("903283", "Organic Honeycrisp Apple", True)])
         items, _ = read_picklist(self.source)
         self.register_current_source(items)
         first, second = [self.approved_assignment(item) for item in items]
@@ -519,6 +557,19 @@ class PickListSyncChecks(unittest.TestCase):
         second["reuse_from_source_id"] = first["source_id"]
         self.write_assignments([first, second])
         self.assertEqual(reconcile(self.root, self.output)[3]["status"], "READY_TO_BUILD")
+
+    def test_unrelated_organic_product_cannot_reuse_a_conventional_photo(self):
+        self.write_source([
+            ("03283", "Honeycrisp Apple", True), ("903283", "Organic Banana", True),
+        ])
+        items, _ = read_picklist(self.source)
+        self.register_current_source(items)
+        first, second = [self.approved_assignment(item) for item in items]
+        second["reuse_from_source_id"] = first["source_id"]
+        self.write_assignments([first, second])
+        rows, _, _, summary = reconcile(self.root, self.output)
+        self.assertEqual(summary["status"], "BLOCKED")
+        self.assertTrue(all("PROHIBITED_IMAGE_REUSE" in row["blockers"] for row in rows))
 
     def test_reviewer_metadata_and_original_file_are_both_required(self):
         self.assignment["rights_verification_status"] = "NOT_VERIFIED"
@@ -790,6 +841,25 @@ class PickListSyncChecks(unittest.TestCase):
         rows, _, _, _ = reconcile(self.root, self.output)
         self.assertTrue(all("PROHIBITED_IMAGE_REUSE" not in row["blockers"] for row in rows))
         self.assertEqual(reconcile(self.root, self.output)[3]["status"], "READY_TO_BUILD")
+
+    def test_approval_rejects_reuse_for_a_different_product(self):
+        self.write_source([
+            ("03283", "Honeycrisp Apple", True), ("903283", "Organic Banana", True),
+        ])
+        items, _ = read_picklist(self.source)
+        self.register_current_source(items)
+        self.write_assignments([self.approved_assignment(items[0])])
+        rebuild_working_list(self.root, self.output)
+        self.candidate_metadata()
+        metadata_path = self.image.with_suffix(".png.json")
+        metadata = json.loads(metadata_path.read_text())
+        metadata.update(plu=items[1]["plu"], product=items[1]["name"])
+        metadata_path.write_text(json.dumps(metadata))
+        with self.assertRaisesRegex(ValueError, "same product"):
+            approve(self.root, items[1]["source_id"], self.image, "Fruit", "Apples",
+                    self.digest, "Reviewed photo and rights", reuse_from=items[0]["source_id"])
+        self.assertNotIn(items[1]["source_id"], read_assignments(
+            self.root / "data/picklist_assignments.json"))
 
     def test_owner_permission_approval_preserves_permission_without_public_licence(self):
         evidence = 'User attestation: "I own this image and all the rights to it so I approve it completely"'

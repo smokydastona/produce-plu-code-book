@@ -1,5 +1,7 @@
 import hashlib
 import json
+import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -7,7 +9,7 @@ from unittest.mock import patch
 
 from PIL import Image
 
-from audit_production import combined_summary, image_blockers, inventory
+from audit_production import combined_summary, image_blockers, inventory, main
 
 
 class ProductionAuditChecks(unittest.TestCase):
@@ -96,7 +98,7 @@ class ProductionAuditChecks(unittest.TestCase):
         )
         picklist_summary = dict(status="BLOCKED", working_list_review_records=2)
 
-        result = combined_summary(image_summary, picklist_summary)
+        result = combined_summary(picklist_summary, image_summary)
 
         self.assertEqual(result["status"], "BLOCKED")
         self.assertEqual(result["picklist_sync"]["working_list_review_records"], 2)
@@ -109,15 +111,69 @@ class ProductionAuditChecks(unittest.TestCase):
         picklist_summary = dict(status="READY_TO_BUILD", working_list_review_records=0)
 
         self.assertEqual(
-            combined_summary(image_summary, picklist_summary)["status"],
+            combined_summary(picklist_summary, image_summary)["status"],
             "AUTOMATED_CHECKS_PASSED_REQUIRES_RELEASE_REVIEW",
         )
 
     def test_unknown_audit_status_fails_closed(self):
-        image_summary = dict(status="UNEXPECTED")
-        picklist_summary = dict(status="READY_TO_BUILD")
+        picklist_summary = dict(status="UNEXPECTED")
 
-        self.assertEqual(combined_summary(image_summary, picklist_summary)["status"], "BLOCKED")
+        self.assertEqual(combined_summary(picklist_summary)["status"], "BLOCKED")
+
+    def test_legacy_image_blockers_do_not_block_current_working_list(self):
+        result = combined_summary(
+            dict(status="READY_TO_BUILD"), dict(status="BLOCKED", entries_with_blockers=597))
+        self.assertEqual(result["status"], "AUTOMATED_CHECKS_PASSED_REQUIRES_RELEASE_REVIEW")
+        self.assertEqual(result["legacy_image_audit"]["status"], "BLOCKED")
+
+    def test_default_audit_does_not_depend_on_legacy_booklets(self):
+        output = self.root / "reports"
+        source = self.root / "sources/plu/PickList.xml"
+        source.parent.mkdir(parents=True)
+        source.write_bytes(b"fixture")
+        digest = hashlib.sha256(source.read_bytes()).hexdigest()
+        with patch.object(sys, "argv", ["audit_production.py", "--root", str(self.root),
+                                       "--output", str(output)]), \
+                patch("audit_production.reconcile_picklist",
+                      return_value=([], {}, {}, dict(status="READY_TO_BUILD", source_sha256=digest))), \
+                patch("audit_production.inventory", side_effect=AssertionError("legacy audit called")):
+            with self.assertRaises(SystemExit) as result:
+                main()
+        self.assertEqual(result.exception.code, 0)
+        self.assertEqual(json.loads((output / "PRODUCTION_READINESS.json").read_text())["status"],
+                         "AUTOMATED_CHECKS_PASSED_REQUIRES_RELEASE_REVIEW")
+
+    def test_invalid_source_produces_no_stale_report_in_fresh_output(self):
+        source = self.root / "sources/plu/PickList.xml"
+        source.parent.mkdir(parents=True)
+        source.write_text("<broken")
+        old = self.root / "current/reports/PRODUCTION_READINESS.json"
+        old.parent.mkdir(parents=True)
+        old.write_text('{"status": "OLD"}')
+        output = self.root / "fresh"
+        result = subprocess.run(
+            [sys.executable, str(Path(__file__).with_name("audit_production.py")),
+             "--root", str(self.root), "--output", str(output)],
+            capture_output=True, text=True)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("cannot parse owner-supplied PickList.xml", result.stderr)
+        self.assertEqual(old.read_text(), '{"status": "OLD"}')
+        self.assertEqual(list(output.iterdir()), [])
+
+    def test_changed_source_cannot_produce_a_readiness_report(self):
+        source = self.root / "sources/plu/PickList.xml"
+        source.parent.mkdir(parents=True)
+        source.write_bytes(b"changed")
+        output = self.root / "reports"
+        with patch.object(sys, "argv", ["audit_production.py", "--root", str(self.root),
+                                       "--output", str(output)]), \
+                patch("audit_production.reconcile_picklist",
+                      return_value=([], {}, {}, dict(status="READY_TO_BUILD",
+                                                    source_sha256="stale"))):
+            with self.assertRaises(SystemExit) as result:
+                main()
+        self.assertEqual(result.exception.code, 1)
+        self.assertFalse((output / "PRODUCTION_READINESS.json").exists())
 
 
 if __name__ == "__main__":

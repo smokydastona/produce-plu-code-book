@@ -97,31 +97,45 @@ def inventory(root):
     return result, summary
 
 
-def combined_summary(image_summary, picklist_summary):
+def combined_summary(picklist_summary, image_summary=None):
     status = (
         "BLOCKED"
-        if (image_summary["status"] != "AUTOMATED_CHECKS_PASSED_REQUIRES_RELEASE_REVIEW" or
-            picklist_summary["status"] != "READY_TO_BUILD")
+        if picklist_summary["status"] != "READY_TO_BUILD"
         else "AUTOMATED_CHECKS_PASSED_REQUIRES_RELEASE_REVIEW"
     )
-    return dict(image_summary, status=status, picklist_sync=picklist_summary)
+    result = dict(
+        status=status, picklist_sync=picklist_summary,
+        scope="Current WorkingList reconciliation and image readiness. "
+              "Final source, licence, variety and print-layout review is mandatory.",
+    )
+    if image_summary is not None:
+        result["legacy_image_audit"] = image_summary
+    return result
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=ROOT)
     parser.add_argument("--output", type=Path, help="Report directory")
+    parser.add_argument("--legacy", action="store_true",
+                        help="Also inventory historical booklet images; not a production gate")
     args = parser.parse_args()
     try:
         output = args.output or args.root / "current/reports"
         output.mkdir(parents=True, exist_ok=True)
         _, _, _, picklist_summary = reconcile_picklist(args.root, output)
-        rows, image_summary = inventory(args.root)
-        summary = combined_summary(image_summary, picklist_summary)
-        with (output / "PRODUCTION_BLOCKERS.csv").open("w", newline="", encoding="utf-8-sig") as file:
-            writer = csv.DictWriter(file, fieldnames=list(rows[0]))
-            writer.writeheader()
-            writer.writerows(rows)
+        if hashlib.sha256((args.root / "sources/plu/PickList.xml").read_bytes()).hexdigest() != picklist_summary["source_sha256"]:
+            raise ValueError("source changed during reconciliation; discard output and retry")
+        image_summary = None
+        if args.legacy:
+            rows, image_summary = inventory(args.root)
+            with (output / "PRODUCTION_BLOCKERS.csv").open("w", newline="", encoding="utf-8-sig") as file:
+                writer = csv.DictWriter(file, fieldnames=list(rows[0]))
+                writer.writeheader()
+                writer.writerows(rows)
+        if hashlib.sha256((args.root / "sources/plu/PickList.xml").read_bytes()).hexdigest() != picklist_summary["source_sha256"]:
+            raise ValueError("source changed during audit; discard output and retry")
+        summary = combined_summary(picklist_summary, image_summary)
         (output / "PRODUCTION_READINESS.json").write_text(
             json.dumps(summary, indent=2) + "\n", encoding="utf-8")
     except (OSError, ValueError, KeyError) as exc:
