@@ -11123,6 +11123,38 @@
         "rights_evidence": "User attestation: \"I own this image and all the rights to it so I approve it completely\""
       },
       "reuse_from_source_id": ""
+    },
+    {
+      "source_id": "831477f2fab34a6c4c61d3462e135ee1da505cd870459c90f8258a057fd59ebb",
+      "book": "Fruit",
+      "section": "Berries",
+      "image": "data/images/approved/7b7ecf98feeff7e3efd7f636d69dded824fb7d70c399608ac56284bd771ba33e.jpg",
+      "image_mode": "PHOTO",
+      "reviewed_plu": "4253",
+      "reviewed_product": "Strawberries by the Flat",
+      "working_source_ids": [
+        "0739ff34cc3f91508f4916830a13b20c4d7b1d1f532197559944a1dfda9b2513"
+      ],
+      "working_decision_id": "4253",
+      "image_sha256": "7b7ecf98feeff7e3efd7f636d69dded824fb7d70c399608ac56284bd771ba33e",
+      "photographic_origin": "VERIFIED_PHOTO",
+      "visual_approval_status": "APPROVED",
+      "rights_verification_status": "VERIFIED",
+      "provenance": {
+        "creator": "Not separately identified; ownership attested by user",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "",
+        "original_image_url": "",
+        "source_reference": "Owner-uploaded file: Strawberry_Tray.jpg (Copilot session attachment; no public source URL supplied)",
+        "rights_status": "OWNER_CONFIRMED_PERMISSION",
+        "photographic_origin_evidence": "User confirmed: \"Actual photograph\"",
+        "visual_approval_evidence": "Owner supplied this tray image after requesting a flat/tray of strawberries and confirmed approval of its use and resizing.",
+        "attribution": "Owner-provided image; creator not separately identified",
+        "changes": "Original uploaded image bytes unchanged",
+        "rights_evidence": "User confirmed: \"I own it and approve its use and resizing\""
+      },
+      "reuse_from_source_id": ""
     }
   ]
 }
