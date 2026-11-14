@@ -1,0 +1,19 @@
+{
+  "plu": "4889",
+  "product": "Cilantro",
+  "creator": "Not separately identified; ownership attested by user",
+  "license": "OWNER_CONFIRMED_PERMISSION",
+  "rights_status": "OWNER_CONFIRMED_PERMISSION",
+  "source_reference": "Owner-uploaded file: Cilantro.jpg (Copilot session attachment; no public source URL supplied)",
+  "rights_evidence": "User confirmed: \"I own it and approve its use and resizing\"",
+  "photographic_origin": "OWNER_CONFIRMED_PHOTO",
+  "photographic_origin_evidence": "User confirmed: \"Actual photograph\"",
+  "visual_approval_evidence": "After the assistant flagged pointed, sharply serrated leaves as resembling flat-leaf parsley, the owner explicitly confirmed: \"It is confirmed cilantro\". Product identification is owner-confirmed; the visual resemblance concern is retained for audit. Owner approved use and resizing.",
+  "attribution": "Owner-provided image; creator not separately identified",
+  "width": 1000,
+  "height": 1000,
+  "sha256": "86cfa836804585101aa5f475e3288b8e72ab1e1ab7b5e730af377af2b0f65a2b",
+  "approval_status": "CANDIDATE",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "VERIFIED"
+}
