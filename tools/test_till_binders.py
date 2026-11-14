@@ -16,7 +16,8 @@ from openpyxl.drawing.image import Image as ExcelImage
 from openpyxl.styles import Font
 from PIL import Image
 
-from build_till_binders import (FILENAMES, MAX_GITHUB_FILE_SIZE, VISUALS, comparisons, generate, layout_rows,
+from build_till_binders import (BULK_SHEETS, FILENAMES, MAX_GITHUB_FILE_SIZE, VISUALS, bulk_print_pages,
+                               combine_bulk, comparisons, generate, layout_rows,
                                docx_compatible_image,
                                map_images, produce_catalog, quick_sheet, replace_produce,
                                sha, validate_package, visual_records, workbook_photo_copy)
@@ -28,6 +29,51 @@ from build_deli_sheet import convert
 
 
 class TillBinderChecks(unittest.TestCase):
+    def test_original_bulk_sections_are_combined_without_losing_cells_or_other_parts(self):
+        source = Path(__file__).resolve().parents[1] / "sources/binders/Complete_Till_Binder_-_Nov_2025.xlsx"
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "combined.xlsx"
+            self.assertTrue(combine_bulk(source, output))
+            original = load_workbook(source)
+            combined = load_workbook(output)
+            try:
+                self.assertEqual(combined.sheetnames, [name for name in original.sheetnames
+                                                      if name not in BULK_SHEETS[1:]])
+                sheet = combined["Bulk"]
+                self.assertEqual([b.id for b in sheet.row_breaks.brk], [41, 73, 118])
+                self.assertEqual(str(sheet.print_area), "'Bulk'!$B$4:$I$155")
+                offset = 0
+                for name, end in zip(BULK_SHEETS, (41, 35, 48, 40)):
+                    for row in original[name].iter_rows(min_row=4, max_row=end, min_col=2, max_col=9):
+                        for cell in row:
+                            result = sheet.cell(cell.row + offset, cell.column)
+                            self.assertEqual(result.value, cell.value)
+                            self.assertEqual(result.style_id, cell.style_id)
+                    offset += end - 3
+                self.assertEqual([page["heading"] for page in bulk_print_pages(output)],
+                                 ["Candy", "Snacking Nuts/Seeds", "Nut Mixes", "Seasonal Christmas"])
+                with zipfile.ZipFile(source) as before, zipfile.ZipFile(output) as after:
+                    for name in before.namelist():
+                        if name not in {"xl/workbook.xml", "xl/worksheets/sheet9.xml"}:
+                            self.assertEqual(before.read(name), after.read(name), name)
+                second = Path(directory) / "second.xlsx"
+                self.assertFalse(combine_bulk(output, second))
+                self.assertEqual(output.read_bytes(), second.read_bytes())
+            finally:
+                original.close()
+                combined.close()
+
+    def test_bulk_merge_rejects_unprinted_owner_data(self):
+        source = Path(__file__).resolve().parents[1] / "sources/binders/Complete_Till_Binder_-_Nov_2025.xlsx"
+        with tempfile.TemporaryDirectory() as directory:
+            changed = Path(directory) / "changed.xlsx"
+            original = load_workbook(source)
+            original["Bulk (2)"]["B40"] = "Do not discard"
+            original.save(changed)
+            original.close()
+            with self.assertRaisesRegex(ValueError, "outside its print area"):
+                combine_bulk(changed, Path(directory) / "result.xlsx")
+
     def test_supplier_jpeg_is_losslessly_made_docx_compatible(self):
         source = Path(__file__).resolve().parents[1] / "data/review-references/buck-brand/page-02-image-011.jpeg"
         original = source.read_bytes()

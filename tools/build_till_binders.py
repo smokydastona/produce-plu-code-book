@@ -26,6 +26,7 @@ from lxml import etree as ET
 from openpyxl import Workbook, load_workbook
 from openpyxl.drawing.image import Image as ExcelImage
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
+from openpyxl.utils.cell import range_boundaries, get_column_letter
 from openpyxl.worksheet.pagebreak import Break
 from openpyxl.worksheet.page import PageMargins
 from PIL import Image, ImageOps
@@ -59,6 +60,7 @@ MAX_GITHUB_FILE_SIZE = 100 * 1024 * 1024
 BLOCKS = (1, 6, 11)
 LINES = 20
 PAGE_ROWS = LINES + 3
+BULK_SHEETS = ("Bulk", "Bulk (2)", "Bulk (3)", "Bulk (4)")
 
 
 def sha(content):
@@ -125,6 +127,149 @@ def sheet_info(archive, name="Produce"):
         if sheet.get("name") == name:
             return resolve_part("xl/workbook.xml", relationships[sheet.get(f"{{{R}}}id")]), index
     raise ValueError(f"original binder has no {name!r} sheet")
+
+
+def combine_bulk(binder, destination):
+    """Combine the four original print regions without resaving unrelated workbook parts."""
+    with zipfile.ZipFile(binder) as original:
+        workbook = xml(original.read("xl/workbook.xml"))
+        sheets = workbook.find(f"{{{S}}}sheets")
+        sheet_names = [node.get("name") for node in sheets]
+        present = [name for name in BULK_SHEETS if name in sheet_names]
+        if not any(name in present for name in BULK_SHEETS[1:]):
+            shutil.copyfile(binder, destination)
+            return False
+        if present != list(BULK_SHEETS) or [sheet_names.index(n) for n in BULK_SHEETS] != list(
+                range(sheet_names.index("Bulk"), sheet_names.index("Bulk") + 4)):
+            raise ValueError("the four Bulk sheets must be present and consecutive")
+        paths = [sheet_info(original, name)[0] for name in BULK_SHEETS]
+        trees = [xml(original.read(path)) for path in paths]
+        permitted = {"sheetPr", "dimension", "sheetViews", "sheetFormatPr", "cols", "sheetData",
+                     "mergeCells", "pageMargins", "pageSetup"}
+        for path, tree in zip(paths, trees):
+            if any(ET.QName(node).localname not in permitted for node in tree):
+                raise ValueError(f"{path}: unsupported Bulk sheet feature; review before merging")
+            relations = rels_part(path)
+            if relations in original.namelist():
+                for rel in xml(original.read(relations)):
+                    if not rel.get("Type", "").endswith("/printerSettings"):
+                        raise ValueError(f"{path}: unsupported Bulk relationship; review before merging")
+        for tree in trees[1:]:
+            for tag in ("cols", "sheetFormatPr", "pageMargins"):
+                if ET.tostring(trees[0].find(f"{{{S}}}{tag}"), method="c14n") != ET.tostring(
+                        tree.find(f"{{{S}}}{tag}"), method="c14n"):
+                    raise ValueError(f"Bulk sheets have incompatible {tag}")
+        names = workbook.find(f"{{{S}}}definedNames")
+        indexes = [sheet_names.index(name) for name in BULK_SHEETS]
+        areas = []
+        for index in indexes:
+            found = [n for n in names if n.get("localSheetId") == str(index) and
+                     n.get("name") == "_xlnm.Print_Area"] if names is not None else []
+            if len(found) != 1 or not found[0].text or "!" not in found[0].text:
+                raise ValueError("each Bulk sheet must have one rectangular print area")
+            bounds = range_boundaries(found[0].text.split("!", 1)[1].replace("$", ""))
+            if bounds[0] != 2 or bounds[1] != 4 or bounds[2] != 9:
+                raise ValueError("unexpected Bulk print area; review before merging")
+            areas.append(bounds)
+        # Do not silently drop owner edits outside the four printed regions.
+        headers = []
+        for tree, (_, start, _, end) in zip(trees, areas):
+            header = []
+            for row in tree.find(f"{{{S}}}sheetData"):
+                for cell in row:
+                    col, r, _, _ = range_boundaries(cell.get("r"))
+                    if cell.find(f"{{{S}}}f") is not None:
+                        raise ValueError("Bulk formulas require manual review before merging")
+                    if cell.find(f"{{{S}}}v") is not None or cell.find(f"{{{S}}}is") is not None:
+                        if r == 1 and col == 2:
+                            header.append(ET.tostring(cell, method="c14n"))
+                        elif not (start <= r <= end and 2 <= col <= 9):
+                            raise ValueError("Bulk contains data outside its print area")
+            headers.append(header)
+        if any(header != headers[0] for header in headers[1:]):
+            raise ValueError("Bulk sheet headers differ; review before merging")
+        for path in original.namelist():
+            if path.startswith("xl/worksheets/") and path.endswith(".xml") and path not in paths:
+                tree = xml(original.read(path))
+                for formula in tree.iter(f"{{{S}}}f"):
+                    if formula.text and any(name in formula.text for name in BULK_SHEETS[1:]):
+                        raise ValueError(f"{path}: formula references a Bulk sheet being merged")
+        target = trees[0]
+        data = target.find(f"{{{S}}}sheetData")
+        for row in list(data):
+            if int(row.get("r")) > areas[0][3]:
+                data.remove(row)
+        merges = target.find(f"{{{S}}}mergeCells")
+        last = areas[0][3]
+        breaks = []
+        for tree, (_, start, _, end) in zip(trees[1:], areas[1:]):
+            breaks.append(last)
+            offset = last + 1 - start
+            for row in tree.find(f"{{{S}}}sheetData"):
+                row_number = int(row.get("r"))
+                if start <= row_number <= end:
+                    node = copy.deepcopy(row)
+                    node.set("r", str(row_number + offset))
+                    for cell in node:
+                        col, r, _, _ = range_boundaries(cell.get("r"))
+                        cell.set("r", f"{get_column_letter(col)}{r + offset}")
+                    data.append(node)
+            incoming = tree.find(f"{{{S}}}mergeCells")
+            if incoming is not None:
+                for merge in incoming:
+                    min_col, min_row, max_col, max_row = range_boundaries(merge.get("ref"))
+                    if min_row == 1 and max_row == 2:
+                        continue
+                    if min_row < start or max_row > end:
+                        raise ValueError("Bulk merged cells extend beyond the print area")
+                    if merges is None:
+                        raise ValueError("Bulk merge layout requires manual review")
+                    node = copy.deepcopy(merge)
+                    node.set("ref", f"{get_column_letter(min_col)}{min_row + offset}:"
+                                    f"{get_column_letter(max_col)}{max_row + offset}")
+                    merges.append(node)
+            last += end - start + 1
+        if merges is not None:
+            merges.set("count", str(len(merges)))
+        target.find(f"{{{S}}}dimension").set("ref", f"B1:I{last}")
+        setup = target.find(f"{{{S}}}pageSetup")
+        setup.attrib.clear()
+        setup.set("paperSize", "1")
+        setup.set("orientation", "landscape")
+        setup.set("scale", "65")
+        target.find(f"{{{S}}}sheetPr").find(f"{{{S}}}pageSetUpPr").set("fitToPage", "0")
+        row_breaks = ET.Element(f"{{{S}}}rowBreaks", count=str(len(breaks)),
+                                manualBreakCount=str(len(breaks)))
+        for number in breaks:
+            ET.SubElement(row_breaks, f"{{{S}}}brk", id=str(number), min="0", max="16383", man="1")
+        setup.addnext(row_breaks)
+        for node in list(names):
+            local = node.get("localSheetId")
+            if local is not None and int(local) in indexes:
+                if node.get("name") != "_xlnm.Print_Area":
+                    raise ValueError("Bulk local defined names require manual review")
+                if int(local) == indexes[0]:
+                    node.text = f"Bulk!$B$4:$I${last}"
+                else:
+                    names.remove(node)
+            elif any(name in (node.text or "") for name in BULK_SHEETS[1:]):
+                raise ValueError("defined name references a Bulk sheet being merged")
+            elif local is not None:
+                node.set("localSheetId", str(int(local) - sum(i < int(local) for i in indexes[1:])))
+        for index in reversed(indexes[1:]):
+            sheets.remove(sheets[index])
+        for view in workbook.iter(f"{{{S}}}workbookView"):
+            for attr in ("activeTab", "firstSheet"):
+                if view.get(attr) is not None:
+                    value = int(view.get(attr))
+                    view.set(attr, str(indexes[0] if value in indexes[1:] else
+                                       value - sum(i < value for i in indexes[1:])))
+        changes = {paths[0]: serialize(target), "xl/workbook.xml": serialize(workbook)}
+        with zipfile.ZipFile(destination, "x", compression=zipfile.ZIP_DEFLATED) as output:
+            output.comment = original.comment
+            for entry in original.infolist():
+                output.writestr(entry, changes.get(entry.filename, original.read(entry.filename)))
+        return True
 
 
 def visual_records(root):
@@ -801,7 +946,8 @@ def validate_package(binder, output, coordinates, images, with_photos, deli_coor
         original_book.close()
 
 
-def validate_print(output, coordinates, expected_pages, deli_coordinates=None, deli_title=None):
+def validate_print(output, coordinates, expected_pages, deli_coordinates=None, deli_title=None,
+                   bulk_pages=None):
     from pypdf import PdfReader
 
     if not shutil.which("soffice"):
@@ -822,6 +968,25 @@ def validate_print(output, coordinates, expected_pages, deli_coordinates=None, d
                 raise ValueError("Calc did not open/export the complete binder; check PRINT_ENGINE_LOG.txt "
                                  "and install libreoffice-calc")
             full_pdf = PdfReader(complete)
+            if bulk_pages:
+                all_codes = set().union(*(page["codes"] for page in bulk_pages))
+                matches = []
+                for expected in bulk_pages:
+                    found = []
+                    for number, page in enumerate(full_pdf.pages):
+                        text = " ".join((page.extract_text() or "").split())
+                        printed = Counter(word for word in text.split() if word in all_codes)
+                        if expected["heading"] in text and printed == expected["codes"]:
+                            found.append(number)
+                    if len(found) != 1:
+                        raise ValueError(f"{edition}: Bulk section {expected['heading']!r} "
+                                         "does not print exactly once with its original PLUs")
+                    page = full_pdf.pages[found[0]]
+                    if abs(float(page.mediabox.width) - 792) > 1 or abs(float(page.mediabox.height) - 612) > 1:
+                        raise ValueError(f"{edition}: Bulk is not landscape US Letter")
+                    matches.append(found[0])
+                if matches != list(range(matches[0], matches[0] + len(matches))):
+                    raise ValueError(f"{edition}: Bulk sections are not on consecutive pages")
             if deli_coordinates is not None:
                 deli_pages = [page for page in full_pdf.pages
                               if " ".join(deli_title.split()) in " ".join(page.extract_text().split())]
@@ -874,10 +1039,40 @@ def validate_print(output, coordinates, expected_pages, deli_coordinates=None, d
                 every_page_code_count_verified=True, every_description_found=True,
                 drawn_images=total_drawn,
                 deli_print_records_verified=len(deli_coordinates) if deli_coordinates is not None else 0,
+                bulk_print_pages_verified=len(bulk_pages) if bulk_pages else 0,
                 complete_pdf=complete.name,
                 visual_review="REQUIRED; automated text/geometry checks are not a visual print approval",
             )
     return result
+
+
+def bulk_print_pages(path):
+    workbook = load_workbook(path, read_only=False)
+    try:
+        if "Bulk" not in workbook:
+            return None
+        sheet = workbook["Bulk"]
+        breaks = [item.id for item in sheet.row_breaks.brk if item.man]
+        if len(breaks) != 3:
+            return None
+        area = sheet.print_area
+        if not area or "," in area or "!" not in area:
+            raise ValueError("combined Bulk must have one print area")
+        _, min_row, _, max_row = range_boundaries(area.split("!", 1)[1].replace("$", ""))
+        boundaries = [min_row, *(number + 1 for number in breaks), max_row + 1]
+        if boundaries != sorted(set(boundaries)):
+            raise ValueError("invalid combined Bulk page breaks")
+        pages = []
+        for start, end in zip(boundaries, boundaries[1:]):
+            heading = sheet.cell(start, 2).value
+            if not isinstance(heading, str) or not heading.strip():
+                raise ValueError("combined Bulk page must start with a section heading in column B")
+            codes = Counter(str(sheet.cell(row, col).value) for row in range(start, end)
+                            for col in (3, 6, 9) if sheet.cell(row, col).value is not None)
+            pages.append(dict(heading=" ".join(heading.split()), codes=codes))
+        return pages
+    finally:
+        workbook.close()
 
 
 def report_text(summary):
@@ -904,8 +1099,8 @@ def report_text(summary):
         f"Classification review: {summary['classification_review_required']}; "
         f"organic placement review: {summary['placement_review_required']}",
         "",
-        "The complete workbook retains original worksheet names/order.",
-        "Every original package part outside the Produce and Deli sheets, their relationships,",
+        "When present, the four original Bulk sheets are combined, with a print break between sections.",
+        "Every original package part outside the Produce, Deli and combined Bulk sheets, their relationships,",
         "append-only styles, content types and their print names is byte-identical. No original part is removed.",
         "Existing styles and all unrelated workbook-level settings are independently compared.",
         "PLU/description strings, duplicate highlights and embedded image bytes/anchors are verified.",
@@ -998,12 +1193,35 @@ def generate(root, binder, output, verify_print=False):
         coordinates = edition_coordinates
         path = output / filename
         with tempfile.TemporaryDirectory(prefix="till-produce-") as temporary:
+            bulk_binder = Path(temporary) / "Bulk.xlsx"
             produce_binder = Path(temporary) / "Produce.xlsx"
-            replace_produce(binder, donor, produce_binder)
+            bulk_combined = combine_bulk(binder, bulk_binder)
+            replace_produce(bulk_binder, donor, produce_binder)
             replace_sheet(produce_binder, deli_content, path, "Deli")
-        validations[edition] = validate_package(
-            binder, path, coordinates, edition_images, edition == "photos", deli_coordinates)
+            validations[edition] = validate_package(
+                bulk_binder, path, coordinates, edition_images, edition == "photos", deli_coordinates)
+        if bulk_combined and bulk_print_pages(path) is None:
+            raise ValueError("combined Bulk is missing its three page breaks")
+        validations[edition]["bulk_sheets_combined"] = bulk_combined
         parts = validations[edition].pop("package_parts")
+        if bulk_combined:
+            with zipfile.ZipFile(binder) as original, zipfile.ZipFile(path) as generated:
+                bulk_part, _ = sheet_info(original, "Bulk")
+                validations[edition]["output_sheet_names"] = validations[edition]["original_sheet_names"]
+                validations[edition]["original_sheet_names"] = [
+                    sheet.get("name") for sheet in xml(original.read("xl/workbook.xml")).find(f"{{{S}}}sheets")
+                ]
+                for part in parts:
+                    name = part["part"]
+                    before, after = original.read(name), generated.read(name)
+                    part.update(sha256_before=sha(before), sha256_after=sha(after),
+                                byte_identical=before == after)
+                    if name not in {bulk_part, "xl/workbook.xml"} and name not in {
+                            sheet_info(original, "Produce")[0], rels_part(sheet_info(original, "Produce")[0]),
+                            sheet_info(original, "Deli")[0], rels_part(sheet_info(original, "Deli")[0]),
+                            "xl/styles.xml", "[Content_Types].xml"} and before != after:
+                        raise ValueError(f"unrelated workbook part changed: {name}")
+            validations[edition]["original_parts_byte_identical"] = sum(row["byte_identical"] for row in parts)
         csv_output(output / f"PACKAGE_PRESERVATION_{edition.upper()}.csv", parts,
                    ["part", "sha256_before", "sha256_after", "byte_identical"])
     csv_output(output / "PRODUCE_LAYOUT.csv", coordinates,
@@ -1074,7 +1292,8 @@ def generate(root, binder, output, verify_print=False):
             "Existing and newly supplied identity-linked AI illustrations are visual references at the owner's request; "
             "AI provenance and uncertain visual verdicts are recorded only in the external audit report.",
             "Old descriptions are contextual abbreviations; code-only/name-only differences are not automatic corrections.",
-            "Deli is replaced from the owner-supplied two-column source; all other unrelated operational sheets remain unchanged.",
+            "Deli is replaced from the owner-supplied two-column source; Bulk sections are combined "
+            "with page breaks; all other unrelated operational sheets remain unchanged.",
             "Future unclassified entries are retained for review, not silently discarded or approved.",
         ],
     )
@@ -1088,7 +1307,8 @@ def generate(root, binder, output, verify_print=False):
     (output / "PRODUCE_CHANGE_AND_VALIDATION_REPORT.txt").write_text(report_text(summary), encoding="utf-8")
     if verify_print:
         summary["print_validation"] = validate_print(
-            output, coordinates, pages, deli_coordinates=deli_coordinates, deli_title=deli_title)
+            output, coordinates, pages, deli_coordinates=deli_coordinates, deli_title=deli_title,
+            bulk_pages=bulk_print_pages(output / FILENAMES["photos"]))
         if summary["print_validation"]["photos"]["drawn_images"] != len(images):
             raise ValueError("printed reference count differs from the exact image mapping")
         (output / "VALIDATION.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")

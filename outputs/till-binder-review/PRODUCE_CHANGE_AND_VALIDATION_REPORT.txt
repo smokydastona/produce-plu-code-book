@@ -14,8 +14,8 @@ New owner-supplied AI crops: 0
 AI illustrations omitted (if rejected or invalid association): 0
 Classification review: 5; organic placement review: 95
 
-The complete workbook retains original worksheet names/order.
-Every original package part outside the Produce and Deli sheets, their relationships,
+When present, the four original Bulk sheets are combined, with a print break between sections.
+Every original package part outside the Produce, Deli and combined Bulk sheets, their relationships,
 append-only styles, content types and their print names is byte-identical. No original part is removed.
 Existing styles and all unrelated workbook-level settings are independently compared.
 PLU/description strings, duplicate highlights and embedded image bytes/anchors are verified.
@@ -32,7 +32,7 @@ Image outcomes:
   MISSING: 33
   APPROVED_WORKINGLIST_IMAGE: 17
 
-Print validation: {"photos": {"status": "PASS", "pages": 10, "landscape_us_letter": true, "complete_workbook_opened_and_exported_by_calc": true, "complete_binder_pdf_pages": 37, "every_page_code_count_verified": true, "every_description_found": true, "drawn_images": 517, "deli_print_records_verified": 52, "complete_pdf": "Complete Till Binder - Updated - Photos.pdf", "visual_review": "REQUIRED; automated text/geometry checks are not a visual print approval"}}
+Print validation: {"photos": {"status": "PASS", "pages": 10, "landscape_us_letter": true, "complete_workbook_opened_and_exported_by_calc": true, "complete_binder_pdf_pages": 35, "every_page_code_count_verified": true, "every_description_found": true, "drawn_images": 517, "deli_print_records_verified": 52, "bulk_print_pages_verified": 4, "complete_pdf": "Complete Till Binder - Updated - Photos.pdf", "visual_review": "REQUIRED; automated text/geometry checks are not a visual print approval"}}
 
 Detailed reports:
   VALIDATION.json: checks, hashes, counts and publication blockers
@@ -57,7 +57,7 @@ Unresolved issues / limits:
   Missing, identity-mismatched, checksum-changed and unreadable image associations remain blank.
   Existing and newly supplied identity-linked AI illustrations are visual references at the owner's request; AI provenance and uncertain visual verdicts are recorded only in the external audit report.
   Old descriptions are contextual abbreviations; code-only/name-only differences are not automatic corrections.
-  Deli is replaced from the owner-supplied two-column source; all other unrelated operational sheets remain unchanged.
+  Deli is replaced from the owner-supplied two-column source; Bulk sections are combined with page breaks; all other unrelated operational sheets remain unchanged.
   Future unclassified entries are retained for review, not silently discarded or approved.
 
 No original file, authoritative XML, assignment approval or published booklet was changed.
