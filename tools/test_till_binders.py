@@ -16,7 +16,7 @@ from openpyxl.drawing.image import Image as ExcelImage
 from openpyxl.styles import Font
 from PIL import Image
 
-from build_till_binders import (FILENAMES, VISUALS, comparisons, generate, layout_rows,
+from build_till_binders import (FILENAMES, VISUALS, comparisons, docx_compatible_image, generate, layout_rows,
                                map_images, produce_catalog, quick_sheet, replace_produce,
                                sha, validate_package, visual_records)
 from picklist_catalog import read_picklist, read_assignments
@@ -26,6 +26,18 @@ from organic_watermarks import render_watermark
 
 
 class TillBinderChecks(unittest.TestCase):
+    def test_supplier_jpeg_is_losslessly_made_docx_compatible(self):
+        source = Path(__file__).resolve().parents[1] / "data/review-references/buck-brand/page-02-image-011.jpeg"
+        original = source.read_bytes()
+        converted = docx_compatible_image(original)
+        self.assertNotEqual(converted, original)
+        document = Document()
+        document.add_paragraph().add_run().add_picture(io.BytesIO(converted))
+        with Image.open(io.BytesIO(original)) as before, Image.open(io.BytesIO(converted)) as after:
+            self.assertEqual(before.size, after.size)
+            self.assertEqual(before.convert("RGB").tobytes(), after.convert("RGB").tobytes())
+        self.assertEqual(source.read_bytes(), original)
+
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory()
         self.addCleanup(self.temporary.cleanup)

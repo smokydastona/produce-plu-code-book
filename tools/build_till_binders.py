@@ -17,6 +17,8 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 from docx import Document
+from docx.image.exceptions import UnrecognizedImageError
+from docx.image.image import Image as DocxImage
 from docx.oxml.ns import qn
 from lxml import etree as ET
 from openpyxl import Workbook, load_workbook
@@ -55,6 +57,17 @@ PAGE_ROWS = LINES + 3
 
 def sha(content):
     return hashlib.sha256(content).hexdigest()
+
+
+def docx_compatible_image(content):
+    try:
+        DocxImage.from_blob(content)
+    except UnrecognizedImageError:
+        with Image.open(io.BytesIO(content)) as image:
+            output = io.BytesIO()
+            image.save(output, format="PNG")
+        return output.getvalue()
+    return content
 
 
 def xml(content):
@@ -186,7 +199,7 @@ def map_images(root, rows, assignments, visuals):
                     continue
             else:
                 provenance = assignment.get("provenance", {})
-                rendered = render_watermark(content) if row["organic"] else content
+                rendered = render_watermark(content) if row["organic"] else docx_compatible_image(content)
                 images[row["source_id"]] = rendered
                 record.update(
                     image_status="APPROVED_WORKINGLIST_IMAGE", embedded=True,
@@ -197,7 +210,9 @@ def map_images(root, rows, assignments, visuals):
                     rights_status=assignment.get("rights_verification_status", "NOT_VERIFIED"),
                     photograph_status=assignment.get("photographic_origin", "NOT_VERIFIED"),
                     organic_badge=row["organic"],
-                    details="Explicitly approved for this exact WorkingList identity; " +
+                    details=("Decoded to lossless PNG for DOCX compatibility; unchanged approved original retained. "
+                             if not row["organic"] and rendered != content else "") +
+                            "Explicitly approved for this exact WorkingList identity; " +
                             ("owner-confirmed permission, not a public licence."
                              if assignment.get("rights_verification_status") ==
                              "OWNER_CONFIRMED_PERMISSION" else

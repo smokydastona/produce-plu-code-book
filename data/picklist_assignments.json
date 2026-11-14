@@ -11449,6 +11449,36 @@
         "rights_evidence": "User confirmed permission to use this exact granadilla image in the public repository and cashier binders. Owner-confirmed, not independently documented."
       },
       "reuse_from_source_id": ""
+    },
+    {
+      "source_id": "094a1dd4aefa28808c726d1a3641318b98d543ca432c9298959bd029a00060af",
+      "book": "Fruit",
+      "section": "Citrus",
+      "image": "data/images/approved/8121d470b27fe433b4a1643663f74e8ac57e6468b85b50cffce1605b14e81b35.jpeg",
+      "image_mode": "PHOTO",
+      "reviewed_plu": "3110",
+      "reviewed_product": "Cara Cara Orange",
+      "working_source_ids": [
+        "93dda733b69ad626cea8ae3b1c516b4cd89ea73f847f5ca5b02891113bb2bc40",
+        "14033e4582f8802be52b4874247ccd03402407aca5b60ef5aa05bb0d284170fb"
+      ],
+      "working_decision_id": "3110",
+      "image_sha256": "8121d470b27fe433b4a1643663f74e8ac57e6468b85b50cffce1605b14e81b35",
+      "photographic_origin": "VERIFIED_PHOTO",
+      "visual_approval_status": "APPROVED",
+      "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+      "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+      "provenance": {
+        "creator": "Not individually credited in source",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+        "original_image_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+        "attribution": "Copyright Four Seasons Produce; Buck Brand / Deer Creek Heights Ranch specialty citrus infographic. Individual creator not credited. Owner-confirmed permission for this specific use; no public reuse licence is asserted.",
+        "changes": "Supplier image extracted unchanged from the source PDF",
+        "rights_evidence": "Owner confirmed permission from Four Seasons Produce/Buck Brand to use matching supplier images in binders and the repository, as recorded in data/review-references/buck-brand.json. Owner-confirmed, not independently documented."
+      },
+      "reuse_from_source_id": ""
     }
   ]
 }

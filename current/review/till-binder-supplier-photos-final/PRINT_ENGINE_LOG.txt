@@ -1,3 +1,3 @@
-convert /root/.copilot/session-state/bef9400c563e47ea9d01609fe1dc7307/files/granadilla-binder-build/Complete Till Binder - Updated - Text Only.xlsx as a Calc document -> /tmp/till-print-ys0nq17v/Complete Till Binder - Updated - Text Only.pdf using filter : calc_pdf_Export
-convert /root/.copilot/session-state/bef9400c563e47ea9d01609fe1dc7307/files/granadilla-binder-build/Complete Till Binder - Updated - Photos.xlsx as a Calc document -> /tmp/till-print-ys0nq17v/Complete Till Binder - Updated - Photos.pdf using filter : calc_pdf_Export
+convert /root/.copilot/session-state/bef9400c563e47ea9d01609fe1dc7307/files/cara-cara-final-binder/Complete Till Binder - Updated - Text Only.xlsx as a Calc document -> /tmp/till-print-tbbtqy73/Complete Till Binder - Updated - Text Only.pdf using filter : calc_pdf_Export
+convert /root/.copilot/session-state/bef9400c563e47ea9d01609fe1dc7307/files/cara-cara-final-binder/Complete Till Binder - Updated - Photos.xlsx as a Calc document -> /tmp/till-print-tbbtqy73/Complete Till Binder - Updated - Photos.pdf using filter : calc_pdf_Export
 Warning: failed to launch javaldx - java may not function correctly

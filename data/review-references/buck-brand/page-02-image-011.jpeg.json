@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "plu": "3110",
+  "product": "Cara Cara Orange",
+  "working_list_id": "094a1dd4aefa28808c726d1a3641318b98d543ca432c9298959bd029a00060af",
+  "source_identity_ids": [
+    "93dda733b69ad626cea8ae3b1c516b4cd89ea73f847f5ca5b02891113bb2bc40",
+    "14033e4582f8802be52b4874247ccd03402407aca5b60ef5aa05bb0d284170fb"
+  ],
+  "creator": "Not individually credited in source",
+  "source_page_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+  "original_image_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+  "sha256": "8121d470b27fe433b4a1643663f74e8ac57e6468b85b50cffce1605b14e81b35",
+  "width": 1155,
+  "height": 967,
+  "license": "OWNER_CONFIRMED_PERMISSION",
+  "license_url": "",
+  "attribution": "Copyright Four Seasons Produce; Buck Brand / Deer Creek Heights Ranch specialty citrus infographic. Individual creator not credited. Owner-confirmed permission for this specific use; no public reuse licence is asserted.",
+  "changes": "Supplier image extracted unchanged from the source PDF",
+  "approval_status": "CANDIDATE",
+  "visual_approval_status": "APPROVED",
+  "photographic_origin": "VERIFIED_PHOTO",
+  "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+  "rights_evidence": "Owner confirmed permission from Four Seasons Produce/Buck Brand to use matching supplier images in binders and the repository, as recorded in data/review-references/buck-brand.json. Owner-confirmed, not independently documented.",
+  "production_status": "NOT_APPROVED",
+  "note": "User approved this exact photograph for PLU 3110; existing organic reference is tracked separately."
+}

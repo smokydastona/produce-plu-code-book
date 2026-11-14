@@ -3,11 +3,11 @@
   "production_publication": "BLOCKED",
   "source_sha256": "462db3121094008cd1dd5ea2c5836ca4b24de077edb8982c0f43149edbaf2cbb",
   "records": 596,
-  "images": 514,
+  "images": 515,
   "booklets": {
     "Fruit": {
       "records": 269,
-      "images": 252,
+      "images": 253,
       "exact_docx_and_excel_text": true,
       "embedded_image_bytes_and_anchors": true,
       "cashier_image_labels_absent": true,
@@ -15,7 +15,7 @@
       "excel_planned_pages": 5,
       "pdf": {
         "pages": 45,
-        "drawn_images": 252,
+        "drawn_images": 253,
         "exact_printed_codes": true,
         "every_description_on_planned_page": true,
         "landscape_us_letter": true
@@ -55,15 +55,15 @@
     }
   },
   "file_sha256": {
-    "FRUIT_VISUAL_PLU_BOOKLET_REVIEW.docx": "e2395ab4632c93af65af67c8d8ead3e7359d10b2cec8c2f7edc83e21abf88bb0",
-    "FRUIT_VISUAL_PLU_BOOKLET_REVIEW.pdf": "cc99e0e5aec8fa6468de830ea2aa462cb833f4847c680163b82471a7a8599538",
-    "FRUIT_VISUAL_PLU_BOOKLET_REVIEW.xlsx": "81d52db7eb1ce46ed40079ec0e0cbc4c89283065213130dc7330739546999e7a",
-    "NON_PRODUCE_PLU_BOOKLET_REVIEW.docx": "a7d08fa744d618c1382ae82e5914843c8f2775a5caa327ec48ce01f2d79b9b10",
-    "NON_PRODUCE_PLU_BOOKLET_REVIEW.pdf": "819fa05259a25ab8bfbc0b6d9821e3cef6a78d846c15c34f013e2cda4330dced",
-    "NON_PRODUCE_PLU_BOOKLET_REVIEW.xlsx": "5db00cb29c757aa3e6e173ed620f785086bfb98f83506ccaa4247db03cb4ba20",
-    "VEGETABLE_VISUAL_PLU_BOOKLET_REVIEW.docx": "53bbee77ec185491650c7878c11e6d034dc0a7f3afac53705792a1d200a6214a",
-    "VEGETABLE_VISUAL_PLU_BOOKLET_REVIEW.pdf": "fed1c0817eaec3bbab24181b10f2a9dccc8ed0c8c7f76c11c9c180be88f53958",
-    "VEGETABLE_VISUAL_PLU_BOOKLET_REVIEW.xlsx": "5b4aa54558fadec1c1035e1e727d11c28a12179ee8fdc4dda2b9abfebdb98845"
+    "FRUIT_VISUAL_PLU_BOOKLET_REVIEW.docx": "47d5009d7e437d9d25cbb86f721139ff4cf6e4536e12fe6ae7254e0f948333d7",
+    "FRUIT_VISUAL_PLU_BOOKLET_REVIEW.pdf": "d15996acf09eb5b0e37ac619ffb4796bc8cceedd1ca1896a62d7ed53e5150f42",
+    "FRUIT_VISUAL_PLU_BOOKLET_REVIEW.xlsx": "eff2a80891c1db54544ce3d3b620d6507c26ed38d9b269b91011de7b8dd645af",
+    "NON_PRODUCE_PLU_BOOKLET_REVIEW.docx": "3fca876fb59c913e9f75347288c1c1e92a93e2dbbef174ef41cc58370530fe8d",
+    "NON_PRODUCE_PLU_BOOKLET_REVIEW.pdf": "80d346fc0b26687a4be253be13553f33193d740eda0ca6d1a299a6603c32eeef",
+    "NON_PRODUCE_PLU_BOOKLET_REVIEW.xlsx": "8ab056ff7c26e764588b1d572f14f6f943016a4700fd516804fbba2fd0b764f9",
+    "VEGETABLE_VISUAL_PLU_BOOKLET_REVIEW.docx": "fb22acf7854f9ebdc1e2395276e3c9bbbf6ac87164766f62a09362c0049207a2",
+    "VEGETABLE_VISUAL_PLU_BOOKLET_REVIEW.pdf": "1d5b2d060b07f04594301f951043fdd09f619619c3298335c30f24b35b2b5c70",
+    "VEGETABLE_VISUAL_PLU_BOOKLET_REVIEW.xlsx": "d8b92c1be9f8e30a640851d7e1cf983e95290d37330fbd3de55ad2c31d13d200"
   },
   "limitations": [
     "AI visual references are not photographs or rights approvals.",

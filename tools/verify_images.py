@@ -55,6 +55,9 @@ OWNER_CONFIRMED_PERMISSION_ASSETS = {
     ("b8aa6250a213736fdd9acdc5f87ddf1a1cb93ddb440e976a3e11ac8cc901b350",
      "3038", "Orange Granadilla",
      "da916900e8179d36d54992f83aa344848220f7f47119007f1ac0a90c31cf5254"),
+    ("8121d470b27fe433b4a1643663f74e8ac57e6468b85b50cffce1605b14e81b35",
+     "3110", "Cara Cara Orange",
+     "094a1dd4aefa28808c726d1a3641318b98d543ca432c9298959bd029a00060af"),
 }
 EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".tif", ".tiff", ".gif",
               ".bmp", ".avif", ".svg"}
