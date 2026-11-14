@@ -1,0 +1,37 @@
+{
+  "plu": "4076",
+  "product": "Leaf lettuce green",
+  "width": 500,
+  "height": 500,
+  "sha256": "556ea92131168e293454d770a460647cceab91883914708801c1ca0c0b2914eb",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "c36880e6d06974ab0764a2f842346131fad9b28b7a697a6408d0662904a7a0a6",
+  "original_image_path": "data/images/Vegetable/0294_4076.jpg",
+  "original_width": 180,
+  "original_height": 180,
+  "assigned_image_path": "data/images/Vegetable/0294_4076.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "2656dbaa50444be7d9939b19a141a546b8860de58ffc0cd944d0a144011c134a",
+  "working_source_ids": [
+    "2656dbaa50444be7d9939b19a141a546b8860de58ffc0cd944d0a144011c134a"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

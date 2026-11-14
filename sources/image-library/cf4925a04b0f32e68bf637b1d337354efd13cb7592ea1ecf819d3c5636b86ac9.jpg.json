@@ -1,0 +1,37 @@
+{
+  "plu": "4052",
+  "product": "Papaya Small",
+  "width": 500,
+  "height": 500,
+  "sha256": "56e5aa0f65d98755c97d35f7048765fefe22599835fe4a5c15c5f843ab0ecc81",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "0ca2abad8c28ca03150d73a9dd7a68bdeccfc3af0a9d8de7ab87dffb427c4ea6",
+  "original_image_path": "data/images/Fruit/0163_4052.jpg",
+  "original_width": 272,
+  "original_height": 272,
+  "assigned_image_path": "data/images/Fruit/0163_4052.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "cf4925a04b0f32e68bf637b1d337354efd13cb7592ea1ecf819d3c5636b86ac9",
+  "working_source_ids": [
+    "cf4925a04b0f32e68bf637b1d337354efd13cb7592ea1ecf819d3c5636b86ac9"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

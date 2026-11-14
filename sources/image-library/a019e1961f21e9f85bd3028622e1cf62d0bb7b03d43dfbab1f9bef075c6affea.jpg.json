@@ -1,0 +1,37 @@
+{
+  "plu": "4180",
+  "product": "Apples Spartan Large",
+  "width": 500,
+  "height": 500,
+  "sha256": "46359ef24642423b805418f1d818ae2d9adaea14d4656f92898784cd0b0a7c3a",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "7175527cf74eda53183ff96cd61365c8b615eded987f27d5dda34b7244cde337",
+  "original_image_path": "data/images/Fruit/0019_4180.jpg",
+  "original_width": 293,
+  "original_height": 293,
+  "assigned_image_path": "data/images/Fruit/0019_4180.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "a019e1961f21e9f85bd3028622e1cf62d0bb7b03d43dfbab1f9bef075c6affea",
+  "working_source_ids": [
+    "a019e1961f21e9f85bd3028622e1cf62d0bb7b03d43dfbab1f9bef075c6affea"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

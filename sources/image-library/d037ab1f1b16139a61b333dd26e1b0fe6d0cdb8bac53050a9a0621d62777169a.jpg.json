@@ -1,0 +1,41 @@
+{
+  "plu": "94776",
+  "product": "Organic Squash Spaghetti",
+  "width": 500,
+  "height": 500,
+  "sha256": "195c72a3eb2f25fbccedc48adc11080247cc6a3daae569b18d96e43eb9c08050",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "03b3297e24e1d1b77fb89210058351dfa28507c3581dad9d20068bc991972706",
+  "original_image_path": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image115.jpg",
+  "original_width": 180,
+  "original_height": 180,
+  "assigned_image_path": "data/images/Vegetable/0580_94776.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image115.jpg",
+    "original_sha256": "03b3297e24e1d1b77fb89210058351dfa28507c3581dad9d20068bc991972706"
+  },
+  "working_source_id": "d037ab1f1b16139a61b333dd26e1b0fe6d0cdb8bac53050a9a0621d62777169a",
+  "working_source_ids": [
+    "d037ab1f1b16139a61b333dd26e1b0fe6d0cdb8bac53050a9a0621d62777169a"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

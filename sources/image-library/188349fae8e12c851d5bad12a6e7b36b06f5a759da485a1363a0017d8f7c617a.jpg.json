@@ -1,0 +1,37 @@
+{
+  "plu": "4062",
+  "product": "Cucumber Green (Field)",
+  "width": 500,
+  "height": 500,
+  "sha256": "fb688dab0e7c34d14275902f81356eef411184def206b83c308ecb9da19acd56",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "0de12b23419c3941e0a2001078ff001e3227eef1a7aae972ef9859ebcd0e6218",
+  "original_image_path": "data/images/Vegetable/0422_4062.jpg",
+  "original_width": 180,
+  "original_height": 180,
+  "assigned_image_path": "data/images/Vegetable/0422_4062.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "188349fae8e12c851d5bad12a6e7b36b06f5a759da485a1363a0017d8f7c617a",
+  "working_source_ids": [
+    "188349fae8e12c851d5bad12a6e7b36b06f5a759da485a1363a0017d8f7c617a"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

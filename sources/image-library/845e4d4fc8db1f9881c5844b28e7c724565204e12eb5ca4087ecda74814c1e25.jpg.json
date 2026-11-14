@@ -1,0 +1,41 @@
+{
+  "plu": "94020",
+  "product": "Organic Apples Golden Delicious",
+  "width": 500,
+  "height": 500,
+  "sha256": "9e600549531101755060a539be16756c8020968f1a3efdae343feadbc3fe840c",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "aba9392101578d42158ec30f7607e3a422e3af1507bcbf1fa7bc33940485e8a5",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image7.jpg",
+  "original_width": 253,
+  "original_height": 253,
+  "assigned_image_path": "data/images/Fruit/0198_94020.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image7.jpg",
+    "original_sha256": "aba9392101578d42158ec30f7607e3a422e3af1507bcbf1fa7bc33940485e8a5"
+  },
+  "working_source_id": "845e4d4fc8db1f9881c5844b28e7c724565204e12eb5ca4087ecda74814c1e25",
+  "working_source_ids": [
+    "845e4d4fc8db1f9881c5844b28e7c724565204e12eb5ca4087ecda74814c1e25"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

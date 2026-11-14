@@ -1,0 +1,41 @@
+{
+  "plu": "94066",
+  "product": "Organic Green Beans",
+  "width": 500,
+  "height": 500,
+  "sha256": "7bad087caac171eb96214ea5e4b0ba4c9b3d1683a5f61b639ddeecd18de0dda1",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "b4ddc81d124edcfdf2c3c585e8d96aa390ce652156cf70b5599efb966b5ea6fe",
+  "original_image_path": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image140.jpg",
+  "original_width": 289,
+  "original_height": 289,
+  "assigned_image_path": "data/images/Vegetable/0518_94066.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image140.jpg",
+    "original_sha256": "b4ddc81d124edcfdf2c3c585e8d96aa390ce652156cf70b5599efb966b5ea6fe"
+  },
+  "working_source_id": "28e4e2ce66461b02134ee6d4f6f25aca584df5dc03c3dfe572df7b6b7179241e",
+  "working_source_ids": [
+    "28e4e2ce66461b02134ee6d4f6f25aca584df5dc03c3dfe572df7b6b7179241e"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

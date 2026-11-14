@@ -1,0 +1,41 @@
+{
+  "plu": "94340",
+  "product": "Organic Melon Watermelon",
+  "width": 500,
+  "height": 500,
+  "sha256": "a2620632e438ec75bcd2d66a0a30383355aed3678557721c96492c15627005ae",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "26b3bf83813d0717eb27b3f23948208a25795a0cef583bfe84dcac30592631d8",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image70.jpg",
+  "original_width": 205,
+  "original_height": 205,
+  "assigned_image_path": "data/images/Fruit/0250_94340.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image70.jpg",
+    "original_sha256": "26b3bf83813d0717eb27b3f23948208a25795a0cef583bfe84dcac30592631d8"
+  },
+  "working_source_id": "102fd4a77e308170957515aed888e1d12b22d655816025e3e61768a116966550",
+  "working_source_ids": [
+    "102fd4a77e308170957515aed888e1d12b22d655816025e3e61768a116966550"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

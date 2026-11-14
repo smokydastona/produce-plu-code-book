@@ -1,0 +1,37 @@
+{
+  "plu": "4776",
+  "product": "Squash Spaghetti",
+  "width": 500,
+  "height": 500,
+  "sha256": "8663866f1a00d74d20f5a09a5bb95bb849352d55807764c957bb8151d206e223",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "03b3297e24e1d1b77fb89210058351dfa28507c3581dad9d20068bc991972706",
+  "original_image_path": "data/images/Vegetable/0445_4776.jpg",
+  "original_width": 180,
+  "original_height": 180,
+  "assigned_image_path": "data/images/Vegetable/0445_4776.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "03bf8098f422c68e5ee0bc2885889e23f3d943533f252308d152511805f31363",
+  "working_source_ids": [
+    "03bf8098f422c68e5ee0bc2885889e23f3d943533f252308d152511805f31363"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

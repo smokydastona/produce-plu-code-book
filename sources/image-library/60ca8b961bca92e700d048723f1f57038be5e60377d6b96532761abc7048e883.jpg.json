@@ -22,6 +22,8 @@
   "rights_verification_status": "VERIFIED",
   "original_image_sha256": "86cfa836804585101aa5f475e3288b8e72ab1e1ab7b5e730af377af2b0f65a2b",
   "original_image_path": "data/images/approved/86cfa836804585101aa5f475e3288b8e72ab1e1ab7b5e730af377af2b0f65a2b.jpg",
+  "original_width": 1000,
+  "original_height": 1000,
   "assigned_image_path": "data/images/approved/86cfa836804585101aa5f475e3288b8e72ab1e1ab7b5e730af377af2b0f65a2b.jpg",
   "legacy_organic_original": null,
   "working_source_id": "60ca8b961bca92e700d048723f1f57038be5e60377d6b96532761abc7048e883",
@@ -29,5 +31,7 @@
     "211accfa00b1af40ece0140fdaddf2196b7bedeffd633f3dee7f0001fdb91474",
     "51e7026b387d21cb2c6ccccf3fcf4fd6cf362f62eb39fa25e7ac024a96e22cfd"
   ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
   "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
 }

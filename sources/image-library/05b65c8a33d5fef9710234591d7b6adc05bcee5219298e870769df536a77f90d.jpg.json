@@ -1,0 +1,41 @@
+{
+  "plu": "93107",
+  "product": "Organic Oranges Navel Medium",
+  "width": 500,
+  "height": 500,
+  "sha256": "8b575f4760f9027d81a497a9cadc67fc52cae23e2771ee75758091d0fd4e0746",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "bc5ef4f0bd4843ce725e6fb23057418a56977f6ba6a95fd591eba610f0f31dab",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image43.jpg",
+  "original_width": 193,
+  "original_height": 193,
+  "assigned_image_path": "data/images/Fruit/0263_93107.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image43.jpg",
+    "original_sha256": "bc5ef4f0bd4843ce725e6fb23057418a56977f6ba6a95fd591eba610f0f31dab"
+  },
+  "working_source_id": "05b65c8a33d5fef9710234591d7b6adc05bcee5219298e870769df536a77f90d",
+  "working_source_ids": [
+    "05b65c8a33d5fef9710234591d7b6adc05bcee5219298e870769df536a77f90d"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

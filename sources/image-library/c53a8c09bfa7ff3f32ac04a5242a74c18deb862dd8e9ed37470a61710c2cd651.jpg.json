@@ -1,0 +1,40 @@
+{
+  "plu": "94655",
+  "product": "Organic Okra",
+  "width": 500,
+  "height": 500,
+  "sha256": "65d329b5e8bf1b7811aeefe3925df2cd20f2b44bbc108b078d818b9f171eb171",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "a63664af5237c23e654b3ef7ed3981ec90145c9d3e3a685bd421a0056e68825f",
+  "original_image_path": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image164.jpg",
+  "original_width": 227,
+  "original_height": 227,
+  "assigned_image_path": "data/images/Vegetable/0540_94655.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image164.jpg",
+    "original_sha256": "a63664af5237c23e654b3ef7ed3981ec90145c9d3e3a685bd421a0056e68825f"
+  },
+  "working_source_id": "c53a8c09bfa7ff3f32ac04a5242a74c18deb862dd8e9ed37470a61710c2cd651",
+  "working_source_ids": [
+    "c53a8c09bfa7ff3f32ac04a5242a74c18deb862dd8e9ed37470a61710c2cd651"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

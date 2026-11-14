@@ -95,10 +95,12 @@ def approve(root, source_id, candidate, book, section, source_sha, evidence,
         library = refresh_library(root)
     except (OSError, ValueError, KeyError) as exc:
         raise ValueError(f"image approval was saved, but library refresh failed: {exc}") from exc
-    if book in {"Fruit", "Vegetable"} and source_id not in library["source_ids"]:
+    if book in {"Fruit", "Vegetable"} and (
+            source_id not in library["source_ids"]
+            or source_id in library["blockers_by_source_id"]):
         blockers = library["blockers_by_source_id"].get(source_id, [])
         raise ValueError(
-            "image approval was saved, but this entry remains blocked and was not added to the library; "
+            "image approval was saved, but this entry remains blocked for production; "
             + (", ".join(blockers) if blockers else "check its current classification"))
     print(f"Recorded reviewed WorkingList image for {item['plu']} / {item['name']}; "
           "approved image library refreshed; full catalogue validation still required before publication")

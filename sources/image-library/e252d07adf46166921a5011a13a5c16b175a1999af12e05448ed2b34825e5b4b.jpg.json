@@ -1,0 +1,41 @@
+{
+  "plu": "94662",
+  "product": "Organic Onion Shallots",
+  "width": 500,
+  "height": 500,
+  "sha256": "39d977d8f18ff7abfb41b38d66cc8e5e9ed619186dfab3c07d8d0b8ed6431b88",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "a9dde9fb78bd66a19762459965a3278dfd29cc93c6386ac9b7aa85896886dabf",
+  "original_image_path": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image65.jpg",
+  "original_width": 185,
+  "original_height": 185,
+  "assigned_image_path": "data/images/Vegetable/0543_94662.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image65.jpg",
+    "original_sha256": "a9dde9fb78bd66a19762459965a3278dfd29cc93c6386ac9b7aa85896886dabf"
+  },
+  "working_source_id": "e252d07adf46166921a5011a13a5c16b175a1999af12e05448ed2b34825e5b4b",
+  "working_source_ids": [
+    "e252d07adf46166921a5011a13a5c16b175a1999af12e05448ed2b34825e5b4b"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

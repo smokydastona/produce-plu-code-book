@@ -1,0 +1,37 @@
+{
+  "plu": "3379",
+  "product": "Pineapple Baby",
+  "width": 500,
+  "height": 500,
+  "sha256": "ad8d89dcbdcbc87be71c1c204394bf03b30e6b16a565afd3556b2ddf33ec6ca2",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "89d97285828dde7fb68c39fee4764e68cf461c185606e8fedbd81e007946ff12",
+  "original_image_path": "data/images/Fruit/0167_3379.jpg",
+  "original_width": 185,
+  "original_height": 185,
+  "assigned_image_path": "data/images/Fruit/0167_3379.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "0cd4db2320d146a43aa7041c292c41deb91c6cbc95c49d58180b10c7241c21f6",
+  "working_source_ids": [
+    "0cd4db2320d146a43aa7041c292c41deb91c6cbc95c49d58180b10c7241c21f6"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

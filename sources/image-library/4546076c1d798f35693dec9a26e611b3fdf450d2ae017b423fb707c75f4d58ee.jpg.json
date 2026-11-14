@@ -1,0 +1,37 @@
+{
+  "plu": "81853",
+  "product": "Pineapple Half",
+  "width": 500,
+  "height": 500,
+  "sha256": "657b92d3504a8c734e85f19354346f27ec5ba821b926919a20582a9713f88653",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "6cb082b51cfd2713d1efb3b3438b3416b2304c96fc0f4c3792f7bff87def643d",
+  "original_image_path": "data/images/Fruit/0172_81853.jpg",
+  "original_width": 350,
+  "original_height": 350,
+  "assigned_image_path": "data/images/Fruit/0172_81853.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "4546076c1d798f35693dec9a26e611b3fdf450d2ae017b423fb707c75f4d58ee",
+  "working_source_ids": [
+    "4546076c1d798f35693dec9a26e611b3fdf450d2ae017b423fb707c75f4d58ee"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

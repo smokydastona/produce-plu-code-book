@@ -1,0 +1,41 @@
+{
+  "plu": "94381",
+  "product": "Organic Oranges Blood",
+  "width": 500,
+  "height": 500,
+  "sha256": "df6849cf3bc1ff2447977606bdb21803db7fde54ab21cf976ba243e807d2222d",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "b397f9102bb26231acfd62b064be19ed2437e09b021c982272575d3eb180f534",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image42.jpg",
+  "original_width": 180,
+  "original_height": 180,
+  "assigned_image_path": "data/images/Fruit/0257_94381.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image42.jpg",
+    "original_sha256": "b397f9102bb26231acfd62b064be19ed2437e09b021c982272575d3eb180f534"
+  },
+  "working_source_id": "a5609a68871339a70827f5abe2cbe78bd847ffe072ce1f9c9a82b30fdfd20030",
+  "working_source_ids": [
+    "a5609a68871339a70827f5abe2cbe78bd847ffe072ce1f9c9a82b30fdfd20030"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

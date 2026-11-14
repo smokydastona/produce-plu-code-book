@@ -209,6 +209,17 @@ def main():
             failed = True
             print(f"FAIL entry image assignments: {exc}")
     paths = sorted(set(paths))
+    library_paths = {path.resolve() for path in paths
+                     if path.resolve().parent == Path("sources/image-library").resolve()}
+    if library_paths:
+        from build_image_library import check_library
+
+        try:
+            check_library(Path.cwd())
+        except (OSError, ValueError, KeyError) as exc:
+            failed = True
+            print(f"FAIL image library verification: {exc}")
+            library_paths = set()
     changed = {path.resolve() for path in paths}
     fingerprints = {}
     comparison_paths = set(paths)
@@ -226,6 +237,9 @@ def main():
             continue
         fingerprints.setdefault(fingerprint, set()).add(path.resolve())
     for group in fingerprints.values():
+        # A regenerated audit library may retain legacy reuse warnings without
+        # authorizing new reuse among the assigned originals.
+        group = group - library_paths
         if len(group) > 1 and group & changed and not group <= organic_paths:
             try:
                 if approved_library_pair(group, Path.cwd()):
@@ -235,6 +249,10 @@ def main():
             failed = True
             print("FAIL duplicate image content: " + ", ".join(str(path) for path in sorted(group)))
     for path in sorted(set(paths)):
+        if path.resolve() in library_paths:
+            print(f"PASS {path} (regenerated visual-reference library; "
+                  "production limitations remain in its index and sidecar)")
+            continue
         if path.resolve() in legacy_watermarks:
             print(f"WARN {path}: verified watermark-only update of a legacy image; "
                   "existing size, licence and visual-review limitations remain")

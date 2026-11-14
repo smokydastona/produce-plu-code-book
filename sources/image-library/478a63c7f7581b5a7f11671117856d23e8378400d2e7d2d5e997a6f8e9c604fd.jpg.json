@@ -1,0 +1,36 @@
+{
+  "plu": "4080",
+  "product": "Asparagus Green",
+  "width": 500,
+  "height": 500,
+  "sha256": "539581b9cb7aebf997f4cd381fc6ca73810e99c8194b9629bbe35cf35f26b804",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "9d606182af229afc950534175d6195c2f444dbd8c3da8408d59946bbf1a49b6f",
+  "original_image_path": "data/images/Vegetable/0482_4080.jpg",
+  "original_width": 247,
+  "original_height": 247,
+  "assigned_image_path": "data/images/Vegetable/0482_4080.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "478a63c7f7581b5a7f11671117856d23e8378400d2e7d2d5e997a6f8e9c604fd",
+  "working_source_ids": [
+    "478a63c7f7581b5a7f11671117856d23e8378400d2e7d2d5e997a6f8e9c604fd"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

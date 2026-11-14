@@ -1,0 +1,41 @@
+{
+  "plu": "94413",
+  "product": "Organic Pears Bosc",
+  "width": 500,
+  "height": 500,
+  "sha256": "6a86722bb004301da6beababc971a70fe7daa73b652edaeb5475e133b100bb85",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "da2c4ed7f65c0e70368f7ebf66e9673ed4e5c0a8d1f049260d5b4dc65a0286c4",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image22.jpg",
+  "original_width": 180,
+  "original_height": 180,
+  "assigned_image_path": "data/images/Fruit/0279_94413.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image22.jpg",
+    "original_sha256": "da2c4ed7f65c0e70368f7ebf66e9673ed4e5c0a8d1f049260d5b4dc65a0286c4"
+  },
+  "working_source_id": "3cc2d2341bee33a0d4b3b25380d7f646273462956ec9a092f46f9b35108053d4",
+  "working_source_ids": [
+    "3cc2d2341bee33a0d4b3b25380d7f646273462956ec9a092f46f9b35108053d4"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

@@ -1,0 +1,40 @@
+{
+  "plu": "94640",
+  "product": "Organic Lettuce Romaine",
+  "width": 500,
+  "height": 500,
+  "sha256": "f780029d1ad02b59c4ff9ea7ec3bcdde35ce49ad0cb5018295a52135a924aec2",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "e179834156117ccdddafd34ef776bf4add067e068c7d77bea5642773cd87bdeb",
+  "original_image_path": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image5.jpg",
+  "original_width": 180,
+  "original_height": 180,
+  "assigned_image_path": "data/images/Vegetable/0531_94640.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image5.jpg",
+    "original_sha256": "e179834156117ccdddafd34ef776bf4add067e068c7d77bea5642773cd87bdeb"
+  },
+  "working_source_id": "76d5d67cb80ddd19b839e950e55c73ea5461c64927e9247296c6e2520d282e56",
+  "working_source_ids": [
+    "76d5d67cb80ddd19b839e950e55c73ea5461c64927e9247296c6e2520d282e56"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

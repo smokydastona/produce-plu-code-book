@@ -1,0 +1,37 @@
+{
+  "plu": "4381",
+  "product": "Oranges Blood",
+  "width": 500,
+  "height": 500,
+  "sha256": "1f23ae9cc8a01df9b3cc2f2b4347be492a9c604ea40b4479507da051b2b61e88",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "b397f9102bb26231acfd62b064be19ed2437e09b021c982272575d3eb180f534",
+  "original_image_path": "data/images/Fruit/0056_4381.jpg",
+  "original_width": 180,
+  "original_height": 180,
+  "assigned_image_path": "data/images/Fruit/0056_4381.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "d602997ac785bdd5a07d6443cd9bdc1b0624ca1cbaa0c52224f7b41521842900",
+  "working_source_ids": [
+    "d602997ac785bdd5a07d6443cd9bdc1b0624ca1cbaa0c52224f7b41521842900"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

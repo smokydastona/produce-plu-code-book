@@ -1,0 +1,37 @@
+{
+  "plu": "4034",
+  "product": "Melon Honeydew Large",
+  "width": 500,
+  "height": 500,
+  "sha256": "309694c4cea4c6de4a1b9362c28469aaf460f4809e3dfdb5342fcac5d323213c",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "7a5ef8930b24f1234e454b1da5e33695798c8a6e4c39235f6ae95b1012ee67b8",
+  "original_image_path": "data/images/Fruit/0112_4034.jpg",
+  "original_width": 257,
+  "original_height": 257,
+  "assigned_image_path": "data/images/Fruit/0112_4034.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "2f9a9031ec160c617fd0c4ce5b5371241590e783ee0d8041b4c0549d5445555b",
+  "working_source_ids": [
+    "2f9a9031ec160c617fd0c4ce5b5371241590e783ee0d8041b4c0549d5445555b"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

@@ -1,0 +1,37 @@
+{
+  "plu": "4079",
+  "product": "Cauliflower Small",
+  "width": 500,
+  "height": 500,
+  "sha256": "96e9416990d11a45097641e2f94c71f0215e85ac84aa4c5f0808adb8d97283fd",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "7193cb3e304f449c13344d622b91955b0aeb6b5abe0e573b2b9da38acba1bfec",
+  "original_image_path": "data/images/Vegetable/0339_4079.jpg",
+  "original_width": 180,
+  "original_height": 180,
+  "assigned_image_path": "data/images/Vegetable/0339_4079.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "7a742f54de0ea2fe3ffda8a9b6ce35a925efeb4685a1ba5449018e981e5212c8",
+  "working_source_ids": [
+    "7a742f54de0ea2fe3ffda8a9b6ce35a925efeb4685a1ba5449018e981e5212c8"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

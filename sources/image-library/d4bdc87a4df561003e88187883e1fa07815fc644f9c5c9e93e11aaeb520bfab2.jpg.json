@@ -1,0 +1,40 @@
+{
+  "plu": "94303",
+  "product": "Organic KumQuat",
+  "width": 500,
+  "height": 500,
+  "sha256": "16c86fc658d56871afeee7f27d3cf544cb038345502613f6d29f118bdeada697",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "9374eca5711059daf4bf5e5b9d04749d5181265003073a49f1b5836bcdacd621",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image118.jpg",
+  "original_width": 220,
+  "original_height": 220,
+  "assigned_image_path": "data/images/Fruit/0229_94303.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image118.jpg",
+    "original_sha256": "9374eca5711059daf4bf5e5b9d04749d5181265003073a49f1b5836bcdacd621"
+  },
+  "working_source_id": "d4bdc87a4df561003e88187883e1fa07815fc644f9c5c9e93e11aaeb520bfab2",
+  "working_source_ids": [
+    "d4bdc87a4df561003e88187883e1fa07815fc644f9c5c9e93e11aaeb520bfab2"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

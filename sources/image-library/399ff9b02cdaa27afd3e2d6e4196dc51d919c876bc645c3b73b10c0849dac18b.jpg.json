@@ -1,0 +1,37 @@
+{
+  "plu": "3123",
+  "product": "Pepper Brown",
+  "width": 500,
+  "height": 500,
+  "sha256": "a72b9e115790b260b66ff06d6892c430ae4c704cda4c6220fee6ca37c173b1e9",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "1a95cad49e3af928fa739f77e19a64695dacff8b312768e94f7fe2e7d8bbe352",
+  "original_image_path": "data/images/Vegetable/0392_3123.jpg",
+  "original_width": 335,
+  "original_height": 335,
+  "assigned_image_path": "data/images/Vegetable/0392_3123.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "399ff9b02cdaa27afd3e2d6e4196dc51d919c876bc645c3b73b10c0849dac18b",
+  "working_source_ids": [
+    "399ff9b02cdaa27afd3e2d6e4196dc51d919c876bc645c3b73b10c0849dac18b"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

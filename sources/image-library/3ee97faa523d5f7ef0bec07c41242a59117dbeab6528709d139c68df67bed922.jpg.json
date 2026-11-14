@@ -1,0 +1,37 @@
+{
+  "plu": "4627",
+  "product": "Kale",
+  "width": 500,
+  "height": 500,
+  "sha256": "c24affe1ffb77af3656f52615a403c84203c0b1a92c5e6b5c8c0b70df8d4eb54",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "0fa32d137152aa0d16a794c5fff3d9c96a43f15ddb452fb900cb1bb5efc6c11e",
+  "original_image_path": "data/images/Vegetable/0304_4627.jpg",
+  "original_width": 189,
+  "original_height": 189,
+  "assigned_image_path": "data/images/Vegetable/0304_4627.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "3ee97faa523d5f7ef0bec07c41242a59117dbeab6528709d139c68df67bed922",
+  "working_source_ids": [
+    "3ee97faa523d5f7ef0bec07c41242a59117dbeab6528709d139c68df67bed922"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

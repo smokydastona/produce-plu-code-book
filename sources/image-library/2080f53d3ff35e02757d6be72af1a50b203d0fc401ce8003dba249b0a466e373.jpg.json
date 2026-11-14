@@ -1,0 +1,37 @@
+{
+  "plu": "4663",
+  "product": "Onions White",
+  "width": 500,
+  "height": 500,
+  "sha256": "a70a70cef8c018e7866f4d0b1d65eb4d019f2298ce943d5fc3f59ba0a364e0fe",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "bb372216128746b8f9e814dd572e3d7d80b445e92b90cbc5a95ba3a06a542ac4",
+  "original_image_path": "data/images/Vegetable/0389_4663.jpg",
+  "original_width": 182,
+  "original_height": 182,
+  "assigned_image_path": "data/images/Vegetable/0389_4663.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "2080f53d3ff35e02757d6be72af1a50b203d0fc401ce8003dba249b0a466e373",
+  "working_source_ids": [
+    "2080f53d3ff35e02757d6be72af1a50b203d0fc401ce8003dba249b0a466e373"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

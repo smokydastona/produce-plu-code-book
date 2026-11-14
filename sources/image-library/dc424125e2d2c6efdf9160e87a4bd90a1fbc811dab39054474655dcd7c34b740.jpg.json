@@ -1,0 +1,41 @@
+{
+  "plu": "94323",
+  "product": "Organic Pepper Chocolate",
+  "width": 500,
+  "height": 500,
+  "sha256": "8509103e24649061d4f6d621e7bf17513b6fb5b17df46cdb2536bc4e9b974c14",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "1a95cad49e3af928fa739f77e19a64695dacff8b312768e94f7fe2e7d8bbe352",
+  "original_image_path": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image72.jpg",
+  "original_width": 335,
+  "original_height": 335,
+  "assigned_image_path": "data/images/Vegetable/0550_94323.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image72.jpg",
+    "original_sha256": "1a95cad49e3af928fa739f77e19a64695dacff8b312768e94f7fe2e7d8bbe352"
+  },
+  "working_source_id": "dc424125e2d2c6efdf9160e87a4bd90a1fbc811dab39054474655dcd7c34b740",
+  "working_source_ids": [
+    "dc424125e2d2c6efdf9160e87a4bd90a1fbc811dab39054474655dcd7c34b740"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

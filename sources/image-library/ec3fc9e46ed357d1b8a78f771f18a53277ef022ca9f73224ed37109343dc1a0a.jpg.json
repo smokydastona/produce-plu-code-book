@@ -1,0 +1,41 @@
+{
+  "plu": "94764",
+  "product": "Organic Squash Dumpling Sweet",
+  "width": 500,
+  "height": 500,
+  "sha256": "e7523a3216e3383147d000028d77f3e624ea73b2cf43bc5c5b7caa84663134fb",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "ff67d8fcfa23365b46016a1d0f854ba9ea7fcd7c5b2cbc8db7da4b717906fec1",
+  "original_image_path": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image118.jpg",
+  "original_width": 301,
+  "original_height": 301,
+  "assigned_image_path": "data/images/Vegetable/0574_94764.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image118.jpg",
+    "original_sha256": "ff67d8fcfa23365b46016a1d0f854ba9ea7fcd7c5b2cbc8db7da4b717906fec1"
+  },
+  "working_source_id": "ec3fc9e46ed357d1b8a78f771f18a53277ef022ca9f73224ed37109343dc1a0a",
+  "working_source_ids": [
+    "ec3fc9e46ed357d1b8a78f771f18a53277ef022ca9f73224ed37109343dc1a0a"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

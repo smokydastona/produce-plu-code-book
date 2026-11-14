@@ -1,0 +1,37 @@
+{
+  "plu": "3146",
+  "product": "Tomatoes Cherry Vine",
+  "width": 500,
+  "height": 500,
+  "sha256": "8d13f0a4791eba5adc6cc6a8a66c303c0c82112ba1b8c892c3c44f15e23ecfe9",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "bb7201cf81ff9ca17c4f281234c3f7237dc851378a03dde6e74000f92f687b99",
+  "original_image_path": "data/images/Vegetable/0421_3146.jpg",
+  "original_width": 337,
+  "original_height": 337,
+  "assigned_image_path": "data/images/Vegetable/0421_3146.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "e0eb4c0cbceace1b9d322ffcf2be1833878ee4c4dc1ae53385ecd5bce0be59cc",
+  "working_source_ids": [
+    "e0eb4c0cbceace1b9d322ffcf2be1833878ee4c4dc1ae53385ecd5bce0be59cc"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

@@ -1,0 +1,36 @@
+{
+  "plu": "4780",
+  "product": "Squash Turban",
+  "width": 500,
+  "height": 500,
+  "sha256": "72fc853dc07c56130bc57a5d2ad4e28e5d06c9d4df72f81a284c2d2ac7f8965e",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "6bc20ef55465cb71ccd345f76dd167939f1d0ada913bca23dfdf939562fa5f22",
+  "original_image_path": "data/images/Vegetable/0450_4780.jpg",
+  "original_width": 278,
+  "original_height": 278,
+  "assigned_image_path": "data/images/Vegetable/0450_4780.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "fda5c5fd4835d3cf5488dea4bf0cbe4db584fa06c16acea0b82eb7ec295803e1",
+  "working_source_ids": [
+    "fda5c5fd4835d3cf5488dea4bf0cbe4db584fa06c16acea0b82eb7ec295803e1"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

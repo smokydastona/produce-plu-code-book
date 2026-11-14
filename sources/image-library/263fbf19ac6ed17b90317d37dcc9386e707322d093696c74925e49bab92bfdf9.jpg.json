@@ -1,0 +1,40 @@
+{
+  "plu": "94024",
+  "product": "Organic Limes Finger",
+  "width": 500,
+  "height": 500,
+  "sha256": "3a29080aea1c2fac276bd95509e19bf1913da740bd5d000811bebf843ec56a45",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "6695692e82f46bd0475fd9882751c9c4ce703f6fe52a797d2707be64fc5e028f",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image121.jpg",
+  "original_width": 346,
+  "original_height": 346,
+  "assigned_image_path": "data/images/Fruit/0234_94024.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image121.jpg",
+    "original_sha256": "6695692e82f46bd0475fd9882751c9c4ce703f6fe52a797d2707be64fc5e028f"
+  },
+  "working_source_id": "263fbf19ac6ed17b90317d37dcc9386e707322d093696c74925e49bab92bfdf9",
+  "working_source_ids": [
+    "263fbf19ac6ed17b90317d37dcc9386e707322d093696c74925e49bab92bfdf9"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

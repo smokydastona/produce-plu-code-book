@@ -1,0 +1,41 @@
+{
+  "plu": "94896",
+  "product": "Organic Mint",
+  "width": 500,
+  "height": 500,
+  "sha256": "ad970ffe9b8557062fcb7fdbaaeb4730bdb14e313d384bf3ef06659dfcf1aa02",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "5b4313352bc487bc63e4cd109624dc6449be8ae8cc63882eadd07362a8e9049d",
+  "original_image_path": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image24.jpg",
+  "original_width": 225,
+  "original_height": 225,
+  "assigned_image_path": "data/images/Vegetable/0532_94896.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image24.jpg",
+    "original_sha256": "5b4313352bc487bc63e4cd109624dc6449be8ae8cc63882eadd07362a8e9049d"
+  },
+  "working_source_id": "950f0bf9c445b63bbd56e694c4693666a080cccec39a03e1a3c938ac01fa8845",
+  "working_source_ids": [
+    "950f0bf9c445b63bbd56e694c4693666a080cccec39a03e1a3c938ac01fa8845"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

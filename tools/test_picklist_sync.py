@@ -559,6 +559,7 @@ class PickListSyncChecks(unittest.TestCase):
         first = self.approved_assignment(items[0])
         second = self.approved_assignment(items[1])
         second["rights_verification_status"] = "NOT_VERIFIED"
+        second["visual_approval_status"] = "REJECTED"
         # A distinct original ensures the approved entry is not blocked for sharing.
         other = self.root / "data/other.png"
         Image.new("RGB", (500, 600), "green").save(other)
@@ -586,6 +587,71 @@ class PickListSyncChecks(unittest.TestCase):
         self.assertEqual(self.image.read_bytes(), original_before)
         with self.assertRaisesRegex(ValueError, "must be empty"):
             build_library(self.root, library)
+
+    def test_library_retains_prior_visual_approvals_without_clearing_production_warnings(self):
+        Image.new("RGB", (200, 150), "red").save(self.image)
+        original = self.image.read_bytes()
+        self.assignment.update(
+            image_sha256=hashlib.sha256(original).hexdigest(),
+            photographic_origin="NOT_VERIFIED", rights_verification_status="NOT_VERIFIED",
+            provenance={})
+        self.write_assignments([self.assignment])
+        library = self.root / "sources/image-library"
+        refresh_library(self.root)
+        check_library(self.root)
+        with (library / "IMAGE_LIBRARY.csv").open(encoding="utf-8-sig", newline="") as file:
+            record = next(csv.DictReader(file))
+        metadata = json.loads((library / (record["image"] + ".json")).read_text())
+        self.assertEqual(metadata["photographic_origin"], "NOT_VERIFIED")
+        self.assertEqual(record["rights_verification_status"], "NOT_VERIFIED")
+        self.assertEqual(record["production_status"], "BLOCKED")
+        for error in ("BELOW_500_PX", "IMAGE_RIGHTS_NOT_VERIFIED",
+                      "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED"):
+            self.assertIn(error, metadata["production_blockers"])
+        self.assertNotIn("license", metadata)
+        with Image.open(library / record["image"]) as image:
+            self.assertEqual((image.size, image.format, image.mode), ((500, 500), "JPEG", "RGB"))
+        self.assertEqual(self.image.read_bytes(), original)
+        self.assertEqual(reconcile(self.root, self.output)[3]["status"], "BLOCKED")
+        self.assignment["image_sha256"] = "stale"
+        self.write_assignments([self.assignment])
+        self.assertEqual(refresh_library(self.root)["images"], 0)
+
+    def test_library_keeps_reuse_warnings_and_excludes_stale_product_reviews(self):
+        self.write_source([("03283", "Honeycrisp Apple", True), ("42", "Other Apple", True)])
+        items, _ = read_picklist(self.source)
+        self.register_current_source(items)
+        assignments = [self.approved_assignment(item) for item in items]
+        self.write_assignments(assignments)
+        refresh_library(self.root)
+        with (self.root / "sources/image-library/IMAGE_LIBRARY.csv").open(
+                encoding="utf-8-sig", newline="") as file:
+            records = list(csv.DictReader(file))
+        self.assertEqual(len(records), 2)
+        self.assertTrue(all("PROHIBITED_IMAGE_REUSE" in r["production_blockers"] for r in records))
+        assignments[1]["reviewed_product"] = "Previous identity"
+        self.write_assignments(assignments)
+        self.assertEqual(refresh_library(self.root)["images"], 1)
+
+    def test_image_verifier_accepts_only_regenerated_legacy_library_copies(self):
+        self.assignment.update(photographic_origin="NOT_VERIFIED",
+                               rights_verification_status="NOT_VERIFIED", provenance={})
+        self.write_assignments([self.assignment])
+        refresh_library(self.root)
+        library_image = (self.root / "sources/image-library" /
+                         (self.items[0]["source_id"] + ".jpg"))
+        command = [sys.executable, str(Path(__file__).with_name("verify_images.py").resolve()),
+                   str(library_image)]
+        verified = subprocess.run(command, cwd=self.root, capture_output=True, text=True)
+        self.assertEqual(verified.returncode, 0, verified.stdout + verified.stderr)
+        self.assertIn("production limitations remain", verified.stdout)
+        sidecar = library_image.with_suffix(".jpg.json")
+        metadata = json.loads(sidecar.read_text())
+        metadata["photographic_origin"] = "VERIFIED_PHOTO"
+        sidecar.write_text(json.dumps(metadata))
+        tampered = subprocess.run(command, cwd=self.root, capture_output=True, text=True)
+        self.assertNotEqual(tampered.returncode, 0)
+        self.assertIn("FAIL image library verification", tampered.stdout)
 
     def test_display_composites_transparency_on_white_without_stretching(self):
         original = io.BytesIO()
@@ -694,6 +760,18 @@ class PickListSyncChecks(unittest.TestCase):
         self.assertEqual(approved_sidecar["rights_verification_status"], "VERIFIED")
         self.assertTrue(approved_sidecar["visual_approval_evidence"])
         self.assertEqual(reconcile(self.root, self.output)[3]["status"], "READY_TO_BUILD")
+
+    def test_approval_still_reports_production_blockers_after_library_inclusion(self):
+        self.write_source([("03283", "Honeycrisp Apple", True), ("42", "Other Apple", True)])
+        items, _ = read_picklist(self.source)
+        self.register_current_source(items)
+        self.write_assignments([self.approved_assignment(item) for item in items])
+        self.candidate_metadata()
+        rebuild_working_list(self.root, self.root / "audit")
+        with self.assertRaisesRegex(ValueError, "remains blocked for production.*PROHIBITED_IMAGE_REUSE"):
+            approve(self.root, items[0]["source_id"], self.image, "Fruit", "Apples",
+                    self.digest, "Test licence evidence", replace=True)
+        self.assertIn(items[0]["source_id"], check_library(self.root)["blockers_by_source_id"])
 
     def test_approval_reports_library_refresh_failure_without_overwriting_edits(self):
         self.candidate_metadata()

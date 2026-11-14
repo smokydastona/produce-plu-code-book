@@ -1,0 +1,37 @@
+{
+  "plu": "4049",
+  "product": "Melon Cantaloupe Sm",
+  "width": 500,
+  "height": 500,
+  "sha256": "68cebf1dd0292ab624a051ddf5ed119b40ba96efa5661fda9a961046db4a3c53",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "07e16920067ba63a8a006c226fe882cf4c309cf8d217f74a59a700648b732788",
+  "original_image_path": "data/images/Fruit/0105_4049.jpg",
+  "original_width": 215,
+  "original_height": 215,
+  "assigned_image_path": "data/images/Fruit/0105_4049.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "42e3eeb2ae96302f9698a34a92cc8260f127d0d466a3e33d516510755712fae5",
+  "working_source_ids": [
+    "42e3eeb2ae96302f9698a34a92cc8260f127d0d466a3e33d516510755712fae5"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

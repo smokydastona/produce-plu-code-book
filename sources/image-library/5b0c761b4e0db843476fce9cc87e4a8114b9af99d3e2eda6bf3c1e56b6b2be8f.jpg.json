@@ -1,0 +1,41 @@
+{
+  "plu": "94062",
+  "product": "Organic Cucumber Field (Green)",
+  "width": 500,
+  "height": 500,
+  "sha256": "c0938364da4fedb764262edab5d2efb775c7287b75fe60547f1eabb7a72337d0",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "0de12b23419c3941e0a2001078ff001e3227eef1a7aae972ef9859ebcd0e6218",
+  "original_image_path": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image97.jpg",
+  "original_width": 180,
+  "original_height": 180,
+  "assigned_image_path": "data/images/Vegetable/0512_94062.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image97.jpg",
+    "original_sha256": "0de12b23419c3941e0a2001078ff001e3227eef1a7aae972ef9859ebcd0e6218"
+  },
+  "working_source_id": "5b0c761b4e0db843476fce9cc87e4a8114b9af99d3e2eda6bf3c1e56b6b2be8f",
+  "working_source_ids": [
+    "5b0c761b4e0db843476fce9cc87e4a8114b9af99d3e2eda6bf3c1e56b6b2be8f"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

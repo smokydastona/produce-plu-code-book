@@ -1,0 +1,36 @@
+{
+  "plu": "4607",
+  "product": "Gai Choy",
+  "width": 500,
+  "height": 500,
+  "sha256": "3d4aceb12822d88f63f80ac1433cb54f98b4300a29776aacdff1f06bdc67f0b5",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "68e490229c466fef387cd8259ec92d0093ef26215b702b478e6b0cb14ac25e8f",
+  "original_image_path": "data/images/Vegetable/0469_4607.jpg",
+  "original_width": 354,
+  "original_height": 354,
+  "assigned_image_path": "data/images/Vegetable/0469_4607.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "a2a20bf6222216a61652b677f09ba9b61960c9db29619b7e0bf97857aa8140fa",
+  "working_source_ids": [
+    "a2a20bf6222216a61652b677f09ba9b61960c9db29619b7e0bf97857aa8140fa"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

@@ -1,0 +1,37 @@
+{
+  "plu": "4988",
+  "product": "Raspberries Flat",
+  "width": 500,
+  "height": 500,
+  "sha256": "5edfe117c6a711ec094acf8d517d4069e24fcf0a86da7927a99663f099d88700",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "6bc0832e0f1a17faef3c2e52269e194818b669dc4e087f0f229fd4dfa25154fe",
+  "original_image_path": "data/images/Fruit/0092_4988.jpg",
+  "original_width": 337,
+  "original_height": 337,
+  "assigned_image_path": "data/images/Fruit/0092_4988.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "4b6ce63277852ef3d84053cf49edda11ca0fb52464305e92e7a834d4a1490714",
+  "working_source_ids": [
+    "4b6ce63277852ef3d84053cf49edda11ca0fb52464305e92e7a834d4a1490714"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

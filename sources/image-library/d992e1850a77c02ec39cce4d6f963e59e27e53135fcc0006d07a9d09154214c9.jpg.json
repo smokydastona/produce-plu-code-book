@@ -1,0 +1,41 @@
+{
+  "plu": "94173",
+  "product": "Organic Royal Gala Apples",
+  "width": 500,
+  "height": 500,
+  "sha256": "6f31be9ebfe18444e834ffdd4bf37d1f0d69aff5af62fb557137e91503591ab1",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "acb5866c7424efe66c81d0a1014519788491936bf72bf73e4944cd53578f488e",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image6.jpg",
+  "original_width": 247,
+  "original_height": 247,
+  "assigned_image_path": "data/images/Fruit/0290_94173.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image6.jpg",
+    "original_sha256": "acb5866c7424efe66c81d0a1014519788491936bf72bf73e4944cd53578f488e"
+  },
+  "working_source_id": "d992e1850a77c02ec39cce4d6f963e59e27e53135fcc0006d07a9d09154214c9",
+  "working_source_ids": [
+    "d992e1850a77c02ec39cce4d6f963e59e27e53135fcc0006d07a9d09154214c9"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

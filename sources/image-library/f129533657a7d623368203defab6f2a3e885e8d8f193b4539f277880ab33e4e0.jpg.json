@@ -1,0 +1,36 @@
+{
+  "plu": "4258",
+  "product": "Cherries Rainier",
+  "width": 500,
+  "height": 500,
+  "sha256": "7728e10f4cc7494896c574dfcd8b1b54d88bd359ef1b7fa4d94024a130fdfa8e",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "7a0e3f101a08049201463eb36d9e589a53ce3556a98ab70b51f0b4a2d631e1f5",
+  "original_image_path": "data/images/Fruit/0127_4258.jpg",
+  "original_width": 278,
+  "original_height": 278,
+  "assigned_image_path": "data/images/Fruit/0127_4258.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "f129533657a7d623368203defab6f2a3e885e8d8f193b4539f277880ab33e4e0",
+  "working_source_ids": [
+    "f129533657a7d623368203defab6f2a3e885e8d8f193b4539f277880ab33e4e0"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

@@ -1,0 +1,41 @@
+{
+  "plu": "94034",
+  "product": "Organic Honeydew",
+  "width": 500,
+  "height": 500,
+  "sha256": "82f233585d6ce183e25d9f3e4f32708de8cb486ffba264b6076e58057a5d83b8",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "7a5ef8930b24f1234e454b1da5e33695798c8a6e4c39235f6ae95b1012ee67b8",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image64.jpg",
+  "original_width": 257,
+  "original_height": 257,
+  "assigned_image_path": "data/images/Fruit/0227_94034.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image64.jpg",
+    "original_sha256": "7a5ef8930b24f1234e454b1da5e33695798c8a6e4c39235f6ae95b1012ee67b8"
+  },
+  "working_source_id": "8d76e51ce166f0d3f0fa25e5dcc3b5f90a49de4764cd516f1ffaea0070247e9c",
+  "working_source_ids": [
+    "8d76e51ce166f0d3f0fa25e5dcc3b5f90a49de4764cd516f1ffaea0070247e9c"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

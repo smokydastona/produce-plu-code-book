@@ -1,0 +1,41 @@
+{
+  "plu": "94035",
+  "product": "Organic Nectarines Small",
+  "width": 500,
+  "height": 500,
+  "sha256": "21d3fb05fbbecde88f5c44da376b95d5d07ee55f785c73b52cd82af094c2c003",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "008abcfb300080899a36c4dcf527612785140af41cbf88d1a8eae0a000bb44b3",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image74.jpg",
+  "original_width": 212,
+  "original_height": 212,
+  "assigned_image_path": "data/images/Fruit/0255_94035.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image74.jpg",
+    "original_sha256": "008abcfb300080899a36c4dcf527612785140af41cbf88d1a8eae0a000bb44b3"
+  },
+  "working_source_id": "a195ece293a560b69c2d25ff867f0dfaf3af30977dd936c34b91d3f0df52fd32",
+  "working_source_ids": [
+    "a195ece293a560b69c2d25ff867f0dfaf3af30977dd936c34b91d3f0df52fd32"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

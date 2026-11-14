@@ -1,0 +1,37 @@
+{
+  "plu": "4543",
+  "product": "Endive Belgian (White)",
+  "width": 500,
+  "height": 500,
+  "sha256": "a734df3d5f7537cbe96ea378d93352114e5343dcafc8fcc467543dafc1ce7055",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "4d82a581cc53beeb04dc6b1ebe5bb200b264713341b2716b6a56e48dc6607145",
+  "original_image_path": "data/images/Vegetable/0303_4543.jpg",
+  "original_width": 254,
+  "original_height": 254,
+  "assigned_image_path": "data/images/Vegetable/0303_4543.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "607500166e89679b37280aaae819d45635d04014fcda29fe817362cc47772d98",
+  "working_source_ids": [
+    "607500166e89679b37280aaae819d45635d04014fcda29fe817362cc47772d98"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

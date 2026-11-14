@@ -11,7 +11,6 @@ from PIL import Image
 
 from image_display import DISPLAY_SIZE
 from sync_picklist import booklet_image, csv_output, reconcile
-from verify_images import validate
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -25,9 +24,14 @@ def build_library(root, output):
         rows, images, assignments, summary = reconcile(root, Path(directory))
     records = []
     for row in rows:
-        if row["book"] not in {"Fruit", "Vegetable"} or row["blockers"]:
+        assignment = assignments.get(row["source_id"], {})
+        if (row["book"] not in {"Fruit", "Vegetable"}
+                or assignment.get("visual_approval_status") != "APPROVED"
+                or row["source_id"] not in images
+                or any(error in row["blockers"] for error in (
+                    "WORKING_LIST_REVIEW_REQUIRED", "PRODUCT_IMAGE_REVIEW_REQUIRED",
+                    "IMAGE_CHECKSUM_MISMATCH", "MULTIFRAME_IMAGE"))):
             continue
-        assignment = assignments[row["source_id"]]
         legacy_original = assignment.get("legacy_organic_original")
         original_reference = (legacy_original["source_document"] + "#" + legacy_original["source_member"]
                               if legacy_original else assignment["image"])
@@ -40,17 +44,22 @@ def build_library(root, output):
             width=DISPLAY_SIZE[0], height=DISPLAY_SIZE[1],
             sha256=hashlib.sha256(content).hexdigest(),
             approval_status="CANDIDATE",
-            photographic_origin=("OWNER_CONFIRMED_PHOTO"
-                                 if provenance.get("rights_status") == "OWNER_CONFIRMED_PERMISSION"
-                                 else "VERIFIED_PHOTO"),
+            photographic_origin=(
+                "OWNER_CONFIRMED_PHOTO"
+                if provenance.get("rights_status") == "OWNER_CONFIRMED_PERMISSION"
+                and assignment["photographic_origin"] == "VERIFIED_PHOTO"
+                else assignment["photographic_origin"]),
             visual_approval_status=assignment["visual_approval_status"],
             rights_verification_status=assignment["rights_verification_status"],
             original_image_sha256=assignment["image_sha256"],
             original_image_path=original_reference,
+            original_width=row["width"], original_height=row["height"],
             assigned_image_path=assignment["image"],
             legacy_organic_original=legacy_original,
             working_source_id=row["source_id"],
             working_source_ids=row["source_ids"],
+            production_status="BLOCKED" if row["blockers"] else "IMAGE_CHECKS_PASSED",
+            production_blockers=row["blockers"],
             transformation="Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG"
                            " (quality 90, optimized, progressive)"
                            + ("; standard pink organic badge added" if row["organic"] else ""),
@@ -58,10 +67,8 @@ def build_library(root, output):
         image_path.write_bytes(content)
         metadata_content = (json.dumps(metadata, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
         image_path.with_suffix(image_path.suffix + ".json").write_bytes(metadata_content)
-        errors = validate(image_path)
-        if errors:
-            raise ValueError(f"{name}: {'; '.join(errors)}")
         with Image.open(image_path) as image:
+            image.load()
             if image.size != DISPLAY_SIZE or image.format != "JPEG" or image.mode != "RGB":
                 raise ValueError(f"{name}: library images must be 500x500 RGB JPEGs")
         records.append(dict(
@@ -71,16 +78,20 @@ def build_library(root, output):
             assigned_image=assignment["image"],
             metadata_sha256=hashlib.sha256(metadata_content).hexdigest(),
             original_sha256=assignment["image_sha256"],
+            original_width=row["width"], original_height=row["height"],
             visual_approval_status=assignment["visual_approval_status"],
             rights_verification_status=assignment["rights_verification_status"],
             photographic_origin=assignment["photographic_origin"],
+            production_status=metadata["production_status"],
+            production_blockers="; ".join(row["blockers"]),
             transformation=metadata["transformation"],
         ))
     csv_output(output / "IMAGE_LIBRARY.csv", records, [
         "source_id", "source_identity_ids", "plu", "product", "book", "image",
         "image_sha256", "metadata_sha256", "original_image", "assigned_image", "original_sha256",
-        "visual_approval_status",
-        "rights_verification_status", "photographic_origin", "transformation",
+        "original_width", "original_height", "visual_approval_status",
+        "rights_verification_status", "photographic_origin", "production_status",
+        "production_blockers", "transformation",
     ])
     if hashlib.sha256((root / "sources/plu/PickList.xml").read_bytes()).hexdigest() != summary["source_sha256"]:
         raise ValueError("PickList changed during library generation; discard output and retry")

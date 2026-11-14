@@ -1,0 +1,41 @@
+{
+  "plu": "94016",
+  "product": "Organic Apples Red Delicious",
+  "width": 500,
+  "height": 500,
+  "sha256": "a88c43bc8d9bd5d9bfbea8ca5d2582c999043ab3b681e7ba33007d9ca73cc730",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "c1fefb71fc06beaca6fdb5bc4eccf7618bb0d2e062e399689d3f3b3357a8cef0",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image14.jpg",
+  "original_width": 225,
+  "original_height": 225,
+  "assigned_image_path": "data/images/Fruit/0209_94016.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image14.jpg",
+    "original_sha256": "c1fefb71fc06beaca6fdb5bc4eccf7618bb0d2e062e399689d3f3b3357a8cef0"
+  },
+  "working_source_id": "e007a9c2425c1f7dd5a24b58f45b8ddcbfe4316fee29abd33422a3eee8e8f14d",
+  "working_source_ids": [
+    "e007a9c2425c1f7dd5a24b58f45b8ddcbfe4316fee29abd33422a3eee8e8f14d"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

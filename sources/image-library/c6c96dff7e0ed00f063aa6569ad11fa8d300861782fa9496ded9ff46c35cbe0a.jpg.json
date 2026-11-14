@@ -1,0 +1,41 @@
+{
+  "plu": "94154",
+  "product": "Organic Apples MacIntosh",
+  "width": 500,
+  "height": 500,
+  "sha256": "2ec897e7f23a97995ba614af4bd14625ec0a94330a45885b29898e96274b2fbd",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "1aa22b908a301036f24c75d8a63df1064161fe519196f161c269050e0a9e0fa3",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image11.jpg",
+  "original_width": 299,
+  "original_height": 299,
+  "assigned_image_path": "data/images/Fruit/0205_94154.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image11.jpg",
+    "original_sha256": "1aa22b908a301036f24c75d8a63df1064161fe519196f161c269050e0a9e0fa3"
+  },
+  "working_source_id": "c6c96dff7e0ed00f063aa6569ad11fa8d300861782fa9496ded9ff46c35cbe0a",
+  "working_source_ids": [
+    "c6c96dff7e0ed00f063aa6569ad11fa8d300861782fa9496ded9ff46c35cbe0a"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

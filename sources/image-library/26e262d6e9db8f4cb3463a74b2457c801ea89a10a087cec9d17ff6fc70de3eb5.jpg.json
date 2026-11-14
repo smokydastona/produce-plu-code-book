@@ -1,0 +1,37 @@
+{
+  "plu": "8032",
+  "product": "Squash Acorn Cut",
+  "width": 500,
+  "height": 500,
+  "sha256": "954c92c8a39414150dd79243ac6bac7a63b8f63975f4021860ce388ecd74b5b3",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "3888e8387f191d93f67b00837fdeb2dcac1c4761b41debc270c8a474f90af6af",
+  "original_image_path": "data/images/Vegetable/0431_8032.jpg",
+  "original_width": 302,
+  "original_height": 302,
+  "assigned_image_path": "data/images/Vegetable/0431_8032.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "26e262d6e9db8f4cb3463a74b2457c801ea89a10a087cec9d17ff6fc70de3eb5",
+  "working_source_ids": [
+    "26e262d6e9db8f4cb3463a74b2457c801ea89a10a087cec9d17ff6fc70de3eb5"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

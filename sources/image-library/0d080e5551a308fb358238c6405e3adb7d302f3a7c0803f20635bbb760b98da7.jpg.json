@@ -1,0 +1,37 @@
+{
+  "plu": "3124",
+  "product": "Pepper Purple Bell",
+  "width": 500,
+  "height": 500,
+  "sha256": "961a767239784de834a23f37e0fe0a63476783f48f6ac0ba50884338ea85bf80",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "79365cdcb26211015bb60fdc26203a9b90f25adbc1f5da8a33a5d99481151f26",
+  "original_image_path": "data/images/Vegetable/0404_3124.jpg",
+  "original_width": 303,
+  "original_height": 303,
+  "assigned_image_path": "data/images/Vegetable/0404_3124.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "0d080e5551a308fb358238c6405e3adb7d302f3a7c0803f20635bbb760b98da7",
+  "working_source_ids": [
+    "0d080e5551a308fb358238c6405e3adb7d302f3a7c0803f20635bbb760b98da7"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

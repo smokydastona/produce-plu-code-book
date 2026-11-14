@@ -1,0 +1,41 @@
+{
+  "plu": "94045",
+  "product": "Organic Cherries",
+  "width": 500,
+  "height": 500,
+  "sha256": "1e2bce01711f2855c0fa4119220b7a7d289dd05604b7086d6cbe282a3eb8ed0f",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "ade2c752f928bc4ddf07affcc3ebe774b4ca165755b6eb9a47849adf3cdb648d",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image72.jpg",
+  "original_width": 225,
+  "original_height": 225,
+  "assigned_image_path": "data/images/Fruit/0217_94045.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image72.jpg",
+    "original_sha256": "ade2c752f928bc4ddf07affcc3ebe774b4ca165755b6eb9a47849adf3cdb648d"
+  },
+  "working_source_id": "a0d1dfd7b95ad801882f5268572b7dbc687d846d9850c54e904658040277f3ea",
+  "working_source_ids": [
+    "a0d1dfd7b95ad801882f5268572b7dbc687d846d9850c54e904658040277f3ea"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

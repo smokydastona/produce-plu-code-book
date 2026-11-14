@@ -1,0 +1,36 @@
+{
+  "plu": "4815",
+  "product": "Watercress",
+  "width": 500,
+  "height": 500,
+  "sha256": "2e8b7d67075907e94b810ccbf549dc378f34349f863680a16751423a0a1df6fe",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "155fa8c61363a808a70ed15c061ec6629e746ccb1bceea9db2c89a5d22f36eea",
+  "original_image_path": "data/images/Vegetable/0313_4815.jpg",
+  "original_width": 339,
+  "original_height": 339,
+  "assigned_image_path": "data/images/Vegetable/0313_4815.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "24f82048ecaeb36ca69508b03ee71b26a171a5090a8690d37c6e17f382e20c30",
+  "working_source_ids": [
+    "24f82048ecaeb36ca69508b03ee71b26a171a5090a8690d37c6e17f382e20c30"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

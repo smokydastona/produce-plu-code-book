@@ -1,0 +1,36 @@
+{
+  "plu": "4585",
+  "product": "Celery Root",
+  "width": 500,
+  "height": 500,
+  "sha256": "e89f2bc8eb1718430d5c4182926e4f69c6cf7c9c2d866f94a251fd1332c85601",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "fbe0e0f07574e05a4a44533dbc6541fc26a5ccb9a39ee4010cb52178d1ae2053",
+  "original_image_path": "data/images/Vegetable/0348_4585.jpg",
+  "original_width": 281,
+  "original_height": 281,
+  "assigned_image_path": "data/images/Vegetable/0348_4585.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "54f7a55df0d0d2fcb525af09b21fb4db2b2a131562cb8f4afb9b248fa9909a6f",
+  "working_source_ids": [
+    "54f7a55df0d0d2fcb525af09b21fb4db2b2a131562cb8f4afb9b248fa9909a6f"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

@@ -1,0 +1,41 @@
+{
+  "plu": "94554",
+  "product": "Organic Cabbage Red",
+  "width": 500,
+  "height": 500,
+  "sha256": "f2200ff1452c7cc8ee402e93903aaa64be643efd518394a3035870366b4e8151",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "747f5e44dcdd4e526b3a8174950b03b72bcf07b2fd32989ac3ab14a021cf40d3",
+  "original_image_path": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image31.jpg",
+  "original_width": 181,
+  "original_height": 181,
+  "assigned_image_path": "data/images/Vegetable/0502_94554.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image31.jpg",
+    "original_sha256": "747f5e44dcdd4e526b3a8174950b03b72bcf07b2fd32989ac3ab14a021cf40d3"
+  },
+  "working_source_id": "c99d83d7ace911c3b9cb912448c6abfda07ecbf55f3fec71efec52b3713288ed",
+  "working_source_ids": [
+    "c99d83d7ace911c3b9cb912448c6abfda07ecbf55f3fec71efec52b3713288ed"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

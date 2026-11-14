@@ -1,0 +1,41 @@
+{
+  "plu": "94072",
+  "product": "Organic Potato Baking",
+  "width": 500,
+  "height": 500,
+  "sha256": "b50e6aaa8ba3a9e2a6cae7c89e719ce6d4c757862b4a4062f2770046a412c1ac",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "ec789b3f4af1e898ac09756855edc995d4773e632d3096ec61ce391a3eb61d45",
+  "original_image_path": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image56.jpg",
+  "original_width": 253,
+  "original_height": 253,
+  "assigned_image_path": "data/images/Vegetable/0557_94072.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image56.jpg",
+    "original_sha256": "ec789b3f4af1e898ac09756855edc995d4773e632d3096ec61ce391a3eb61d45"
+  },
+  "working_source_id": "0e1e23bde128de3cf7e0ff6cd14b9a345ca6b7aeae4afeb0c5a00c718276cda7",
+  "working_source_ids": [
+    "0e1e23bde128de3cf7e0ff6cd14b9a345ca6b7aeae4afeb0c5a00c718276cda7"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

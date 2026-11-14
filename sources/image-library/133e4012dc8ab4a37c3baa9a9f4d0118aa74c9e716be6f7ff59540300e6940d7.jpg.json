@@ -1,0 +1,36 @@
+{
+  "plu": "4547",
+  "product": "Rapini Bunch",
+  "width": 500,
+  "height": 500,
+  "sha256": "e2302ee3ed1514e1c656522b222afa69ecd8c9f177a71341f53059d0d56f86a9",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "c7ad299d011cc7b973f4ae08fad8719fec9139c53f468b1c2791ec5ff5ad9f0f",
+  "original_image_path": "data/images/Vegetable/0340_4547.jpg",
+  "original_width": 203,
+  "original_height": 203,
+  "assigned_image_path": "data/images/Vegetable/0340_4547.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "133e4012dc8ab4a37c3baa9a9f4d0118aa74c9e716be6f7ff59540300e6940d7",
+  "working_source_ids": [
+    "133e4012dc8ab4a37c3baa9a9f4d0118aa74c9e716be6f7ff59540300e6940d7"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

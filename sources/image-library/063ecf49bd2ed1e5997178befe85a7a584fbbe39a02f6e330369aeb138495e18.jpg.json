@@ -1,0 +1,36 @@
+{
+  "plu": "4533",
+  "product": "Beans Yellow Wax",
+  "width": 500,
+  "height": 500,
+  "sha256": "c3b7f742a7cae951b3915ec8cb86d093da3614ab40b76f3c7533b16c766e2f76",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "fc0f0f1f907800773a16ea95a9491776fc1a2dec3c9419f92bf9f1d90f0e85ce",
+  "original_image_path": "data/images/Vegetable/0485_4533.jpg",
+  "original_width": 159,
+  "original_height": 159,
+  "assigned_image_path": "data/images/Vegetable/0485_4533.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "063ecf49bd2ed1e5997178befe85a7a584fbbe39a02f6e330369aeb138495e18",
+  "working_source_ids": [
+    "063ecf49bd2ed1e5997178befe85a7a584fbbe39a02f6e330369aeb138495e18"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}
