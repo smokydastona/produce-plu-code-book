@@ -1,0 +1,33 @@
+{
+  "creator": "Not separately identified; ownership attested by user",
+  "license": "OWNER_CONFIRMED_PERMISSION",
+  "license_url": "",
+  "source_page_url": "",
+  "original_image_url": "",
+  "source_reference": "Owner-uploaded file: Orange_Granadilla.png (Copilot session attachment; no public source URL supplied)",
+  "rights_status": "OWNER_CONFIRMED_PERMISSION",
+  "photographic_origin_evidence": "User confirmed: \"Yes—I own the rights to Orange_Granadilla.png, Opo_Squash.png and 6000205525481.jpg, they are actual photographs, and I approve repository distribution, resizing and booklet use\"",
+  "visual_approval_evidence": "Owner supplied Orange_Granadilla.png for Orange Granadilla. Visual review shows whole and halved orange granadillas with leaves, isolated on white; no visible watermark or labels. Assigned only to PLU 3038.",
+  "attribution": "Owner-provided image; creator not separately identified",
+  "changes": "Original uploaded image bytes unchanged",
+  "rights_evidence": "User confirmed: \"Yes—I own the rights to Orange_Granadilla.png, Opo_Squash.png and 6000205525481.jpg, they are actual photographs, and I approve repository distribution, resizing and booklet use\"",
+  "plu": "3038",
+  "product": "Orange Granadilla",
+  "width": 500,
+  "height": 500,
+  "sha256": "f45e05cfb45f3539f642508260c7c5aff9d071986768cff8f0b3366362ca355d",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "OWNER_CONFIRMED_PHOTO",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "VERIFIED",
+  "original_image_sha256": "770c1b4cf03a5c0c917c5f8cf92221a53921fecfbd5304fb6f5d0c0868b3a8e2",
+  "original_image_path": "data/images/approved/770c1b4cf03a5c0c917c5f8cf92221a53921fecfbd5304fb6f5d0c0868b3a8e2.png",
+  "assigned_image_path": "data/images/approved/770c1b4cf03a5c0c917c5f8cf92221a53921fecfbd5304fb6f5d0c0868b3a8e2.png",
+  "legacy_organic_original": null,
+  "working_source_id": "da916900e8179d36d54992f83aa344848220f7f47119007f1ac0a90c31cf5254",
+  "working_source_ids": [
+    "99c82b946ae77615131dd18b7873fb69670d7d950170a311283ce7aa48c5ff62",
+    "1ad5bfa1491f6e6364e03dc9ba0e86d59f9a31bcb300c4168485a4e6b62368c6"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

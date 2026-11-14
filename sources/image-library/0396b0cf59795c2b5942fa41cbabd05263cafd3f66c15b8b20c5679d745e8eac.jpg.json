@@ -1,0 +1,33 @@
+{
+  "creator": "Not separately identified; ownership attested by user",
+  "license": "OWNER_CONFIRMED_PERMISSION",
+  "license_url": "",
+  "source_page_url": "",
+  "original_image_url": "",
+  "source_reference": "Owner-uploaded file: 6000205525481.jpg (Copilot session attachment; no public source URL supplied)",
+  "rights_status": "OWNER_CONFIRMED_PERMISSION",
+  "photographic_origin_evidence": "User confirmed: \"Yes—I own the rights to Orange_Granadilla.png, Opo_Squash.png and 6000205525481.jpg, they are actual photographs, and I approve repository distribution, resizing and booklet use\"",
+  "visual_approval_evidence": "Owner supplied 6000205525481.jpg for Early Nugget (Warba) Potatoes. Visual review shows pile of uncooked cream-skinned potatoes with pink eyes characteristic of Warba, on white; no visible watermark or labels. Assigned only to PLU 60271.",
+  "attribution": "Owner-provided image; creator not separately identified",
+  "changes": "Original uploaded image bytes unchanged",
+  "rights_evidence": "User confirmed: \"Yes—I own the rights to Orange_Granadilla.png, Opo_Squash.png and 6000205525481.jpg, they are actual photographs, and I approve repository distribution, resizing and booklet use\"",
+  "plu": "60271",
+  "product": "Early Nugget (Warba) Potatoes",
+  "width": 500,
+  "height": 500,
+  "sha256": "1ab458223101138b91b1b06753933ac7fa3a759c54af19de6fcbad8cbb288c93",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "OWNER_CONFIRMED_PHOTO",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "VERIFIED",
+  "original_image_sha256": "85a079aba7341916f6697a0605b4c98d350405d7d3485d657c7ff5c64c1acaab",
+  "original_image_path": "data/images/approved/85a079aba7341916f6697a0605b4c98d350405d7d3485d657c7ff5c64c1acaab.jpg",
+  "assigned_image_path": "data/images/approved/85a079aba7341916f6697a0605b4c98d350405d7d3485d657c7ff5c64c1acaab.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "0396b0cf59795c2b5942fa41cbabd05263cafd3f66c15b8b20c5679d745e8eac",
+  "working_source_ids": [
+    "bea3ff984b0950b19603e19453f72999b733b6b843712059e2f988cfd8c7ca64",
+    "775fb1bad4c91f5fda3222ea6c66028f9d318dbc529e4a4c24f2baac469d10e7"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}
