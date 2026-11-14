@@ -16,7 +16,7 @@ from openpyxl.drawing.image import Image as ExcelImage
 from openpyxl.styles import Font
 from PIL import Image
 
-from build_till_binders import (FILENAMES, VISUALS, comparisons, generate, layout_rows,
+from build_till_binders import (FILENAMES, MAX_GITHUB_FILE_SIZE, VISUALS, comparisons, generate, layout_rows,
                                map_images, produce_catalog, quick_sheet, replace_produce,
                                sha, validate_package, visual_records, workbook_photo_copy)
 from picklist_catalog import read_picklist, read_assignments
@@ -163,6 +163,8 @@ class TillBinderChecks(unittest.TestCase):
             self.assertEqual(len(workbook["Operational"]._charts), 1)
             self.assertEqual(workbook["Hidden operations"].sheet_state, "hidden")
             self.assertTrue(summary["validations"][edition]["unrelated_package_parts_byte_identical"])
+            if edition == "photos":
+                self.assertLess(summary["validations"][edition]["file_size_bytes"], MAX_GITHUB_FILE_SIZE)
             self.assertEqual(len(workbook["Produce"]._images), 5 if edition == "photos" else 0)
             if edition == "photos":
                 formats = set()
@@ -189,13 +191,22 @@ class TillBinderChecks(unittest.TestCase):
             self.assertEqual(image.format, "JPEG")
             self.assertEqual(image.size, (40, 30))
 
+        enlarged = io.BytesIO()
+        Image.new("RGB", (1200, 600), (40, 120, 200)).save(enlarged, format="PNG")
+        enlarged_bytes = enlarged.getvalue()
+        resized_copy = workbook_photo_copy(enlarged_bytes)
+        with Image.open(io.BytesIO(resized_copy)) as image:
+            self.assertEqual(image.format, "JPEG")
+            self.assertEqual(image.size, (192, 96))
+        self.assertEqual(enlarged.getvalue(), enlarged_bytes)
+
         transparent = io.BytesIO()
-        Image.new("RGBA", (40, 30), (40, 120, 200, 0)).save(transparent, format="PNG")
+        Image.new("RGBA", (800, 400), (40, 120, 200, 0)).save(transparent, format="PNG")
         transparent_bytes = transparent.getvalue()
         transparent_copy = workbook_photo_copy(transparent_bytes)
         with Image.open(io.BytesIO(transparent_copy)) as image:
             self.assertEqual(image.format, "PNG")
-            self.assertEqual(image.size, (40, 30))
+            self.assertEqual(image.size, (192, 96))
             self.assertEqual(image.getchannel("A").getextrema(), (0, 0))
         self.assertEqual(opaque.getvalue(), opaque_bytes)
         self.assertEqual(transparent.getvalue(), transparent_bytes)

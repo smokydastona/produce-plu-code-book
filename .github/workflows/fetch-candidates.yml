@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       scope:
-        description: Entries to acquire (all searches every produce entry)
+        description: Entries to acquire (working-list-rejected uses the current identity-pinned visual review)
         type: choice
-        options: [rejected, all]
+        options: [rejected, working-list-rejected, all]
         default: rejected
       per_entry:
         description: Candidate limit per entry (1 to 5)
@@ -62,13 +62,20 @@ jobs:
           if [ "$SCOPE" = "all" ]; then
             REVIEW="$RUNNER_TEMP/picklist-sync/ALL_IMAGE_REQUESTS.csv"
             EXTRA_ARGS+=(--all-entries --shard-count 6 --shard-index "$SHARD")
+          elif [ "$SCOPE" = "working-list-rejected" ]; then
+            REVIEW=current/review-booklets/IMAGE_VISUAL_REVIEW.csv
+            REVIEW_ARGS=(--working-list-review "$REVIEW")
           else
             REVIEW=data/image_review.csv
+            REVIEW_ARGS=(--review "$REVIEW")
             EXTRA_ARGS+=(--leads sources/temp_upload/candidates.json)
           fi
-          python tools/retrieve_commons.py --review "$REVIEW" \
+          if [ "$SCOPE" = "all" ]; then
+            REVIEW_ARGS=(--review "$REVIEW")
+          fi
+          python tools/retrieve_commons.py \
             --output "$RUNNER_TEMP/produce-candidates" --per-entry "$PER_ENTRY" \
-            "${EXTRA_ARGS[@]}" \
+            "${REVIEW_ARGS[@]}" "${EXTRA_ARGS[@]}" \
             --user-agent "ProducePLUReview/1.0 (https://github.com/smokydastona/produce-plu-code-book)"
       - name: Upload unreviewed candidates
         if: always()

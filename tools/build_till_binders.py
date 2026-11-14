@@ -44,6 +44,8 @@ FILENAMES = {
     "text": "Complete Till Binder - Updated - Text Only.xlsx",
     "photos": "Complete Till Binder - Updated - Photos.xlsx",
 }
+MAX_WORKBOOK_IMAGE_SIZE = (192, 120)
+MAX_GITHUB_FILE_SIZE = 100 * 1024 * 1024
 VISUALS = {
     "Fruit": "FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
     "Vegetable": "VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
@@ -60,6 +62,7 @@ def sha(content):
 def workbook_photo_copy(content):
     with Image.open(io.BytesIO(content)) as source:
         image = ImageOps.exif_transpose(source)
+        image.thumbnail(MAX_WORKBOOK_IMAGE_SIZE, Image.Resampling.LANCZOS)
         if "A" in image.getbands() or "transparency" in image.info:
             has_transparency = image.convert("RGBA").getchannel("A").getextrema()[0] < 255
         else:
@@ -584,6 +587,9 @@ def replace_produce(binder, donor_content, destination):
 
 
 def validate_package(binder, output, coordinates, images, with_photos):
+    file_size = output.stat().st_size
+    if with_photos and file_size > MAX_GITHUB_FILE_SIZE:
+        raise ValueError(f"{output}: photo workbook exceeds the 100 MiB GitHub file-size limit")
     with zipfile.ZipFile(binder) as original, zipfile.ZipFile(output) as generated:
         if generated.testzip() is not None:
             raise ValueError(f"{output}: ZIP checksum failure")
@@ -667,7 +673,7 @@ def validate_package(binder, output, coordinates, images, with_photos):
             unrelated_package_parts_byte_identical=True, existing_styles_preserved=True,
             unrelated_workbook_settings_preserved=True, internal_relationships_valid=True,
             exact_text_codes_and_descriptions=True, duplicate_highlights_verified=True,
-            file_sha256=sha(output.read_bytes()), package_parts=preserved,
+            file_sha256=sha(output.read_bytes()), file_size_bytes=file_size, package_parts=preserved,
         )
     finally:
         workbook.close()

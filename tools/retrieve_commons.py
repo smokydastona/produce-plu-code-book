@@ -190,6 +190,55 @@ def rejected_entries(path):
     return rows
 
 
+def review_rejection_entries(path, report, source_sha256, working_items):
+    if report.get("source_sha256") != source_sha256:
+        raise ValueError("image review was made against a different PickList; rebuild and review current identities")
+    if report.get("source") != "sources/plu/PickList.xml":
+        raise ValueError("image review does not identify the authoritative PickList source")
+    active = {item["source_id"]: item for item in working_items if item.get("included")}
+    with path.open(newline="", encoding="utf-8-sig") as file:
+        rows = list(csv.DictReader(file))
+    decisions = {}
+    entries = []
+    sequences = set()
+    for row in rows:
+        sequence = row.get("sequence", "")
+        source_id = row.get("working_list_id", "")
+        if not sequence.isdigit() or sequence in sequences:
+            raise ValueError("image review has a missing or duplicate sequence")
+        sequences.add(sequence)
+        item = active.get(source_id)
+        if item is None:
+            raise ValueError(f"image review identity is no longer active: {source_id}")
+        if (row.get("plu"), row.get("working_product"), row.get("source_identity_ids")) != (
+                item["plu"], item["name"], ";".join(item.get("source_ids", []))):
+            raise ValueError(f"image review identity changed since review: {source_id}")
+        decision = row.get("visual_decision", "")
+        decisions[decision] = decisions.get(decision, 0) + 1
+        if decision == "REJECTED":
+            entries.append(dict(idx=sequence, plu=item["plu"], name=item["name"], source_id=source_id))
+    if len(rows) != report.get("reviewed_working_list_entries") or decisions != report.get("decision_counts"):
+        raise ValueError("image review CSV does not match its summary")
+    if len(entries) != report.get("decision_counts", {}).get("REJECTED", 0):
+        raise ValueError("image review rejected-entry count does not match its summary")
+    if not entries:
+        raise ValueError("image review contains no rejected entries to search")
+    return entries
+
+
+def current_review_rejections(root, review_path):
+    from working_list import read_working_list
+
+    report_path = review_path.with_suffix(".json")
+    report = json.loads(report_path.read_text(encoding="utf-8"))
+    source_path = root / "sources/plu/PickList.xml"
+    source_sha256 = hashlib.sha256(source_path.read_bytes()).hexdigest()
+    working_items, working_sha256 = read_working_list(root)
+    if working_sha256 != source_sha256:
+        raise ValueError("WorkingList reconciliation uses a different PickList version")
+    return review_rejection_entries(review_path, report, source_sha256, working_items)
+
+
 def entry_query(entry):
     if entry.get("query"):
         return entry["query"]
@@ -306,6 +355,8 @@ def main():
                         help="Descriptive Wikimedia User-Agent including a contact URL/email")
     parser.add_argument("--review", type=Path,
                         help="Review CSV: acquire all rejected entries with supported reuse licences")
+    parser.add_argument("--working-list-review", type=Path,
+                        help="Identity-pinned IMAGE_VISUAL_REVIEW.csv; search only rejected current entries")
     parser.add_argument("--all-entries", action="store_true",
                         help="Search every entry in --review, not only rejected images")
     parser.add_argument("--shard-index", type=int, default=0, help="Zero-based entry selection shard")
@@ -316,15 +367,21 @@ def main():
     args = parser.parse_args()
     if args.shard_count < 1 or not 0 <= args.shard_index < args.shard_count:
         parser.error("--shard-index must be between 0 and --shard-count minus 1")
-    if not args.review and (args.all_entries or args.shard_count != 1):
+    if args.review and args.working_list_review:
+        parser.error("--review and --working-list-review are mutually exclusive")
+    if not args.review and not args.working_list_review and (args.all_entries or args.shard_count != 1):
         parser.error("--all-entries and sharding require --review")
-    if args.review:
+    if args.review or args.working_list_review:
         if not 1 <= args.per_entry <= 5:
             parser.error("--per-entry must be between 1 and 5")
         try:
             from candidate_manifest import read_manifest
             leads = read_manifest(args.leads) if args.leads else []
-            if args.all_entries:
+            if args.working_list_review:
+                if args.all_entries:
+                    parser.error("--all-entries cannot be combined with --working-list-review")
+                entries = current_review_rejections(Path.cwd(), args.working_list_review)
+            elif args.all_entries:
                 with args.review.open(newline="", encoding="utf-8-sig") as file:
                     entries = list(csv.DictReader(file))
             else:
