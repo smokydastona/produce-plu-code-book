@@ -46,6 +46,23 @@ class ImageChecks(unittest.TestCase):
                 self.write_record()
                 self.assertEqual(validate(self.path), [])
 
+    def test_owner_confirmed_permission_does_not_infer_a_public_licence(self):
+        self.record.update(
+            license="OWNER_CONFIRMED_PERMISSION",
+            rights_status="OWNER_CONFIRMED_PERMISSION",
+            source_reference="Owner-uploaded image attachment",
+            rights_evidence="Owner confirmed permission for this repository",
+            photographic_origin="OWNER_CONFIRMED_PHOTO",
+            photographic_origin_evidence="Owner confirmed this is a photograph",
+            visual_approval_evidence="Owner approved this image",
+        )
+        self.write_record()
+        self.assertEqual(validate(self.path), [])
+        self.record["license"] = "CC0"
+        self.write_record()
+        self.assertTrue(any("must not be presented as a public licence" in error
+                            for error in validate(self.path)))
+
     def test_shortest_side_not_longest(self):
         Image.new("RGB", (1000, 499)).save(self.path)
         self.assertTrue(any("minimum is 500" in e for e in validate(self.path)))

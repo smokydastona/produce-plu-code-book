@@ -18,6 +18,7 @@ from organic_watermarks import (is_organic, read_records, verified_original,
 PUBLIC_DOMAIN = {"CC0", "Public domain"}
 LICENSES = PUBLIC_DOMAIN | {"CC BY 2.0", "CC BY 3.0", "CC BY 4.0",
                             "CC BY-SA 2.0", "CC BY-SA 3.0", "CC BY-SA 4.0"}
+OWNER_PERMISSION = "OWNER_CONFIRMED_PERMISSION"
 EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".tif", ".tiff", ".gif",
               ".bmp", ".avif", ".svg"}
 
@@ -39,19 +40,30 @@ def validate(path):
     except (OSError, ValueError, Image.DecompressionBombError,
             Image.DecompressionBombWarning) as exc:
         return [f"invalid image: {exc}"]
+    owner_permission = False
     try:
         metadata = json.loads(path.with_suffix(path.suffix + ".json").read_text())
     except (OSError, ValueError) as exc:
         return errors + [f"missing or invalid provenance JSON: {exc}"]
     if not isinstance(metadata, dict):
         return errors + ["provenance JSON must be an object"]
-    for key in ("plu", "product", "creator", "license", "attribution",
-                "source_page_url", "original_image_url", "license_url"):
+    owner_permission = metadata.get("rights_status") == OWNER_PERMISSION
+    required = ["plu", "product", "creator", "attribution"]
+    if owner_permission:
+        required.extend(("source_reference", "rights_evidence", "photographic_origin_evidence",
+                         "visual_approval_evidence"))
+        if metadata.get("license") != OWNER_PERMISSION:
+            errors.append("owner permission must not be presented as a public licence")
+        if metadata.get("photographic_origin") != "OWNER_CONFIRMED_PHOTO":
+            errors.append("owner-provided image photographic origin is not confirmed")
+    else:
+        required.extend(("license", "source_page_url", "original_image_url", "license_url"))
+    for key in required:
         if not isinstance(metadata.get(key), str) or not metadata[key].strip():
             errors.append(f"missing/non-string metadata: {key}")
     for key in ("source_page_url", "original_image_url", "license_url"):
         value = metadata.get(key)
-        if isinstance(value, str):
+        if isinstance(value, str) and value:
             try:
                 url = urlparse(value)
                 valid_url = url.scheme == "https" and bool(url.hostname)
@@ -59,7 +71,7 @@ def validate(path):
                 valid_url = False
             if not valid_url:
                 errors.append(f"{key} must be an absolute HTTPS URL")
-    if metadata.get("license") not in LICENSES:
+    if not owner_permission and metadata.get("license") not in LICENSES:
         errors.append("licence is not a supported commercial-use licence")
     if metadata.get("width") != size[0] or metadata.get("height") != size[1]:
         errors.append("recorded dimensions do not match the file")

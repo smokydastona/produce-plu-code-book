@@ -43,7 +43,15 @@ def image_blockers(row, review, root):
             errors.append("IMAGE_RIGHTS_NOT_VERIFIED")
         if metadata.get("visual_approval_status") != "APPROVED":
             errors.append("IMAGE_VISUAL_APPROVAL_NOT_RECORDED")
-        for key in ("creator", "license", "source_page_url", "license_url", "attribution"):
+        owner_permission = metadata.get("rights_status") == "OWNER_CONFIRMED_PERMISSION"
+        required = ["creator", "attribution"]
+        if owner_permission:
+            required.extend(("source_reference", "rights_evidence"))
+            if metadata.get("license") != "OWNER_CONFIRMED_PERMISSION":
+                errors.append("OWNER_PERMISSION_MUST_NOT_CLAIM_PUBLIC_LICENCE")
+        else:
+            required.extend(("license", "source_page_url", "license_url"))
+        for key in required:
             if not isinstance(metadata.get(key), str) or not metadata[key].strip():
                 errors.append("MISSING_PROVENANCE_" + key.upper())
     return width, height, errors

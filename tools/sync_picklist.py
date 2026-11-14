@@ -67,10 +67,19 @@ def reviewed_image(root, item, assignment):
             item["plu"], item["name"]):
         errors.append("PRODUCT_IMAGE_REVIEW_REQUIRED")
     provenance = assignment.get("provenance", {})
-    if provenance.get("license") not in LICENSES:
+    owner_permission = provenance.get("rights_status") == "OWNER_CONFIRMED_PERMISSION"
+    if owner_permission:
+        if provenance.get("license") != "OWNER_CONFIRMED_PERMISSION":
+            errors.append("OWNER_PERMISSION_MUST_NOT_CLAIM_PUBLIC_LICENCE")
+    elif provenance.get("license") not in LICENSES:
         errors.append("SUPPORTED_IMAGE_LICENCE_REQUIRED")
-    for key in ("creator", "license_url", "source_page_url", "original_image_url",
-                "attribution", "changes", "rights_evidence"):
+    required_provenance = ["creator", "attribution", "changes", "rights_evidence"]
+    if owner_permission:
+        required_provenance.extend(("source_reference", "photographic_origin_evidence",
+                                    "visual_approval_evidence"))
+    else:
+        required_provenance.extend(("license_url", "source_page_url", "original_image_url"))
+    for key in required_provenance:
         if not isinstance(provenance.get(key), str) or not provenance[key].strip():
             errors.append("MISSING_PROVENANCE_" + key.upper())
     return content, width, height, errors
@@ -380,7 +389,8 @@ def build_documents(root, output, rows, images, assignments, digest):
             credits.append(credit)
     csv_output(output / "PHOTO_ATTRIBUTIONS.csv", credits,
                ["source_id", "plu", "product", "creator", "license", "license_url",
-                "source_page_url", "original_image_url", "attribution", "changes", "rights_evidence"])
+                "source_page_url", "original_image_url", "source_reference", "rights_status",
+                "attribution", "changes", "photographic_origin_evidence", "rights_evidence"])
 
 
 def excel_row(sheet, number, values):

@@ -471,6 +471,23 @@ class PickListSyncChecks(unittest.TestCase):
             self.assertIn("SUPPORTED_IMAGE_LICENCE_REQUIRED",
                           reviewed_image(self.root, self.items[0], self.assignment)[3])
 
+    def test_owner_confirmed_permission_requires_audit_evidence_not_a_public_licence(self):
+        self.assignment["provenance"] = dict(
+            creator="Not separately identified by the owner",
+            license="OWNER_CONFIRMED_PERMISSION",
+            rights_status="OWNER_CONFIRMED_PERMISSION",
+            source_reference="Owner-uploaded image attachment",
+            photographic_origin_evidence="Owner confirmed this is a photograph",
+            visual_approval_evidence="Owner approved this image",
+            attribution="Owner-provided image",
+            changes="Original uploaded image bytes unchanged",
+            rights_evidence="Owner confirmed permission for this repository",
+        )
+        self.assertEqual(reviewed_image(self.root, self.items[0], self.assignment)[3], [])
+        self.assignment["provenance"]["license"] = "CC0"
+        self.assertIn("OWNER_PERMISSION_MUST_NOT_CLAIM_PUBLIC_LICENCE",
+                      reviewed_image(self.root, self.items[0], self.assignment)[3])
+
     def test_non_produce_code_only_exception_requires_explicit_approval(self):
         self.assignment.update(book="Non-produce", image="", image_mode="CODE_ONLY",
                                code_only_approved=True)
@@ -519,6 +536,41 @@ class PickListSyncChecks(unittest.TestCase):
         self.assertTrue(image.with_suffix(image.suffix + ".json").is_file())
         self.assertEqual(entry["rights_verification_status"], "VERIFIED")
         self.assertEqual(self.source.read_bytes(), source_before)
+        self.assertEqual(reconcile(self.root, self.output)[3]["status"], "READY_TO_BUILD")
+
+    def test_owner_permission_approval_preserves_permission_without_public_licence(self):
+        evidence = 'User attestation: "I own this image and all the rights to it so I approve it completely"'
+        metadata = dict(
+            plu=self.items[0]["plu"], product=self.items[0]["name"],
+            creator="Not separately identified by the owner",
+            license="OWNER_CONFIRMED_PERMISSION",
+            rights_status="OWNER_CONFIRMED_PERMISSION",
+            source_reference="Owner-uploaded image attachment",
+            rights_evidence=evidence,
+            photographic_origin="OWNER_CONFIRMED_PHOTO",
+            photographic_origin_evidence="User confirmed this is an actual photograph",
+            visual_approval_evidence=evidence,
+            attribution="Owner-provided image; no separate public attribution supplied",
+            width=600, height=500,
+            sha256=hashlib.sha256(self.image.read_bytes()).hexdigest(),
+            approval_status="CANDIDATE",
+        )
+        self.image.with_suffix(".png.json").write_text(json.dumps(metadata))
+        rebuild_working_list(self.root, self.root / "audit")
+        digest = hashlib.sha256(self.source.read_bytes()).hexdigest()
+        approve(self.root, self.items[0]["source_id"], self.image, "Fruit", "Apples",
+                digest, evidence, replace=True)
+        assignments = read_assignments(self.root / "data/picklist_assignments.json")
+        entry = assignments[self.items[0]["source_id"]]
+        self.assertEqual(entry["rights_verification_status"], "VERIFIED")
+        self.assertEqual(entry["provenance"]["rights_status"], "OWNER_CONFIRMED_PERMISSION")
+        self.assertEqual(entry["provenance"]["license"], "OWNER_CONFIRMED_PERMISSION")
+        self.assertFalse(entry["provenance"]["license_url"])
+        approved_sidecar = json.loads(
+            (self.root / entry["image"]).with_suffix(".png.json").read_text())
+        self.assertEqual(approved_sidecar["visual_approval_status"], "APPROVED")
+        self.assertEqual(approved_sidecar["rights_verification_status"], "VERIFIED")
+        self.assertTrue(approved_sidecar["visual_approval_evidence"])
         self.assertEqual(reconcile(self.root, self.output)[3]["status"], "READY_TO_BUILD")
 
     def test_changed_working_identity_can_receive_a_fresh_image_approval(self):

@@ -1,0 +1,19 @@
+{
+  "plu": "4552",
+  "product": "Napa Cabbage",
+  "creator": "Not separately identified; ownership attested by user",
+  "license": "OWNER_CONFIRMED_PERMISSION",
+  "rights_status": "OWNER_CONFIRMED_PERMISSION",
+  "source_reference": "Owner-uploaded file: Napa_Cabbage.png (Copilot session attachment; no public source URL supplied)",
+  "rights_evidence": "User attestation: \"I own this image and all the rights to it so I approve it completely\"",
+  "photographic_origin": "OWNER_CONFIRMED_PHOTO",
+  "photographic_origin_evidence": "User confirmed: \"Actual photograph\"",
+  "visual_approval_evidence": "User attestation: \"I own this image and all the rights to it so I approve it completely\"",
+  "attribution": "Owner-provided image; creator not separately identified",
+  "width": 1080,
+  "height": 1080,
+  "sha256": "0b1c3d738d2c57e1a79fa81cfe72a9c9a8b68317d2ee0ad84595bd55579b1294",
+  "approval_status": "CANDIDATE",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "VERIFIED"
+}

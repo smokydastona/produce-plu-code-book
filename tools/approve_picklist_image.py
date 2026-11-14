@@ -9,7 +9,7 @@ from pathlib import Path
 from check_image_uniqueness import image_fingerprint
 from picklist_catalog import read_assignments
 from sync_picklist import organic, original_image
-from verify_images import validate
+from verify_images import OWNER_PERMISSION, validate
 from working_list import read_working_list
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -40,6 +40,9 @@ def approve(root, source_id, candidate, book, section, source_sha, evidence,
         raise ValueError("candidate checksum does not match captured provenance")
     if (metadata.get("plu"), metadata.get("product")) != (item["plu"], item["name"]):
         raise ValueError("candidate provenance does not identify this exact product and PLU")
+    owner_permission = metadata.get("rights_status") == OWNER_PERMISSION
+    if owner_permission and metadata.get("rights_evidence") != evidence:
+        raise ValueError("rights evidence must match the owner attestation in the candidate record")
     if reuse_from:
         if not organic(item) or reuse_from not in included or reuse_from not in assignments:
             raise ValueError("reuse requires an organic entry and an assigned current counterpart")
@@ -55,14 +58,20 @@ def approve(root, source_id, candidate, book, section, source_sha, evidence,
         raise ValueError("destination exists with different content")
     if not destination.exists():
         shutil.copyfile(candidate, destination)
+    approved_metadata = dict(
+        metadata, visual_approval_status="APPROVED",
+        rights_verification_status="VERIFIED",
+    )
     sidecar = destination.with_suffix(destination.suffix + ".json")
     if not sidecar.exists():
         with sidecar.open("x", encoding="utf-8") as file:
-            json.dump(metadata, file, ensure_ascii=False, indent=2)
+            json.dump(approved_metadata, file, ensure_ascii=False, indent=2)
             file.write("\n")
-    provenance = {key: metadata[key] for key in
-                  ("creator", "license", "license_url", "source_page_url", "original_image_url", "attribution")}
-    provenance.update(changes="Original photograph unchanged", rights_evidence=evidence)
+    provenance = {key: metadata.get(key, "") for key in
+                  ("creator", "license", "license_url", "source_page_url",
+                   "original_image_url", "source_reference", "rights_status",
+                   "photographic_origin_evidence", "visual_approval_evidence", "attribution")}
+    provenance.update(changes="Original uploaded image bytes unchanged", rights_evidence=evidence)
     assignments[source_id] = dict(
         source_id=source_id, book=book, section=section, image=str(destination.relative_to(root)),
         image_mode="PHOTO", reviewed_plu=item["plu"], reviewed_product=item["name"],
@@ -92,7 +101,8 @@ def main():
     parser.add_argument("--book", choices=["Fruit", "Vegetable", "Non-produce"], required=True)
     parser.add_argument("--section", required=True)
     parser.add_argument("--expected-source-sha", required=True)
-    parser.add_argument("--rights-evidence", required=True, help="Evidence from independent source/rights review")
+    parser.add_argument("--rights-evidence", required=True,
+                        help="Evidence from source/rights review, including an owner attestation when applicable")
     parser.add_argument("--reuse-from", default="", help="Reviewed conventional counterpart source_id")
     parser.add_argument("--replace", action="store_true")
     parser.add_argument("--approve-visual", action="store_true")

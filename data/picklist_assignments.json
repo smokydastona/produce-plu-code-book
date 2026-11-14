@@ -11089,6 +11089,40 @@
       "migration_note": "Existing visual verdict preserved; original source/rights not verified.",
       "image_sha256": "5251f42d99e82098d793790d03f617aa99b2923ffe0775746131a964745e791f",
       "source_id": "d6af8a897f6395093e638e11c2f6877c587bfc7295858a4dda3398df217e2253"
+    },
+    {
+      "source_id": "074b0d50fb0eb911404fbe4dc12ab58c6b40d3b7a135ef9a1a8c7f967819a740",
+      "book": "Vegetable",
+      "section": "Asian Vegetables",
+      "image": "data/images/approved/0b1c3d738d2c57e1a79fa81cfe72a9c9a8b68317d2ee0ad84595bd55579b1294.png",
+      "image_mode": "PHOTO",
+      "reviewed_plu": "4552",
+      "reviewed_product": "Napa Cabbage",
+      "working_source_ids": [
+        "d5e21a5993860f97c8f8a6f641c5b7baa7f41bb257c7c4feb7494a90133b5e18",
+        "dddc82219c5903c6a299fe2dac8504b29a54b7856017732447352a011a2845b0",
+        "ef993415f0929e5c5152f7f6063e7c1013c3383b782ba577cb75a84620f726ca"
+      ],
+      "working_decision_id": "4552",
+      "image_sha256": "0b1c3d738d2c57e1a79fa81cfe72a9c9a8b68317d2ee0ad84595bd55579b1294",
+      "photographic_origin": "VERIFIED_PHOTO",
+      "visual_approval_status": "APPROVED",
+      "rights_verification_status": "VERIFIED",
+      "provenance": {
+        "creator": "Not separately identified; ownership attested by user",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "",
+        "original_image_url": "",
+        "source_reference": "Owner-uploaded file: Napa_Cabbage.png (Copilot session attachment; no public source URL supplied)",
+        "rights_status": "OWNER_CONFIRMED_PERMISSION",
+        "photographic_origin_evidence": "User confirmed: \"Actual photograph\"",
+        "visual_approval_evidence": "User attestation: \"I own this image and all the rights to it so I approve it completely\"",
+        "attribution": "Owner-provided image; creator not separately identified",
+        "changes": "Original uploaded image bytes unchanged",
+        "rights_evidence": "User attestation: \"I own this image and all the rights to it so I approve it completely\""
+      },
+      "reuse_from_source_id": ""
     }
   ]
 }
