@@ -11269,6 +11269,39 @@
         "rights_evidence": "User confirmed: \"I own it and approve its use and resizing\""
       },
       "reuse_from_source_id": ""
+    },
+    {
+      "source_id": "c14af7546903339dbb6cffef40aa7e283bb28919139912d49a2d5311fb74be76",
+      "book": "Vegetable",
+      "section": "Herbs",
+      "image": "data/images/approved/fbb9b9268329379062f70f7417907127e859f06424ea25742db75a0ff7b6b9a5.jpg",
+      "image_mode": "PHOTO",
+      "reviewed_plu": "4885",
+      "reviewed_product": "Basil",
+      "working_source_ids": [
+        "80c0f783da9769f5aa2b6d8536a57f3a340c94473f648dcdf68380551eb64a63",
+        "1b05da4898bf2fc28c61878049f29044ae4dc1ac98b07a5f7e0432e8c9d69d59"
+      ],
+      "working_decision_id": "4885",
+      "image_sha256": "fbb9b9268329379062f70f7417907127e859f06424ea25742db75a0ff7b6b9a5",
+      "photographic_origin": "VERIFIED_PHOTO",
+      "visual_approval_status": "APPROVED",
+      "rights_verification_status": "VERIFIED",
+      "provenance": {
+        "creator": "Not separately identified; ownership attested by user",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "",
+        "original_image_url": "",
+        "source_reference": "Owner-uploaded file: Basil.jpg (Copilot session attachment; no public source URL supplied)",
+        "rights_status": "OWNER_CONFIRMED_PERMISSION",
+        "photographic_origin_evidence": "User confirmed: \"Actual photograph\"",
+        "visual_approval_evidence": "Owner supplied this basil-bunch image after the previous single-leaf candidate failed the clean-background requirement, and approved its use and resizing.",
+        "attribution": "Owner-provided image; creator not separately identified",
+        "changes": "Original uploaded image bytes unchanged",
+        "rights_evidence": "User confirmed: \"I own it and approve its use and resizing\""
+      },
+      "reuse_from_source_id": ""
     }
   ]
 }
