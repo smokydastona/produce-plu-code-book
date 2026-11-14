@@ -1,0 +1,63 @@
+PRODUCE TILL BINDER - CHANGE AND VALIDATION REPORT
+REVIEW COPIES ONLY - NOT RELEASED FOR OPERATIONAL TILL USE
+
+Source XML SHA-256: 462db3121094008cd1dd5ea2c5836ca4b24de077edb8982c0f43149edbaf2cbb
+Original workbook SHA-256: 6b0aeaa153233c5f4917811a3f7a5b2212f7a946a0abede372a31db556ab0f63
+Updated Deli source SHA-256: a26ab6cf98d72d656e5cfd7a5c8928a7938ae1d965934a597c047f8eb37438f3; entries: 52
+XML records: 724; active: 648; hidden/deleted: 76
+Produce included: 550; unique PLUs: 549; duplicate codes: 1
+Known non-produce records excluded from Produce: 46
+Original Produce entries compared: 579
+Embedded supplied references: 517; missing/uncertain images left blank: 33
+AI illustrations included as visual references: 131
+New owner-supplied AI crops: 0
+AI illustrations omitted (if rejected or invalid association): 0
+Classification review: 5; organic placement review: 95
+
+Both complete workbook copies retain original worksheet names/order.
+Every original package part outside the Produce and Deli sheets, their relationships,
+append-only styles, content types and their print names is byte-identical. No original part is removed.
+Existing styles and all unrelated workbook-level settings are independently compared.
+PLU/description strings, duplicate highlights and embedded image bytes/anchors are verified.
+Cashier sheets have no image/source/review labels. The organic badge remains.
+
+Original-sheet comparison outcomes (no uncertain mapping silently resolved):
+  CODE_ACTIVE_DESCRIPTION_DIFFERS_REVIEW: 299
+  NOT_IN_CURRENT_SOURCE_UNRESOLVED: 254
+  CODE_ONLY_HIDDEN_OR_DELETED: 24
+  ORIGINAL_DESCRIPTION_WITHOUT_CODE: 2
+
+Image outcomes:
+  LEGACY_PREAPPROVED_IMAGE: 500
+  MISSING: 33
+  APPROVED_WORKINGLIST_IMAGE: 17
+
+Print validation: {"text": {"status": "PASS", "pages": 10, "landscape_us_letter": true, "complete_workbook_opened_and_exported_by_calc": true, "complete_binder_pdf_pages": 32, "every_page_code_count_verified": true, "every_description_found": true, "drawn_images": 0, "deli_print_records_verified": 52, "preview_pdf": "print-previews/Produce - text.pdf", "visual_review": "REQUIRED; automated text/geometry checks are not a visual print approval"}, "photos": {"status": "PASS", "pages": 10, "landscape_us_letter": true, "complete_workbook_opened_and_exported_by_calc": true, "complete_binder_pdf_pages": 32, "every_page_code_count_verified": true, "every_description_found": true, "drawn_images": 517, "deli_print_records_verified": 52, "preview_pdf": "print-previews/Produce - photos.pdf", "visual_review": "REQUIRED; automated text/geometry checks are not a visual print approval"}}
+
+Detailed reports:
+  VALIDATION.json: checks, hashes, counts and publication blockers
+  DELI_LAYOUT.csv: exact owner-supplied deli names, PLUs and two-column cell locations
+  ORIGINAL_PRODUCE_CHANGES.csv: every original entry and current-source candidates
+  UPDATED_PRODUCE_RECORDS.csv: every included source record versus the original sheet
+  DUPLICATE_PLU_RECORDS.csv: all included records with ambiguous/repeated codes
+  ACTIVE_SOURCE_DUPLICATES.csv: every active source record sharing a code, including non-produce
+  EXCLUDED_RECORDS.csv: hidden/deleted and known non-produce exclusions
+  PHOTO_MAPPING.csv: per-record source, image status, dimensions, hashes and missing-image reasons
+  MISSING_IMAGES.csv: remaining blank Produce entries
+  AI_REFERENCE_REVIEW.csv: exact identities, crop boxes and excluded AI panels
+  PRODUCE_LAYOUT.csv: exact record-to-cell and printed-page mapping for both editions
+  PLACEMENT_REVIEW.csv: unresolved classifications/counterparts
+  PACKAGE_PRESERVATION_TEXT.csv / PACKAGE_PRESERVATION_PHOTOS.csv: before/after package hashes
+  reconciliation/: full authoritative XML catalogue and existing production-readiness gates
+  REGENERATE.txt: exact command with original input paths (choose a new empty output directory)
+
+Unresolved issues / limits:
+  Both files are complete binder REVIEW copies, not approved for operational till use.
+  Legacy images are pre-approved by owner policy; source, historical verdict, rights and provenance remain documented in the external audit report.
+  Missing, identity-mismatched, checksum-changed and unreadable image associations remain blank.
+  Existing and newly supplied identity-linked AI illustrations are visual references at the owner's request; AI provenance and uncertain visual verdicts are recorded only in the external audit report.
+  Old descriptions are contextual abbreviations; code-only/name-only differences are not automatic corrections.
+  Deli is replaced from the owner-supplied two-column source; all other unrelated operational sheets remain unchanged.
+  Future unclassified entries are retained for review, not silently discarded or approved.
+
+No original file, authoritative XML, assignment approval or published booklet was changed.
