@@ -19,7 +19,7 @@ ALLOWED_HOSTS = {
     "i5.walmartimages.ca", "gmfgcdn.azureedge.net", "specialtyproduce.com",
     "m.media-amazon.com", "storage.googleapis.com", "vicinitymart.com",
     "images.cdn.saveonfoods.com", "encrypted-tbn0.gstatic.com", "www.naturespride.eu",
-    "www.melissas.com", "thumb.photo-ac.com", "t3.ftcdn.net",
+    "www.melissas.com", "thumb.photo-ac.com", "t3.ftcdn.net", "www.rohlik.cz",
 }
 
 
