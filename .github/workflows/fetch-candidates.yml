@@ -28,6 +28,11 @@ on:
         type: string
         required: false
         default: ''
+      owner_image_url:
+        description: Optional owner-provided Google Photos URL; only with one sequence
+        type: string
+        required: false
+        default: ''
 
 permissions:
   contents: read
@@ -62,7 +67,30 @@ jobs:
       - name: Report incomplete source discovery
         if: steps.source-probes.outcome == 'failure'
         run: echo "::warning::Some library probes failed. See source-probes.csv in the source-discovery artifact."
+      - name: Validate owner-provided image inputs
+        if: inputs.owner_image_url != ''
+        env:
+          SCOPE: ${{ inputs.scope }}
+          SEQUENCE: ${{ inputs.sequence }}
+          SEARCH_QUERY: ${{ inputs.search_query }}
+        run: |
+          if [ "$SCOPE" != "working-list-rejected" ] || [ -z "$SEQUENCE" ] || [ -n "$SEARCH_QUERY" ]; then
+            echo "::error::owner_image_url requires working-list-rejected, one sequence, and no search_query"
+            exit 1
+          fi
+      - name: Acquire owner-provided image candidate
+        if: inputs.owner_image_url != ''
+        env:
+          OWNER_IMAGE_URL: ${{ inputs.owner_image_url }}
+          SEQUENCE: ${{ inputs.sequence }}
+        run: |
+          python tools/retrieve_owner_image.py \
+            --output "$RUNNER_TEMP/produce-candidates" \
+            --working-list-review current/review-booklets/IMAGE_VISUAL_REVIEW.csv \
+            --sequence "$SEQUENCE" --url "$OWNER_IMAGE_URL" \
+            --user-agent "ProducePLUReview/1.0 (https://github.com/smokydastona/produce-plu-code-book)"
       - name: Acquire entries and build review package
+        if: inputs.owner_image_url == ''
         env:
           SCOPE: ${{ inputs.scope }}
           SHARD: ${{ matrix.shard }}
