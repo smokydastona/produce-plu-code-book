@@ -17,6 +17,10 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 from docx import Document
+from docx.image.exceptions import UnrecognizedImageError
+from docx.image.image import Image as DocxImage
+from docx.image.exceptions import UnrecognizedImageError
+from docx.image.image import Image as DocxImage
 from docx.oxml.ns import qn
 from lxml import etree as ET
 from openpyxl import Workbook, load_workbook
@@ -50,6 +54,8 @@ VISUALS = {
     "Fruit": "FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
     "Vegetable": "VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
 }
+MAX_WORKBOOK_IMAGE_SIZE = (192, 120)
+MAX_GITHUB_FILE_SIZE = 100 * 1024 * 1024
 BLOCKS = (1, 6, 11)
 LINES = 20
 PAGE_ROWS = LINES + 3
@@ -57,6 +63,17 @@ PAGE_ROWS = LINES + 3
 
 def sha(content):
     return hashlib.sha256(content).hexdigest()
+
+
+def docx_compatible_image(content):
+    try:
+        DocxImage.from_blob(content)
+    except UnrecognizedImageError:
+        with Image.open(io.BytesIO(content)) as image:
+            output = io.BytesIO()
+            image.save(output, format="PNG")
+        return output.getvalue()
+    return content
 
 
 def workbook_photo_copy(content):
@@ -193,6 +210,43 @@ def map_images(root, rows, assignments, visuals):
             visual_verdict="", visual_review_note="", rights_status="NOT_VERIFIED", photograph_status="NOT_VERIFIED",
             organic_badge=False, reused_by_entries=0, details="",
         )
+        if assignment.get("visual_approval_status") == "APPROVED":
+            from sync_picklist import reviewed_image
+
+            content, width, height, errors = reviewed_image(root, row, assignment)
+            if errors:
+                if row.get("identity_changed"):
+                    record.update(
+                        image_status="APPROVED_ASSIGNMENT_INVALID",
+                        details="Explicit WorkingList image assignment failed validation: " +
+                                "; ".join(errors),
+                    )
+                    report.append(record)
+                    continue
+            else:
+                provenance = assignment.get("provenance", {})
+                rendered = render_watermark(content) if row["organic"] else docx_compatible_image(content)
+                images[row["source_id"]] = rendered
+                record.update(
+                    image_status="APPROVED_WORKINGLIST_IMAGE", embedded=True,
+                    image_source=provenance.get("source_page_url", ""),
+                    original_sha256=sha(content), embedded_sha256=sha(rendered),
+                    width=width, height=height, visual_verdict="Approved",
+                    visual_review_note="Approved for this exact WorkingList assignment",
+                    rights_status=assignment.get("rights_verification_status", "NOT_VERIFIED"),
+                    photograph_status=assignment.get("photographic_origin", "NOT_VERIFIED"),
+                    organic_badge=row["organic"],
+                    details=("Decoded to lossless PNG for DOCX compatibility; unchanged approved original retained. "
+                             if not row["organic"] and rendered != content else "") +
+                            "Explicitly approved for this exact WorkingList identity; " +
+                            ("owner-confirmed permission, not a public licence."
+                             if assignment.get("rights_verification_status") ==
+                             "OWNER_CONFIRMED_PERMISSION" else
+                             "rights status recorded in the external assignment audit."),
+                    fingerprint=image_fingerprint(io.BytesIO(content)),
+                )
+                report.append(record)
+                continue
         reference = references.get(row["source_id"])
         if reference:
             supplier = reference["status"] == "SUPPLIER_REFERENCE"

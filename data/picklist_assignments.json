@@ -11583,6 +11583,66 @@
         "rights_evidence": "User confirmed: \"Yes—I own the rights to both, they are actual photographs, and I approve repository distribution, resizing and booklet use\" for \"Red Sweet Potato 2.png\" and \"Yellow zucchini.png\""
       },
       "reuse_from_source_id": ""
+    },
+    {
+      "source_id": "094a1dd4aefa28808c726d1a3641318b98d543ca432c9298959bd029a00060af",
+      "book": "Fruit",
+      "section": "Citrus",
+      "image": "data/images/approved/8121d470b27fe433b4a1643663f74e8ac57e6468b85b50cffce1605b14e81b35.jpeg",
+      "image_mode": "PHOTO",
+      "reviewed_plu": "3110",
+      "reviewed_product": "Cara Cara Orange",
+      "working_source_ids": [
+        "93dda733b69ad626cea8ae3b1c516b4cd89ea73f847f5ca5b02891113bb2bc40",
+        "14033e4582f8802be52b4874247ccd03402407aca5b60ef5aa05bb0d284170fb"
+      ],
+      "working_decision_id": "3110",
+      "image_sha256": "8121d470b27fe433b4a1643663f74e8ac57e6468b85b50cffce1605b14e81b35",
+      "photographic_origin": "VERIFIED_PHOTO",
+      "visual_approval_status": "APPROVED",
+      "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+      "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+      "provenance": {
+        "creator": "Not individually credited in source",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+        "original_image_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+        "attribution": "Copyright Four Seasons Produce; Buck Brand / Deer Creek Heights Ranch specialty citrus infographic. Individual creator not credited. Owner-confirmed permission for this specific use; no public reuse licence is asserted.",
+        "changes": "Supplier image extracted unchanged from the source PDF",
+        "rights_evidence": "Owner confirmed permission from Four Seasons Produce/Buck Brand to use matching supplier images in binders and the repository, as recorded in data/review-references/buck-brand.json. Owner-confirmed, not independently documented."
+      },
+      "reuse_from_source_id": ""
+    },
+    {
+      "source_id": "70302e03e25f7912c941786ccd7d7f260f68dd1a7115af3a617aacada7d21c02",
+      "book": "Fruit",
+      "section": "Organic Fruit",
+      "image": "data/images/approved/df4aa3deb6125ea2bfd521bf24e478fb30cd74a8305776acfe89790fa68d1726.jpeg",
+      "image_mode": "PHOTO",
+      "reviewed_plu": "94461",
+      "reviewed_product": "Organic Shaddock (Pomelo)",
+      "working_source_ids": [
+        "e7105783128c26e52ad5e13edabb2670f587faccbec4a0fb67d276a12f18c3aa",
+        "22a452eb045d6bdf739074e6ee440f494868fa206b45eb8dc638b98046b558ca"
+      ],
+      "working_decision_id": "94461",
+      "image_sha256": "df4aa3deb6125ea2bfd521bf24e478fb30cd74a8305776acfe89790fa68d1726",
+      "photographic_origin": "VERIFIED_PHOTO",
+      "visual_approval_status": "APPROVED",
+      "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+      "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+      "provenance": {
+        "creator": "Not individually credited in source",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+        "original_image_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+        "attribution": "Copyright Four Seasons Produce; Buck Brand / Deer Creek Heights Ranch specialty citrus infographic. Individual creator not credited; owner-confirmed permission for this use; no public reuse licence is asserted.",
+        "changes": "Supplier image extracted unchanged from the source PDF",
+        "rights_evidence": "Owner confirmed permission from Four Seasons Produce/Buck Brand to use matching supplier images in binders and the repository, as recorded in data/review-references/buck-brand.json. Owner-confirmed, not independently documented."
+      },
+      "reuse_from_source_id": ""
     }
   ]
 }

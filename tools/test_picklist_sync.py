@@ -535,6 +535,34 @@ class PickListSyncChecks(unittest.TestCase):
             self.assertIn("SUPPORTED_IMAGE_LICENCE_REQUIRED",
                           reviewed_image(self.root, self.items[0], self.assignment)[3])
 
+    def test_owner_confirmed_permission_is_limited_to_approved_murcott_identity(self):
+        repository = Path(__file__).resolve().parents[1]
+        candidate = repository / "data/review-references/owner-alternates/4055-melissas.jpg"
+        content = candidate.read_bytes()
+        image_path = self.root / "data/murcott.jpg"
+        image_path.write_bytes(content)
+        item = dict(source_id="09df42d831061953e2d95b5f3e2071ef7f26a68b008377ecb6ce871b0b546186",
+                    plu="4055", name="Murcott Tangerines")
+        assignment = dict(
+            image="data/murcott.jpg",
+            image_sha256=hashlib.sha256(content).hexdigest(),
+            reviewed_plu="4055", reviewed_product="Murcott Tangerines",
+            rights_verification_status="OWNER_CONFIRMED_PERMISSION",
+            production_status="APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+            photographic_origin="VERIFIED_PHOTO", visual_approval_status="APPROVED",
+            provenance=dict(
+                creator="Not identified in source", license="OWNER_CONFIRMED_PERMISSION",
+                source_page_url="https://www.melissas.com/image.jpg",
+                original_image_url="https://www.melissas.com/image.jpg",
+                attribution="Owner-confirmed for this use", changes="Original image unchanged",
+                rights_evidence="User confirmed permission for this exact image and use.",
+            ),
+        )
+        self.assertEqual(reviewed_image(self.root, item, assignment)[3], [])
+        item["name"] = "Clementines"
+        errors = reviewed_image(self.root, item, assignment)[3]
+        self.assertIn("IMAGE_RIGHTS_NOT_VERIFIED", errors)
+        self.assertIn("SUPPORTED_IMAGE_LICENCE_REQUIRED", errors)
     def test_owner_confirmed_permission_requires_audit_evidence_not_a_public_licence(self):
         self.assignment["provenance"] = dict(
             creator="Not separately identified by the owner",
@@ -699,6 +727,10 @@ class PickListSyncChecks(unittest.TestCase):
 
     def test_explicit_approval_promotes_exact_product_with_persisted_evidence(self):
         self.candidate_metadata()
+        metadata_path = self.image.with_suffix(".png.json")
+        metadata = json.loads(metadata_path.read_text())
+        metadata["changes"] = "Horizontally mirrored"
+        metadata_path.write_text(json.dumps(metadata))
         rebuild_working_list(self.root, self.root / "audit")
         digest = hashlib.sha256(self.source.read_bytes()).hexdigest()
         source_before = self.source.read_bytes()
@@ -710,6 +742,10 @@ class PickListSyncChecks(unittest.TestCase):
         image = self.root / entry["image"]
         self.assertTrue(image.with_suffix(image.suffix + ".json").is_file())
         self.assertEqual(entry["rights_verification_status"], "VERIFIED")
+        self.assertEqual(entry["provenance"]["changes"], "Horizontally mirrored")
+        self.assertEqual(self.source.read_bytes(), source_before)
+        self.assertEqual(reconcile(self.root, self.output)[3]["status"], "READY_TO_BUILD")
+
         library = self.root / "sources/image-library"
         with (library / "IMAGE_LIBRARY.csv").open(encoding="utf-8-sig", newline="") as file:
             records = list(csv.DictReader(file))
@@ -724,6 +760,35 @@ class PickListSyncChecks(unittest.TestCase):
             self.assertTrue(all(abs(a - b) <= 2 for a, b in
                                 zip(updated.getpixel((250, 250)), (0, 0, 255))))
         self.assertEqual(self.source.read_bytes(), source_before)
+        self.assertEqual(reconcile(self.root, self.output)[3]["status"], "READY_TO_BUILD")
+
+    def test_explicit_organic_reuse_keeps_separate_product_sidecars(self):
+        self.write_source([("03283", "Honeycrisp Apple", True),
+                           ("93283", "Organic Honeycrisp Apple", True)])
+        items, _ = read_picklist(self.source)
+        self.register_current_source(items)
+        self.write_assignments([])
+        rebuild_working_list(self.root, self.output)
+        self.candidate_metadata()
+        approve(self.root, items[0]["source_id"], self.image, "Fruit", "Apples",
+                self.digest, "Reviewed photo and rights")
+        metadata_path = self.image.with_suffix(".png.json")
+        metadata = json.loads(metadata_path.read_text())
+        metadata.update(plu="93283", product="Organic Honeycrisp Apple")
+        metadata_path.write_text(json.dumps(metadata))
+        approve(self.root, items[1]["source_id"], self.image, "Fruit", "Apples",
+                self.digest, "Reviewed organic reuse and rights", reuse_from=items[0]["source_id"])
+        assignments = read_assignments(self.root / "data/picklist_assignments.json")
+        conventional = self.root / assignments[items[0]["source_id"]]["image"]
+        organic = self.root / assignments[items[1]["source_id"]]["image"]
+        self.assertNotEqual(conventional, organic)
+        self.assertEqual(conventional.read_bytes(), organic.read_bytes())
+        self.assertEqual(json.loads(conventional.with_suffix(".png.json").read_text())["product"],
+                         "Honeycrisp Apple")
+        self.assertEqual(json.loads(organic.with_suffix(".png.json").read_text())["product"],
+                         "Organic Honeycrisp Apple")
+        rows, _, _, _ = reconcile(self.root, self.output)
+        self.assertTrue(all("PROHIBITED_IMAGE_REUSE" not in row["blockers"] for row in rows))
         self.assertEqual(reconcile(self.root, self.output)[3]["status"], "READY_TO_BUILD")
 
     def test_owner_permission_approval_preserves_permission_without_public_licence(self):

@@ -43,7 +43,7 @@ def original_image(root, assignment):
 
 
 def reviewed_image(root, item, assignment):
-    from verify_images import LICENSES
+    from verify_images import LICENSES, owner_permission_assignment
 
     content = original_image(root, assignment)
     errors = []
@@ -58,7 +58,8 @@ def reviewed_image(root, item, assignment):
         errors.append("VISUAL_APPROVAL_REQUIRED")
     if assignment.get("photographic_origin") != "VERIFIED_PHOTO":
         errors.append("PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED")
-    if assignment.get("rights_verification_status") != "VERIFIED":
+    owner_permission = owner_permission_assignment(item, assignment)
+    if assignment.get("rights_verification_status") != "VERIFIED" and not owner_permission:
         errors.append("IMAGE_RIGHTS_NOT_VERIFIED")
     if assignment.get("image_sha256") != hashlib.sha256(content).hexdigest():
         errors.append("IMAGE_CHECKSUM_MISMATCH")
@@ -66,19 +67,20 @@ def reviewed_image(root, item, assignment):
             item["plu"], item["name"]):
         errors.append("PRODUCT_IMAGE_REVIEW_REQUIRED")
     provenance = assignment.get("provenance", {})
-    owner_permission = provenance.get("rights_status") == "OWNER_CONFIRMED_PERMISSION"
-    if owner_permission:
+    owner_upload = provenance.get("rights_status") == "OWNER_CONFIRMED_PERMISSION"
+    if owner_upload:
         if provenance.get("license") != "OWNER_CONFIRMED_PERMISSION":
             errors.append("OWNER_PERMISSION_MUST_NOT_CLAIM_PUBLIC_LICENCE")
-    elif provenance.get("license") not in LICENSES:
+    elif provenance.get("license") not in LICENSES and not owner_permission:
         errors.append("SUPPORTED_IMAGE_LICENCE_REQUIRED")
-    required_provenance = ["creator", "attribution", "changes", "rights_evidence"]
-    if owner_permission:
-        required_provenance.extend(("source_reference", "photographic_origin_evidence",
-                                    "visual_approval_evidence"))
-    else:
-        required_provenance.extend(("license_url", "source_page_url", "original_image_url"))
+    required_provenance = (("creator", "attribution", "changes", "rights_evidence",
+                            "source_reference", "photographic_origin_evidence",
+                            "visual_approval_evidence") if owner_upload else
+                           ("creator", "license_url", "source_page_url", "original_image_url",
+                            "attribution", "changes", "rights_evidence"))
     for key in required_provenance:
+        if owner_permission and key == "license_url":
+            continue
         if not isinstance(provenance.get(key), str) or not provenance[key].strip():
             errors.append("MISSING_PROVENANCE_" + key.upper())
     return content, width, height, errors

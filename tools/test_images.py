@@ -7,13 +7,16 @@ from pathlib import Path
 from unittest.mock import patch
 from urllib.error import HTTPError
 
-from PIL import Image
+from PIL import Image, ImageOps
 
 import retrieve_commons
 import verify_images
 from check_image_uniqueness import audit_entries, image_fingerprint, require_unique_entries
 from verify_images import LICENSES, validate
 from organic_watermarks import badge_artwork, is_organic, render_watermark, verified_original, VERSION
+from picklist_catalog import read_assignments
+from sync_picklist import reviewed_image
+from working_list import read_working_list
 
 
 class ImageChecks(unittest.TestCase):
@@ -46,6 +49,180 @@ class ImageChecks(unittest.TestCase):
                 self.write_record()
                 self.assertEqual(validate(self.path), [])
 
+    def test_owner_permission_is_exact_asset_and_working_identity_only(self):
+        root = Path(__file__).resolve().parents[1]
+        candidate = root / "data/review-references/owner-alternates/4055-melissas.jpg"
+        metadata = json.loads(candidate.with_suffix(".jpg.json").read_text())
+        self.assertEqual(validate(candidate), [])
+        self.assertTrue(verify_images.owner_permission_metadata(metadata))
+        for field, value in (
+                ("sha256", "different"), ("plu", "4056"),
+                ("product", "Clementines"), ("working_list_id", "different"),
+                ("license", "CC0"), ("rights_verification_status", "VERIFIED"),
+                ("photographic_origin", "UNVERIFIED"),
+                ("visual_approval_status", "CANDIDATE")):
+            with self.subTest(field=field):
+                altered = dict(metadata, **{field: value})
+                self.assertFalse(verify_images.owner_permission_metadata(altered))
+
+    def test_owner_permission_for_napa_does_not_transfer_to_another_product(self):
+        root = Path(__file__).resolve().parents[1]
+        candidate = root / "data/review-references/owner-alternates/4552-foxy.png"
+        metadata = json.loads(candidate.with_suffix(".png.json").read_text())
+        self.assertEqual(validate(candidate), [])
+        self.assertTrue(verify_images.owner_permission_metadata(metadata))
+        for field in ("sha256", "plu", "product", "working_list_id"):
+            with self.subTest(field=field):
+                self.assertFalse(verify_images.owner_permission_metadata(
+                    dict(metadata, **{field: "different"})))
+
+    def test_owner_permission_for_strawberries_is_exact_identity(self):
+        root = Path(__file__).resolve().parents[1]
+        candidate = root / "data/review-references/owner-alternates/4253-strawberries.jpg"
+        metadata = json.loads(candidate.with_suffix(".jpg.json").read_text())
+        self.assertEqual(validate(candidate), [])
+        self.assertTrue(verify_images.owner_permission_metadata(metadata))
+        for field in ("sha256", "plu", "product", "working_list_id"):
+            with self.subTest(field=field):
+                self.assertFalse(verify_images.owner_permission_metadata(
+                    dict(metadata, **{field: "different"})))
+
+    def test_owner_approved_basil_is_exact_mirror_for_exact_identity(self):
+        root = Path(__file__).resolve().parents[1]
+        candidate = root / "data/review-references/owner-alternates/4885-mirrored.png"
+        original = root / "data/review-references/owner-alternates/4885-original.jpg"
+        metadata = json.loads(candidate.with_suffix(".png.json").read_text())
+        self.assertEqual(validate(candidate), [])
+        self.assertTrue(verify_images.owner_permission_metadata(metadata))
+        with Image.open(original) as source, Image.open(candidate) as mirrored:
+            self.assertEqual(ImageOps.mirror(ImageOps.exif_transpose(source)).convert("RGBA").tobytes(),
+                             mirrored.convert("RGBA").tobytes())
+        self.assertFalse(verify_images.owner_permission_metadata(
+            dict(metadata, working_list_id="different")))
+
+    def test_owner_permission_for_cilantro_is_exact_identity(self):
+        root = Path(__file__).resolve().parents[1]
+        candidate = root / "data/review-references/owner-alternates/4889-cilantro.jpg"
+        metadata = json.loads(candidate.with_suffix(".jpg.json").read_text())
+        self.assertEqual(validate(candidate), [])
+        self.assertTrue(verify_images.owner_permission_metadata(metadata))
+        for field in ("sha256", "plu", "product", "working_list_id"):
+            with self.subTest(field=field):
+                self.assertFalse(verify_images.owner_permission_metadata(
+                    dict(metadata, **{field: "different"})))
+
+    def test_owner_permission_for_tangerine_is_exact_identity(self):
+        root = Path(__file__).resolve().parents[1]
+        candidate = root / "data/review-references/owner-alternates/4458-tangerine.jpg"
+        metadata = json.loads(candidate.with_suffix(".jpg.json").read_text())
+        self.assertEqual(validate(candidate), [])
+        self.assertTrue(verify_images.owner_permission_metadata(metadata))
+        for field in ("sha256", "plu", "product", "working_list_id"):
+            with self.subTest(field=field):
+                self.assertFalse(verify_images.owner_permission_metadata(
+                    dict(metadata, **{field: "different"})))
+
+    def test_owner_permission_for_white_creamer_is_exact_identity(self):
+        root = Path(__file__).resolve().parents[1]
+        candidate = root / "data/review-references/owner-alternates/4724-white-creamer.png"
+        metadata = json.loads(candidate.with_suffix(".png.json").read_text())
+        self.assertEqual(validate(candidate), [])
+        self.assertTrue(verify_images.owner_permission_metadata(metadata))
+        for field in ("sha256", "plu", "product", "working_list_id"):
+            with self.subTest(field=field):
+                self.assertFalse(verify_images.owner_permission_metadata(
+                    dict(metadata, **{field: "different"})))
+
+    def test_owner_permission_for_red_creamer_is_exact_identity(self):
+        root = Path(__file__).resolve().parents[1]
+        candidate = root / "data/review-references/owner-alternates/4723-red-creamer.jpg"
+        metadata = json.loads(candidate.with_suffix(".jpg.json").read_text())
+        self.assertEqual(validate(candidate), [])
+        self.assertTrue(verify_images.owner_permission_metadata(metadata))
+        for field in ("sha256", "plu", "product", "working_list_id"):
+            with self.subTest(field=field):
+                self.assertFalse(verify_images.owner_permission_metadata(
+                    dict(metadata, **{field: "different"})))
+
+    def test_owner_permission_for_sweet_potato_is_exact_identity(self):
+        root = Path(__file__).resolve().parents[1]
+        candidate = root / "data/review-references/owner-alternates/4074-sweet-potato.png"
+        metadata = json.loads(candidate.with_suffix(".png.json").read_text())
+        self.assertEqual(validate(candidate), [])
+        self.assertTrue(verify_images.owner_permission_metadata(metadata))
+        for field in ("sha256", "plu", "product", "working_list_id"):
+            with self.subTest(field=field):
+                self.assertFalse(verify_images.owner_permission_metadata(
+                    dict(metadata, **{field: "different"})))
+
+    def test_owner_permission_for_warba_is_exact_identity(self):
+        root = Path(__file__).resolve().parents[1]
+        candidate = root / "data/review-references/owner-alternates/60271-warba.jpg"
+        metadata = json.loads(candidate.with_suffix(".jpg.json").read_text())
+        self.assertEqual(validate(candidate), [])
+        self.assertTrue(verify_images.owner_permission_metadata(metadata))
+        for field in ("sha256", "plu", "product", "working_list_id"):
+            with self.subTest(field=field):
+                self.assertFalse(verify_images.owner_permission_metadata(
+                    dict(metadata, **{field: "different"})))
+
+    def test_owner_permission_for_opo_is_exact_identity(self):
+        root = Path(__file__).resolve().parents[1]
+        candidate = root / "data/review-references/owner-alternates/3141-opo.jpg"
+        metadata = json.loads(candidate.with_suffix(".jpg.json").read_text())
+        self.assertEqual(validate(candidate), [])
+        self.assertTrue(verify_images.owner_permission_metadata(metadata))
+        for field in ("sha256", "plu", "product", "working_list_id"):
+            with self.subTest(field=field):
+                self.assertFalse(verify_images.owner_permission_metadata(
+                    dict(metadata, **{field: "different"})))
+
+    def test_owner_permission_for_granadilla_is_exact_identity(self):
+        root = Path(__file__).resolve().parents[1]
+        candidate = root / "data/review-references/owner-alternates/3038-granadilla.jpg"
+        metadata = json.loads(candidate.with_suffix(".jpg.json").read_text())
+        self.assertEqual(validate(candidate), [])
+        self.assertTrue(verify_images.owner_permission_metadata(metadata))
+        for field in ("sha256", "plu", "product", "working_list_id"):
+            with self.subTest(field=field):
+                self.assertFalse(verify_images.owner_permission_metadata(
+                    dict(metadata, **{field: "different"})))
+
+    def test_owner_permission_for_cara_cara_is_exact_identity(self):
+        root = Path(__file__).resolve().parents[1]
+        candidate = root / "data/review-references/buck-brand/page-02-image-011.jpeg"
+        metadata = json.loads(candidate.with_suffix(".jpeg.json").read_text())
+        self.assertEqual(validate(candidate), [])
+        self.assertTrue(verify_images.owner_permission_metadata(metadata))
+        for field in ("sha256", "plu", "product", "working_list_id"):
+            with self.subTest(field=field):
+                self.assertFalse(verify_images.owner_permission_metadata(
+                    dict(metadata, **{field: "different"})))
+
+    def test_owner_approved_supplier_assignments_match_exact_working_identities(self):
+        root = Path(__file__).resolve().parents[1]
+        items, _ = read_working_list(root)
+        assignments = read_assignments(root / "data/picklist_assignments.json")
+        plus = {"94391", "94306", "94328", "94024", "2159", "94457",
+                "4452", "3110", "93110", "4381", "94381", "94461"}
+        approved = [item for item in items if item["included"] and item["plu"] in plus]
+        approved = [item for item in approved if item["source_id"] in assignments
+                    and assignments[item["source_id"]]["image"].startswith("data/images/approved/")]
+        self.assertTrue(approved)
+        for item in approved:
+            with self.subTest(plu=item["plu"]):
+                assignment = assignments[item["source_id"]]
+                candidate = root / assignment["image"]
+                metadata = json.loads(candidate.with_suffix(candidate.suffix + ".json").read_text())
+                if "working_list_id" in metadata:
+                    self.assertEqual(metadata["working_list_id"], item["source_id"])
+                    self.assertEqual(metadata["source_identity_ids"], item["source_ids"])
+                else:
+                    self.assertEqual(assignment["working_source_ids"], item["source_ids"])
+                self.assertTrue(verify_images.owner_permission_metadata(metadata))
+                self.assertEqual(reviewed_image(root, item, assignment)[3], [])
+                self.assertFalse(verify_images.owner_permission_assignment(
+                    dict(item, source_id="different"), assignment))
     def test_owner_confirmed_permission_does_not_infer_a_public_licence(self):
         self.record.update(
             license="OWNER_CONFIRMED_PERMISSION",

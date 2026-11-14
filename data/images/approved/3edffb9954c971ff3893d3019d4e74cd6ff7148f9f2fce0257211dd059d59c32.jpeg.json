@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "plu": "94328",
+  "product": "Organic Limequats",
+  "working_list_id": "9ce718ddee1ef98686a90f61238eca2c28f77cc582493ce43f2e3b5309d7749f",
+  "source_identity_ids": [
+    "9ce718ddee1ef98686a90f61238eca2c28f77cc582493ce43f2e3b5309d7749f"
+  ],
+  "creator": "Not individually credited in source",
+  "source_page_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+  "original_image_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+  "sha256": "3edffb9954c971ff3893d3019d4e74cd6ff7148f9f2fce0257211dd059d59c32",
+  "width": 1154,
+  "height": 967,
+  "license": "OWNER_CONFIRMED_PERMISSION",
+  "license_url": "",
+  "attribution": "Copyright Four Seasons Produce; Buck Brand / Deer Creek Heights Ranch specialty citrus infographic. Individual creator not credited; owner-confirmed permission for this use; no public reuse licence is asserted.",
+  "changes": "Supplier image extracted unchanged from the source PDF",
+  "approval_status": "CANDIDATE",
+  "visual_approval_status": "APPROVED",
+  "photographic_origin": "VERIFIED_PHOTO",
+  "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+  "rights_evidence": "Owner confirmed permission from Four Seasons Produce/Buck Brand to use matching supplier images in binders and the repository, as recorded in data/review-references/buck-brand.json. Owner-confirmed, not independently documented.",
+  "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+  "note": "User approved all exact Buck Brand mappings and confirmed all assets are photographs. ",
+  "production_approved_source_id": "9ce718ddee1ef98686a90f61238eca2c28f77cc582493ce43f2e3b5309d7749f"
+}

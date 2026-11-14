@@ -1,34 +1,17 @@
-WORKINGLIST REVIEW EDITIONS - NOT A PRODUCTION RELEASE
+WORKINGLIST CASHIER REVIEW EDITIONS - NOT A PRODUCTION RELEASE
 
-Generated together with both complete binders from the untouched original:
+PickList SHA-256: 462db3121094008cd1dd5ea2c5836ca4b24de077edb8982c0f43149edbaf2cbb
+Source records: 724; WorkingList records: 672; cashier entries: 550 Produce and 46 non-produce.
+Embedded image references, including exact-identity approvals: 506.
+Changed identities still needing fresh image approval: 44.
+Supplier references: 13 exact mappings; 2 require fresh identity review.
+PLU 94093 remains unstandardized pending supplier confirmation. PLU 4727 displays Yellow Potatoes; the Yukon Gold alias remains unconfirmed and is not included.
+All original PickList records, including excluded associations, are retained in the reconciliation audit. Cashier entries show only PLU, product name and optional image.
+Verified PDF layouts: Fruit: 269 entries, 45 pages, Vegetable: 281 entries, 47 pages, Non-produce: 46 entries, 8 pages.
+PDF checks verify exact PLUs and names, image counts and landscape US Letter geometry; image references, rights and product suitability still require review.
+
+This standalone command does not regenerate complete till binders.
+Original workbook: available and checksum-verified.
   sources/binders/Complete_Till_Binder_-_Nov_2025.xlsx
-SHA-256:
-  6b0aeaa153233c5f4917811a3f7a5b2212f7a946a0abede372a31db556ab0f63
-PickList SHA-256:
-  462db3121094008cd1dd5ea2c5836ca4b24de077edb8982c0f43149edbaf2cbb
-
-Fruit: 269 entries, 248 images, 45 landscape US Letter PDF pages.
-Vegetable: 281 entries, 254 images, 47 landscape US Letter PDF pages.
-Non-produce: 46 code-only entries, 8 landscape US Letter PDF pages.
-48 changed WorkingList identities remain blank pending fresh image review.
-11 of 13 supplier mappings remain embedded; two require fresh identity review.
-Organic images retain the pink upper-left badge. Entries contain only product
-name, PLU and optional image; provenance and review issues stay in audits.
-
-The complete binders have 38 PDF pages each, with 10 Produce pages. All 14
-original worksheets, unrelated workbook objects, package parts, existing styles
-and settings are preserved. See ../VALIDATION.json and the preservation CSVs.
-Exact code strings, descriptions, per-entry image bytes and anchors, printed
-page placement and image counts are verified. See REVIEW_VALIDATION.json.
-
-105 regression tests passed. PLU 94093 still needs supplier confirmation;
-the PLU 4727 Yukon Gold alias and PLU 4458 packaging equivalence are not asserted.
-Image rights, photographic-origin, classification, resolution, reuse and final
-store-printer/product review remain blockers. Product decisions are not image
-approvals. Existing production booklets and approval registries remain intact.
-
-Python dependencies are pinned in requirements.txt; system packages and
-generation commands are documented in README.md. The original workbook and
-source assets are committed. A tracked-files-only checkout reproduced the full
-build without any uploads or untracked local assets. The convenience ZIP is
-intentionally excluded.
+Expected SHA-256: 6b0aeaa153233c5f4917811a3f7a5b2212f7a946a0abede372a31db556ab0f63
+Do not reconstruct it from prior outputs. Existing binder copies were not overwritten. Previously published production booklets remain unchanged; exact-identity image approvals are recorded in the image registry.

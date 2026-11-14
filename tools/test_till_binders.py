@@ -17,6 +17,7 @@ from openpyxl.styles import Font
 from PIL import Image
 
 from build_till_binders import (FILENAMES, MAX_GITHUB_FILE_SIZE, VISUALS, comparisons, generate, layout_rows,
+                               docx_compatible_image,
                                map_images, produce_catalog, quick_sheet, replace_produce,
                                sha, validate_package, visual_records, workbook_photo_copy)
 from picklist_catalog import read_picklist, read_assignments
@@ -26,6 +27,18 @@ from organic_watermarks import render_watermark
 
 
 class TillBinderChecks(unittest.TestCase):
+    def test_supplier_jpeg_is_losslessly_made_docx_compatible(self):
+        source = Path(__file__).resolve().parents[1] / "data/review-references/buck-brand/page-02-image-011.jpeg"
+        original = source.read_bytes()
+        converted = docx_compatible_image(original)
+        self.assertNotEqual(converted, original)
+        document = Document()
+        document.add_paragraph().add_run().add_picture(io.BytesIO(converted))
+        with Image.open(io.BytesIO(original)) as before, Image.open(io.BytesIO(converted)) as after:
+            self.assertEqual(before.size, after.size)
+            self.assertEqual(before.convert("RGB").tobytes(), after.convert("RGB").tobytes())
+        self.assertEqual(source.read_bytes(), original)
+
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory()
         self.addCleanup(self.temporary.cleanup)
@@ -284,6 +297,37 @@ class TillBinderChecks(unittest.TestCase):
         _, report = map_images(self.root, rows, assignments, visuals)
         self.assertEqual(next(row for row in report if row["plu"] == "00050")["image_status"],
                          "SOURCE_CHECKSUM_CHANGED")
+
+    def test_explicit_working_list_approval_is_embedded_only_for_its_exact_identity(self):
+        assignments = read_assignments(self.root / "data/picklist_assignments.json")
+        rows, _ = produce_catalog(self.items, assignments)
+        row = next(item for item in rows if item["plu"] == "00042")
+        assignment = assignments[row["source_id"]]
+        assignment.update(
+            image="data/reference.png", image_sha256=sha(self.content),
+            reviewed_plu=row["plu"], reviewed_product=row["name"],
+            visual_approval_status="APPROVED", photographic_origin="VERIFIED_PHOTO",
+            rights_verification_status="VERIFIED",
+            provenance=dict(
+                creator="Test photographer", license="CC0",
+                license_url="https://creativecommons.org/publicdomain/zero/1.0/",
+                source_page_url="https://example.org/apple",
+                original_image_url="https://example.org/apple.png",
+                attribution="Test photographer / CC0", changes="Original image unchanged",
+                rights_evidence="Test fixture rights evidence",
+            ),
+        )
+        images, report = map_images(self.root, rows, assignments, visual_records(self.root))
+        record = next(item for item in report if item["source_id"] == row["source_id"])
+        self.assertEqual(record["image_status"], "APPROVED_WORKINGLIST_IMAGE")
+        self.assertTrue(record["embedded"])
+        self.assertEqual(images[row["source_id"]], self.content)
+        row["name"] = "Different Apple"
+        row["identity_changed"] = True
+        images, report = map_images(self.root, rows, assignments, visual_records(self.root))
+        record = next(item for item in report if item["source_id"] == row["source_id"])
+        self.assertEqual(record["image_status"], "APPROVED_ASSIGNMENT_INVALID")
+        self.assertNotIn(row["source_id"], images)
 
     def test_uncertain_old_mappings_are_reported_without_guessing(self):
         original = [

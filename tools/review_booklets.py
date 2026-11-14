@@ -200,7 +200,7 @@ def build_review_booklets(output, rows, images, assignments, digest, pdf=False):
             "AI visual references are not photographs or rights approvals.",
             "Source classifications, organic pairings, image suitability, resolution and reuse still need review.",
             "Automated text, image and page checks do not replace store-printer and visual approval.",
-            "Previously published production booklets and all approval registries remain unchanged.",
+            "Previously published production booklets remain unchanged; exact-identity image approvals are recorded in the image registry.",
         ],
     ), indent=2) + "\n", encoding="utf-8")
     return results
@@ -266,6 +266,10 @@ def build_working_list_review(root, output, pdf=False):
     shutil.rmtree(booklet_stage)
     report = json.loads((reconciliation / "WORKING_LIST_RECONCILIATION.json").read_text(
         encoding="utf-8"))
+    approved_image_ids = {
+        row["source_id"] for row in photo_report
+        if row["image_status"] == "APPROVED_WORKINGLIST_IMAGE"
+    }
     report.update(
         status="REVIEW_ONLY_NOT_RELEASED",
         production_publication="BLOCKED",
@@ -273,7 +277,9 @@ def build_working_list_review(root, output, pdf=False):
         produce_records=len(rows),
         non_produce_records=len(non_produce),
         image_references_embedded=len(images),
-        image_review_required=sum(row["identity_changed"] for row in rows),
+        image_review_required=sum(
+            row["identity_changed"] and row["source_id"] not in approved_image_ids
+            for row in rows),
         missing_or_unapproved_images=sum(not row["embedded"] for row in photo_report),
         image_status_counts=dict(sorted(Counter(row["image_status"] for row in photo_report).items())),
         image_reference_audit_status_counts=dict(sorted(
@@ -302,10 +308,12 @@ def build_working_list_review(root, output, pdf=False):
         f"Source records: {report['source_records']}; WorkingList records: "
         f"{report['working_records']}; cashier entries: {report['produce_records']} Produce "
         f"and {report['non_produce_records']} non-produce.\n"
-        f"Embedded unchanged-identity image references: {report['image_references_embedded']}.\n"
-        f"Changed identities held blank for fresh image review: {report['image_review_required']}.\n"
-        f"Supplier references: {report['supplier_reference_mappings']} exact mappings; "
-        f"{report['supplier_mappings_requiring_fresh_review']} require fresh identity review.\n"
+        f"Embedded image references, including exact-identity approvals: "
+        f"{report['image_references_embedded']}.\n"
+        f"Changed identities still needing fresh image approval: {report['image_review_required']}.\n"
+        f"Supplier references: {report['supplier_reference_mappings']} source mappings; "
+        f"{report['supplier_mappings_requiring_fresh_review']} legacy mappings held for fresh "
+        "identity review; separately approved assignments may supersede them.\n"
         "PLU 94093 remains unstandardized pending supplier confirmation. PLU 4727 displays "
         "Yellow Potatoes; the Yukon Gold alias remains unconfirmed and is not included.\n"
         "All original PickList records, including excluded associations, are retained in the "
@@ -318,7 +326,7 @@ def build_working_list_review(root, output, pdf=False):
         f"  {report['complete_binder_regeneration']['expected_path']}\n"
         f"Expected SHA-256: {report['complete_binder_regeneration']['expected_sha256']}\n"
         "Do not reconstruct it from prior outputs. Existing binder copies were not overwritten. "
-        "Previously published production booklets and approval registries remain unchanged.\n",
+        "Previously published production booklets remain unchanged; exact-identity image approvals are recorded in the image registry.\n",
         encoding="utf-8")
     report["file_sha256"] = {
         str(path.relative_to(output)): hashlib.sha256(path.read_bytes()).hexdigest()

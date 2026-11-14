@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "plu": "4552",
+  "product": "Napa Cabbage",
+  "working_list_id": "074b0d50fb0eb911404fbe4dc12ab58c6b40d3b7a135ef9a1a8c7f967819a740",
+  "source_identity_ids": [
+    "d5e21a5993860f97c8f8a6f641c5b7baa7f41bb257c7c4feb7494a90133b5e18",
+    "dddc82219c5903c6a299fe2dac8504b29a54b7856017732447352a011a2845b0",
+    "ef993415f0929e5c5152f7f6063e7c1013c3383b782ba577cb75a84620f726ca"
+  ],
+  "creator": "Not identified in source",
+  "source_page_url": "https://foxy.com/assets/uploads/product-images/detail/NapaCabbage_Trimmed.png",
+  "original_image_url": "https://foxy.com/assets/uploads/product-images/detail/NapaCabbage_Trimmed.png",
+  "sha256": "57e11bf34fbcbb165bda477a1ffd366ad23d482df185872fa7cd1612f064b012",
+  "width": 1060,
+  "height": 1051,
+  "license": "OWNER_CONFIRMED_PERMISSION",
+  "license_url": "",
+  "attribution": "Foxy Produce image; creator not identified in source. Owner-confirmed permission for this specific use; no public reuse licence is asserted.",
+  "changes": "Original image unchanged",
+  "approval_status": "CANDIDATE",
+  "visual_approval_status": "APPROVED",
+  "photographic_origin": "VERIFIED_PHOTO",
+  "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+  "rights_evidence": "User confirmed permission from Foxy or the rights holder to use this exact Napa cabbage image in the public repository and cashier binders. Owner-confirmed, not independently documented.",
+  "production_status": "NOT_APPROVED",
+  "note": "User approved this exact photograph for PLU 4552 under the confirmed permission; not a public reuse licence or blanket approval."
+}

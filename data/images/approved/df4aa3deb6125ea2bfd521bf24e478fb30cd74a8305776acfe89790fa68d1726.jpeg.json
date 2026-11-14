@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "plu": "94461",
+  "product": "Organic Shaddock (Pomelo)",
+  "working_list_id": "70302e03e25f7912c941786ccd9d7f260f68dd1a7115af3a617aacada7d21c02",
+  "source_identity_ids": [
+    "e7105783128c26e52ad5e13edabb2670f587faccbec4a0fb67d276a12f18c3aa",
+    "22a452eb045d6bdf739074e6ee440f494868fa206b45eb8dc638b98046b558ca"
+  ],
+  "creator": "Not individually credited in source",
+  "source_page_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+  "original_image_url": "https://www.fsproduce.com/wp-content/uploads/2015/05/BUCK-BRAND-SPECIALTY-CITRUS-INFOGRAPHIC-1.pdf",
+  "sha256": "df4aa3deb6125ea2bfd521bf24e478fb30cd74a8305776acfe89790fa68d1726",
+  "width": 1156,
+  "height": 911,
+  "license": "OWNER_CONFIRMED_PERMISSION",
+  "license_url": "",
+  "attribution": "Copyright Four Seasons Produce; Buck Brand / Deer Creek Heights Ranch specialty citrus infographic. Individual creator not credited; owner-confirmed permission for this use; no public reuse licence is asserted.",
+  "changes": "Supplier image extracted unchanged from the source PDF",
+  "approval_status": "CANDIDATE",
+  "visual_approval_status": "APPROVED",
+  "photographic_origin": "VERIFIED_PHOTO",
+  "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+  "rights_evidence": "Owner confirmed permission from Four Seasons Produce/Buck Brand to use matching supplier images in binders and the repository, as recorded in data/review-references/buck-brand.json. Owner-confirmed, not independently documented.",
+  "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+  "note": "User approved all exact Buck Brand mappings and confirmed all assets are photographs. Shaddock/pummelo family match; African cultivar is not confirmed by the XML. Other Shaddock record retains its distinct reference.",
+  "production_approved_source_id": "70302e03e25f7912c941786ccd9d7f260f68dd1a7115af3a617aacada7d21c02"
+}
