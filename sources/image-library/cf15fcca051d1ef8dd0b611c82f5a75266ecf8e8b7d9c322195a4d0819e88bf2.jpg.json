@@ -1,0 +1,31 @@
+{
+  "plu": "94416",
+  "product": "Organic Pear D'Anjou",
+  "width": 500,
+  "height": 500,
+  "sha256": "ff222a5967317edcee32450b82e8de0f8c119e9a9335c583da7094fce3b3ff14",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "8718013743d232c9c18e7d0178cd906037660415df13348e4783b56fad5fdd63",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image125.jpg",
+  "original_width": 162,
+  "original_height": 162,
+  "assigned_image_path": "data/images/Fruit/0275_94416.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image125.jpg",
+    "original_sha256": "8718013743d232c9c18e7d0178cd906037660415df13348e4783b56fad5fdd63"
+  },
+  "working_source_id": "cf15fcca051d1ef8dd0b611c82f5a75266ecf8e8b7d9c322195a4d0819e88bf2",
+  "working_source_ids": [
+    "cf15fcca051d1ef8dd0b611c82f5a75266ecf8e8b7d9c322195a4d0819e88bf2"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

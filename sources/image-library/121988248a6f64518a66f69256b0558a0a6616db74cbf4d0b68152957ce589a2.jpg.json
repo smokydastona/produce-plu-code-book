@@ -1,0 +1,27 @@
+{
+  "plu": "4677",
+  "product": "Pepper Anaheim",
+  "width": 500,
+  "height": 500,
+  "sha256": "06ab43286a9d3a3ed182d8aa60fe866b2686e7237f01e6db63e8df6c9a367108",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "c3193e00e33b816272566052b8e098f6a396196c033788da24c0c6a7d714054a",
+  "original_image_path": "data/images/Vegetable/0391_4677.jpg",
+  "original_width": 380,
+  "original_height": 380,
+  "assigned_image_path": "data/images/Vegetable/0391_4677.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "121988248a6f64518a66f69256b0558a0a6616db74cbf4d0b68152957ce589a2",
+  "working_source_ids": [
+    "121988248a6f64518a66f69256b0558a0a6616db74cbf4d0b68152957ce589a2"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

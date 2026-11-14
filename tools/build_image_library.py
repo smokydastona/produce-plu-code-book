@@ -25,8 +25,9 @@ def build_library(root, output):
     records = []
     for row in rows:
         assignment = assignments.get(row["source_id"], {})
+        legacy_approved = row.get("image_approval_status") == "APPROVED_LEGACY"
         if (row["book"] not in {"Fruit", "Vegetable"}
-                or assignment.get("visual_approval_status") != "APPROVED"
+                or (assignment.get("visual_approval_status") != "APPROVED" and not legacy_approved)
                 or row["source_id"] not in images
                 or any(error in row["blockers"] for error in (
                     "WORKING_LIST_REVIEW_REQUIRED", "PRODUCT_IMAGE_REVIEW_REQUIRED",
@@ -35,7 +36,7 @@ def build_library(root, output):
         legacy_original = assignment.get("legacy_organic_original")
         original_reference = (legacy_original["source_document"] + "#" + legacy_original["source_member"]
                               if legacy_original else assignment["image"])
-        content = booklet_image(row, images)
+        content = booklet_image(row, images, root=root)
         name = row["source_id"] + ".jpg"
         image_path = output / name
         provenance = dict(assignment["provenance"])
@@ -44,6 +45,10 @@ def build_library(root, output):
             width=DISPLAY_SIZE[0], height=DISPLAY_SIZE[1],
             sha256=hashlib.sha256(content).hexdigest(),
             approval_status="CANDIDATE",
+            image_approval_status="APPROVED_LEGACY" if legacy_approved else "APPROVED",
+            approval_basis=("OWNER_LEGACY_PREAPPROVED_POLICY" if legacy_approved else
+                            "EXACT_WORKINGLIST_APPROVAL"),
+            recorded_visual_approval_status=assignment["visual_approval_status"],
             photographic_origin=(
                 "OWNER_CONFIRMED_PHOTO"
                 if provenance.get("rights_status") == "OWNER_CONFIRMED_PERMISSION"
@@ -80,6 +85,8 @@ def build_library(root, output):
             original_sha256=assignment["image_sha256"],
             original_width=row["width"], original_height=row["height"],
             visual_approval_status=assignment["visual_approval_status"],
+            image_approval_status=metadata["image_approval_status"],
+            approval_basis=metadata["approval_basis"],
             rights_verification_status=assignment["rights_verification_status"],
             photographic_origin=assignment["photographic_origin"],
             production_status=metadata["production_status"],
@@ -90,6 +97,7 @@ def build_library(root, output):
         "source_id", "source_identity_ids", "plu", "product", "book", "image",
         "image_sha256", "metadata_sha256", "original_image", "assigned_image", "original_sha256",
         "original_width", "original_height", "visual_approval_status",
+        "image_approval_status", "approval_basis",
         "rights_verification_status", "photographic_origin", "production_status",
         "production_blockers", "transformation",
     ])
@@ -121,7 +129,10 @@ def library_records(path):
 
 
 def refresh_library(root):
+    from used_image_library import absorb_used_library, managed_cache_names
+
     root = Path(root)
+    absorb_used_library(root)
     library = root / "sources/image-library"
     if library.is_symlink():
         raise ValueError("library directory must not be a symlink")
@@ -135,7 +146,7 @@ def refresh_library(root):
             raise ValueError("library index must not be a symlink")
         if index.exists():
             old_rows = library_records(library)
-        elif library.exists() and any(library.iterdir()):
+        elif library.exists() and {path.name for path in library.iterdir()} - managed_cache_names(root):
             raise ValueError("library has existing files but no index; refusing to overwrite")
         else:
             old_rows = []
@@ -155,6 +166,8 @@ def refresh_library(root):
 
 
 def check_library(root):
+    from used_image_library import managed_cache_names
+
     root = Path(root)
     library = root / "sources/image-library"
     if library.is_symlink() or (library / "IMAGE_LIBRARY.csv").is_symlink():
@@ -169,7 +182,7 @@ def check_library(root):
         expected_names = {"IMAGE_LIBRARY.csv"} | {
             row["image"] + suffix for row in expected for suffix in ("", ".json")}
         if (current_names != expected_names or
-                {path.name for path in library.iterdir()} != current_names):
+                {path.name for path in library.iterdir()} != current_names | managed_cache_names(root)):
             raise ValueError("image library inventory is stale or contains unmanaged files")
         for name in sorted(current_names):
             if (library / name).read_bytes() != (staged / name).read_bytes():

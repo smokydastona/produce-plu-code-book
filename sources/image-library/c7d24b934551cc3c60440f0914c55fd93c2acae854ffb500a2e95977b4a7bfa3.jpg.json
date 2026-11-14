@@ -1,0 +1,29 @@
+{
+  "plu": "4293",
+  "product": "Grapefruit White Large",
+  "width": 500,
+  "height": 500,
+  "sha256": "96cc69dad3d3ff902afe127c732d825a2b2fb3614731ea314fb65fef907714c1",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "31c9d102d7f9775213b57d056588c1dcf4737055205c05dffc5eef2ed87931e7",
+  "original_image_path": "data/images/Fruit/0050_4293.jpg",
+  "original_width": 206,
+  "original_height": 206,
+  "assigned_image_path": "data/images/Fruit/0050_4293.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "c7d24b934551cc3c60440f0914c55fd93c2acae854ffb500a2e95977b4a7bfa3",
+  "working_source_ids": [
+    "c7d24b934551cc3c60440f0914c55fd93c2acae854ffb500a2e95977b4a7bfa3"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

@@ -1,0 +1,31 @@
+{
+  "plu": "94131",
+  "product": "Organic Apples Fuji",
+  "width": 500,
+  "height": 500,
+  "sha256": "4f2087301ae1e1045c79780f90de47691038fe1640b799a24e979e80d0c6eaed",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "9af1c84b25c04841f8ee4c66e39a622efaa2acbfd7746c757098d745e514ed14",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image112.jpg",
+  "original_width": 194,
+  "original_height": 194,
+  "assigned_image_path": "data/images/Fruit/0195_94131.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image112.jpg",
+    "original_sha256": "9af1c84b25c04841f8ee4c66e39a622efaa2acbfd7746c757098d745e514ed14"
+  },
+  "working_source_id": "06de405f622a32bee05ae8ded126b3545602e2dc829f7e834c9586c5a4b61408",
+  "working_source_ids": [
+    "06de405f622a32bee05ae8ded126b3545602e2dc829f7e834c9586c5a4b61408"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

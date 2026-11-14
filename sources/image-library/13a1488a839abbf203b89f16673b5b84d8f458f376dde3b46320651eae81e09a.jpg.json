@@ -1,0 +1,12 @@
+{
+  "rendering": {
+    "source_sha256": "dd739427c65921fcc0f204f80230c6e653cbb83f17dc4a4eac5fae10774d7e6f",
+    "organic": true,
+    "pillow": "13.0.0",
+    "renderer_sha256": "ba6b47ff5700a7f94fa6377a643d115d534893c349f94772fa25d3f084bb2910",
+    "watermark_renderer_sha256": "9152ad3869dfe6d648cdd7c3aff9b1a89d9cc40e0811b90a77b7fe3c0255b74b",
+    "badge_sha256": "5f9f5db622968e9db39beb83422578b1f599989203c3b898848369464108b626"
+  },
+  "sha256": "9195300da90e64f2a2cc7942714f4ff2731cc6640285bc9d24912eebcd431111",
+  "approval_status": "NOT_GRANTED_BY_LIBRARY"
+}

@@ -1,0 +1,29 @@
+{
+  "plu": "4453",
+  "product": "Tangerines Honey",
+  "width": 500,
+  "height": 500,
+  "sha256": "36661f786a58dc4593fe2a4f3db61f569b3205205b92c1df0ca782e26e85cfb4",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "5d77c12d5d63e8d360dc2f2bfadc832b42e1be0809ffa8abaad89b02740d0541",
+  "original_image_path": "data/images/Fruit/0071_4453.jpg",
+  "original_width": 164,
+  "original_height": 164,
+  "assigned_image_path": "data/images/Fruit/0071_4453.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "35107636b831fc1080f6be354faa98a9f0b6d13181df966fe4269b1af575f581",
+  "working_source_ids": [
+    "35107636b831fc1080f6be354faa98a9f0b6d13181df966fe4269b1af575f581"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

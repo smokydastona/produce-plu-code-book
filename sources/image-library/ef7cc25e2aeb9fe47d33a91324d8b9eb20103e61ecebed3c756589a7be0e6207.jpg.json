@@ -1,0 +1,33 @@
+{
+  "plu": "93438",
+  "product": "Organic Apples Ambrosia",
+  "width": 500,
+  "height": 500,
+  "sha256": "929bfcf1b1f3afbc7a874ac13afde57ab1690c312197f12af821d7361534539d",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "aaba6fb40146e1ddd437ecb946ce7aca3163cd60c02535df5d02b46b1e528c6e",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image2.jpg",
+  "original_width": 225,
+  "original_height": 225,
+  "assigned_image_path": "data/images/Fruit/0191_93438.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image2.jpg",
+    "original_sha256": "aaba6fb40146e1ddd437ecb946ce7aca3163cd60c02535df5d02b46b1e528c6e"
+  },
+  "working_source_id": "ef7cc25e2aeb9fe47d33a91324d8b9eb20103e61ecebed3c756589a7be0e6207",
+  "working_source_ids": [
+    "ef7cc25e2aeb9fe47d33a91324d8b9eb20103e61ecebed3c756589a7be0e6207"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

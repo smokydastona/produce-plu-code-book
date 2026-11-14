@@ -1,0 +1,29 @@
+{
+  "plu": "4751",
+  "product": "Squash Acorn Golden",
+  "width": 500,
+  "height": 500,
+  "sha256": "954c92c8a39414150dd79243ac6bac7a63b8f63975f4021860ce388ecd74b5b3",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "3888e8387f191d93f67b00837fdeb2dcac1c4761b41debc270c8a474f90af6af",
+  "original_image_path": "data/images/Vegetable/0432_4751.jpg",
+  "original_width": 302,
+  "original_height": 302,
+  "assigned_image_path": "data/images/Vegetable/0432_4751.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "0cecc75fdeac095c94863bce45e75b3e10d80760c440392cf6e90f5e7b782060",
+  "working_source_ids": [
+    "0cecc75fdeac095c94863bce45e75b3e10d80760c440392cf6e90f5e7b782060"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

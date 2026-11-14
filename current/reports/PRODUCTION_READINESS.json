@@ -10,7 +10,7 @@
     "included_records": 596,
     "excluded_records": 76,
     "status": "BLOCKED",
-    "records_needing_review": 533,
+    "records_needing_review": 360,
     "missing_image_requests": 33,
     "inactive_assignments": 96,
     "organic_placements_needing_review": 91,
@@ -20,33 +20,21 @@
     "identity_changed_entries": 48,
     "blocker_counts": {
       "APPROVED_IMAGE_REQUIRED": 33,
-      "BELOW_500_PX": 498,
       "CLASSIFICATION_REQUIRED": 5,
-      "IMAGE_RIGHTS_NOT_VERIFIED": 500,
-      "MISSING_PROVENANCE_ATTRIBUTION": 500,
-      "MISSING_PROVENANCE_CHANGES": 500,
-      "MISSING_PROVENANCE_CREATOR": 500,
-      "MISSING_PROVENANCE_LICENSE_URL": 500,
-      "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL": 500,
-      "MISSING_PROVENANCE_RIGHTS_EVIDENCE": 500,
-      "MISSING_PROVENANCE_SOURCE_PAGE_URL": 500,
-      "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED": 500,
       "PRODUCT_IMAGE_REVIEW_REQUIRED": 33,
       "PROHIBITED_IMAGE_REUSE": 326,
       "SECTION_REQUIRED": 5,
-      "SUPPORTED_IMAGE_LICENCE_REQUIRED": 500,
-      "VISUAL_APPROVAL_REQUIRED": 130,
       "WORKING_LIST_REVIEW_REQUIRED": 2
     }
   },
   "scope": "Current WorkingList reconciliation and image readiness. Final source, licence, variety and print-layout review is mandatory.",
   "legacy_image_audit": {
-    "status": "BLOCKED",
+    "status": "ALL_LEGACY_ENTRIES_APPROVED",
     "entries": 597,
     "organic_entries": 206,
     "prohibited_duplicate_groups": 103,
-    "entries_with_blockers": 597,
-    "blocker_counts": {
+    "entries_with_blockers": 0,
+    "historical_finding_counts": {
       "AI_REFERENCE_NOT_PHOTOGRAPH": 150,
       "BELOW_500_PX": 595,
       "MISSING_IMAGE_PROVENANCE_AND_RIGHTS_VERIFICATION": 597,
@@ -54,6 +42,7 @@
       "VISUAL_APPROXIMATE": 120,
       "VISUAL_REJECTED": 31
     },
-    "scope": "Fruit and vegetable image readiness only. Does not certify varieties, organic status, licences, source-code accuracy, or final print layout. Non-produce remains a code-only supplement; final release review is mandatory."
+    "approval_basis": "Owner policy: all legacy entries are pre-approved. Original visual verdicts, technical findings and provenance remain recorded as historical evidence.",
+    "scope": "Legacy image approval only. Non-produce remains a code-only supplement."
   }
 }

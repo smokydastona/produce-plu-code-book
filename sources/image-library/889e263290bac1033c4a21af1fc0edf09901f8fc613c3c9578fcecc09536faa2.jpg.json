@@ -1,0 +1,29 @@
+{
+  "plu": "4152",
+  "product": "Apples McIntosh Small",
+  "width": 500,
+  "height": 500,
+  "sha256": "5ef249ae5b3b1ea6b2d5efe787fc99f4f3d0915d8ab04d33a827819f875b8a21",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "1aa22b908a301036f24c75d8a63df1064161fe519196f161c269050e0a9e0fa3",
+  "original_image_path": "data/images/Fruit/0012_4152.jpg",
+  "original_width": 299,
+  "original_height": 299,
+  "assigned_image_path": "data/images/Fruit/0012_4152.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "889e263290bac1033c4a21af1fc0edf09901f8fc613c3c9578fcecc09536faa2",
+  "working_source_ids": [
+    "889e263290bac1033c4a21af1fc0edf09901f8fc613c3c9578fcecc09536faa2"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

@@ -1,0 +1,29 @@
+{
+  "plu": "4174",
+  "product": "Apples Royal Gala Large",
+  "width": 500,
+  "height": 500,
+  "sha256": "a159f6a3abf18cab1b60e12420ad540a72effae9dccd93a9ad15c3d3d56a53d6",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "acb5866c7424efe66c81d0a1014519788491936bf72bf73e4944cd53578f488e",
+  "original_image_path": "data/images/Fruit/0017_4174.jpg",
+  "original_width": 247,
+  "original_height": 247,
+  "assigned_image_path": "data/images/Fruit/0017_4174.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "a35ee56a6f1e793529b2b43cd81dede648145d977942994978a7ac13d99afa81",
+  "working_source_ids": [
+    "a35ee56a6f1e793529b2b43cd81dede648145d977942994978a7ac13d99afa81"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

@@ -1,0 +1,27 @@
+{
+  "plu": "4234",
+  "product": "Banana Baby",
+  "width": 500,
+  "height": 500,
+  "sha256": "d6b5ccaea2210d5b3a1405f3e229f43f4d68851ed8c0543ab448bfada8acb358",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "692fe4e054c6ad078a36c3edcccc3122c77b299bc86934e62ce5bbe518c723a7",
+  "original_image_path": "data/images/Fruit/0143_4234.jpg",
+  "original_width": 336,
+  "original_height": 336,
+  "assigned_image_path": "data/images/Fruit/0143_4234.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "648ba44f34a8dbb097a7adf229c1b1e6ca8bc9d97f410705a7bab4dcc4bfe37e",
+  "working_source_ids": [
+    "648ba44f34a8dbb097a7adf229c1b1e6ca8bc9d97f410705a7bab4dcc4bfe37e"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

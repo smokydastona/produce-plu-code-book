@@ -1,0 +1,29 @@
+{
+  "plu": "4321",
+  "product": "Melon Mini",
+  "width": 500,
+  "height": 500,
+  "sha256": "68cebf1dd0292ab624a051ddf5ed119b40ba96efa5661fda9a961046db4a3c53",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "07e16920067ba63a8a006c226fe882cf4c309cf8d217f74a59a700648b732788",
+  "original_image_path": "data/images/Fruit/0115_4321.jpg",
+  "original_width": 215,
+  "original_height": 215,
+  "assigned_image_path": "data/images/Fruit/0115_4321.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "8add005484bbd606d274aa4840d9faec68300564c5bcbc8ed7df7a4b22519b3f",
+  "working_source_ids": [
+    "8add005484bbd606d274aa4840d9faec68300564c5bcbc8ed7df7a4b22519b3f"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

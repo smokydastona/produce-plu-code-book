@@ -1,0 +1,29 @@
+{
+  "plu": "3438",
+  "product": "Apples Ambrosia",
+  "width": 500,
+  "height": 500,
+  "sha256": "af89d0948a922467b470163f511b0d25bf7ed677a5d77bb67fc91008dfb7cc35",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "aaba6fb40146e1ddd437ecb946ce7aca3163cd60c02535df5d02b46b1e528c6e",
+  "original_image_path": "data/images/Fruit/0002_3438.jpg",
+  "original_width": 225,
+  "original_height": 225,
+  "assigned_image_path": "data/images/Fruit/0002_3438.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "2d59fb15fe66ee2d5f2d98956ca7eeb0d40f56a38beb890e24681cdaa0622833",
+  "working_source_ids": [
+    "2d59fb15fe66ee2d5f2d98956ca7eeb0d40f56a38beb890e24681cdaa0622833"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

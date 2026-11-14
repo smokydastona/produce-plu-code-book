@@ -1,0 +1,27 @@
+{
+  "plu": "4313",
+  "product": "Mango Julie",
+  "width": 500,
+  "height": 500,
+  "sha256": "1db894b7e890421ef88995ae8e63a3432383b02f1f49aac0511a52caf32bdb80",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "c6f9f3f52de4996719ff67b3f3fecc062ad6c80fc5dc4a712c26c6181f57ff11",
+  "original_image_path": "data/images/Fruit/0154_4313.jpg",
+  "original_width": 417,
+  "original_height": 417,
+  "assigned_image_path": "data/images/Fruit/0154_4313.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "3ec661f770f72f532d8177a3a355f5645ee67a9a107ae43608a1b09a74d34dfc",
+  "working_source_ids": [
+    "3ec661f770f72f532d8177a3a355f5645ee67a9a107ae43608a1b09a74d34dfc"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

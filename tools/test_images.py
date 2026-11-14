@@ -349,7 +349,7 @@ class ImageChecks(unittest.TestCase):
         output = self.root / "package"
         with patch.object(retrieve_commons, "search", side_effect=[[page], [], OSError("network failure")]), \
                 patch.object(retrieve_commons, "fetch", return_value=content):
-            self.assertTrue(retrieve_commons.acquire(entries, output, "test", 2))
+            self.assertTrue(retrieve_commons.acquire(entries, output, "test", 2, root=self.root))
         records = json.loads((output / "provenance.json").read_text())
         self.assertEqual(len(records), 1)
         self.assertEqual([r["idx"] for r in records], ["27"])
@@ -368,7 +368,7 @@ class ImageChecks(unittest.TestCase):
         self.assertEqual([r["status"] for r in report],
                          ["CANDIDATES_ONLY", "UNRESOLVED", "UNRESOLVED", "ERROR"])
         with self.assertRaises(ValueError):
-            retrieve_commons.acquire(entries, output, "test", 2)
+            retrieve_commons.acquire(entries, output, "test", 2, root=self.root)
 
     def test_rate_limit_retries_and_pacing(self):
         response = io.BytesIO(b"image")
@@ -385,7 +385,8 @@ class ImageChecks(unittest.TestCase):
                     "name": "New Apple"}]
         leads = [{"id": "50", "source_page_url": "https://commons.wikimedia.org/wiki/File:Old.jpg"}]
         with patch.object(retrieve_commons, "search", return_value=[]) as search:
-            self.assertFalse(retrieve_commons.acquire(entries, self.root / "package", "test", 1, leads))
+            self.assertFalse(retrieve_commons.acquire(
+                entries, self.root / "package", "test", 1, leads, root=self.root))
         search.assert_called_once_with("New Apple", "test")
 
     def different_image(self):
@@ -463,7 +464,7 @@ class ImageChecks(unittest.TestCase):
                 patch.object(retrieve_commons, "fetch", side_effect=[
                     self.path.read_bytes(), self.path.read_bytes(), self.different_image(),
                 ]):
-            self.assertFalse(retrieve_commons.acquire(entries, output, "test", 1))
+            self.assertFalse(retrieve_commons.acquire(entries, output, "test", 1, root=self.root))
         records = json.loads((output / "provenance.json").read_text())
         self.assertEqual([row["idx"] for row in records], ["361", "368"])
         self.assertNotEqual(
@@ -505,7 +506,7 @@ class ImageChecks(unittest.TestCase):
                     encoded((650, 500)), encoded((800, 800)), b"not an image",
                     self.path.read_bytes(),
                 ]) as fetch:
-            self.assertFalse(retrieve_commons.acquire(entries, output, "test", 1))
+            self.assertFalse(retrieve_commons.acquire(entries, output, "test", 1, root=self.root))
         self.assertEqual(fetch.call_count, 4)
         records = json.loads((output / "provenance.json").read_text())
         self.assertEqual(len(records), 1)

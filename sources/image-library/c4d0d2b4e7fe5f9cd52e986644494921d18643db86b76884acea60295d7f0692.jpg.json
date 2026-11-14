@@ -1,0 +1,27 @@
+{
+  "plu": "4422",
+  "product": "Pear Seckel",
+  "width": 500,
+  "height": 500,
+  "sha256": "f844713a59c898019ef294d4a570243bb7eb501edf36d4a99ba2b882ed63dcbf",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "fc418d4842a9c7ce0655175c3900826d30a3d51a1c0148ded60a823d12f3412d",
+  "original_image_path": "data/images/Fruit/0035_4422.jpg",
+  "original_width": 272,
+  "original_height": 272,
+  "assigned_image_path": "data/images/Fruit/0035_4422.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "c4d0d2b4e7fe5f9cd52e986644494921d18643db86b76884acea60295d7f0692",
+  "working_source_ids": [
+    "c4d0d2b4e7fe5f9cd52e986644494921d18643db86b76884acea60295d7f0692"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

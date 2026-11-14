@@ -1,0 +1,29 @@
+{
+  "plu": "4599",
+  "product": "Eggplant Italian",
+  "width": 500,
+  "height": 500,
+  "sha256": "f1f7b92bb1078fef981055297e979b68ebeae7cdb11a28cdceee49059b6ed909",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "1bd72cfb899af6412051d7b69dab5379fcbac00f664432ed3cade7495b1193d5",
+  "original_image_path": "data/images/Vegetable/0491_4599.jpg",
+  "original_width": 207,
+  "original_height": 207,
+  "assigned_image_path": "data/images/Vegetable/0491_4599.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "2210b20ce7310887f6b3b1d176ed16227b7ebaee492cf93acac895312203443b",
+  "working_source_ids": [
+    "2210b20ce7310887f6b3b1d176ed16227b7ebaee492cf93acac895312203443b"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

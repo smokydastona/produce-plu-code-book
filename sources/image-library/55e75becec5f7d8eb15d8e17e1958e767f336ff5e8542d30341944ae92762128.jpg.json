@@ -1,0 +1,29 @@
+{
+  "plu": "4707",
+  "product": "Pepper Long Red Finger",
+  "width": 500,
+  "height": 500,
+  "sha256": "4ba19238454988b78f0a5a1c700cbe292d539ecf04bb7fd16e877d2d7d141d98",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "e52ed32a1c4201c21443002ef0a45bd9aecf88c2a2bdbf1dc7328ff4e93fa261",
+  "original_image_path": "data/images/Vegetable/0401_4707.jpg",
+  "original_width": 404,
+  "original_height": 404,
+  "assigned_image_path": "data/images/Vegetable/0401_4707.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "55e75becec5f7d8eb15d8e17e1958e767f336ff5e8542d30341944ae92762128",
+  "working_source_ids": [
+    "55e75becec5f7d8eb15d8e17e1958e767f336ff5e8542d30341944ae92762128"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

@@ -1,0 +1,27 @@
+{
+  "plu": "52744",
+  "product": "Berries Tay Berries",
+  "width": 500,
+  "height": 500,
+  "sha256": "22fcd2843e9080f8245f0bfeaf3c200289dc453dc5623afaf5d3837aea6eb74a",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "787ef3b57275fcda3f7e94194bfdefa8e1321e25c97a8ece229998acb21efc70",
+  "original_image_path": "data/images/Fruit/0082_52744.jpg",
+  "original_width": 330,
+  "original_height": 330,
+  "assigned_image_path": "data/images/Fruit/0082_52744.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "eea83d31dca0eb93a7e00461dce4c0f7d06d5975d1a577c13a38108771e8dee2",
+  "working_source_ids": [
+    "eea83d31dca0eb93a7e00461dce4c0f7d06d5975d1a577c13a38108771e8dee2"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

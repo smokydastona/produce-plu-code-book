@@ -239,6 +239,7 @@ def build_working_list_review(root, output, pdf=False):
         "source_id", "source_identity_ids", "plu", "product", "image_status", "embedded",
         "image_source", "source_document", "source_member", "original_sha256",
         "embedded_sha256", "width", "height", "visual_verdict", "visual_review_note",
+        "image_approval_status", "approval_basis", "legacy_entry_idx", "legacy_original_verdict",
         "rights_status", "photograph_status", "organic_badge", "reused_by_entries", "details",
     ])
     csv_output(output / "MISSING_IMAGES.csv", [

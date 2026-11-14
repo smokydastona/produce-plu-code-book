@@ -1,0 +1,27 @@
+{
+  "plu": "3445",
+  "product": "Apples Pazza",
+  "width": 500,
+  "height": 500,
+  "sha256": "c51a70db1514bb824f0c3c9d31a34f188f39a52dd2aa304e96eed4bb2008123c",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "6cc6ab081bcd1672cf08ca804270fd3e1ef3751653044ab3265807d998279627",
+  "original_image_path": "data/images/Fruit/0013_3445.jpg",
+  "original_width": 289,
+  "original_height": 289,
+  "assigned_image_path": "data/images/Fruit/0013_3445.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "334a8e285947b6889b15a3a6900633970a39ff8fe4ad71b0161f1ad1a32d68f0",
+  "working_source_ids": [
+    "334a8e285947b6889b15a3a6900633970a39ff8fe4ad71b0161f1ad1a32d68f0"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

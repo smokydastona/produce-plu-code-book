@@ -1,0 +1,33 @@
+{
+  "plu": "93035",
+  "product": "Organic Nectarines White",
+  "width": 500,
+  "height": 500,
+  "sha256": "21d3fb05fbbecde88f5c44da376b95d5d07ee55f785c73b52cd82af094c2c003",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "008abcfb300080899a36c4dcf527612785140af41cbf88d1a8eae0a000bb44b3",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image74.jpg",
+  "original_width": 212,
+  "original_height": 212,
+  "assigned_image_path": "data/images/Fruit/0256_93035.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image74.jpg",
+    "original_sha256": "008abcfb300080899a36c4dcf527612785140af41cbf88d1a8eae0a000bb44b3"
+  },
+  "working_source_id": "254b5cceb7faeb569325d48270ac9a40527b3f57cd2dab8cd938c2d25c167718",
+  "working_source_ids": [
+    "254b5cceb7faeb569325d48270ac9a40527b3f57cd2dab8cd938c2d25c167718"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

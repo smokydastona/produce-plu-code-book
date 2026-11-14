@@ -1,0 +1,31 @@
+{
+  "plu": "94215",
+  "product": "Organic Apples Pinata",
+  "width": 500,
+  "height": 500,
+  "sha256": "e75b96758c9804ddf4d0939bc621e809eb495798a515f512d9c383a666d29024",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "29c51736b513a17d01a29b6bde977c3e6c7f1f74e5295d512741bc7f8ff09d58",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image115.jpg",
+  "original_width": 284,
+  "original_height": 284,
+  "assigned_image_path": "data/images/Fruit/0207_94215.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image115.jpg",
+    "original_sha256": "29c51736b513a17d01a29b6bde977c3e6c7f1f74e5295d512741bc7f8ff09d58"
+  },
+  "working_source_id": "319cd6c27eb57ca482d164bf9ec20cc7992c57665b3c0590d4ab0b70a64cfeae",
+  "working_source_ids": [
+    "319cd6c27eb57ca482d164bf9ec20cc7992c57665b3c0590d4ab0b70a64cfeae"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

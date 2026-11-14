@@ -1,0 +1,27 @@
+{
+  "plu": "4963",
+  "product": "Tomatillos",
+  "width": 500,
+  "height": 500,
+  "sha256": "103ff3a6a8eb88aaa51d19022590aa98948dab7755ed85ca61ac770a0dec6588",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "2e87557ed00cd90c553df5f077d9aa1bde7cf7c9e640754ac13eb33825b2c7df",
+  "original_image_path": "data/images/Vegetable/0415_4963.jpg",
+  "original_width": 367,
+  "original_height": 367,
+  "assigned_image_path": "data/images/Vegetable/0415_4963.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "4f77003ba29e9d1d8d016493fb4c89393e1c5ae9c9a50a415ab7c3ef8878c890",
+  "working_source_ids": [
+    "4f77003ba29e9d1d8d016493fb4c89393e1c5ae9c9a50a415ab7c3ef8878c890"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

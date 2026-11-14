@@ -1,0 +1,29 @@
+{
+  "plu": "4225",
+  "product": "Avocado Large Hass",
+  "width": 500,
+  "height": 500,
+  "sha256": "4d449ce366574603557dfa52333f59e4b65d6481b0cbcd0fbd703e3fe2850813",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "d98c1fa5821b15d86f4862a7c0c0a3d44fe5800a6728ca28a5b83243bbee1f90",
+  "original_image_path": "data/images/Fruit/0142_4225.jpg",
+  "original_width": 236,
+  "original_height": 236,
+  "assigned_image_path": "data/images/Fruit/0142_4225.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "5bcc5b13c1fe769cc6c08327c00b03d04d32b565810c07994a91279f5b31ca9a",
+  "working_source_ids": [
+    "5bcc5b13c1fe769cc6c08327c00b03d04d32b565810c07994a91279f5b31ca9a"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

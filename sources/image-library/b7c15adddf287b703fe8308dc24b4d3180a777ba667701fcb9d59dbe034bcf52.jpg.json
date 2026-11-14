@@ -1,0 +1,10 @@
+{
+  "rendering": {
+    "source_sha256": "ccece670c43f0c9f9b5683a7ef80e82b6e8607eb60a58ba2190860ddaca5a181",
+    "organic": false,
+    "pillow": "13.0.0",
+    "renderer_sha256": "ba6b47ff5700a7f94fa6377a643d115d534893c349f94772fa25d3f084bb2910"
+  },
+  "sha256": "b86055fa036cdf45db07562448b1d1a61c37303ead694d953916890c05628e0a",
+  "approval_status": "NOT_GRANTED_BY_LIBRARY"
+}

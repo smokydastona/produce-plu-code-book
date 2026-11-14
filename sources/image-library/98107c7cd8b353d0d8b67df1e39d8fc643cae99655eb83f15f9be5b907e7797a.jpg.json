@@ -1,0 +1,29 @@
+{
+  "plu": "4375",
+  "product": "Melon Cantaloupe Tuscan",
+  "width": 500,
+  "height": 500,
+  "sha256": "68cebf1dd0292ab624a051ddf5ed119b40ba96efa5661fda9a961046db4a3c53",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "07e16920067ba63a8a006c226fe882cf4c309cf8d217f74a59a700648b732788",
+  "original_image_path": "data/images/Fruit/0106_4375.jpg",
+  "original_width": 215,
+  "original_height": 215,
+  "assigned_image_path": "data/images/Fruit/0106_4375.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "98107c7cd8b353d0d8b67df1e39d8fc643cae99655eb83f15f9be5b907e7797a",
+  "working_source_ids": [
+    "98107c7cd8b353d0d8b67df1e39d8fc643cae99655eb83f15f9be5b907e7797a"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

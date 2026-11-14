@@ -1,0 +1,27 @@
+{
+  "plu": "4692",
+  "product": "Pepper Hungarian",
+  "width": 500,
+  "height": 500,
+  "sha256": "80db5b616ea170fb8973fcf4a321ccf7c44a60e1ba1b9d15e53a14af52a177c2",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "e3e788e8aa89974921f668a39b2e533374d3e13e380e22e1d250f3753fbb11cf",
+  "original_image_path": "data/images/Vegetable/0399_4692.jpg",
+  "original_width": 347,
+  "original_height": 347,
+  "assigned_image_path": "data/images/Vegetable/0399_4692.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "110fce48bd96b0dba995ae672063e47e4f42362115e0e9960d2e557629d892a5",
+  "working_source_ids": [
+    "110fce48bd96b0dba995ae672063e47e4f42362115e0e9960d2e557629d892a5"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

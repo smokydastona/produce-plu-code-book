@@ -1,0 +1,27 @@
+{
+  "plu": "81905",
+  "product": "Sher Li Hon",
+  "width": 500,
+  "height": 500,
+  "sha256": "48caeb4aa10edeb9834781af1701ed17fc6e5da3b8284224edb9b60c64ba3db4",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "0744781d65f6bf88e8e6f1798f78a0d7e991818ea73529df78676688438ea7aa",
+  "original_image_path": "data/images/Vegetable/0474_81905.jpg",
+  "original_width": 343,
+  "original_height": 343,
+  "assigned_image_path": "data/images/Vegetable/0474_81905.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "1a3fb14378b98ba5b216b163634760d0c3044a9e25a689d47d69d9e806fdd1b8",
+  "working_source_ids": [
+    "1a3fb14378b98ba5b216b163634760d0c3044a9e25a689d47d69d9e806fdd1b8"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

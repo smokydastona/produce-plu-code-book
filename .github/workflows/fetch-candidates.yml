@@ -52,22 +52,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements.txt
       - run: python -m pip install -r requirements.txt
       - run: python -m unittest discover -s tools -p 'test_*.py'
       - name: Derive full-catalog requests from the current PickList
         if: inputs.scope == 'all'
         run: python tools/sync_picklist.py --catalog-only --output "$RUNNER_TEMP/picklist-sync"
-      - name: Probe alternative libraries and search the four acquisition gaps
-        id: source-probes
-        if: matrix.shard == 0 && inputs.scope != 'working-list-rejected'
-        continue-on-error: true
-        run: |
-          python tools/probe_image_sources.py \
-            --output "$RUNNER_TEMP/source-discovery" \
-            --user-agent "ProducePLUReview/1.0 (https://github.com/smokydastona/produce-plu-code-book)"
-      - name: Report incomplete source discovery
-        if: steps.source-probes.outcome == 'failure'
-        run: echo "::warning::Some library probes failed. See source-probes.csv in the source-discovery artifact."
       - name: Validate owner-provided image inputs
         if: inputs.owner_image_url != ''
         env:
@@ -124,6 +115,22 @@ jobs:
             --output "$RUNNER_TEMP/produce-candidates" --per-entry "$PER_ENTRY" \
             "${REVIEW_ARGS[@]}" "${EXTRA_ARGS[@]}" \
             --user-agent "ProducePLUReview/1.0 (https://github.com/smokydastona/produce-plu-code-book)"
+      - name: Check unresolved automatic acquisition gaps
+        id: acquisition-gaps
+        if: always() && inputs.owner_image_url == ''
+        run: |
+          python -c 'import csv, os; from pathlib import Path; p = Path(os.environ["RUNNER_TEMP"]) / "produce-candidates/acquisition-report.csv"; rows = list(csv.DictReader(p.open())) if p.exists() else []; print("unresolved=" + str(any(r["status"] == "UNRESOLVED" for r in rows)).lower())' >> "$GITHUB_OUTPUT"
+      - name: Probe alternative libraries after unresolved acquisition
+        id: source-probes
+        if: always() && steps.acquisition-gaps.outputs.unresolved == 'true' && matrix.shard == 0 && inputs.scope != 'working-list-rejected'
+        continue-on-error: true
+        run: |
+          python tools/probe_image_sources.py \
+            --output "$RUNNER_TEMP/source-discovery" \
+            --user-agent "ProducePLUReview/1.0 (https://github.com/smokydastona/produce-plu-code-book)"
+      - name: Report incomplete source discovery
+        if: always() && steps.source-probes.outcome == 'failure'
+        run: echo "::warning::Some library probes failed. See source-probes.csv in the source-discovery artifact."
       - name: Upload unreviewed candidates
         if: always()
         uses: actions/upload-artifact@v4
@@ -133,7 +140,7 @@ jobs:
           if-no-files-found: warn
           retention-days: 7
       - name: Upload source-discovery evidence
-        if: always() && matrix.shard == 0 && inputs.scope != 'working-list-rejected'
+        if: always() && steps.source-probes.outcome != 'skipped' && matrix.shard == 0 && inputs.scope != 'working-list-rejected'
         uses: actions/upload-artifact@v4
         with:
           name: source-discovery
@@ -164,6 +171,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements.txt
       - run: python -m pip install -r requirements.txt
       - name: Fetch owner-proposed URLs and mirror basil for review
         run: |

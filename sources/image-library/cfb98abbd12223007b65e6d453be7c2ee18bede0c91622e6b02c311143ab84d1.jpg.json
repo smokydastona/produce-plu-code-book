@@ -1,0 +1,27 @@
+{
+  "plu": "4565",
+  "product": "Carrot - Red",
+  "width": 500,
+  "height": 500,
+  "sha256": "c961483638b4eb63489ef6b129be05651fc23fd00207a158a9dc4a360ebe8185",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "7188666c9e3530b9e6dcc8aa1f3a8767c808b5194dee52b2b53ea60113c36bf0",
+  "original_image_path": "data/images/Vegetable/0344_4565.jpg",
+  "original_width": 369,
+  "original_height": 369,
+  "assigned_image_path": "data/images/Vegetable/0344_4565.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "cfb98abbd12223007b65e6d453be7c2ee18bede0c91622e6b02c311143ab84d1",
+  "working_source_ids": [
+    "cfb98abbd12223007b65e6d453be7c2ee18bede0c91622e6b02c311143ab84d1"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

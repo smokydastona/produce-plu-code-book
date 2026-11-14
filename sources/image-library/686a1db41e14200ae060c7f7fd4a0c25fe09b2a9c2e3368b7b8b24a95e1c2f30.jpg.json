@@ -1,0 +1,29 @@
+{
+  "plu": "4816",
+  "product": "Yams",
+  "width": 500,
+  "height": 500,
+  "sha256": "8e52cdfc064fc5eaf4f5a011d288edb3bdda1bdd6000b5bd72985a29e84de99c",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "e10c864480e209be7288ef5b7f5d63fbf956f13e1b5a8b356b2b90e2fb4ca574",
+  "original_image_path": "data/images/Vegetable/0380_4816.jpg",
+  "original_width": 267,
+  "original_height": 267,
+  "assigned_image_path": "data/images/Vegetable/0380_4816.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "686a1db41e14200ae060c7f7fd4a0c25fe09b2a9c2e3368b7b8b24a95e1c2f30",
+  "working_source_ids": [
+    "686a1db41e14200ae060c7f7fd4a0c25fe09b2a9c2e3368b7b8b24a95e1c2f30"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

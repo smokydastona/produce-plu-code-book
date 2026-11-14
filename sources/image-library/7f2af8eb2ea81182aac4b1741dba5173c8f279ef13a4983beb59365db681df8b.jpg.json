@@ -1,0 +1,29 @@
+{
+  "plu": "4774",
+  "product": "Squash Uchiki Mama",
+  "width": 500,
+  "height": 500,
+  "sha256": "41f1fb379603f30f4eea0743e8f5ff36d244fe0ddd37d7d8dd68d2630e40bbc9",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "e453ea1b734d0b66280afd352696a869c1f8d9367801a44295f1bdf7c0a3824f",
+  "original_image_path": "data/images/Vegetable/0451_4774.jpg",
+  "original_width": 349,
+  "original_height": 349,
+  "assigned_image_path": "data/images/Vegetable/0451_4774.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "7f2af8eb2ea81182aac4b1741dba5173c8f279ef13a4983beb59365db681df8b",
+  "working_source_ids": [
+    "7f2af8eb2ea81182aac4b1741dba5173c8f279ef13a4983beb59365db681df8b"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

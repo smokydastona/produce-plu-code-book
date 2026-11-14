@@ -1,0 +1,27 @@
+{
+  "plu": "4406",
+  "product": "Pear Asian White",
+  "width": 500,
+  "height": 500,
+  "sha256": "e6ca9e46744ddeb85f721571c5546668251caeb3ed6b0db3ef40d3a94ff60d6d",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "044552915661353e0df2d0defbffb889bb1b29fa80035272161a5f6cae826de2",
+  "original_image_path": "data/images/Fruit/0021_4406.jpg",
+  "original_width": 209,
+  "original_height": 209,
+  "assigned_image_path": "data/images/Fruit/0021_4406.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "988d12a1833fb1f94713e4f3154fc79835ee5b13ae1eedb1389c7d5d0e092936",
+  "working_source_ids": [
+    "988d12a1833fb1f94713e4f3154fc79835ee5b13ae1eedb1389c7d5d0e092936"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

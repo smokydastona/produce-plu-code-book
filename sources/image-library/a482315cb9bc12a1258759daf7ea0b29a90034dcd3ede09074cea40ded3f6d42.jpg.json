@@ -1,0 +1,29 @@
+{
+  "plu": "4544",
+  "product": "Bok Choy Mini",
+  "width": 500,
+  "height": 500,
+  "sha256": "27ec197367645dfaa21118c712c9e23dc226c348387a385d418919becd2f0e31",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "fcbcf51dc9f19232b6fd8427fcc5998a09e3cd9de82f950305337eccedf7de4b",
+  "original_image_path": "data/images/Vegetable/0463_4544.jpg",
+  "original_width": 144,
+  "original_height": 144,
+  "assigned_image_path": "data/images/Vegetable/0463_4544.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "a482315cb9bc12a1258759daf7ea0b29a90034dcd3ede09074cea40ded3f6d42",
+  "working_source_ids": [
+    "a482315cb9bc12a1258759daf7ea0b29a90034dcd3ede09074cea40ded3f6d42"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

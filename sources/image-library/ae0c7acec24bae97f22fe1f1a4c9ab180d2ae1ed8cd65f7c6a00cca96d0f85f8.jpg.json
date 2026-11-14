@@ -1,0 +1,29 @@
+{
+  "plu": "3047",
+  "product": "Dates Medjool",
+  "width": 500,
+  "height": 500,
+  "sha256": "b8b95ae17f944293b56e4142de32db483285bdebc37f6a03d4043b6ee655c388",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "33e60ab30ec613c7beef70534f96cede2fe5f645e858e2c87ef142715a1c8fa2",
+  "original_image_path": "data/images/Fruit/0178_3047.jpg",
+  "original_width": 119,
+  "original_height": 119,
+  "assigned_image_path": "data/images/Fruit/0178_3047.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "ae0c7acec24bae97f22fe1f1a4c9ab180d2ae1ed8cd65f7c6a00cca96d0f85f8",
+  "working_source_ids": [
+    "ae0c7acec24bae97f22fe1f1a4c9ab180d2ae1ed8cd65f7c6a00cca96d0f85f8"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

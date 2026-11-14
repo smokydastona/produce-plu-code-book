@@ -1,0 +1,29 @@
+{
+  "plu": "3209",
+  "product": "Yam Purple",
+  "width": 500,
+  "height": 500,
+  "sha256": "d0ab5aff8f2fad16ccd60a578a0b0e6be2773938740e17f4686e19d8943f8543",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "51f9b228518696a0739e2328e61da2a37d0cf7c6f821a035a0693f8f5ff66873",
+  "original_image_path": "data/images/Vegetable/0379_3209.jpg",
+  "original_width": 383,
+  "original_height": 383,
+  "assigned_image_path": "data/images/Vegetable/0379_3209.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "a46bf85bdad361f3663b9b505b325eba709495349c13fcf51c047cff1826229f",
+  "working_source_ids": [
+    "a46bf85bdad361f3663b9b505b325eba709495349c13fcf51c047cff1826229f"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

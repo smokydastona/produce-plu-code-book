@@ -1,0 +1,29 @@
+{
+  "plu": "4267",
+  "product": "Figs Brown",
+  "width": 500,
+  "height": 500,
+  "sha256": "761bb22340ad0cd3c1e802092b06bc23648034b20360d88cd4d7fd8075cd3285",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "fff311c0dcfd0ec02c10b674223684760a2459e24f308c24932298429812a8a6",
+  "original_image_path": "data/images/Fruit/0181_4267.jpg",
+  "original_width": 166,
+  "original_height": 166,
+  "assigned_image_path": "data/images/Fruit/0181_4267.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "393d5d0ea7cf74b720ced00a184cf0ad9e55367d1d99e97ca4523cb906654a61",
+  "working_source_ids": [
+    "393d5d0ea7cf74b720ced00a184cf0ad9e55367d1d99e97ca4523cb906654a61"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

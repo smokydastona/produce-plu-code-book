@@ -1,0 +1,27 @@
+{
+  "plu": "4999",
+  "product": "Cucumber Mini",
+  "width": 500,
+  "height": 500,
+  "sha256": "962eb69c272b9b2f8d89d477bbd700448c9b0d0278855fb33634a26a7d691a73",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "3a93d3fd8d8ef6773f2ab1086e3917bee5cf88cd12304be5ea488d4db94107c2",
+  "original_image_path": "data/images/Vegetable/0424_4999.jpg",
+  "original_width": 488,
+  "original_height": 488,
+  "assigned_image_path": "data/images/Vegetable/0424_4999.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "8cfcd80566d157d9937240ffa2f105ea62af6e9f9617209f228fc6abd8a5dfdf",
+  "working_source_ids": [
+    "8cfcd80566d157d9937240ffa2f105ea62af6e9f9617209f228fc6abd8a5dfdf"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

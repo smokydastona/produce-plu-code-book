@@ -1,0 +1,33 @@
+{
+  "plu": "94457",
+  "product": "Organic Oranges TDE Tangerine",
+  "width": 500,
+  "height": 500,
+  "sha256": "87c5ffdcc0510f857401c9c3b3387d88d92b270a91ecca07c707a997acd2dece",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "5d77c12d5d63e8d360dc2f2bfadc832b42e1be0809ffa8abaad89b02740d0541",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image40.jpg",
+  "original_width": 164,
+  "original_height": 164,
+  "assigned_image_path": "data/images/Fruit/0267_94457.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image40.jpg",
+    "original_sha256": "5d77c12d5d63e8d360dc2f2bfadc832b42e1be0809ffa8abaad89b02740d0541"
+  },
+  "working_source_id": "d47cb3f64984aa177f5ea1cd3b535e05d175cddf888fdc54d740c292ffadd5b4",
+  "working_source_ids": [
+    "d47cb3f64984aa177f5ea1cd3b535e05d175cddf888fdc54d740c292ffadd5b4"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

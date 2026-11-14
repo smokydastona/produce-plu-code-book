@@ -1,0 +1,29 @@
+{
+  "plu": "4773",
+  "product": "Squash Patty Pan",
+  "width": 500,
+  "height": 500,
+  "sha256": "83c228b001c7efdc6d4b34d4f9a4f7c90405b2a871103582c38fbc7095d759a5",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "1ceee1ae5a8ba3629ee1cda7253ad0176ed798dd1dffbc6ea111d06db206e2b3",
+  "original_image_path": "data/images/Vegetable/0444_4773.jpg",
+  "original_width": 388,
+  "original_height": 388,
+  "assigned_image_path": "data/images/Vegetable/0444_4773.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "fa99f7d31d1f9e5f251c432e6d97420b0911f9acd759698678f2940191bf5c26",
+  "working_source_ids": [
+    "fa99f7d31d1f9e5f251c432e6d97420b0911f9acd759698678f2940191bf5c26"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

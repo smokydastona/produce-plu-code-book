@@ -1,0 +1,29 @@
+{
+  "plu": "4005",
+  "product": "Pears Honey Belle",
+  "width": 500,
+  "height": 500,
+  "sha256": "35fef3d40b48b15ffc22783353dfb7d912d602d754fb9be09330b5ec5492dbfd",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "369b954e1d15bed90d84fd14b60ed9544d6956a8cbd650c23fba32477aa34955",
+  "original_image_path": "data/images/Fruit/0040_4005.jpg",
+  "original_width": 310,
+  "original_height": 310,
+  "assigned_image_path": "data/images/Fruit/0040_4005.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "8c1dd37f5b0061c82d57825c137a6c6a4e1032ce87390a00b49eb9fb7365b8dc",
+  "working_source_ids": [
+    "8c1dd37f5b0061c82d57825c137a6c6a4e1032ce87390a00b49eb9fb7365b8dc"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

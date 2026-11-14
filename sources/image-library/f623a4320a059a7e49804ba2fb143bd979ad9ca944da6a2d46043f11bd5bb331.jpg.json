@@ -1,0 +1,33 @@
+{
+  "plu": "94075",
+  "product": "Organic Leaf Lettuce Red",
+  "width": 500,
+  "height": 500,
+  "sha256": "ca6a1a07be58ee77c9dda514f87b1acd51242adba267778c509a8ab53d816326",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "c36880e6d06974ab0764a2f842346131fad9b28b7a697a6408d0662904a7a0a6",
+  "original_image_path": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image1.jpg",
+  "original_width": 180,
+  "original_height": 180,
+  "assigned_image_path": "data/images/Vegetable/0527_94075.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image1.jpg",
+    "original_sha256": "c36880e6d06974ab0764a2f842346131fad9b28b7a697a6408d0662904a7a0a6"
+  },
+  "working_source_id": "f623a4320a059a7e49804ba2fb143bd979ad9ca944da6a2d46043f11bd5bb331",
+  "working_source_ids": [
+    "f623a4320a059a7e49804ba2fb143bd979ad9ca944da6a2d46043f11bd5bb331"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

@@ -1,0 +1,31 @@
+{
+  "plu": "94147",
+  "product": "Organic Apples Jona Gold",
+  "width": 500,
+  "height": 500,
+  "sha256": "4339a77222d5bf53c72f05f871a7be862565c2556d1507397f83d0da5b1102ac",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "afb12508ce3aa17674d194dabac6673eb01ba63b523050ba5b7f4b48ceef3758",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image113.jpg",
+  "original_width": 229,
+  "original_height": 229,
+  "assigned_image_path": "data/images/Fruit/0202_94147.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image113.jpg",
+    "original_sha256": "afb12508ce3aa17674d194dabac6673eb01ba63b523050ba5b7f4b48ceef3758"
+  },
+  "working_source_id": "50776ff824d602f317086aebb88a08ecb88eeb876bfbc69350079c7df933185e",
+  "working_source_ids": [
+    "50776ff824d602f317086aebb88a08ecb88eeb876bfbc69350079c7df933185e"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

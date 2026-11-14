@@ -1,0 +1,27 @@
+{
+  "plu": "82202",
+  "product": "Berries - Logan Berries",
+  "width": 500,
+  "height": 500,
+  "sha256": "06fe797270f2616135f246729520edd6f4c3eb9206638326ce591d0ca4e464fd",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "41de52bf5fdc383b0b590472835e7787c9da80f0287233145eb83a7ee76b787a",
+  "original_image_path": "data/images/Fruit/0080_82202.jpg",
+  "original_width": 356,
+  "original_height": 356,
+  "assigned_image_path": "data/images/Fruit/0080_82202.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "27feb42f89c64ec925064c450a6c4f6694716b89f80a6c6d03625adec119f790",
+  "working_source_ids": [
+    "27feb42f89c64ec925064c450a6c4f6694716b89f80a6c6d03625adec119f790"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

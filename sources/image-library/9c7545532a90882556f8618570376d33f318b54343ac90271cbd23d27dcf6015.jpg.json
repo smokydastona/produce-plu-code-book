@@ -1,0 +1,29 @@
+{
+  "plu": "3611",
+  "product": "Plum Pluots",
+  "width": 500,
+  "height": 500,
+  "sha256": "58395b943a8f24c19f71b936e0da294e4c9f0ce1fda69aed42b38ee00ce5577b",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "a3ad51761bd2608cf59973bec6635b7cbf75bd3955848a1482d4c4ae070e5b0f",
+  "original_image_path": "data/images/Fruit/0137_3611.jpg",
+  "original_width": 157,
+  "original_height": 157,
+  "assigned_image_path": "data/images/Fruit/0137_3611.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "9c7545532a90882556f8618570376d33f318b54343ac90271cbd23d27dcf6015",
+  "working_source_ids": [
+    "9c7545532a90882556f8618570376d33f318b54343ac90271cbd23d27dcf6015"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

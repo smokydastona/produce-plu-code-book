@@ -1,0 +1,27 @@
+{
+  "plu": "4235",
+  "product": "Bananas Plantains",
+  "width": 500,
+  "height": 500,
+  "sha256": "c7e70703506b1647b8c9796ee621cc57ab8a997f9998432930d8f8098134ff59",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "734a06e453a9ece79bded477e32d6b8b5e567f8126806266628c5e83c1af3194",
+  "original_image_path": "data/images/Fruit/0145_4235.jpg",
+  "original_width": 275,
+  "original_height": 275,
+  "assigned_image_path": "data/images/Fruit/0145_4235.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "a3d861614fe6d88ea845ca16395b12ac36114806dfb953546de385e122861d9f",
+  "working_source_ids": [
+    "a3d861614fe6d88ea845ca16395b12ac36114806dfb953546de385e122861d9f"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

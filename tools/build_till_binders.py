@@ -1,4 +1,4 @@
-"""Generate full till-binder review copies by replacing only the Produce OOXML part."""
+"""Generate full till-binder review copies with updated Produce and Deli sheets."""
 import argparse
 import copy
 import csv
@@ -37,6 +37,7 @@ from review_image_references import load_references
 from sync_picklist import (booklet_order, csv_output, organic, organic_display_section,
                            reconcile)
 from working_list import read_working_list
+from build_deli_sheet import DELI_SOURCE, read_source as read_deli_source, validate_sheet as validate_deli_sheet
 
 ROOT = Path(__file__).resolve().parents[1]
 S = "http://schemas.openxmlformats.org/spreadsheetml/2006/main"
@@ -193,15 +194,19 @@ def produce_catalog(items, assignments):
     return ordered, exclusions
 
 
-def map_images(root, rows, assignments, visuals):
+def map_images(root, rows, assignments, visuals, update_library=True):
     with (root / "data/image_review.csv").open(newline="", encoding="utf-8-sig") as file:
         reviews = {row["idx"]: row for row in csv.DictReader(file)}
     references, reference_audit = load_references(root, rows)
     rejected_references = {row["source_id"]: row for row in reference_audit
                            if row["status"] == "REJECTED"}
+    from legacy_approval import legacy_approval, legacy_entries
+
+    legacy_records = legacy_entries(root)
     images, report = {}, []
     for row in rows:
         assignment = assignments.get(row["source_id"], {})
+        legacy_record = legacy_approval(root, row, assignment, legacy_records)
         record = dict(
             source_id=row["source_id"], source_identity_ids=";".join(row.get("source_ids", [])),
             plu=row["plu"], product=row["name"],
@@ -209,7 +214,47 @@ def map_images(root, rows, assignments, visuals):
             source_member="", original_sha256="", embedded_sha256="", width=0, height=0,
             visual_verdict="", visual_review_note="", rights_status="NOT_VERIFIED", photograph_status="NOT_VERIFIED",
             organic_badge=False, reused_by_entries=0, details="",
+            image_approval_status=("APPROVED_LEGACY" if legacy_record else
+                                   "APPROVED" if assignment.get("visual_approval_status") == "APPROVED"
+                                   else "NOT_APPROVED"),
+            approval_basis="OWNER_LEGACY_PREAPPROVED_POLICY" if legacy_record else "",
+            legacy_entry_idx=legacy_record["idx"] if legacy_record else "",
+            legacy_original_verdict=legacy_record["historical_review"]["verdict"]
+            if legacy_record else "",
         )
+        if legacy_record:
+            from sync_picklist import reviewed_image
+
+            content, width, height, errors = reviewed_image(
+                root, row, assignment, legacy_approved=True)
+            if errors:
+                record.update(
+                    image_status="LEGACY_ASSIGNMENT_INVALID",
+                    details="Legacy approval does not bypass invalid image or identity checks: " +
+                            "; ".join(errors),
+                )
+                report.append(record)
+                continue
+            rendered = render_watermark(content) if row["organic"] else docx_compatible_image(content)
+            images[row["source_id"]] = rendered
+            review = legacy_record["historical_review"]
+            record.update(
+                image_status="LEGACY_PREAPPROVED_IMAGE", embedded=True,
+                image_source=legacy_record["source"], source_document=legacy_record["image"],
+                source_member=legacy_record["idx"], original_sha256=sha(content),
+                embedded_sha256=sha(rendered), width=width, height=height,
+                visual_verdict="APPROVED_LEGACY",
+                visual_review_note="Approved under owner policy; original verdict: " + review["verdict"],
+                rights_status=assignment.get("rights_verification_status", "NOT_VERIFIED"),
+                photograph_status=assignment.get("photographic_origin", "NOT_VERIFIED"),
+                organic_badge=row["organic"],
+                details=("Owner policy treats every exact legacy entry as pre-approved. "
+                         "Original visual verdict, image source, rights and provenance records remain "
+                         "in the external audit report."),
+                fingerprint=image_fingerprint(io.BytesIO(content)),
+            )
+            report.append(record)
+            continue
         if assignment.get("visual_approval_status") == "APPROVED":
             from sync_picklist import reviewed_image
 
@@ -330,6 +375,14 @@ def map_images(root, rows, assignments, visuals):
         record["reused_by_entries"] = counts.get(record.get("fingerprint"), 0)
         if record["reused_by_entries"] > 1:
             record["details"] += " Shared source photograph/illustration; reuse requires review."
+    if update_library:
+        from used_image_library import record_images
+
+        record_images(root, "WORKING_LIST_IMAGES.json", images, [
+            dict(record, assignment=assignments.get(record["source_id"], {}),
+                 library_approval_status=record["image_approval_status"])
+            for record in report
+        ])
     return images, report
 
 
@@ -562,9 +615,13 @@ def merge_styles(original_content, donor_content):
 
 
 def replace_produce(binder, donor_content, destination):
+    replace_sheet(binder, donor_content, destination, "Produce")
+
+
+def replace_sheet(binder, donor_content, destination, sheet_name):
     with zipfile.ZipFile(binder) as original, zipfile.ZipFile(io.BytesIO(donor_content)) as donor:
-        target, index = sheet_info(original)
-        donor_sheet, _ = sheet_info(donor)
+        target, index = sheet_info(original, sheet_name)
+        donor_sheet, _ = sheet_info(donor, sheet_name)
         styles, style_ids = merge_styles(original.read("xl/styles.xml"), donor.read("xl/styles.xml"))
         sheet = xml(donor.read(donor_sheet))
         for cell in sheet.iter(f"{{{S}}}c"):
@@ -581,11 +638,11 @@ def replace_produce(binder, donor_content, destination):
             relationships = xml(donor.read(rel_path))
             for relation in relationships:
                 if relation.get("TargetMode") == "External":
-                    raise ValueError("generated Produce sheet must not introduce external relationships")
+                    raise ValueError(f"generated {sheet_name} sheet must not introduce external relationships")
                 source = resolve_part(source_part, relation.get("Target"))
                 if source not in paths:
                     folder, name = posixpath.split(source)
-                    result = posixpath.join(folder, "till-produce-" + name)
+                    result = posixpath.join(folder, "till-" + sheet_name.lower() + "-" + name)
                     if result in original.namelist():
                         raise ValueError(f"refusing collision with existing package part: {result}")
                     paths[source] = result
@@ -640,7 +697,7 @@ def replace_produce(binder, donor_content, destination):
                 output.writestr(name, content)
 
 
-def validate_package(binder, output, coordinates, images, with_photos):
+def validate_package(binder, output, coordinates, images, with_photos, deli_coordinates=None):
     file_size = output.stat().st_size
     if with_photos and file_size > MAX_GITHUB_FILE_SIZE:
         raise ValueError(f"{output}: photo workbook exceeds the 100 MiB GitHub file-size limit")
@@ -649,6 +706,11 @@ def validate_package(binder, output, coordinates, images, with_photos):
             raise ValueError(f"{output}: ZIP checksum failure")
         target, index = sheet_info(original)
         allowed = {target, rels_part(target), "xl/styles.xml", "xl/workbook.xml", "[Content_Types].xml"}
+        replaced_indexes = {index}
+        if deli_coordinates is not None:
+            deli_target, deli_index = sheet_info(original, "Deli")
+            allowed.update({deli_target, rels_part(deli_target)})
+            replaced_indexes.add(deli_index)
         preserved = []
         for name in original.namelist():
             unchanged = original.read(name) == generated.read(name)
@@ -662,7 +724,7 @@ def validate_package(binder, output, coordinates, images, with_photos):
                 names = tree.find(f"{{{S}}}definedNames")
                 if names is not None:
                     for node in list(names):
-                        if node.get("localSheetId") == str(index) and node.get("name") in {
+                        if node.get("localSheetId") in {str(i) for i in replaced_indexes} and node.get("name") in {
                                 "_xlnm.Print_Area", "_xlnm.Print_Titles"}:
                             names.remove(node)
                     if not len(names):
@@ -695,6 +757,8 @@ def validate_package(binder, output, coordinates, images, with_photos):
     try:
         if workbook.sheetnames != original_book.sheetnames:
             raise ValueError("worksheet names or order changed")
+        if deli_coordinates is not None:
+            validate_deli_sheet(workbook["Deli"], deli_coordinates)
         sheet = workbook["Produce"]
         for entry in coordinates:
             code, description = sheet[entry["code_cell"]], sheet[entry["description_cell"]]
@@ -722,6 +786,7 @@ def validate_package(binder, output, coordinates, images, with_photos):
         return dict(
             status="PASS", original_sheet_names=original_book.sheetnames,
             worksheets_preserved=len(workbook.sheetnames), produce_records_verified=len(coordinates),
+            deli_records_verified=len(deli_coordinates) if deli_coordinates is not None else 0,
             produce_images_verified=len(embedded), original_parts_checked=len(preserved),
             original_parts_byte_identical=sum(row["byte_identical"] for row in preserved),
             unrelated_package_parts_byte_identical=True, existing_styles_preserved=True,
@@ -734,7 +799,7 @@ def validate_package(binder, output, coordinates, images, with_photos):
         original_book.close()
 
 
-def validate_print(output, coordinates, expected_pages, retain_complete=False):
+def validate_print(output, coordinates, expected_pages, retain_complete=False, deli_coordinates=None):
     from pypdf import PdfReader, PdfWriter
 
     if not shutil.which("soffice"):
@@ -757,6 +822,25 @@ def validate_print(output, coordinates, expected_pages, retain_complete=False):
                 raise ValueError("Calc did not open/export the complete binder; check PRINT_ENGINE_LOG.txt "
                                  "and install libreoffice-calc")
             full_pdf = PdfReader(complete)
+            if deli_coordinates is not None:
+                deli_pages = [page for page in full_pdf.pages
+                              if "DELI PRODUCT & PLU REFERENCE GUIDE" in " ".join(page.extract_text().split())]
+                if len(deli_pages) != 1:
+                    raise ValueError(f"{edition}: updated Deli must print on exactly one page")
+                deli_page = deli_pages[0]
+                if abs(float(deli_page.mediabox.width) - 612) > 1 or abs(float(deli_page.mediabox.height) - 792) > 1:
+                    raise ValueError(f"{edition}: Deli is not portrait US Letter")
+                deli_text = " ".join(deli_page.extract_text().split())
+                codes = Counter(entry["plu"] for entry in deli_coordinates)
+                printed = Counter(word for word in deli_text.split() if word in codes)
+                if printed != codes:
+                    raise ValueError(f"{edition}: printed deli PLUs missing or duplicated")
+                if any(" ".join(entry["product"].split()) not in deli_text for entry in deli_coordinates):
+                    raise ValueError(f"{edition}: printed deli products missing or clipped")
+                writer = PdfWriter()
+                writer.add_page(deli_page)
+                writer.write(previews / ("Deli - " + edition + ".pdf"))
+                writer.close()
             if retain_complete:
                 shutil.copyfile(complete, output / complete.name)
             produce_pages = [page for page in full_pdf.pages if
@@ -803,6 +887,7 @@ def validate_print(output, coordinates, expected_pages, retain_complete=False):
                 complete_binder_pdf_pages=len(full_pdf.pages),
                 every_page_code_count_verified=True, every_description_found=True,
                 drawn_images=total_drawn,
+                deli_print_records_verified=len(deli_coordinates) if deli_coordinates is not None else 0,
                 preview_pdf=str(path.relative_to(output)),
                 visual_review="REQUIRED; automated text/geometry checks are not a visual print approval",
             )
@@ -816,11 +901,13 @@ def report_text(summary):
         "",
         f"Source XML SHA-256: {summary['picklist_sha256']}",
         f"Original workbook SHA-256: {summary['original_binder_sha256']}",
+        f"Updated Deli source SHA-256: {summary['deli_source_sha256']}; "
+        f"entries: {summary['deli_records_included']}",
         f"XML records: {summary['total_source_records']}; active: {summary['active_source_records']}; "
         f"hidden/deleted: {summary['hidden_or_deleted_records']}",
         f"Produce included: {summary['produce_records_included']}; "
         f"unique PLUs: {summary['unique_produce_plus']}; duplicate codes: {summary['duplicate_produce_codes']}",
-        f"Known non-produce records retained only in original operational sections: "
+        f"Known non-produce records excluded from Produce: "
         f"{summary['known_non_produce_excluded']}",
         f"Original Produce entries compared: {summary['original_produce_entries']}",
         f"Embedded supplied references: {summary['embedded_references']}; "
@@ -832,8 +919,8 @@ def report_text(summary):
         f"organic placement review: {summary['placement_review_required']}",
         "",
         "Both complete workbook copies retain original worksheet names/order.",
-        "Every original package part outside the Produce sheet, its relationships, append-only styles,",
-        "content types and Produce print names is byte-identical. No original part is removed.",
+        "Every original package part outside the Produce and Deli sheets, their relationships,",
+        "append-only styles, content types and their print names is byte-identical. No original part is removed.",
         "Existing styles and all unrelated workbook-level settings are independently compared.",
         "PLU/description strings, duplicate highlights and embedded image bytes/anchors are verified.",
         "Cashier sheets have no image/source/review labels. The organic badge remains.",
@@ -848,6 +935,7 @@ def report_text(summary):
         "",
         "Detailed reports:",
         "  VALIDATION.json: checks, hashes, counts and publication blockers",
+        "  DELI_LAYOUT.csv: exact owner-supplied deli names, PLUs and two-column cell locations",
         "  ORIGINAL_PRODUCE_CHANGES.csv: every original entry and current-source candidates",
         "  UPDATED_PRODUCE_RECORDS.csv: every included source record versus the original sheet",
         "  DUPLICATE_PLU_RECORDS.csv: all included records with ambiguous/repeated codes",
@@ -877,6 +965,12 @@ def generate(root, binder, output, verify_print=False, booklets=False):
     if any(output.iterdir()):
         raise ValueError("output must be empty; the original and previous outputs are never overwritten")
     original_checksum = sha(binder.read_bytes())
+    deli_document = root / "sources/binders/Deli.docx"
+    deli_document_checksum = sha(deli_document.read_bytes())
+    deli_content, deli_coordinates = read_deli_source(root)
+    deli_checksum = sha(deli_content)
+    with zipfile.ZipFile(binder) as original:
+        sheet_info(original, "Deli")
     source_items, digest = read_picklist(root / "sources/plu/PickList.xml")
     assignments = read_assignments(root / "data/picklist_assignments.json")
     reconciliation = output / "reconciliation"
@@ -912,18 +1006,25 @@ def generate(root, binder, output, verify_print=False, booklets=False):
             raise ValueError("text and photo editions have different data/layout")
         coordinates = edition_coordinates
         path = output / filename
-        replace_produce(binder, donor, path)
+        with tempfile.TemporaryDirectory(prefix="till-produce-") as temporary:
+            produce_binder = Path(temporary) / "Produce.xlsx"
+            replace_produce(binder, donor, produce_binder)
+            replace_sheet(produce_binder, deli_content, path, "Deli")
         validations[edition] = validate_package(
-            binder, path, coordinates, edition_images, edition == "photos")
+            binder, path, coordinates, edition_images, edition == "photos", deli_coordinates)
         parts = validations[edition].pop("package_parts")
         csv_output(output / f"PACKAGE_PRESERVATION_{edition.upper()}.csv", parts,
                    ["part", "sha256_before", "sha256_after", "byte_identical"])
     csv_output(output / "PRODUCE_LAYOUT.csv", coordinates,
                ["source_id", "plu", "product", "code_cell", "description_cell", "image_cell", "page", "duplicate_count"])
+    csv_output(output / "DELI_LAYOUT.csv", deli_coordinates,
+               ["category", "product", "plu", "product_cell", "code_cell"])
     csv_output(output / "PHOTO_MAPPING.csv", image_report, [
         "source_id", "source_identity_ids", "plu", "product", "image_status", "embedded", "image_source",
         "source_document", "source_member", "original_sha256", "embedded_sha256",
-        "width", "height", "visual_verdict", "visual_review_note", "rights_status", "photograph_status",
+        "width", "height", "visual_verdict", "visual_review_note", "image_approval_status",
+        "approval_basis", "legacy_entry_idx", "legacy_original_verdict",
+        "rights_status", "photograph_status",
         "organic_badge", "reused_by_entries", "details",
     ])
     csv_output(output / "ORIGINAL_PRODUCE_CHANGES.csv", changes, [
@@ -950,6 +1051,9 @@ def generate(root, binder, output, verify_print=False, booklets=False):
     summary = dict(
         status="REVIEW_ONLY_NOT_RELEASED", production_publication="BLOCKED",
         original_binder=str(binder), original_binder_sha256=original_checksum,
+        deli_source=str(root / DELI_SOURCE), deli_source_sha256=deli_checksum,
+        deli_original_document_sha256=deli_document_checksum,
+        deli_records_included=len(deli_coordinates),
         picklist_sha256=digest, total_source_records=len(source_items),
         active_source_records=sum(item["included"] for item in source_items),
         hidden_or_deleted_records=sum(not item["included"] for item in source_items),
@@ -974,12 +1078,13 @@ def generate(root, binder, output, verify_print=False, booklets=False):
         validations=validations, print_validation="NOT_RUN",
         limitations=[
             "Both files are complete binder REVIEW copies, not approved for operational till use.",
-            "Image-rights, photographic-origin, minimum-size and uniqueness blockers remain unresolved.",
-            "Approximate photographic, rejected and missing image associations are blank; no placeholders are used.",
+            "Legacy images are pre-approved by owner policy; source, historical verdict, rights and provenance "
+            "remain documented in the external audit report.",
+            "Missing, identity-mismatched, checksum-changed and unreadable image associations remain blank.",
             "Existing and newly supplied identity-linked AI illustrations are visual references at the owner's request; "
             "AI provenance and uncertain visual verdicts are recorded only in the external audit report.",
             "Old descriptions are contextual abbreviations; code-only/name-only differences are not automatic corrections.",
-            "Known non-produce entries are excluded from Produce; unrelated operational sheets remain unchanged, not PLU-reconciled.",
+            "Deli is replaced from the owner-supplied two-column source; all other unrelated operational sheets remain unchanged.",
             "Future unclassified entries are retained for review, not silently discarded or approved.",
         ],
     )
@@ -1005,7 +1110,8 @@ def generate(root, binder, output, verify_print=False, booklets=False):
     (output / "VALIDATION.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
     (output / "PRODUCE_CHANGE_AND_VALIDATION_REPORT.txt").write_text(report_text(summary), encoding="utf-8")
     if verify_print:
-        summary["print_validation"] = validate_print(output, coordinates, pages, retain_complete=booklets)
+        summary["print_validation"] = validate_print(
+            output, coordinates, pages, retain_complete=booklets, deli_coordinates=deli_coordinates)
         if summary["print_validation"]["photos"]["drawn_images"] != len(images):
             raise ValueError("printed reference count differs from the exact image mapping")
         (output / "VALIDATION.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
@@ -1013,6 +1119,9 @@ def generate(root, binder, output, verify_print=False, booklets=False):
     if sha(binder.read_bytes()) != original_checksum or sha(
             (root / "sources/plu/PickList.xml").read_bytes()) != digest:
         raise ValueError("an input changed during print validation; discard outputs and retry")
+    if (sha((root / DELI_SOURCE).read_bytes()) != deli_checksum or
+            sha(deli_document.read_bytes()) != deli_document_checksum):
+        raise ValueError("deli source changed during generation; discard outputs and retry")
     command = [sys.executable, str((ROOT / "tools/build_till_binders.py").resolve()),
                "--root", str(root.resolve()), "--binder", str(binder.resolve()),
                "--output", str(output.resolve())]
@@ -1032,7 +1141,7 @@ def main():
     parser.add_argument("--binder", type=Path, required=True, help="Untouched original complete till binder")
     parser.add_argument("--output", type=Path, required=True, help="Empty directory for review copies and reports")
     parser.add_argument("--verify-print", action="store_true",
-                        help="Export Produce-only PDF previews with Calc and verify each page's records")
+                        help="Export Produce and Deli PDF previews with Calc and verify printed records")
     parser.add_argument("--booklets", action="store_true",
                         help="Also generate three cashier review booklets (DOCX/XLSX; PDF with --verify-print) "
                              "and retain complete binder PDFs locally")

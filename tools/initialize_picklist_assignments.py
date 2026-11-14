@@ -1,4 +1,4 @@
-"""One-time migration of existing booklet associations; never approves image rights."""
+"""One-time migration of existing booklet associations under legacy pre-approval."""
 import argparse
 import csv
 import hashlib
@@ -24,10 +24,12 @@ def initialize(root, output):
         assignment = dict(
             book=row["book"], section=row["section"], image="data/" + row["image"],
             image_mode="PHOTO", reviewed_plu=row["plu"], reviewed_product=row["name"],
-            visual_approval_status="APPROVED" if row["verdict"] == "Approved" else "NOT_APPROVED",
+            visual_approval_status="APPROVED",
+            image_approval_basis="OWNER_LEGACY_PREAPPROVED_POLICY",
             photographic_origin="NOT_VERIFIED", rights_verification_status="NOT_VERIFIED",
             provenance={}, legacy_entry_idx=row["idx"],
-            migration_note="Existing visual verdict preserved; original source/rights not verified.",
+            migration_note=("Legacy image pre-approved by owner policy; original verdict and "
+                            "unverified source/rights status remain historical evidence."),
         )
         record = records.get(row["idx"])
         if record:

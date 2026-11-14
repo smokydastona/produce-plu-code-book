@@ -1,0 +1,29 @@
+{
+  "plu": "4345",
+  "product": "Melon Honey Kiss",
+  "width": 500,
+  "height": 500,
+  "sha256": "309694c4cea4c6de4a1b9362c28469aaf460f4809e3dfdb5342fcac5d323213c",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "7a5ef8930b24f1234e454b1da5e33695798c8a6e4c39235f6ae95b1012ee67b8",
+  "original_image_path": "data/images/Fruit/0111_4345.jpg",
+  "original_width": 257,
+  "original_height": 257,
+  "assigned_image_path": "data/images/Fruit/0111_4345.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "d60e0e5d37e7b108df83cf0831321ff5221e0fa8ae4500765f82f5d0f1c4a956",
+  "working_source_ids": [
+    "d60e0e5d37e7b108df83cf0831321ff5221e0fa8ae4500765f82f5d0f1c4a956"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

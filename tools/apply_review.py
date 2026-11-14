@@ -1,13 +1,10 @@
-"""Apply data/review_notes.txt verdicts to the booklets and regenerate image reports.
+"""Apply legacy pre-approval while preserving historical image-review verdicts.
 
 Run after tools/extract_entries.py. Rewrites each entry's Verification Status line
 in current/booklets/*_PRODUCTION.docx (the PDFs must then be re-exported) and writes
 data/image_review.csv plus current/reports/{MASTER_IMAGE_LIBRARY,IMAGE_MATCH_REPORT}.csv.
-Status rules:
-  rejected              -> REJECTED, replacement needed
-  AI-generated source   -> AI GENERATED REFERENCE IMAGE (never "verified photo")
-  photo, match          -> VERIFIED PHOTO (visually reviewed against the PickList name)
-  photo, approximate    -> APPROXIMATE PHOTO MATCH
+Original verdicts remain in the audit data; all legacy entries use the owner's
+pre-approval policy for their effective image-approval status.
 """
 import copy, csv, hashlib, re
 from collections import Counter
@@ -19,7 +16,8 @@ from check_image_uniqueness import require_unique_entries
 ROOT = Path(__file__).resolve().parents[1]
 DATA, REP = ROOT / "data", ROOT / "current/reports"
 STATUS = {"verified": "✅ VERIFIED PHOTO", "approx": "⚠ APPROXIMATE PHOTO MATCH",
-          "ai": "🤖 AI GENERATED REFERENCE IMAGE", "rejected": "❌ IMAGE REJECTED – REPLACEMENT NEEDED"}
+          "ai": "🤖 AI GENERATED REFERENCE IMAGE", "rejected": "❌ IMAGE REJECTED – REPLACEMENT NEEDED",
+          "legacy": "✅ APPROVED LEGACY IMAGE"}
 LICENSE = {"AI Generated": "AI generated (internal use)"}
 DEFAULT_LICENSE = "Supplied-document image; license not independently verified"
 BOOKS = {"Fruit": "FRUIT_VISUAL_PLU_BOOKLET_PRODUCTION.docx", "Vegetable": "VEGETABLE_VISUAL_PLU_BOOKLET_PRODUCTION.docx"}
@@ -32,9 +30,7 @@ def load_notes():
     return notes
 
 def status_for(source, verdict):
-    if verdict == "r": return STATUS["rejected"]
-    if source == "AI Generated": return STATUS["ai"]
-    return STATUS["verified"] if verdict == "m" else STATUS["approx"]
+    return STATUS["legacy"]
 
 def main():
     notes = load_notes()
@@ -44,8 +40,12 @@ def main():
     reuse = Counter(hashes.values())
     for r in rows:
         v, n = notes[int(r["idx"])]
-        r.update(verdict={"m": "Approved", "a": "Approximate", "r": "Rejected"}[v], note=n,
-                 status=status_for(r["source"], v), below_500=int(min(int(r["width"]), int(r["height"])) < 500),
+        r.update(verdict={"m": "Approved", "a": "Approximate", "r": "Rejected"}[v],
+                 historical_verdict={"m": "Approved", "a": "Approximate", "r": "Rejected"}[v],
+                 note=n, status=status_for(r["source"], v),
+                 image_approval_status="APPROVED_LEGACY",
+                 approval_basis="OWNER_LEGACY_PREAPPROVED_POLICY",
+                 below_500=int(min(int(r["width"]), int(r["height"])) < 500),
                  shared_image_entries=reuse[hashes[r["idx"]]])
     with open(DATA / "image_review.csv", "w", newline="", encoding="utf-8-sig") as f:
         w = csv.DictWriter(f, fieldnames=list(rows[0])); w.writeheader(); w.writerows(rows)
@@ -75,9 +75,7 @@ def main():
                 if bold: rpr.append(rpr.makeelement(qn("w:b"), {}))
                 if color: rpr.append(rpr.makeelement(qn("w:color"), {qn("w:val"): color}))
                 return new
-            colors = {"Approved": "2E7D32", "Approximate": "B45F06", "Rejected": "C00000"}
-            if r["source"] == "AI Generated" and r["verdict"] != "Rejected": colors["Approved"] = colors["Approximate"] = "5B5B5B"
-            st = clone("Verification Status: " + r["status"], colors[r["verdict"]], True)
+            st = clone("Verification Status: " + r["status"], "2E7D32", True)
             paras[si].addnext(st); paras[si].getparent().remove(paras[si])
             if r["verdict"] != "Approved": st.addnext(clone("Review note: " + r["note"]))
         d.save(ROOT / "current/booklets" / fn)
@@ -88,7 +86,7 @@ def main():
     w(REP / "MASTER_IMAGE_LIBRARY.csv", ["PLU", "Product", "Image File", "Image Source", "License", "Verification Status", "Width", "Height"],
       [[r["plu"], r["name"], f'data/{r["image"]}', r["source"], LICENSE.get(r["source"], DEFAULT_LICENSE),
         r["status"], r["width"], r["height"]] for r in rows])
-    def conf(r): return {"Approved": "Medium", "Approximate": "Low", "Rejected": "None"}[r["verdict"]]
+    def conf(r): return "Approved under legacy policy"
     w(REP / "IMAGE_MATCH_REPORT.csv", ["PLU", "Product", "Assigned Image", "Source", "Confidence", "Review Result", "Notes"],
       [[r["plu"], r["name"], f'data/{r["image"]}', r["source"], conf(r), r["verdict"],
         "; ".join(x for x in [r["note"], "below 500 px minimum" if r["below_500"] else "",
@@ -104,15 +102,21 @@ def update_workbook():
     for name in ("Image Review", "Rejected Images", "Review Summary"):
         if name in wb.sheetnames: del wb[name]
     rows = list(csv.DictReader(open(DATA / "image_review.csv", encoding="utf-8-sig")))
-    cols = ["idx", "book", "section", "plu", "name", "source", "width", "height", "verdict", "status", "note", "shared_image_entries"]
+    cols = ["idx", "book", "section", "plu", "name", "source", "width", "height",
+            "historical_verdict", "image_approval_status", "approval_basis", "status",
+            "note", "shared_image_entries"]
     for name, sel in (("Image Review", rows), ("Rejected Images", [r for r in rows if r["verdict"] == "Rejected"])):
         ws = wb.create_sheet(name); ws.append(["Entry #", "Book", "Section", "PLU", "Product", "Image Source", "Width", "Height",
-                                              "Review Result", "Booklet Status", "Reviewer Note", "Entries Sharing Image"])
-        for r in sel: ws.append([int(r[c]) if c in ("idx", "width", "height", "shared_image_entries") else r[c] for c in cols])
+                                              "Historical Review Result", "Image Approval", "Approval Basis",
+                                              "Booklet Status", "Historical Reviewer Note", "Entries Sharing Image"])
+        for r in sel:
+            ws.append([int(r[c]) if c in ("idx", "width", "height", "shared_image_entries") else r[c]
+                       for c in cols])
         ws.freeze_panes = "A2"
     ws = wb.create_sheet("Review Summary"); c = Counter(r["verdict"] for r in rows)
-    for k, v in [("Entries reviewed", len(rows)), ("Approved (visual match)", c["Approved"]), ("Approximate", c["Approximate"]),
-                 ("Rejected (replacement needed)", c["Rejected"]),
+    for k, v in [("Legacy entries approved", len(rows)), ("Historical approved verdicts", c["Approved"]),
+                 ("Historical approximate verdicts", c["Approximate"]),
+                 ("Historical rejected verdicts", c["Rejected"]),
                  ("AI-generated images", sum(r["source"] == "AI Generated" for r in rows)),
                  ("Photographic coverage (non-AI)", f'{sum(r["source"] != "AI Generated" for r in rows)/len(rows):.1%}'),
                  ("Images below 500 px", sum(r["below_500"] == "1" for r in rows))]: ws.append([k, v])

@@ -1,0 +1,33 @@
+{
+  "plu": "93016",
+  "product": "Organic Pear Concord",
+  "width": 500,
+  "height": 500,
+  "sha256": "ed9393058b81eebb4830fba1d749416ebb6901e5f2aaf8821bc1f9fed7d15555",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "fe81d9fbf72c4b9b0b3f49c925aaec7cf5d32f88d8aa3342ed707ed13e41d042",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image24.jpg",
+  "original_width": 114,
+  "original_height": 114,
+  "assigned_image_path": "data/images/Fruit/0274_93016.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image24.jpg",
+    "original_sha256": "fe81d9fbf72c4b9b0b3f49c925aaec7cf5d32f88d8aa3342ed707ed13e41d042"
+  },
+  "working_source_id": "0d6a5895d0f5a114ec0f1141668c7efb5e68012352278da4496a34c14e012511",
+  "working_source_ids": [
+    "0d6a5895d0f5a114ec0f1141668c7efb5e68012352278da4496a34c14e012511"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

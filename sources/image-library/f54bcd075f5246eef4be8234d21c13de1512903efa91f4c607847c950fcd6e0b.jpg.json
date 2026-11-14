@@ -1,0 +1,27 @@
+{
+  "plu": "4730",
+  "product": "Potato Yellow Creamer",
+  "width": 500,
+  "height": 500,
+  "sha256": "79e6e6ca472908f382b9887d3efe07b3f2af6c944c753dbf12ea1ec55be95739",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "dfb9bed7b554687862067161274640252a91c8c14621793dd80e9252bde0e681",
+  "original_image_path": "data/images/Vegetable/0370_4730.jpg",
+  "original_width": 338,
+  "original_height": 338,
+  "assigned_image_path": "data/images/Vegetable/0370_4730.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "f54bcd075f5246eef4be8234d21c13de1512903efa91f4c607847c950fcd6e0b",
+  "working_source_ids": [
+    "f54bcd075f5246eef4be8234d21c13de1512903efa91f4c607847c950fcd6e0b"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

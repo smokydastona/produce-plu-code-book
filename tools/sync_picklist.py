@@ -42,7 +42,7 @@ def original_image(root, assignment):
     return safe_asset(root, assignment["image"]).read_bytes()
 
 
-def reviewed_image(root, item, assignment):
+def reviewed_image(root, item, assignment, legacy_approved=False):
     from verify_images import LICENSES, owner_permission_assignment
 
     content = original_image(root, assignment)
@@ -52,14 +52,15 @@ def reviewed_image(root, item, assignment):
             errors.append("MULTIFRAME_IMAGE")
         image.load()
         width, height = ImageOps.exif_transpose(image).size
-    if min(width, height) < 500:
+    if min(width, height) < 500 and not legacy_approved:
         errors.append("BELOW_500_PX")
-    if assignment.get("visual_approval_status") != "APPROVED":
+    if assignment.get("visual_approval_status") != "APPROVED" and not legacy_approved:
         errors.append("VISUAL_APPROVAL_REQUIRED")
-    if assignment.get("photographic_origin") != "VERIFIED_PHOTO":
+    if assignment.get("photographic_origin") != "VERIFIED_PHOTO" and not legacy_approved:
         errors.append("PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED")
     owner_permission = owner_permission_assignment(item, assignment)
-    if assignment.get("rights_verification_status") != "VERIFIED" and not owner_permission:
+    if (assignment.get("rights_verification_status") != "VERIFIED" and
+            not owner_permission and not legacy_approved):
         errors.append("IMAGE_RIGHTS_NOT_VERIFIED")
     if assignment.get("image_sha256") != hashlib.sha256(content).hexdigest():
         errors.append("IMAGE_CHECKSUM_MISMATCH")
@@ -68,17 +69,17 @@ def reviewed_image(root, item, assignment):
         errors.append("PRODUCT_IMAGE_REVIEW_REQUIRED")
     provenance = assignment.get("provenance", {})
     owner_upload = provenance.get("rights_status") == "OWNER_CONFIRMED_PERMISSION"
-    if owner_upload:
+    if owner_upload and not legacy_approved:
         if provenance.get("license") != "OWNER_CONFIRMED_PERMISSION":
             errors.append("OWNER_PERMISSION_MUST_NOT_CLAIM_PUBLIC_LICENCE")
-    elif provenance.get("license") not in LICENSES and not owner_permission:
+    elif provenance.get("license") not in LICENSES and not owner_permission and not legacy_approved:
         errors.append("SUPPORTED_IMAGE_LICENCE_REQUIRED")
     required_provenance = (("creator", "attribution", "changes", "rights_evidence",
                             "source_reference", "photographic_origin_evidence",
                             "visual_approval_evidence") if owner_upload else
                            ("creator", "license_url", "source_page_url", "original_image_url",
                             "attribution", "changes", "rights_evidence"))
-    for key in required_provenance:
+    for key in required_provenance if not legacy_approved else ():
         if owner_permission and key == "license_url":
             continue
         if not isinstance(provenance.get(key), str) or not provenance[key].strip():
@@ -100,6 +101,9 @@ def reconcile(root, output):
     if digest != source_digest:
         raise ValueError("WorkingList reconciliation used a different PickList version")
     assignments = read_assignments(root / "data/picklist_assignments.json")
+    from legacy_approval import legacy_approval, legacy_entries
+
+    legacy_records = legacy_entries(root)
     rows, requests, all_image_requests, images, groups = [], [], [], {}, defaultdict(list)
     active_ids = set()
     for item in items:
@@ -107,11 +111,22 @@ def reconcile(root, output):
             continue
         active_ids.add(item["source_id"])
         assignment = assignments.get(item["source_id"])
+        legacy_record = legacy_approval(root, item, assignment, legacy_records)
         classification_assignment = assignments.get(item["classification_source_id"]) or assignment
         errors = []
         row = dict(item, book=classification_assignment["book"] if classification_assignment else "",
                    section=classification_assignment.get("section", "") if classification_assignment else "",
                    image=assignment.get("image", "") if assignment else "",
+                   image_approval_status=("APPROVED_LEGACY" if legacy_record else
+                                          "APPROVED" if assignment and
+                                          assignment.get("visual_approval_status") == "APPROVED"
+                                          else "NOT_APPROVED"),
+                   image_approval_basis=("OWNER_LEGACY_PREAPPROVED_POLICY" if legacy_record else
+                                         "EXACT_WORKINGLIST_APPROVAL" if assignment and
+                                         assignment.get("visual_approval_status") == "APPROVED" else ""),
+                   legacy_entry_idx=legacy_record["idx"] if legacy_record else "",
+                   legacy_original_verdict=legacy_record["historical_review"]["verdict"]
+                   if legacy_record else "",
                    organic=organic(item), width=0, height=0)
         if item["working_list_status"] not in {
                 "UNCHANGED_SOURCE_IDENTITY", "APPLIED_TO_EXACT_SOURCE_IDENTITIES"}:
@@ -133,7 +148,8 @@ def reconcile(root, output):
             errors.append("APPROVED_IMAGE_REQUIRED")
         else:
             try:
-                content, width, height, image_errors = reviewed_image(root, item, assignment)
+                content, width, height, image_errors = reviewed_image(
+                    root, item, assignment, legacy_approved=bool(legacy_record))
                 errors.extend(image_errors)
                 row.update(width=width, height=height)
                 images[item["source_id"]] = content
@@ -192,7 +208,9 @@ def reconcile(root, output):
                [dict(row, source_ids=";".join(row["source_ids"]),
                      source_positions=";".join(map(str, row["source_positions"])),
                      blockers="; ".join(row["blockers"])) for row in rows],
-               fields + ["book", "section", "image", "organic", "width", "height", "blockers"])
+               fields + ["book", "section", "image", "image_approval_status",
+                         "image_approval_basis", "legacy_entry_idx", "legacy_original_verdict",
+                         "organic", "width", "height", "blockers"])
     csv_output(output / "IMAGE_REQUESTS.csv", requests,
                ["idx", "source_id", "source_ids", "plu", "name", "query"])
     csv_output(output / "ALL_IMAGE_REQUESTS.csv", all_image_requests,
@@ -346,13 +364,17 @@ def booklet_order(rows, assignments):
     return ordered
 
 
-def booklet_image(row, images):
+def booklet_image(row, images, root=None):
     from image_display import display_image
 
     if row["book"] == "Non-produce":
         from organic_watermarks import render_watermark
         content = images[row["source_id"]]
         return render_watermark(content) if row["organic"] else content
+    if root is not None:
+        from used_image_library import jpeg_copy
+
+        return jpeg_copy(root, images[row["source_id"]], organic=row["organic"])[1]
     return display_image(images[row["source_id"]], organic=row["organic"])
 
 
@@ -389,7 +411,7 @@ def build_documents(root, output, rows, images, assignments, digest):
                 cell.paragraphs[0].add_run("PLU: " + row["plu"]).bold = True
                 cell.add_paragraph(row["name"])
                 if row["source_id"] in images:
-                    content = booklet_image(row, images)
+                    content = booklet_image(row, images, root=root)
                     with Image.open(io.BytesIO(content)) as image:
                         width, height = image.size
                     scale = min(3.7 / width, 1.0 / height)
@@ -423,7 +445,7 @@ def excel_row(sheet, number, values):
         cell.number_format = "@"
 
 
-def build_workbooks(output, rows, images, assignments, digest):
+def build_workbooks(output, rows, images, assignments, digest, root=None):
     from openpyxl import Workbook
     from openpyxl.drawing.image import Image as ExcelImage
     from openpyxl.styles import Alignment, Font, PatternFill
@@ -444,7 +466,7 @@ def build_workbooks(output, rows, images, assignments, digest):
             excel_row(sheet, number, [row["plu"], row["name"], ""])
             sheet.row_dimensions[number].height = 90 if has_image else 36
             if has_image:
-                picture = ExcelImage(io.BytesIO(booklet_image(row, images)))
+                picture = ExcelImage(io.BytesIO(booklet_image(row, images, root=root)))
                 scale = min(224 / picture.width, 112 / picture.height)
                 picture.width *= scale
                 picture.height *= scale
@@ -530,7 +552,7 @@ def main():
         if summary["status"] != "READY_TO_BUILD":
             parser.exit(1, "BLOCKED: see PICKLIST_SYNC.csv; no booklets were published.\n")
         build_documents(args.root, args.output, rows, images, assignments, summary["source_sha256"])
-        build_workbooks(args.output, rows, images, assignments, summary["source_sha256"])
+        build_workbooks(args.output, rows, images, assignments, summary["source_sha256"], root=args.root)
         verify_workbooks(args.output, rows, assignments, summary["source_sha256"])
         if args.pdf:
             subprocess.run([

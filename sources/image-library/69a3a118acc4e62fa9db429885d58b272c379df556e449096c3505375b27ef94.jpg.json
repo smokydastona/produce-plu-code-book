@@ -1,0 +1,31 @@
+{
+  "plu": "94099",
+  "product": "Organic Apples Akane",
+  "width": 500,
+  "height": 500,
+  "sha256": "3423ea9c638cb732bada2d2c5cf577b3749066dcf69c30b2d3885433dd0f7f2c",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "cfb8ad2d0e32bb43e210fcf37d0db0fc1627c76015589ad76ff361447ec3e222",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image109.jpg",
+  "original_width": 264,
+  "original_height": 264,
+  "assigned_image_path": "data/images/Fruit/0190_94099.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image109.jpg",
+    "original_sha256": "cfb8ad2d0e32bb43e210fcf37d0db0fc1627c76015589ad76ff361447ec3e222"
+  },
+  "working_source_id": "69a3a118acc4e62fa9db429885d58b272c379df556e449096c3505375b27ef94",
+  "working_source_ids": [
+    "69a3a118acc4e62fa9db429885d58b272c379df556e449096c3505375b27ef94"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

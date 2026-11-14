@@ -1,0 +1,31 @@
+{
+  "plu": "94212",
+  "product": "Organic Apples Sunrise",
+  "width": 500,
+  "height": 500,
+  "sha256": "f2ee5f2fdd719d1cf785f022a8008190e053d1a9a6b13895bb075583de006fc0",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "c8fc661177447d7fd6fa5f177a81fc0787a0564ff0e20388695387840e1de49d",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image117.jpg",
+  "original_width": 199,
+  "original_height": 199,
+  "assigned_image_path": "data/images/Fruit/0212_94212.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image117.jpg",
+    "original_sha256": "c8fc661177447d7fd6fa5f177a81fc0787a0564ff0e20388695387840e1de49d"
+  },
+  "working_source_id": "cb471ae794b6ac3c41dd5f9d9ff053646ccd2ef2d322b3848d355aaf6f487912",
+  "working_source_ids": [
+    "cb471ae794b6ac3c41dd5f9d9ff053646ccd2ef2d322b3848d355aaf6f487912"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

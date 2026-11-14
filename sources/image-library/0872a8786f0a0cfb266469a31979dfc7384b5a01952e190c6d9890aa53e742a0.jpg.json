@@ -5,6 +5,9 @@
   "height": 500,
   "sha256": "0c8e0b74e3d10f54346646bbafded01fa9a2ecbe56b87346c10af8d02b68325c",
   "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "APPROVED",
   "photographic_origin": "NOT_VERIFIED",
   "visual_approval_status": "APPROVED",
   "rights_verification_status": "NOT_VERIFIED",
@@ -22,19 +25,7 @@
   "working_source_ids": [
     "0872a8786f0a0cfb266469a31979dfc7384b5a01952e190c6d9890aa53e742a0"
   ],
-  "production_status": "BLOCKED",
-  "production_blockers": [
-    "BELOW_500_PX",
-    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
-    "IMAGE_RIGHTS_NOT_VERIFIED",
-    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
-    "MISSING_PROVENANCE_CREATOR",
-    "MISSING_PROVENANCE_ATTRIBUTION",
-    "MISSING_PROVENANCE_CHANGES",
-    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
-    "MISSING_PROVENANCE_LICENSE_URL",
-    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
-    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
-  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
   "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
 }

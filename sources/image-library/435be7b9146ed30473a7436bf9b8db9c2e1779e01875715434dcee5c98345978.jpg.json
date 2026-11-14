@@ -1,0 +1,33 @@
+{
+  "plu": "94225",
+  "product": "Organic Avocado Large Hass",
+  "width": 500,
+  "height": 500,
+  "sha256": "c5bf47f2d782490ba671438335602c4c8281acddd0680533e19af2e8d6a660fc",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "d98c1fa5821b15d86f4862a7c0c0a3d44fe5800a6728ca28a5b83243bbee1f90",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image81.jpg",
+  "original_width": 236,
+  "original_height": 236,
+  "assigned_image_path": "data/images/Fruit/0213_94225.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image81.jpg",
+    "original_sha256": "d98c1fa5821b15d86f4862a7c0c0a3d44fe5800a6728ca28a5b83243bbee1f90"
+  },
+  "working_source_id": "435be7b9146ed30473a7436bf9b8db9c2e1779e01875715434dcee5c98345978",
+  "working_source_ids": [
+    "435be7b9146ed30473a7436bf9b8db9c2e1779e01875715434dcee5c98345978"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

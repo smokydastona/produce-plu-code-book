@@ -1,0 +1,27 @@
+{
+  "plu": "4129",
+  "product": "Apples Fuji Small",
+  "width": 500,
+  "height": 500,
+  "sha256": "1379b41d63d6bb6f422f7c59a7802b77fdfa2c2298847d9da55adcfa2bb01f76",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "eace1eb2dfd3944f1698531223add17a4b38327a1ec5174bbc5b87606b757d4e",
+  "original_image_path": "data/images/Fruit/0005_4129.jpg",
+  "original_width": 177,
+  "original_height": 177,
+  "assigned_image_path": "data/images/Fruit/0005_4129.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "6d6fe5be7a57f31e00eba0c13ec8960026810e0ec9e9cd10e66ec4653ea89a89",
+  "working_source_ids": [
+    "6d6fe5be7a57f31e00eba0c13ec8960026810e0ec9e9cd10e66ec4653ea89a89"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

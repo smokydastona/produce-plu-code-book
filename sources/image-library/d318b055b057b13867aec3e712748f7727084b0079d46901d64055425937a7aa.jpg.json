@@ -1,0 +1,29 @@
+{
+  "plu": "4101",
+  "product": "Apples Breburn Small",
+  "width": 500,
+  "height": 500,
+  "sha256": "9f363a5297a9240a621bacffe4147b412e6a03f1741c291cf25d7080ba9797c8",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "0f2a68fc518b527a9dd9bea2cb71db2a6767ae4dfcdb76135f72360f22a4054c",
+  "original_image_path": "data/images/Fruit/0003_4101.jpg",
+  "original_width": 292,
+  "original_height": 292,
+  "assigned_image_path": "data/images/Fruit/0003_4101.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "d318b055b057b13867aec3e712748f7727084b0079d46901d64055425937a7aa",
+  "working_source_ids": [
+    "d318b055b057b13867aec3e712748f7727084b0079d46901d64055425937a7aa"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

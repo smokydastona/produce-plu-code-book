@@ -366,6 +366,14 @@ def main():
             failed = True
             print(f"FAIL image library verification: {exc}")
             library_paths = set()
+    if paths:
+        from used_image_library import check_used_library
+
+        try:
+            library_paths.update(check_used_library(Path.cwd()))
+        except (OSError, ValueError, KeyError) as exc:
+            failed = True
+            print(f"FAIL used image library verification: {exc}")
     changed = {path.resolve() for path in paths}
     fingerprints = {}
     comparison_paths = set(paths)

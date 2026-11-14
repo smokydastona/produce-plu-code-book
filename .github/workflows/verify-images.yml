@@ -10,6 +10,7 @@ on:
       - 'data/picklist_assignments.json'
       - 'data/working_list_decisions.json'
       - 'data/entries.csv'
+      - 'data/image_review.csv'
       - 'data/organic_watermarks.json'
       - 'data/branding/**'
       - 'current/booklets/*_PRODUCTION.docx'
@@ -17,6 +18,14 @@ on:
       - 'tools/verify_images.py'
       - 'tools/build_image_library.py'
       - 'tools/image_display.py'
+      - 'tools/legacy_approval.py'
+      - 'tools/used_image_library.py'
+      - 'tools/test_used_image_library.py'
+      - 'tools/test_local_acquisition.py'
+      - 'tools/test_till_binders.py'
+      - 'tools/test_audit_production.py'
+      - 'tools/apply_review.py'
+      - 'tools/initialize_picklist_assignments.py'
       - 'tools/approve_picklist_image.py'
       - 'tools/sync_picklist.py'
       - 'tools/working_list.py'
@@ -42,10 +51,14 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements.txt
       - run: python -m pip install -r requirements.txt
       - run: python -m unittest discover -s tools -p 'test_*.py'
       - name: Verify the approved image library is current
         run: python tools/build_image_library.py --check
+      - name: Verify local JPEG reuse library checksums
+        run: python tools/used_image_library.py --check
       - name: Check changed images and provenance
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}

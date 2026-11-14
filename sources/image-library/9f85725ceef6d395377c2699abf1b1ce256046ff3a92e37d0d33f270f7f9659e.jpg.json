@@ -1,0 +1,27 @@
+{
+  "plu": "4834",
+  "product": "Daikon Korean",
+  "width": 500,
+  "height": 500,
+  "sha256": "374bf69de4c5a1d93e98f5430361236ed9360284ed873e7476d7accaf74095ea",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "03ace4635d4bd294082a33552b9ac1f777fa2d2a4d373518e6626b20711dd9b9",
+  "original_image_path": "data/images/Vegetable/0467_4834.jpg",
+  "original_width": 265,
+  "original_height": 265,
+  "assigned_image_path": "data/images/Vegetable/0467_4834.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "9f85725ceef6d395377c2699abf1b1ce256046ff3a92e37d0d33f270f7f9659e",
+  "working_source_ids": [
+    "9f85725ceef6d395377c2699abf1b1ce256046ff3a92e37d0d33f270f7f9659e"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

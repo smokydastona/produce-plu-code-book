@@ -1,0 +1,33 @@
+{
+  "plu": "94759",
+  "product": "Organic Squash Butternut",
+  "width": 500,
+  "height": 500,
+  "sha256": "1c728daa06c25436a70a3bf338c5f58734f6bdfb6f9cc4812084804178aa5876",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "f8ffb94f508c33b8f8ed9dfa07fcf7b9da1102d6be07c4bda434daee9277ce45",
+  "original_image_path": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image157.jpg",
+  "original_width": 357,
+  "original_height": 357,
+  "assigned_image_path": "data/images/Vegetable/0571_94759.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image157.jpg",
+    "original_sha256": "f8ffb94f508c33b8f8ed9dfa07fcf7b9da1102d6be07c4bda434daee9277ce45"
+  },
+  "working_source_id": "a9f3f179df87a0434ddffa8f4dce2f66c7d6ea69f8bc79084269601cf0ff5103",
+  "working_source_ids": [
+    "a9f3f179df87a0434ddffa8f4dce2f66c7d6ea69f8bc79084269601cf0ff5103"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

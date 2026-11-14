@@ -1,0 +1,27 @@
+{
+  "plu": "4427",
+  "product": "Persimmons Hachiya",
+  "width": 500,
+  "height": 500,
+  "sha256": "592ce1bdc009f23f0a8e497d11aefd6ed8c1ba8316058eaf154ae7c149d55cdb",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "21b529baddea6403c9f96a21b2bce5ce2d0d3e8af1bf0ef02dfcb8e84cd24e40",
+  "original_image_path": "data/images/Fruit/0187_4427.jpg",
+  "original_width": 257,
+  "original_height": 257,
+  "assigned_image_path": "data/images/Fruit/0187_4427.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "6d4656915cccb50377c26481e4d9bc10212f58f6901ffb2df887c8b74e7a90d7",
+  "working_source_ids": [
+    "6d4656915cccb50377c26481e4d9bc10212f58f6901ffb2df887c8b74e7a90d7"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

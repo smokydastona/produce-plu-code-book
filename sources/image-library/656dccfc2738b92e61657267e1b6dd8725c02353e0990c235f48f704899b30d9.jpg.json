@@ -1,0 +1,29 @@
+{
+  "plu": "4416",
+  "product": "Pear D'Anjou Lrg",
+  "width": 500,
+  "height": 500,
+  "sha256": "8a1166dfd6bdaabc0641a51853bfe8d4daa0492604e5c325fdf726ecf5bdca27",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "c6184626c4c9e5acdd64efcaefb6e6fc02ba9cf0f2b00812f65284ecdb84541a",
+  "original_image_path": "data/images/Fruit/0029_4416.jpg",
+  "original_width": 159,
+  "original_height": 159,
+  "assigned_image_path": "data/images/Fruit/0029_4416.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "656dccfc2738b92e61657267e1b6dd8725c02353e0990c235f48f704899b30d9",
+  "working_source_ids": [
+    "656dccfc2738b92e61657267e1b6dd8725c02353e0990c235f48f704899b30d9"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

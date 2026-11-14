@@ -1,0 +1,29 @@
+{
+  "plu": "82200",
+  "product": "Pears Conference BC",
+  "width": 500,
+  "height": 500,
+  "sha256": "7fefecf2bd12bd2699e2ebf4c3dfbb86d0b41a52a80f7f9a97db6256abbabf6d",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "cbe5e2c18e97a21d1f3b47805c8b3f20f5894e49bad2d8028b177631f521d009",
+  "original_image_path": "data/images/Fruit/0039_82200.jpg",
+  "original_width": 312,
+  "original_height": 312,
+  "assigned_image_path": "data/images/Fruit/0039_82200.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "0d6ece38747968bf2b5dc5c0ba50f1c18618c2f59a7c5f1dbb9bfa2d96a64ef6",
+  "working_source_ids": [
+    "0d6ece38747968bf2b5dc5c0ba50f1c18618c2f59a7c5f1dbb9bfa2d96a64ef6"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

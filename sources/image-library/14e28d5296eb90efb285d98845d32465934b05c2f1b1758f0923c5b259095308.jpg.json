@@ -1,0 +1,27 @@
+{
+  "plu": "4414",
+  "product": "Pear Comice",
+  "width": 500,
+  "height": 500,
+  "sha256": "44b3edf996f3eead932e1abe0c721b8a9a7c54b475442add7b6128a823e97a6d",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "5eefe98a1bbc4d0085df2244ed4fe82da032f0b43a7776e86462531aecbadd52",
+  "original_image_path": "data/images/Fruit/0026_4414.jpg",
+  "original_width": 327,
+  "original_height": 327,
+  "assigned_image_path": "data/images/Fruit/0026_4414.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "14e28d5296eb90efb285d98845d32465934b05c2f1b1758f0923c5b259095308",
+  "working_source_ids": [
+    "14e28d5296eb90efb285d98845d32465934b05c2f1b1758f0923c5b259095308"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

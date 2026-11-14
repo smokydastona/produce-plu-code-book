@@ -1,0 +1,29 @@
+{
+  "plu": "4706",
+  "product": "Pepper Poblano",
+  "width": 500,
+  "height": 500,
+  "sha256": "7a845f63f3fe7c5139f2c2ac5c9398db0ddc05b69b620c4da367251068b93fa2",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "75e44f2f2e1628a2d8462b4a8b3897f17a6e5c06f93b222e1d64b414299357c1",
+  "original_image_path": "data/images/Vegetable/0403_4706.jpg",
+  "original_width": 411,
+  "original_height": 411,
+  "assigned_image_path": "data/images/Vegetable/0403_4706.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "b2d62bf76b90687da2c1965fe78ed4c932de23ed4dc1993c49c7828e29a34ee8",
+  "working_source_ids": [
+    "b2d62bf76b90687da2c1965fe78ed4c932de23ed4dc1993c49c7828e29a34ee8"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

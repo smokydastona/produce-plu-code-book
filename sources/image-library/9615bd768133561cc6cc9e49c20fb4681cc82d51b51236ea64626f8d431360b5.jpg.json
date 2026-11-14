@@ -1,0 +1,27 @@
+{
+  "plu": "4346",
+  "product": "Melon Picasso/Dino",
+  "width": 500,
+  "height": 500,
+  "sha256": "cfddc4cdd2da615011cabd648ae927faf469c7dd5440d91674a67ae48d099bd5",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "96945d8a9d0d3bc1239b64e58e4ec32872712b9b4ac8cf381177a645c31ed388",
+  "original_image_path": "data/images/Fruit/0118_4346.jpg",
+  "original_width": 180,
+  "original_height": 180,
+  "assigned_image_path": "data/images/Fruit/0118_4346.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "9615bd768133561cc6cc9e49c20fb4681cc82d51b51236ea64626f8d431360b5",
+  "working_source_ids": [
+    "9615bd768133561cc6cc9e49c20fb4681cc82d51b51236ea64626f8d431360b5"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

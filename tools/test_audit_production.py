@@ -82,14 +82,16 @@ class ProductionAuditChecks(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "review assignment mismatch"):
                 inventory(self.root)
 
-    def test_duplicate_group_is_a_release_blocker(self):
+    def test_legacy_policy_approves_entries_and_retains_duplicate_findings_as_history(self):
         with patch("audit_production.read_csv", side_effect=[[self.row], [self.review]]), \
                 patch("audit_production.verify_booklets"), \
                 patch("audit_production.audit_entries", return_value=[[self.row]]):
             rows, summary = inventory(self.root)
-        self.assertEqual(summary["status"], "BLOCKED")
+        self.assertEqual(summary["status"], "ALL_LEGACY_ENTRIES_APPROVED")
         self.assertEqual(summary["prohibited_duplicate_groups"], 1)
-        self.assertIn("PROHIBITED_IMAGE_REUSE", rows[0]["blockers"])
+        self.assertEqual(rows[0]["approval_status"], "APPROVED_LEGACY")
+        self.assertEqual(rows[0]["blockers"], "NONE")
+        self.assertIn("PROHIBITED_IMAGE_REUSE", rows[0]["historical_findings"])
 
     def test_picklist_reconciliation_blockers_block_production(self):
         image_summary = dict(

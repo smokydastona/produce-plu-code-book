@@ -1,0 +1,31 @@
+{
+  "plu": "93066",
+  "product": "Organic Apples Cameo",
+  "width": 500,
+  "height": 500,
+  "sha256": "d54162632ae67119eaaf6da867008e608ada80aa586544940743a9a2531e9ccc",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "768e0a2c74bebff0ff4169df5b119334019aed9a152210ea7d72180f3d525f32",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image110.jpg",
+  "original_width": 290,
+  "original_height": 290,
+  "assigned_image_path": "data/images/Fruit/0193_93066.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image110.jpg",
+    "original_sha256": "768e0a2c74bebff0ff4169df5b119334019aed9a152210ea7d72180f3d525f32"
+  },
+  "working_source_id": "075182c8c32ca4d021b831bca06e4e4860ca7e9da5eae70d068d4abbd5d3e6a3",
+  "working_source_ids": [
+    "075182c8c32ca4d021b831bca06e4e4860ca7e9da5eae70d068d4abbd5d3e6a3"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

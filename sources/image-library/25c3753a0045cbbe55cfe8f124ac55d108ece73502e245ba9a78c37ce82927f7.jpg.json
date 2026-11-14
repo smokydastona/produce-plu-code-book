@@ -1,0 +1,27 @@
+{
+  "plu": "4417",
+  "product": "Pear D'Anjou Red",
+  "width": 500,
+  "height": 500,
+  "sha256": "35d4613f8c732dd4e8d5d65f36695010acd88f5d7eed1ff21393290b0bd6118b",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "7733be5106141ce3944671eea195fd468aea2dfa1f4921616e5fd8a250a660b7",
+  "original_image_path": "data/images/Fruit/0030_4417.jpg",
+  "original_width": 180,
+  "original_height": 180,
+  "assigned_image_path": "data/images/Fruit/0030_4417.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "25c3753a0045cbbe55cfe8f124ac55d108ece73502e245ba9a78c37ce82927f7",
+  "working_source_ids": [
+    "25c3753a0045cbbe55cfe8f124ac55d108ece73502e245ba9a78c37ce82927f7"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

@@ -380,6 +380,73 @@ class PickListSyncChecks(unittest.TestCase):
             check_library(self.root)
         self.assertEqual(image.read_bytes(), b"modified")
 
+    def test_exact_legacy_identity_is_preapproved_without_rewriting_assignment_evidence(self):
+        self.assignment.update(
+            legacy_entry_idx="1", visual_approval_status="NOT_APPROVED",
+            photographic_origin="NOT_VERIFIED", rights_verification_status="NOT_VERIFIED",
+            provenance={})
+        self.write_assignments([self.assignment])
+        entry = dict(idx="1", book="Fruit", plu=self.items[0]["plu"],
+                     name=self.items[0]["name"], image="apple.png", source="Legacy")
+        for filename, fields, row in (
+                ("entries.csv", ["idx", "book", "plu", "name", "image", "source"], entry),
+                ("image_review.csv", ["idx", "book", "plu", "name", "image", "source",
+                                      "verdict", "note"],
+                 dict(entry, verdict="Rejected", note="Historical rejection"))):
+            with (self.root / "data" / filename).open("w", newline="", encoding="utf-8") as file:
+                writer = csv.DictWriter(file, fieldnames=fields)
+                writer.writeheader()
+                writer.writerow(row)
+        rows, _, assignments, summary = reconcile(self.root, self.output)
+        self.assertEqual(summary["status"], "READY_TO_BUILD")
+        self.assertEqual(rows[0]["image_approval_status"], "APPROVED_LEGACY")
+        self.assertEqual(rows[0]["legacy_original_verdict"], "Rejected")
+        self.assertEqual(assignments[self.items[0]["source_id"]]["visual_approval_status"],
+                         "NOT_APPROVED")
+        result = build_library(self.root, self.root / "legacy-approved")
+        self.assertEqual(result["images"], 1)
+        with (self.root / "legacy-approved/IMAGE_LIBRARY.csv").open(
+                encoding="utf-8-sig", newline="") as file:
+            library_record = next(csv.DictReader(file))
+        self.assertEqual(library_record["image_approval_status"], "APPROVED_LEGACY")
+        self.assertEqual(library_record["approval_basis"], "OWNER_LEGACY_PREAPPROVED_POLICY")
+        metadata = json.loads((self.root / "legacy-approved" /
+                               (library_record["image"] + ".json")).read_text())
+        self.assertEqual(metadata["recorded_visual_approval_status"], "NOT_APPROVED")
+        self.assertEqual(metadata["rights_verification_status"], "NOT_VERIFIED")
+
+    def test_legacy_preapproval_does_not_transfer_to_changed_product_identity(self):
+        from legacy_approval import legacy_approval, legacy_entries
+
+        entry = dict(idx="1", book="Fruit", plu=self.items[0]["plu"],
+                     name=self.items[0]["name"], image="apple.png", source="Legacy",
+                     historical_review={"verdict": "Rejected"})
+        (self.root / "data/entries.csv").write_text(
+            "idx,book,plu,name,image,source\n1,Fruit,03283,Honeycrisp Apple,apple.png,Legacy\n")
+        (self.root / "data/image_review.csv").write_text(
+            "idx,book,plu,name,image,verdict\n1,Fruit,03283,Honeycrisp Apple,apple.png,Rejected\n")
+        assignment = dict(self.assignment, legacy_entry_idx="1")
+        changed = dict(self.items[0], name="Different Apple")
+        self.assertIsNone(legacy_approval(self.root, changed, assignment, {"1": entry}))
+
+    def test_single_library_retains_unapproved_usage_copies_when_approved_index_refreshes(self):
+        from used_image_library import check_used_library, record_images
+
+        record_images(self.root, "WORKING_LIST_IMAGES.json", {"review": self.image.read_bytes()}, [
+            dict(source_id="review", plu="00042", visual_approval_status="NOT_APPROVED")
+        ])
+        cached = check_used_library(self.root)
+        self.assertEqual(len(cached), 1)
+        refresh_library(self.root)
+        check_library(self.root)
+        self.assertEqual(check_used_library(self.root), cached)
+        self.assignment["visual_approval_status"] = "REJECTED"
+        self.write_assignments([self.assignment])
+        self.assertEqual(refresh_library(self.root)["images"], 0)
+        check_library(self.root)
+        self.assertEqual(check_used_library(self.root), cached)
+        self.assertFalse((self.root / "sources/used-image-library").exists())
+
     def test_library_refresh_migrates_managed_pngs_to_jpegs_without_changing_originals(self):
         refresh_library(self.root)
         library = self.root / "sources/image-library"

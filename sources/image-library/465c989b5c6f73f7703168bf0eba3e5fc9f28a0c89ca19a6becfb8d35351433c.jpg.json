@@ -1,0 +1,31 @@
+{
+  "plu": "94127",
+  "product": "Organic Apples Empire",
+  "width": 500,
+  "height": 500,
+  "sha256": "62b070093f09175155f8c981c1eee947815f306d46dd5461c93c16d78c250c78",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "b9df3e79040d0f9c9ff491184c053b7de452bfac36a02bacb08ab110462b00dd",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image111.jpg",
+  "original_width": 287,
+  "original_height": 287,
+  "assigned_image_path": "data/images/Fruit/0194_94127.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image111.jpg",
+    "original_sha256": "b9df3e79040d0f9c9ff491184c053b7de452bfac36a02bacb08ab110462b00dd"
+  },
+  "working_source_id": "465c989b5c6f73f7703168bf0eba3e5fc9f28a0c89ca19a6becfb8d35351433c",
+  "working_source_ids": [
+    "465c989b5c6f73f7703168bf0eba3e5fc9f28a0c89ca19a6becfb8d35351433c"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

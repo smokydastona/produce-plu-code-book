@@ -1,0 +1,29 @@
+{
+  "plu": "3111",
+  "product": "Papaya Red Flesh",
+  "width": 500,
+  "height": 500,
+  "sha256": "56e5aa0f65d98755c97d35f7048765fefe22599835fe4a5c15c5f843ab0ecc81",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "0ca2abad8c28ca03150d73a9dd7a68bdeccfc3af0a9d8de7ab87dffb427c4ea6",
+  "original_image_path": "data/images/Fruit/0162_3111.jpg",
+  "original_width": 272,
+  "original_height": 272,
+  "assigned_image_path": "data/images/Fruit/0162_3111.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "eac1d34c3cce1734a3b59847582495ee9e53802e6398de4214af4c87c9d903f5",
+  "working_source_ids": [
+    "eac1d34c3cce1734a3b59847582495ee9e53802e6398de4214af4c87c9d903f5"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

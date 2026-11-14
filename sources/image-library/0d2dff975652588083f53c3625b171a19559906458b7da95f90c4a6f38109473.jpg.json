@@ -1,0 +1,29 @@
+{
+  "plu": "3214",
+  "product": "Cabbage Sour",
+  "width": 500,
+  "height": 500,
+  "sha256": "55fb30f2b3ab7724fa849ec0bd88818b69d7acba06eb29d2258f0bf0e8958c5b",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "7b4721384ad63dd7cdb26a47d6370c7deea906fbc76681b0c52694999354a3f8",
+  "original_image_path": "data/images/Vegetable/0335_3214.jpg",
+  "original_width": 180,
+  "original_height": 180,
+  "assigned_image_path": "data/images/Vegetable/0335_3214.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "0d2dff975652588083f53c3625b171a19559906458b7da95f90c4a6f38109473",
+  "working_source_ids": [
+    "0d2dff975652588083f53c3625b171a19559906458b7da95f90c4a6f38109473"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

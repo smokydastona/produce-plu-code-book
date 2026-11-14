@@ -1,0 +1,33 @@
+{
+  "plu": "94774",
+  "product": "Organic Squash Red Kurri",
+  "width": 500,
+  "height": 500,
+  "sha256": "1fc4bb3963b607cc0a787aa3230698876f3207210bbec5a2ad9efa55e3da6a5a",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "e453ea1b734d0b66280afd352696a869c1f8d9367801a44295f1bdf7c0a3824f",
+  "original_image_path": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image101.jpg",
+  "original_width": 349,
+  "original_height": 349,
+  "assigned_image_path": "data/images/Vegetable/0579_94774.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image101.jpg",
+    "original_sha256": "e453ea1b734d0b66280afd352696a869c1f8d9367801a44295f1bdf7c0a3824f"
+  },
+  "working_source_id": "72b54fd6560f228fe3badf06324c5c59c03128926c784e547fffc25d7c2d4bef",
+  "working_source_ids": [
+    "72b54fd6560f228fe3badf06324c5c59c03128926c784e547fffc25d7c2d4bef"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

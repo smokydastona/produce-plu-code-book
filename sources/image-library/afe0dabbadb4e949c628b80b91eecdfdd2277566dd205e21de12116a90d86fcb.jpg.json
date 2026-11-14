@@ -1,0 +1,29 @@
+{
+  "plu": "4023",
+  "product": "Grapes Red Seedless (Red Flame)",
+  "width": 500,
+  "height": 500,
+  "sha256": "303f9c060322ceec0076488b118f7a60519581f8029f6f9976e5435e7c6c8213",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "8a0a4aacaeb06bc5553efaf3a9d4844c64cabbe205552a2922ee035b7593859e",
+  "original_image_path": "data/images/Fruit/0076_4023.jpg",
+  "original_width": 225,
+  "original_height": 225,
+  "assigned_image_path": "data/images/Fruit/0076_4023.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "afe0dabbadb4e949c628b80b91eecdfdd2277566dd205e21de12116a90d86fcb",
+  "working_source_ids": [
+    "afe0dabbadb4e949c628b80b91eecdfdd2277566dd205e21de12116a90d86fcb"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

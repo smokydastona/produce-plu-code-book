@@ -1,0 +1,29 @@
+{
+  "plu": "4325",
+  "product": "Melon Lemon Drop",
+  "width": 500,
+  "height": 500,
+  "sha256": "190906b823c63aa47ffd296d61031b535a54a8442b2374bf30cafa87ed079a5c",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "b8a7325834732bc07ace2b818a334b4cad3c41927bc0d1e67179b98bd9b74505",
+  "original_image_path": "data/images/Fruit/0114_4325.jpg",
+  "original_width": 229,
+  "original_height": 229,
+  "assigned_image_path": "data/images/Fruit/0114_4325.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "0792ba161ddb08f71ac7702505b3fd7080a35060a7422d6e12df84b8dd6906fd",
+  "working_source_ids": [
+    "0792ba161ddb08f71ac7702505b3fd7080a35060a7422d6e12df84b8dd6906fd"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

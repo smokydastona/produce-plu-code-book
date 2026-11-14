@@ -1,0 +1,31 @@
+{
+  "plu": "94306",
+  "product": "Organic Limes Sweet",
+  "width": 500,
+  "height": 500,
+  "sha256": "e0678114f335e8f9411ffc96245be171b114df1f2c1ad6aa2cf9f1de537c0cb9",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "34e0569a45f9683f851481532e75547ffb9649af9aca7ada27f8acbfa84bc8b9",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image122.jpg",
+  "original_width": 435,
+  "original_height": 435,
+  "assigned_image_path": "data/images/Fruit/0235_94306.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image122.jpg",
+    "original_sha256": "34e0569a45f9683f851481532e75547ffb9649af9aca7ada27f8acbfa84bc8b9"
+  },
+  "working_source_id": "ec75ae9646144d0482811aedbf930241176c867a2667f80bd7f97a884834ae25",
+  "working_source_ids": [
+    "ec75ae9646144d0482811aedbf930241176c867a2667f80bd7f97a884834ae25"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

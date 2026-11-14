@@ -24,6 +24,7 @@ from picklist_catalog import read_picklist, read_assignments
 from review_image_references import load_references
 from review_booklets import build_review_booklets, build_working_list_review
 from organic_watermarks import render_watermark
+from build_deli_sheet import convert
 
 
 class TillBinderChecks(unittest.TestCase):
@@ -79,10 +80,23 @@ class TillBinderChecks(unittest.TestCase):
         produce["A4"], produce["B4"] = "00046", "Hidden Apple"
         produce["B5"] = "Description without code"
         produce.print_area = "A1:I6"
+        deli = original.create_sheet("Deli")
+        deli["A1"] = "Outdated deli"
+        deli.print_area = "A1:B2"
         last = original.create_sheet("Hidden operations")
         last.sheet_state = "hidden"
         last["A1"] = "=Operational!B2"
         original.save(self.binder)
+        deli_document = Document()
+        deli_document.add_heading("DELI PRODUCT & PLU REFERENCE GUIDE", 0)
+        for category, product, plu in (("Meals", "Updated meal", "00012"), ("Salads", "Updated salad", "00013")):
+            deli_document.add_heading(category, 1)
+            table = deli_document.add_table(rows=2, cols=2)
+            table.cell(0, 0).text, table.cell(0, 1).text = "Product", "PLU"
+            table.cell(1, 0).text, table.cell(1, 1).text = product, plu
+        upload = self.root / "Uploaded_Deli.docx"
+        deli_document.save(upload)
+        convert(upload, self.root / "sources/binders")
         with zipfile.ZipFile(self.binder, "a") as archive:
             archive.writestr("customXml/untouched.xml", b"<custom>unchanged opaque object</custom>")
         self.write_source([
@@ -168,7 +182,10 @@ class TillBinderChecks(unittest.TestCase):
             path = self.output / filename
             workbook = load_workbook(path)
             self.addCleanup(workbook.close)
-            self.assertEqual(workbook.sheetnames, ["Operational", "Produce", "Hidden operations"])
+            self.assertEqual(workbook.sheetnames, ["Operational", "Produce", "Deli", "Hidden operations"])
+            self.assertEqual(workbook["Deli"]["B5"].value, "00012")
+            self.assertEqual(workbook["Deli"]["E5"].value, "00013")
+            self.assertEqual(summary["validations"][edition]["deli_records_verified"], 2)
             self.assertEqual(workbook["Operational"]["B2"].value, "=SUM(A2:A3)")
             self.assertEqual(workbook["Operational"]["B2"].comment.text, "Keep this comment")
             self.assertEqual(str(workbook["Operational"].merged_cells), "A1:C1")
@@ -348,22 +365,38 @@ class TillBinderChecks(unittest.TestCase):
         with path.open(newline="") as file:
             reviews = list(csv.DictReader(file))
         ai = next(row for row in reviews if row["plu"] == "00045")
-        for verdict, embedded in (("Approximate", True), ("Rejected", False)):
+        entries = [dict(idx=row["idx"], book="Fruit", plu=row["plu"], name=row["name"],
+                        image="reference.png",
+                        source="AI Generated" if row["idx"] == ai["idx"] else "Photo")
+                   for row in reviews]
+        entry_reviews = {row["idx"]: row for row in entries}
+        with (self.root / "data/entries.csv").open("w", newline="") as file:
+            writer = csv.DictWriter(file, fieldnames=list(entries[0]))
+            writer.writeheader()
+            writer.writerows(entries)
+        for verdict in ("Approximate", "Rejected"):
             with self.subTest(verdict=verdict):
                 ai["verdict"] = verdict
                 with path.open("w", newline="") as file:
-                    writer = csv.DictWriter(file, fieldnames=list(reviews[0]))
+                    legacy_reviews = [
+                        dict(entry_reviews[row["idx"]], verdict=row["verdict"],
+                             note=row.get("note", ""))
+                        for row in reviews
+                    ]
+                    writer = csv.DictWriter(file, fieldnames=list(legacy_reviews[0]))
                     writer.writeheader()
-                    writer.writerows(reviews)
+                    writer.writerows(legacy_reviews)
                 assignments = read_assignments(self.root / "data/picklist_assignments.json")
                 rows, _ = produce_catalog(self.items, assignments)
                 images, report = map_images(self.root, rows, assignments, visual_records(self.root))
                 record = next(row for row in report if row["plu"] == "00045")
-                self.assertEqual(record["embedded"], embedded)
+                self.assertTrue(record["embedded"])
+                self.assertEqual(record["image_status"], "LEGACY_PREAPPROVED_IMAGE")
+                self.assertEqual(record["image_approval_status"], "APPROVED_LEGACY")
+                self.assertEqual(record["legacy_original_verdict"], verdict)
                 self.assertEqual(record["image_source"], "AI Generated")
-                self.assertEqual(record["visual_verdict"], verdict)
-                if embedded:
-                    self.assertIn("uncertain", record["details"])
+                self.assertEqual(record["visual_verdict"], "APPROVED_LEGACY")
+                self.assertIn("pre-approved", record["details"])
                 donor, coordinates, _ = quick_sheet(rows, images, True)
                 workbook = load_workbook(io.BytesIO(donor))
                 self.addCleanup(workbook.close)
@@ -543,7 +576,7 @@ class TillBinderChecks(unittest.TestCase):
         missing = build_working_list_review(self.root, self.output)
         self.assertEqual(missing["complete_binder_regeneration"]["status"], "BLOCKED_MISSING_ORIGINAL")
         binder_path = self.root / "sources/binders/Complete_Till_Binder_-_Nov_2025.xlsx"
-        binder_path.parent.mkdir()
+        binder_path.parent.mkdir(exist_ok=True)
         binder_path.write_bytes(self.binder.read_bytes())
         with patch("review_booklets.ORIGINAL_BINDER_SHA256", sha(self.binder.read_bytes())):
             output = self.root / "available-review"

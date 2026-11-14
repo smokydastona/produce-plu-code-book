@@ -289,17 +289,22 @@ def contact_sheets(records, output):
                 sheet.paste(thumbnail, (x, y))
             draw.text((x, y + 252), f"#{record['idx']} / PLU {record['plu']}", fill="black")
             draw.text((x, y + 270), record["product"][:38], fill="black")
-            draw.text((x, y + 288), "UNREVIEWED - NOT APPROVED", fill="red")
+            label = record.get("approval_status", "UNREVIEWED - NOT APPROVED")
+            draw.text((x, y + 288), label, fill="red")
         sheet.save(output / f"contact-sheet-{start // 12 + 1:02d}.jpg")
 
 
-def acquire(entries, output, user_agent, limit, leads=()):
+def acquire(entries, output, user_agent, limit, leads=(), root=None):
     if not entries:
         raise ValueError("review CSV selection contains no entries")
     output.mkdir(parents=True, exist_ok=True)
     if any(output.iterdir()):
         raise ValueError("review package output must be empty; originals will not be overwritten")
-    report, records, queries, used_images = [], [], {}, {}
+    from used_image_library import jpeg_copy, local_inventory, local_options
+
+    root = Path.cwd() if root is None else Path(root)
+    inventory = local_inventory(root)
+    report, records, local_records, queries, used_images = [], [], [], {}, {}
     for entry in entries:
         idx, plu, product = entry["idx"], entry["plu"], entry["name"]
         query = entry_query(entry)
@@ -307,6 +312,29 @@ def acquire(entries, output, user_agent, limit, leads=()):
                    source="Wikimedia Commons", status="UNRESOLVED", details="", candidates=0)
         rejections = []
         try:
+            options = local_options(root, entry, inventory)
+            if options:
+                option = options[0]
+                folder = output / "local" / f"{int(idx):03d}"
+                folder.mkdir(parents=True, exist_ok=True)
+                path = folder / (plu + ".jpg")
+                content = option["path"].read_bytes()
+                path.write_bytes(content)
+                metadata = dict(
+                    idx=idx, source_id=entry.get("source_id", ""), plu=plu, product=product,
+                    image=str(path.relative_to(output)), sha256=hashlib.sha256(content).hexdigest(),
+                    library_image=str(option["path"].relative_to(root)),
+                    library_tier=option["tier"], provenance=option["provenance"],
+                    approval_status=("NOT_APPROVED" if option["tier"] == "REVIEWED"
+                                     else "APPROVED_LEGACY" if option["tier"] == "LEGACY" else "APPROVED"),
+                )
+                path.with_suffix(".jpg.json").write_text(
+                    json.dumps(metadata, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+                local_records.append(metadata)
+                row.update(source="Local image library", status="LOCAL_" + option["tier"],
+                           candidates=1, details="Exact identity-matched local image; online search skipped")
+                report.append(row)
+                continue
             from urllib.parse import unquote
             pages = []
             for lead in leads:
@@ -330,6 +358,10 @@ def acquire(entries, output, user_agent, limit, leads=()):
                     metadata = json.loads(path.read_text(encoding="utf-8"))
                     metadata.update(idx=idx, source_id=entry.get("source_id", ""), query=query,
                                     image=str(path.with_suffix("").relative_to(output)))
+                    library_path, _, _ = jpeg_copy(root, path.with_suffix("").read_bytes())
+                    metadata["library_image"] = str(library_path.relative_to(root))
+                    path.write_text(json.dumps(metadata, ensure_ascii=False, indent=2) + "\n",
+                                    encoding="utf-8")
                     records.append(metadata)
                     row["candidates"] += 1
                     if row["candidates"] >= limit:
@@ -346,16 +378,20 @@ def acquire(entries, output, user_agent, limit, leads=()):
             row["details"] = "; ".join(filter(None, [row["details"], *rejections]))
         report.append(row)
     (output / "provenance.json").write_text(
-        json.dumps(records, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        json.dumps(local_records + records, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     write_register(records, output / "license-register.csv")
     with (output / "acquisition-report.csv").open("w", newline="", encoding="utf-8") as file:
         writer = csv.DictWriter(file, fieldnames=list(report[0]) if report else
                                 ["idx", "plu", "product", "query", "source", "status", "details", "candidates"])
         writer.writeheader()
         writer.writerows(report)
-    contact_sheets(records, output)
+    contact_sheets(local_records + records, output)
     (output / "REVIEW.txt").write_text(
-        "UNREVIEWED CANDIDATES - NOT APPROVED\n"
+        "LOCAL OPTIONS FIRST; ONLINE CANDIDATES REMAIN UNAPPROVED\n"
+        "Selection order: approved, legacy, reviewed local images, then online search.\n"
+        "Local provenance and approval status are retained in provenance.json and sidecars; "
+        "the licence register covers newly downloaded online candidates only.\n"
+        "Reviewed local options still require approval; no assignment or release gate is changed.\n"
         "Search terms and Commons metadata do not establish variety, photographic origin, "
         "organic certification, or rights ownership.\n"
         "Review every entry independently, including shared PLUs. Check source pages, "
@@ -375,6 +411,7 @@ def acquire(entries, output, user_agent, limit, leads=()):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=Path("data/images/candidates"))
+    parser.add_argument("--root", type=Path, default=Path.cwd(), help="Repository with the local image library")
     parser.add_argument("--user-agent", required=True,
                         help="Descriptive Wikimedia User-Agent including a contact URL/email")
     parser.add_argument("--review", type=Path,
@@ -412,7 +449,7 @@ def main():
             if args.working_list_review:
                 if args.all_entries:
                     parser.error("--all-entries cannot be combined with --working-list-review")
-                entries = current_review_rejections(Path.cwd(), args.working_list_review)
+                entries = current_review_rejections(args.root, args.working_list_review)
                 entries = select_review_sequence(entries, args.sequence)
                 entries = apply_search_query(entries, args.search_query)
             elif args.all_entries:
@@ -421,18 +458,19 @@ def main():
             else:
                 entries = rejected_entries(args.review)
             entries = entries[args.shard_index::args.shard_count]
-            failed = acquire(entries, args.output, args.user_agent, args.per_entry, leads)
+            failed = acquire(entries, args.output, args.user_agent, args.per_entry, leads, root=args.root)
         except (OSError, ValueError, KeyError) as exc:
             parser.exit(1, f"ERROR: {exc}\n")
         raise SystemExit(1 if failed else 0)
-    failed = False
-    for plu, product in TARGETS.items():
-        try:
-            if not download(plu, product, args.output, args.user_agent):
-                failed = True
-        except (OSError, ValueError, KeyError) as exc:
-            failed = True
-            print(f"ERROR {plu}: {exc}", file=sys.stderr)
+    try:
+        failed = acquire(
+            [dict(idx=str(number), plu=plu, name=product)
+             for number, (plu, product) in enumerate(TARGETS.items(), 1)],
+            args.output, args.user_agent, args.per_entry, root=args.root)
+        with (args.output / "acquisition-report.csv").open(newline="", encoding="utf-8") as file:
+            failed = failed or any(row["status"] == "UNRESOLVED" for row in csv.DictReader(file))
+    except (OSError, ValueError, KeyError) as exc:
+        parser.exit(1, f"ERROR: {exc}\n")
     raise SystemExit(1 if failed else 0)
 
 

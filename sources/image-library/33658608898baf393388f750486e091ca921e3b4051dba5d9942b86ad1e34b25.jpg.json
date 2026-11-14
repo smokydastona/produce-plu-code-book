@@ -1,0 +1,27 @@
+{
+  "plu": "4656",
+  "product": "Sing Qua",
+  "width": 500,
+  "height": 500,
+  "sha256": "48d18b1da720380964093debfcf65e1a26d4e9d3b525b9e86224610384c26044",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "794353d805e4786ad7677fa21d9efa796efc213f2e559a56f4e776e412eba3f9",
+  "original_image_path": "data/images/Vegetable/0475_4656.jpg",
+  "original_width": 446,
+  "original_height": 446,
+  "assigned_image_path": "data/images/Vegetable/0475_4656.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "33658608898baf393388f750486e091ca921e3b4051dba5d9942b86ad1e34b25",
+  "working_source_ids": [
+    "33658608898baf393388f750486e091ca921e3b4051dba5d9942b86ad1e34b25"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

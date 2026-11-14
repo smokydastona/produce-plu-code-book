@@ -1,0 +1,27 @@
+{
+  "plu": "4691",
+  "product": "Pepper Hot Mix",
+  "width": 500,
+  "height": 500,
+  "sha256": "1f2bdf7e23d157e43931b596c449062350ac14815d7ee01ef4474f1fe2a34d9e",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "4be4d1b2a937ba42a368d73484028c9181671778e1e0227515d93300d879b2be",
+  "original_image_path": "data/images/Vegetable/0398_4691.jpg",
+  "original_width": 359,
+  "original_height": 359,
+  "assigned_image_path": "data/images/Vegetable/0398_4691.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "d12c88f490db50467a12a4310fdd974e34cc26e3d59882c1599f0a74d6519ce4",
+  "working_source_ids": [
+    "d12c88f490db50467a12a4310fdd974e34cc26e3d59882c1599f0a74d6519ce4"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

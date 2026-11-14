@@ -1,0 +1,33 @@
+{
+  "plu": "94816",
+  "product": "Organic Yam",
+  "width": 500,
+  "height": 500,
+  "sha256": "5637caa52c7493f09e38856241afb4fe7b74a87f61d04f3921e324585db0f702",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "e10c864480e209be7288ef5b7f5d63fbf956f13e1b5a8b356b2b90e2fb4ca574",
+  "original_image_path": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image61.jpg",
+  "original_width": 267,
+  "original_height": 267,
+  "assigned_image_path": "data/images/Vegetable/0594_94816.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image61.jpg",
+    "original_sha256": "e10c864480e209be7288ef5b7f5d63fbf956f13e1b5a8b356b2b90e2fb4ca574"
+  },
+  "working_source_id": "f1b795b9d02a6ab3614a561ec66f1ee6b64f9c9233e92780a62ba50ad696bfd3",
+  "working_source_ids": [
+    "f1b795b9d02a6ab3614a561ec66f1ee6b64f9c9233e92780a62ba50ad696bfd3"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

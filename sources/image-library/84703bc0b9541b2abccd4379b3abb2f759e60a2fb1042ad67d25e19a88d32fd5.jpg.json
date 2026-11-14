@@ -1,0 +1,31 @@
+{
+  "plu": "94304",
+  "product": "Organic Lemons Meyer-Buckbrand",
+  "width": 500,
+  "height": 500,
+  "sha256": "759ae2ab52aeda63e29c0e6413f2a9de4d7fd922a8f3fc8d941f2b7d57cad9e2",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "717b4a154ae913eda2b1e943b48c631acd4da07740afe437102b3f1db2eeefb6",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image119.jpg",
+  "original_width": 323,
+  "original_height": 323,
+  "assigned_image_path": "data/images/Fruit/0231_94304.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image119.jpg",
+    "original_sha256": "717b4a154ae913eda2b1e943b48c631acd4da07740afe437102b3f1db2eeefb6"
+  },
+  "working_source_id": "84703bc0b9541b2abccd4379b3abb2f759e60a2fb1042ad67d25e19a88d32fd5",
+  "working_source_ids": [
+    "84703bc0b9541b2abccd4379b3abb2f759e60a2fb1042ad67d25e19a88d32fd5"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

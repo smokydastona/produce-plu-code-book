@@ -1,0 +1,29 @@
+{
+  "plu": "4159",
+  "product": "Vidalia Onions",
+  "width": 500,
+  "height": 500,
+  "sha256": "7382e8482dde99d83d132f16d5c01c42b5865910b6d3f78dce1d46e2407b03bf",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "e5333106104c91241e358dd742cb6384c068e23038e1f244f79971215b6db95d",
+  "original_image_path": "data/images/Vegetable/0390_4159.jpg",
+  "original_width": 208,
+  "original_height": 208,
+  "assigned_image_path": "data/images/Vegetable/0390_4159.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "e062ca483b418cf37b53d90cc05745d4262706f174d017308834c7fdfe92ac17",
+  "working_source_ids": [
+    "e062ca483b418cf37b53d90cc05745d4262706f174d017308834c7fdfe92ac17"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

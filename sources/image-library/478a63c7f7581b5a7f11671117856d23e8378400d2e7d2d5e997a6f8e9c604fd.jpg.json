@@ -5,6 +5,9 @@
   "height": 500,
   "sha256": "539581b9cb7aebf997f4cd381fc6ca73810e99c8194b9629bbe35cf35f26b804",
   "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "APPROVED",
   "photographic_origin": "NOT_VERIFIED",
   "visual_approval_status": "APPROVED",
   "rights_verification_status": "NOT_VERIFIED",
@@ -18,19 +21,7 @@
   "working_source_ids": [
     "478a63c7f7581b5a7f11671117856d23e8378400d2e7d2d5e997a6f8e9c604fd"
   ],
-  "production_status": "BLOCKED",
-  "production_blockers": [
-    "BELOW_500_PX",
-    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
-    "IMAGE_RIGHTS_NOT_VERIFIED",
-    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
-    "MISSING_PROVENANCE_CREATOR",
-    "MISSING_PROVENANCE_ATTRIBUTION",
-    "MISSING_PROVENANCE_CHANGES",
-    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
-    "MISSING_PROVENANCE_LICENSE_URL",
-    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
-    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
-  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
   "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
 }

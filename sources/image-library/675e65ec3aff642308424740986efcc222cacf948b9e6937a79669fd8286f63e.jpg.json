@@ -1,0 +1,27 @@
+{
+  "plu": "4241",
+  "product": "Boysenberries",
+  "width": 500,
+  "height": 500,
+  "sha256": "5ca1ef55b08ab506ed9fe17df910bf6f99694b4d2b5aaa705dfa3808b9e31ae0",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "80667ac8252afcd4a77de4bed62f80e1666d72cc92caad9f6186123c6f423125",
+  "original_image_path": "data/images/Fruit/0088_4241.jpg",
+  "original_width": 351,
+  "original_height": 351,
+  "assigned_image_path": "data/images/Fruit/0088_4241.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "675e65ec3aff642308424740986efcc222cacf948b9e6937a79669fd8286f63e",
+  "working_source_ids": [
+    "675e65ec3aff642308424740986efcc222cacf948b9e6937a79669fd8286f63e"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

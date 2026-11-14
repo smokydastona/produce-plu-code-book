@@ -1,0 +1,27 @@
+{
+  "plu": "4767",
+  "product": "Squash Golden",
+  "width": 500,
+  "height": 500,
+  "sha256": "9a92cd3b0298f91c52501140251499fff7180da068989f37805bb3a988e78b9a",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "425bf2597de7766ef23d815e561f4f3dab9aadfb82bf850bc93a38f3e346936a",
+  "original_image_path": "data/images/Vegetable/0440_4767.jpg",
+  "original_width": 287,
+  "original_height": 287,
+  "assigned_image_path": "data/images/Vegetable/0440_4767.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "9b0038314be8dd96cb01750e041fb321e285256d731076a2242b259e9d77dc08",
+  "working_source_ids": [
+    "9b0038314be8dd96cb01750e041fb321e285256d731076a2242b259e9d77dc08"
+  ],
+  "production_status": "IMAGE_CHECKS_PASSED",
+  "production_blockers": [],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

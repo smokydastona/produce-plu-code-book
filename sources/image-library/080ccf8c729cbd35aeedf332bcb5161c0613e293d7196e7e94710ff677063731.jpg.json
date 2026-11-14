@@ -1,0 +1,33 @@
+{
+  "plu": "94758",
+  "product": "Organic Squash Buttercup",
+  "width": 500,
+  "height": 500,
+  "sha256": "1c728daa06c25436a70a3bf338c5f58734f6bdfb6f9cc4812084804178aa5876",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "f8ffb94f508c33b8f8ed9dfa07fcf7b9da1102d6be07c4bda434daee9277ce45",
+  "original_image_path": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image157.jpg",
+  "original_width": 357,
+  "original_height": 357,
+  "assigned_image_path": "data/images/Vegetable/0570_94758.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image157.jpg",
+    "original_sha256": "f8ffb94f508c33b8f8ed9dfa07fcf7b9da1102d6be07c4bda434daee9277ce45"
+  },
+  "working_source_id": "080ccf8c729cbd35aeedf332bcb5161c0613e293d7196e7e94710ff677063731",
+  "working_source_ids": [
+    "080ccf8c729cbd35aeedf332bcb5161c0613e293d7196e7e94710ff677063731"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

@@ -1,0 +1,33 @@
+{
+  "plu": "94103",
+  "product": "Organic Apples Braeburn",
+  "width": 500,
+  "height": 500,
+  "sha256": "50570c877f31b903dd8bc5750d26c256988031f50cb6945a425e61a031aaf5e3",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "0f2a68fc518b527a9dd9bea2cb71db2a6767ae4dfcdb76135f72360f22a4054c",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image3.jpg",
+  "original_width": 292,
+  "original_height": 292,
+  "assigned_image_path": "data/images/Fruit/0192_94103.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image3.jpg",
+    "original_sha256": "0f2a68fc518b527a9dd9bea2cb71db2a6767ae4dfcdb76135f72360f22a4054c"
+  },
+  "working_source_id": "29e1aff156d3c64d981122128d4addbf2776cbecde29ed34acbac602b1fb16ae",
+  "working_source_ids": [
+    "29e1aff156d3c64d981122128d4addbf2776cbecde29ed34acbac602b1fb16ae"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

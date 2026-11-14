@@ -1,0 +1,29 @@
+{
+  "plu": "4604",
+  "product": "Endive",
+  "width": 500,
+  "height": 500,
+  "sha256": "a734df3d5f7537cbe96ea378d93352114e5343dcafc8fcc467543dafc1ce7055",
+  "approval_status": "CANDIDATE",
+  "image_approval_status": "APPROVED_LEGACY",
+  "approval_basis": "OWNER_LEGACY_PREAPPROVED_POLICY",
+  "recorded_visual_approval_status": "NOT_APPROVED",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "NOT_APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "4d82a581cc53beeb04dc6b1ebe5bb200b264713341b2716b6a56e48dc6607145",
+  "original_image_path": "data/images/Vegetable/0302_4604.jpg",
+  "original_width": 254,
+  "original_height": 254,
+  "assigned_image_path": "data/images/Vegetable/0302_4604.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "274c3ef3e85980e9a5b3fd00a7511ff5d71371390e24410ba8f3192d50f28c46",
+  "working_source_ids": [
+    "274c3ef3e85980e9a5b3fd00a7511ff5d71371390e24410ba8f3192d50f28c46"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}
