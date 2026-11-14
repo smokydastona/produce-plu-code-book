@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "plu": "3038",
+  "product": "Orange Granadilla",
+  "working_list_id": "da916900e8179d36d54992f83aa344848220f7f47119007f1ac0a90c31cf5254",
+  "source_identity_ids": [
+    "99c82b946ae77615131dd18b7873fb69670d7d950170a311283ce7aa48c5ff62",
+    "1ad5bfa1491f6e6364e03dc9ba0e86d59f9a31bcb300c4168485a4e6b62368c6"
+  ],
+  "creator": "Not identified in source",
+  "source_page_url": "https://www.naturespride.eu/media/bcjdl2xy/granaatappel-productfoto-tif.jpg?width=560&height=560&quality=80",
+  "original_image_url": "https://www.naturespride.eu/media/bcjdl2xy/granaatappel-productfoto-tif.jpg?width=560&height=560&quality=80",
+  "sha256": "b8aa6250a213736fdd9acdc5f87ddf1a1cb93ddb440e976a3e11ac8cc901b350",
+  "width": 560,
+  "height": 560,
+  "license": "OWNER_CONFIRMED_PERMISSION",
+  "license_url": "",
+  "attribution": "Owner-provided granadilla image; creator not identified in source. Owner-confirmed permission for this specific use; no public reuse licence is asserted.",
+  "changes": "Downloaded image unchanged",
+  "approval_status": "CANDIDATE",
+  "visual_approval_status": "APPROVED",
+  "photographic_origin": "VERIFIED_PHOTO",
+  "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+  "rights_evidence": "User confirmed permission to use this exact granadilla image in the public repository and cashier binders. Owner-confirmed, not independently documented.",
+  "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+  "note": "User approved this exact photograph for PLU 3038 under the confirmed permission; not a public reuse licence or blanket approval.",
+  "production_approved_source_id": "da916900e8179d36d54992f83aa344848220f7f47119007f1ac0a90c31cf5254"
+}

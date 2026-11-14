@@ -52,6 +52,9 @@ OWNER_CONFIRMED_PERMISSION_ASSETS = {
     ("02255b6e951c8e269dd4032f4216203d9ef91a5e21931aca701c1f61b0b9e283",
      "3141", "Opo Squash",
      "3d82034ba6bd54cda407392fc889750b9efc8cc92839ce19e63369282a025cb8"),
+    ("b8aa6250a213736fdd9acdc5f87ddf1a1cb93ddb440e976a3e11ac8cc901b350",
+     "3038", "Orange Granadilla",
+     "da916900e8179d36d54992f83aa344848220f7f47119007f1ac0a90c31cf5254"),
 }
 EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".tif", ".tiff", ".gif",
               ".bmp", ".avif", ".svg"}

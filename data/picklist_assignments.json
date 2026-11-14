@@ -11419,6 +11419,36 @@
         "rights_evidence": "User confirmed permission to use this exact Opo squash image in the public repository and cashier binders. Owner-confirmed, not independently documented."
       },
       "reuse_from_source_id": ""
+    },
+    {
+      "source_id": "da916900e8179d36d54992f83aa344848220f7f47119007f1ac0a90c31cf5254",
+      "book": "Fruit",
+      "section": "Tropical Fruit",
+      "image": "data/images/approved/b8aa6250a213736fdd9acdc5f87ddf1a1cb93ddb440e976a3e11ac8cc901b350.jpg",
+      "image_mode": "PHOTO",
+      "reviewed_plu": "3038",
+      "reviewed_product": "Orange Granadilla",
+      "working_source_ids": [
+        "99c82b946ae77615131dd18b7873fb69670d7d950170a311283ce7aa48c5ff62",
+        "1ad5bfa1491f6e6364e03dc9ba0e86d59f9a31bcb300c4168485a4e6b62368c6"
+      ],
+      "working_decision_id": "3038",
+      "image_sha256": "b8aa6250a213736fdd9acdc5f87ddf1a1cb93ddb440e976a3e11ac8cc901b350",
+      "photographic_origin": "VERIFIED_PHOTO",
+      "visual_approval_status": "APPROVED",
+      "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+      "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+      "provenance": {
+        "creator": "Not identified in source",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "https://www.naturespride.eu/media/bcjdl2xy/granaatappel-productfoto-tif.jpg?width=560&height=560&quality=80",
+        "original_image_url": "https://www.naturespride.eu/media/bcjdl2xy/granaatappel-productfoto-tif.jpg?width=560&height=560&quality=80",
+        "attribution": "Owner-provided granadilla image; creator not identified in source. Owner-confirmed permission for this specific use; no public reuse licence is asserted.",
+        "changes": "Downloaded image unchanged",
+        "rights_evidence": "User confirmed permission to use this exact granadilla image in the public repository and cashier binders. Owner-confirmed, not independently documented."
+      },
+      "reuse_from_source_id": ""
     }
   ]
 }
