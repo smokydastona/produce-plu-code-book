@@ -57,6 +57,25 @@ def sha(content):
     return hashlib.sha256(content).hexdigest()
 
 
+def workbook_photo_copy(content):
+    with Image.open(io.BytesIO(content)) as source:
+        image = ImageOps.exif_transpose(source)
+        if "A" in image.getbands() or "transparency" in image.info:
+            has_transparency = image.convert("RGBA").getchannel("A").getextrema()[0] < 255
+        else:
+            has_transparency = False
+        profile = {}
+        if image.info.get("icc_profile"):
+            profile["icc_profile"] = image.info["icc_profile"]
+        output = io.BytesIO()
+        if has_transparency:
+            image.save(output, format="PNG", optimize=True, **profile)
+        else:
+            image.convert("RGB").save(
+                output, format="JPEG", quality=90, optimize=True, progressive=True, **profile)
+        return output.getvalue()
+
+
 def xml(content):
     return ET.fromstring(content, ET.XMLParser(resolve_entities=False, no_network=True))
 
@@ -813,6 +832,10 @@ def generate(root, binder, output, verify_print=False, booklets=False):
         raise ValueError("source contains blank Produce descriptions; refusing an unusable quick guide")
     visuals = visual_records(root)
     images, image_report = map_images(root, rows, assignments, visuals)
+    photo_images = {source_id: workbook_photo_copy(content) for source_id, content in images.items()}
+    for record in image_report:
+        if record["source_id"] in photo_images:
+            record["embedded_sha256"] = sha(photo_images[record["source_id"]])
     _, reference_audit = load_references(root, rows)
     csv_output(output / "AI_REFERENCE_REVIEW.csv", reference_audit, [
         "source_id", "source_identity_ids", "plu", "product", "decision", "status", "source_document",
@@ -823,13 +846,15 @@ def generate(root, binder, output, verify_print=False, booklets=False):
     changes, additions = comparisons(old, items, rows)
     validations, coordinates = {}, None
     for edition, filename in FILENAMES.items():
-        donor, edition_coordinates, pages = quick_sheet(rows, images, edition == "photos")
+        edition_images = photo_images if edition == "photos" else images
+        donor, edition_coordinates, pages = quick_sheet(rows, edition_images, edition == "photos")
         if coordinates is not None and edition_coordinates != coordinates:
             raise ValueError("text and photo editions have different data/layout")
         coordinates = edition_coordinates
         path = output / filename
         replace_produce(binder, donor, path)
-        validations[edition] = validate_package(binder, path, coordinates, images, edition == "photos")
+        validations[edition] = validate_package(
+            binder, path, coordinates, edition_images, edition == "photos")
         parts = validations[edition].pop("package_parts")
         csv_output(output / f"PACKAGE_PRESERVATION_{edition.upper()}.csv", parts,
                    ["part", "sha256_before", "sha256_after", "byte_identical"])

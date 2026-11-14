@@ -18,7 +18,7 @@ from PIL import Image
 
 from build_till_binders import (FILENAMES, VISUALS, comparisons, generate, layout_rows,
                                map_images, produce_catalog, quick_sheet, replace_produce,
-                               sha, validate_package, visual_records)
+                               sha, validate_package, visual_records, workbook_photo_copy)
 from picklist_catalog import read_picklist, read_assignments
 from review_image_references import load_references
 from review_booklets import build_review_booklets, build_working_list_review
@@ -164,14 +164,41 @@ class TillBinderChecks(unittest.TestCase):
             self.assertEqual(workbook["Hidden operations"].sheet_state, "hidden")
             self.assertTrue(summary["validations"][edition]["unrelated_package_parts_byte_identical"])
             self.assertEqual(len(workbook["Produce"]._images), 5 if edition == "photos" else 0)
+            if edition == "photos":
+                formats = set()
+                for picture in workbook["Produce"]._images:
+                    with Image.open(io.BytesIO(picture._data())) as image:
+                        formats.add(image.format)
+                self.assertEqual(formats, {"JPEG"})
             self.assertTrue(all(cell.data_type != "f" for row in workbook["Produce"] for cell in row))
             with zipfile.ZipFile(path) as archive:
                 self.assertEqual(archive.read("customXml/untouched.xml"), b"<custom>unchanged opaque object</custom>")
         self.assertEqual(self.binder.read_bytes(), before)
         self.assertEqual((self.root / "sources/plu/PickList.xml").read_bytes(), source_before)
+        self.assertEqual(self.image.read_bytes(), self.content)
         self.assertTrue((self.output / "PRODUCE_CHANGE_AND_VALIDATION_REPORT.txt").is_file())
         with self.assertRaisesRegex(ValueError, "empty"):
             generate(self.root, self.binder, self.output)
+
+    def test_workbook_photo_copies_keep_transparency_and_do_not_change_source_bytes(self):
+        opaque = io.BytesIO()
+        Image.new("RGB", (40, 30), (40, 120, 200)).save(opaque, format="PNG")
+        opaque_bytes = opaque.getvalue()
+        opaque_copy = workbook_photo_copy(opaque_bytes)
+        with Image.open(io.BytesIO(opaque_copy)) as image:
+            self.assertEqual(image.format, "JPEG")
+            self.assertEqual(image.size, (40, 30))
+
+        transparent = io.BytesIO()
+        Image.new("RGBA", (40, 30), (40, 120, 200, 0)).save(transparent, format="PNG")
+        transparent_bytes = transparent.getvalue()
+        transparent_copy = workbook_photo_copy(transparent_bytes)
+        with Image.open(io.BytesIO(transparent_copy)) as image:
+            self.assertEqual(image.format, "PNG")
+            self.assertEqual(image.size, (40, 30))
+            self.assertEqual(image.getchannel("A").getextrema(), (0, 0))
+        self.assertEqual(opaque.getvalue(), opaque_bytes)
+        self.assertEqual(transparent.getvalue(), transparent_bytes)
 
     def test_layout_has_only_exact_product_text_codes_categories_and_no_image_labels(self):
         generate(self.root, self.binder, self.output)
