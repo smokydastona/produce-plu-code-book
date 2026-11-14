@@ -360,6 +360,8 @@ def acquire(entries, output, user_agent, limit, leads=()):
         "organic certification, or rights ownership.\n"
         "Review every entry independently, including shared PLUs. Check source pages, "
         "creator, licence, attribution, watermarks and exact variety before use.\n"
+        "A suitable product photo shows the individual produce item on a white or "
+        "transparent background; reject cooked dishes and unrelated scenes.\n"
         "Each conventional entry requires a different photograph, even when PLUs repeat. "
         "Only matching conventional/organic products may reuse a photo, with the "
         "standard pink ORGANIC badge on every organic image. Candidates are kept "
