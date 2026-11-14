@@ -3,7 +3,12 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from retrieve_commons import review_rejection_entries, select_review_sequence
+from retrieve_commons import (
+    apply_search_query,
+    entry_query,
+    review_rejection_entries,
+    select_review_sequence,
+)
 
 
 class WorkingListCandidateRequests(unittest.TestCase):
@@ -58,6 +63,17 @@ class WorkingListCandidateRequests(unittest.TestCase):
         self.assertEqual(select_review_sequence(entries, ""), entries)
         with self.assertRaisesRegex(ValueError, "not a rejected"):
             select_review_sequence(entries, "15")
+
+    def test_search_query_override_is_limited_to_one_entry(self):
+        entries = [dict(idx="4", plu="4552", name="Napa Cabbage", source_id="working-napa")]
+        selected = apply_search_query(entries, "  Napa cabbage   white background ")
+        self.assertEqual(entry_query(selected[0]), "Napa cabbage white background")
+        self.assertNotIn("query", entries[0])
+
+        with self.assertRaisesRegex(ValueError, "exactly one"):
+            apply_search_query(entries * 2, "Napa cabbage white background")
+        with self.assertRaisesRegex(ValueError, "must not be blank"):
+            apply_search_query(entries, "  ")
 
 
 if __name__ == "__main__":

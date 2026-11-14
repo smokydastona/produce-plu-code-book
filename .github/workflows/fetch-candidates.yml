@@ -23,6 +23,11 @@ on:
         type: string
         required: false
         default: ''
+      search_query:
+        description: Optional Commons search terms; only with one sequence
+        type: string
+        required: false
+        default: ''
 
 permissions:
   contents: read
@@ -63,6 +68,7 @@ jobs:
           SHARD: ${{ matrix.shard }}
           PER_ENTRY: ${{ inputs.per_entry }}
           SEQUENCE: ${{ inputs.sequence }}
+          SEARCH_QUERY: ${{ inputs.search_query }}
         run: |
           EXTRA_ARGS=()
           if [ "$SCOPE" = "all" ]; then
@@ -73,6 +79,9 @@ jobs:
             REVIEW_ARGS=(--working-list-review "$REVIEW")
             if [ -n "$SEQUENCE" ]; then
               EXTRA_ARGS+=(--sequence "$SEQUENCE")
+            fi
+            if [ -n "$SEARCH_QUERY" ]; then
+              EXTRA_ARGS+=(--search-query "$SEARCH_QUERY")
             fi
           else
             REVIEW=data/image_review.csv

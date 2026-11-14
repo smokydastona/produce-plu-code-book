@@ -250,6 +250,17 @@ def select_review_sequence(entries, sequence):
     return selected
 
 
+def apply_search_query(entries, search_query):
+    if not search_query:
+        return entries
+    query = " ".join(search_query.split())
+    if not query:
+        raise ValueError("search query must not be blank")
+    if len(entries) != 1:
+        raise ValueError("search query override requires exactly one selected entry")
+    return [dict(entries[0], query=query)]
+
+
 def entry_query(entry):
     if entry.get("query"):
         return entry["query"]
@@ -370,6 +381,8 @@ def main():
                         help="Identity-pinned IMAGE_VISUAL_REVIEW.csv; search only rejected current entries")
     parser.add_argument("--sequence", default="",
                         help="Limit --working-list-review to one review sequence")
+    parser.add_argument("--search-query", default="",
+                        help="Override Commons search terms for one selected review sequence")
     parser.add_argument("--all-entries", action="store_true",
                         help="Search every entry in --review, not only rejected images")
     parser.add_argument("--shard-index", type=int, default=0, help="Zero-based entry selection shard")
@@ -384,6 +397,8 @@ def main():
         parser.error("--review and --working-list-review are mutually exclusive")
     if args.sequence and not args.working_list_review:
         parser.error("--sequence requires --working-list-review")
+    if args.search_query and (not args.working_list_review or not args.sequence):
+        parser.error("--search-query requires --working-list-review and --sequence")
     if not args.review and not args.working_list_review and (args.all_entries or args.shard_count != 1):
         parser.error("--all-entries and sharding require --review")
     if args.review or args.working_list_review:
@@ -397,6 +412,7 @@ def main():
                     parser.error("--all-entries cannot be combined with --working-list-review")
                 entries = current_review_rejections(Path.cwd(), args.working_list_review)
                 entries = select_review_sequence(entries, args.sequence)
+                entries = apply_search_query(entries, args.search_query)
             elif args.all_entries:
                 with args.review.open(newline="", encoding="utf-8-sig") as file:
                     entries = list(csv.DictReader(file))
