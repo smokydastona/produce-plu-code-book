@@ -239,6 +239,17 @@ def current_review_rejections(root, review_path):
     return review_rejection_entries(review_path, report, source_sha256, working_items)
 
 
+def select_review_sequence(entries, sequence):
+    if not sequence:
+        return entries
+    if not sequence.isascii() or not sequence.isdecimal():
+        raise ValueError("review sequence must be a positive decimal number")
+    selected = [entry for entry in entries if entry["idx"] == sequence]
+    if len(selected) != 1:
+        raise ValueError(f"review sequence {sequence} is not a rejected current WorkingList entry")
+    return selected
+
+
 def entry_query(entry):
     if entry.get("query"):
         return entry["query"]
@@ -357,6 +368,8 @@ def main():
                         help="Review CSV: acquire all rejected entries with supported reuse licences")
     parser.add_argument("--working-list-review", type=Path,
                         help="Identity-pinned IMAGE_VISUAL_REVIEW.csv; search only rejected current entries")
+    parser.add_argument("--sequence", default="",
+                        help="Limit --working-list-review to one review sequence")
     parser.add_argument("--all-entries", action="store_true",
                         help="Search every entry in --review, not only rejected images")
     parser.add_argument("--shard-index", type=int, default=0, help="Zero-based entry selection shard")
@@ -369,6 +382,8 @@ def main():
         parser.error("--shard-index must be between 0 and --shard-count minus 1")
     if args.review and args.working_list_review:
         parser.error("--review and --working-list-review are mutually exclusive")
+    if args.sequence and not args.working_list_review:
+        parser.error("--sequence requires --working-list-review")
     if not args.review and not args.working_list_review and (args.all_entries or args.shard_count != 1):
         parser.error("--all-entries and sharding require --review")
     if args.review or args.working_list_review:
@@ -381,6 +396,7 @@ def main():
                 if args.all_entries:
                     parser.error("--all-entries cannot be combined with --working-list-review")
                 entries = current_review_rejections(Path.cwd(), args.working_list_review)
+                entries = select_review_sequence(entries, args.sequence)
             elif args.all_entries:
                 with args.review.open(newline="", encoding="utf-8-sig") as file:
                     entries = list(csv.DictReader(file))

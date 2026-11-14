@@ -18,6 +18,11 @@ on:
         type: choice
         options: [all, '0', '1', '2', '3', '4', '5']
         default: all
+      sequence:
+        description: Optional single IMAGE_VISUAL_REVIEW sequence for working-list-rejected scope
+        type: string
+        required: false
+        default: ''
 
 permissions:
   contents: read
@@ -57,6 +62,7 @@ jobs:
           SCOPE: ${{ inputs.scope }}
           SHARD: ${{ matrix.shard }}
           PER_ENTRY: ${{ inputs.per_entry }}
+          SEQUENCE: ${{ inputs.sequence }}
         run: |
           EXTRA_ARGS=()
           if [ "$SCOPE" = "all" ]; then
@@ -65,6 +71,9 @@ jobs:
           elif [ "$SCOPE" = "working-list-rejected" ]; then
             REVIEW=current/review-booklets/IMAGE_VISUAL_REVIEW.csv
             REVIEW_ARGS=(--working-list-review "$REVIEW")
+            if [ -n "$SEQUENCE" ]; then
+              EXTRA_ARGS+=(--sequence "$SEQUENCE")
+            fi
           else
             REVIEW=data/image_review.csv
             REVIEW_ARGS=(--review "$REVIEW")

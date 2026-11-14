@@ -3,7 +3,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from retrieve_commons import review_rejection_entries
+from retrieve_commons import review_rejection_entries, select_review_sequence
 
 
 class WorkingListCandidateRequests(unittest.TestCase):
@@ -48,6 +48,16 @@ class WorkingListCandidateRequests(unittest.TestCase):
         changed_items = [dict(self.items[0], name="Different Product"), self.items[1]]
         with self.assertRaisesRegex(ValueError, "identity changed"):
             review_rejection_entries(self.review_path, self.report, "current-source-hash", changed_items)
+
+    def test_sequence_filter_selects_only_one_rejected_entry(self):
+        entries = [
+            dict(idx="4", plu="4552", name="Napa Cabbage", source_id="working-napa"),
+            dict(idx="5", plu="4253", name="Strawberries by the Flat", source_id="working-berries"),
+        ]
+        self.assertEqual(select_review_sequence(entries, "4"), entries[:1])
+        self.assertEqual(select_review_sequence(entries, ""), entries)
+        with self.assertRaisesRegex(ValueError, "not a rejected"):
+            select_review_sequence(entries, "15")
 
 
 if __name__ == "__main__":
