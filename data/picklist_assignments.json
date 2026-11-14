@@ -9463,20 +9463,36 @@
       "source_id": "005be95db9b51bbafa1a334cb5a55a3510eb370f78895b3731315bb99dfd4af8"
     },
     {
+      "source_id": "4d7ed3181e8a60fea781e8098996a2babde95e51fa9f753ac3f210238e6daf96",
       "book": "Vegetable",
       "section": "Cucumbers",
-      "image": "data/images/Vegetable/0423_4593.jpg",
+      "image": "data/images/approved/a68150e98cfa06e5bab3b22eaabfc8e5d3b9de3319886cb6ae711228bbe69eb7.jpeg",
       "image_mode": "PHOTO",
       "reviewed_plu": "4593",
       "reviewed_product": "Cucumber Long English",
+      "working_source_ids": [
+        "4d7ed3181e8a60fea781e8098996a2babde95e51fa9f753ac3f210238e6daf96"
+      ],
+      "working_decision_id": "",
+      "image_sha256": "a68150e98cfa06e5bab3b22eaabfc8e5d3b9de3319886cb6ae711228bbe69eb7",
+      "photographic_origin": "VERIFIED_PHOTO",
       "visual_approval_status": "APPROVED",
-      "photographic_origin": "NOT_VERIFIED",
-      "rights_verification_status": "NOT_VERIFIED",
-      "provenance": {},
-      "legacy_entry_idx": "423",
-      "migration_note": "Existing visual verdict preserved; original source/rights not verified.",
-      "image_sha256": "cf8717d184808165fb2a97065bac1c7f982cf8956cb3a080dbcfb870f9e81660",
-      "source_id": "4d7ed3181e8a60fea781e8098996a2babde95e51fa9f753ac3f210238e6daf96"
+      "rights_verification_status": "VERIFIED",
+      "provenance": {
+        "creator": "Not separately identified; ownership attested by user",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "",
+        "original_image_url": "",
+        "source_reference": "Owner-uploaded file: English_Cucumber.jpeg (Copilot session attachment; no public source URL supplied)",
+        "rights_status": "OWNER_CONFIRMED_PERMISSION",
+        "photographic_origin_evidence": "User confirmed: \"Both are actual photographs\"",
+        "visual_approval_evidence": "Owner supplied English_Cucumber.jpeg and confirmed approval of its use and resizing. The image shows a wrapped English cucumber on white; its physical product sticker is retained unchanged.",
+        "attribution": "Owner-provided image; creator not separately identified",
+        "changes": "Original uploaded image bytes unchanged",
+        "rights_evidence": "User confirmed: \"I own both and approve their use and resizing\""
+      },
+      "reuse_from_source_id": ""
     },
     {
       "book": "Fruit",
@@ -11186,6 +11202,38 @@
         "attribution": "Owner-provided image; creator not separately identified",
         "changes": "Original uploaded image bytes unchanged",
         "rights_evidence": "User confirmed: \"I own it and approve its use and resizing\""
+      },
+      "reuse_from_source_id": ""
+    },
+    {
+      "source_id": "f05f37d3982f0277cb7d7eb67ca44a0993c264f8dbb30f8f98dd658ddd80ad5a",
+      "book": "Fruit",
+      "section": "Citrus",
+      "image": "data/images/approved/211ce953f2a57e0f1c217fd7c6c2db5b14665f10f322dfbdcc38d2791133c565.jpg",
+      "image_mode": "PHOTO",
+      "reviewed_plu": "4458",
+      "reviewed_product": "Tangerine Seedless",
+      "working_source_ids": [
+        "2b95c285e44d2e7c5d9870e564051c94fad9c641b4171df33cea1c2d08bb8bbb"
+      ],
+      "working_decision_id": "4458",
+      "image_sha256": "211ce953f2a57e0f1c217fd7c6c2db5b14665f10f322dfbdcc38d2791133c565",
+      "photographic_origin": "VERIFIED_PHOTO",
+      "visual_approval_status": "APPROVED",
+      "rights_verification_status": "VERIFIED",
+      "provenance": {
+        "creator": "Not separately identified; ownership attested by user",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "",
+        "original_image_url": "",
+        "source_reference": "Owner-uploaded file: Tangerine.jpg (Copilot session attachment; no public source URL supplied)",
+        "rights_status": "OWNER_CONFIRMED_PERMISSION",
+        "photographic_origin_evidence": "User confirmed: \"Both are actual photographs\"",
+        "visual_approval_evidence": "Owner supplied Tangerine.jpg, approved use and resizing, and explicitly confirmed its use for Tangerine Seedless, PLU 4458. Seedless identity is owner-confirmed, not inferred from appearance.",
+        "attribution": "Owner-provided image; creator not separately identified",
+        "changes": "Original uploaded image bytes unchanged",
+        "rights_evidence": "User confirmed: \"I own both and approve their use and resizing\""
       },
       "reuse_from_source_id": ""
     }

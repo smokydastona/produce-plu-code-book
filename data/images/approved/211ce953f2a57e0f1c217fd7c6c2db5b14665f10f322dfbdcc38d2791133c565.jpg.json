@@ -1,0 +1,19 @@
+{
+  "plu": "4458",
+  "product": "Tangerine Seedless",
+  "creator": "Not separately identified; ownership attested by user",
+  "license": "OWNER_CONFIRMED_PERMISSION",
+  "rights_status": "OWNER_CONFIRMED_PERMISSION",
+  "source_reference": "Owner-uploaded file: Tangerine.jpg (Copilot session attachment; no public source URL supplied)",
+  "rights_evidence": "User confirmed: \"I own both and approve their use and resizing\"",
+  "photographic_origin": "OWNER_CONFIRMED_PHOTO",
+  "photographic_origin_evidence": "User confirmed: \"Both are actual photographs\"",
+  "visual_approval_evidence": "Owner supplied Tangerine.jpg, approved use and resizing, and explicitly confirmed its use for Tangerine Seedless, PLU 4458. Seedless identity is owner-confirmed, not inferred from appearance.",
+  "attribution": "Owner-provided image; creator not separately identified",
+  "width": 1920,
+  "height": 1080,
+  "sha256": "211ce953f2a57e0f1c217fd7c6c2db5b14665f10f322dfbdcc38d2791133c565",
+  "approval_status": "CANDIDATE",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "VERIFIED"
+}

@@ -1,0 +1,32 @@
+{
+  "creator": "Not separately identified; ownership attested by user",
+  "license": "OWNER_CONFIRMED_PERMISSION",
+  "license_url": "",
+  "source_page_url": "",
+  "original_image_url": "",
+  "source_reference": "Owner-uploaded file: Tangerine.jpg (Copilot session attachment; no public source URL supplied)",
+  "rights_status": "OWNER_CONFIRMED_PERMISSION",
+  "photographic_origin_evidence": "User confirmed: \"Both are actual photographs\"",
+  "visual_approval_evidence": "Owner supplied Tangerine.jpg, approved use and resizing, and explicitly confirmed its use for Tangerine Seedless, PLU 4458. Seedless identity is owner-confirmed, not inferred from appearance.",
+  "attribution": "Owner-provided image; creator not separately identified",
+  "changes": "Original uploaded image bytes unchanged",
+  "rights_evidence": "User confirmed: \"I own both and approve their use and resizing\"",
+  "plu": "4458",
+  "product": "Tangerine Seedless",
+  "width": 500,
+  "height": 500,
+  "sha256": "ce770aac030ab1745b4e4c8631e65c3b69d7d44ffb1ddb1ad5de438f3ae3f325",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "OWNER_CONFIRMED_PHOTO",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "VERIFIED",
+  "original_image_sha256": "211ce953f2a57e0f1c217fd7c6c2db5b14665f10f322dfbdcc38d2791133c565",
+  "original_image_path": "data/images/approved/211ce953f2a57e0f1c217fd7c6c2db5b14665f10f322dfbdcc38d2791133c565.jpg",
+  "assigned_image_path": "data/images/approved/211ce953f2a57e0f1c217fd7c6c2db5b14665f10f322dfbdcc38d2791133c565.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "f05f37d3982f0277cb7d7eb67ca44a0993c264f8dbb30f8f98dd658ddd80ad5a",
+  "working_source_ids": [
+    "2b95c285e44d2e7c5d9870e564051c94fad9c641b4171df33cea1c2d08bb8bbb"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered white padding to 500x500 PNG"
+}
