@@ -48,7 +48,7 @@ jobs:
         run: python tools/sync_picklist.py --catalog-only --output "$RUNNER_TEMP/picklist-sync"
       - name: Probe alternative libraries and search the four acquisition gaps
         id: source-probes
-        if: matrix.shard == 0
+        if: matrix.shard == 0 && inputs.scope != 'working-list-rejected'
         continue-on-error: true
         run: |
           python tools/probe_image_sources.py \
@@ -95,7 +95,7 @@ jobs:
           if-no-files-found: warn
           retention-days: 7
       - name: Upload source-discovery evidence
-        if: always() && matrix.shard == 0
+        if: always() && matrix.shard == 0 && inputs.scope != 'working-list-rejected'
         uses: actions/upload-artifact@v4
         with:
           name: source-discovery
