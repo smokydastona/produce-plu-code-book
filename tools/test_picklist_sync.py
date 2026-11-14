@@ -20,7 +20,9 @@ from sync_picklist import (BOOKS, build_documents, original_image, reconcile,
                            build_workbooks, verify_workbooks)
 from approve_picklist_image import approve
 from check_image_uniqueness import image_fingerprint
-from organic_watermarks import render_watermark
+from image_display import display_image
+from build_image_library import build_library, check_library, refresh_library
+from verify_images import approved_library_pair
 from working_list import read_working_list, rebuild_working_list
 
 
@@ -223,11 +225,14 @@ class PickListSyncChecks(unittest.TestCase):
         picture = doc.inline_shapes[1]
         relationship = picture._inline.graphic.graphicData.pic.blipFill.blip.embed
         content = doc.part.related_parts[relationship].blob
-        with Image.open(io.BytesIO(content)) as image, Image.open(self.image) as original:
-            self.assertNotEqual(image.crop((0, 0, 180, 180)).tobytes(),
-                                original.crop((0, 0, 180, 180)).tobytes())
-            self.assertEqual(image.crop((200, 200, 600, 500)).tobytes(),
-                             original.crop((200, 200, 600, 500)).tobytes())
+        with Image.open(io.BytesIO(content)) as image:
+            expected = Image.open(io.BytesIO(display_image(self.image.read_bytes())))
+            self.addCleanup(expected.close)
+            self.assertEqual(image.size, (500, 500))
+            self.assertNotEqual(image.crop((0, 0, 150, 150)).tobytes(),
+                                expected.crop((0, 0, 150, 150)).tobytes())
+            self.assertEqual(image.crop((200, 200, 500, 500)).tobytes(),
+                             expected.crop((200, 200, 500, 500)).tobytes())
 
     def placement_rows(self, values):
         return [
@@ -325,6 +330,33 @@ class PickListSyncChecks(unittest.TestCase):
         self.assertTrue((self.output / "PHOTO_ATTRIBUTIONS.csv").is_file())
         self.assertEqual(self.source.read_bytes(), before)
 
+    def test_library_refresh_rejects_modified_managed_files(self):
+        refresh_library(self.root)
+        library = self.root / "sources/image-library"
+        image = library / (self.items[0]["source_id"] + ".png")
+        image.write_bytes(b"modified")
+        with self.assertRaisesRegex(ValueError, "changed or missing"):
+            refresh_library(self.root)
+        with self.assertRaisesRegex(ValueError, "changed or missing"):
+            check_library(self.root)
+        self.assertEqual(image.read_bytes(), b"modified")
+
+    def test_exact_library_copy_does_not_count_as_unapproved_image_reuse(self):
+        Image.new("RGB", (500, 500), "red").save(self.image)
+        self.assignment["image_sha256"] = hashlib.sha256(self.image.read_bytes()).hexdigest()
+        self.write_assignments([self.assignment])
+        refresh_library(self.root)
+        library_image = self.root / "sources/image-library" / (self.items[0]["source_id"] + ".png")
+        self.assertEqual(image_fingerprint(library_image), image_fingerprint(self.image))
+        self.assertTrue(approved_library_pair({library_image.resolve(), self.image.resolve()}, self.root))
+        unrelated = self.root / "data/unrelated.png"
+        unrelated.write_bytes(self.image.read_bytes())
+        self.assertFalse(approved_library_pair({library_image.resolve(), unrelated.resolve()}, self.root))
+        self.assignment["visual_approval_status"] = "NOT_APPROVED"
+        self.write_assignments([self.assignment])
+        with self.assertRaisesRegex(ValueError, "stale"):
+            check_library(self.root)
+
     def test_pdf_verification_requires_interleaved_sequence_not_xml_order(self):
         from types import SimpleNamespace
 
@@ -379,7 +411,7 @@ class PickListSyncChecks(unittest.TestCase):
         for index, picture in enumerate(sheet._images):
             self.assertEqual(picture.anchor._from.row, 3 + index)
             self.assertEqual(picture.anchor._from.col, 2)
-            expected = render_watermark(self.image.read_bytes()) if index == 2 else self.image.read_bytes()
+            expected = display_image(self.image.read_bytes(), organic=index == 2)
             self.assertEqual(image_fingerprint(io.BytesIO(picture._data())),
                              image_fingerprint(io.BytesIO(expected)))
         self.assertEqual([cell.value for row in sheet.iter_rows() for cell in row if cell.value],
@@ -488,6 +520,47 @@ class PickListSyncChecks(unittest.TestCase):
         self.assertIn("OWNER_PERMISSION_MUST_NOT_CLAIM_PUBLIC_LICENCE",
                       reviewed_image(self.root, self.items[0], self.assignment)[3])
 
+    def test_library_contains_only_approved_current_images_and_matches_booklet_output(self):
+        self.write_source([("03283", "Honeycrisp Apple", True), ("42", "Unapproved", True)])
+        items, _ = read_picklist(self.source)
+        self.register_current_source(items)
+        first = self.approved_assignment(items[0])
+        second = self.approved_assignment(items[1])
+        second["rights_verification_status"] = "NOT_VERIFIED"
+        # A distinct original ensures the approved entry is not blocked for sharing.
+        other = self.root / "data/other.png"
+        Image.new("RGB", (500, 600), "green").save(other)
+        second.update(image="data/other.png", image_sha256=hashlib.sha256(other.read_bytes()).hexdigest())
+        self.write_assignments([first, second])
+        source_before, original_before = self.source.read_bytes(), self.image.read_bytes()
+        library = self.root / "library"
+        result = build_library(self.root, library)
+        self.assertEqual((result["images"], result["catalogue_status"]), (1, "BLOCKED"))
+        with (library / "IMAGE_LIBRARY.csv").open(encoding="utf-8-sig", newline="") as file:
+            records = list(csv.DictReader(file))
+        self.assertEqual([(r["plu"], r["product"]) for r in records], [("03283", "Honeycrisp Apple")])
+        normalized = (library / records[0]["image"]).read_bytes()
+        self.assertEqual(normalized, display_image(original_before))
+        with Image.open(io.BytesIO(normalized)) as image:
+            self.assertEqual(image.size, (500, 500))
+            self.assertEqual(image.getpixel((250, 0)), (255, 255, 255))
+            self.assertEqual(image.getpixel((250, 250)), (255, 0, 0))
+        metadata = json.loads((library / (records[0]["image"] + ".json")).read_text())
+        self.assertEqual(metadata["original_image_sha256"], hashlib.sha256(original_before).hexdigest())
+        self.assertEqual(metadata["working_source_ids"], [items[0]["source_id"]])
+        self.assertEqual(self.source.read_bytes(), source_before)
+        self.assertEqual(self.image.read_bytes(), original_before)
+        with self.assertRaisesRegex(ValueError, "must be empty"):
+            build_library(self.root, library)
+
+    def test_display_composites_transparency_on_white_without_stretching(self):
+        original = io.BytesIO()
+        Image.new("RGBA", (1000, 500), (255, 0, 0, 128)).save(original, format="PNG")
+        with Image.open(io.BytesIO(display_image(original.getvalue()))) as image:
+            self.assertEqual(image.size, (500, 500))
+            self.assertEqual(image.getpixel((250, 0)), (255, 255, 255))
+            self.assertEqual(image.getpixel((250, 250)), (255, 127, 127))
+
     def test_non_produce_code_only_exception_requires_explicit_approval(self):
         self.assignment.update(book="Non-produce", image="", image_mode="CODE_ONLY",
                                code_only_approved=True)
@@ -535,6 +608,18 @@ class PickListSyncChecks(unittest.TestCase):
         image = self.root / entry["image"]
         self.assertTrue(image.with_suffix(image.suffix + ".json").is_file())
         self.assertEqual(entry["rights_verification_status"], "VERIFIED")
+        library = self.root / "sources/image-library"
+        with (library / "IMAGE_LIBRARY.csv").open(encoding="utf-8-sig", newline="") as file:
+            records = list(csv.DictReader(file))
+        self.assertEqual([row["source_id"] for row in records], [self.items[0]["source_id"]])
+        self.assertEqual((library / records[0]["image"]).read_bytes(), display_image(image.read_bytes()))
+        Image.new("RGB", (600, 500), "blue").save(self.image)
+        self.candidate_metadata()
+        approve(self.root, self.items[0]["source_id"], self.image, "Fruit", "Apples",
+                digest, "Reviewed replacement and licence", replace=True)
+        check_library(self.root)
+        with Image.open(library / records[0]["image"]) as updated:
+            self.assertEqual(updated.getpixel((250, 250)), (0, 0, 255))
         self.assertEqual(self.source.read_bytes(), source_before)
         self.assertEqual(reconcile(self.root, self.output)[3]["status"], "READY_TO_BUILD")
 
@@ -572,6 +657,20 @@ class PickListSyncChecks(unittest.TestCase):
         self.assertEqual(approved_sidecar["rights_verification_status"], "VERIFIED")
         self.assertTrue(approved_sidecar["visual_approval_evidence"])
         self.assertEqual(reconcile(self.root, self.output)[3]["status"], "READY_TO_BUILD")
+
+    def test_approval_reports_library_refresh_failure_without_overwriting_edits(self):
+        self.candidate_metadata()
+        rebuild_working_list(self.root, self.root / "audit")
+        digest = hashlib.sha256(self.source.read_bytes()).hexdigest()
+        refresh_library(self.root)
+        library_image = self.root / "sources/image-library" / (self.items[0]["source_id"] + ".png")
+        library_image.write_bytes(b"manual edit")
+        with self.assertRaisesRegex(ValueError, "approval was saved, but library refresh failed"):
+            approve(self.root, self.items[0]["source_id"], self.image, "Fruit", "Apples",
+                    digest, "Reviewed photo and rights", replace=True)
+        self.assertEqual(library_image.read_bytes(), b"manual edit")
+        entry = read_assignments(self.root / "data/picklist_assignments.json")[self.items[0]["source_id"]]
+        self.assertEqual(entry["provenance"]["rights_evidence"], "Reviewed photo and rights")
 
     def test_changed_working_identity_can_receive_a_fresh_image_approval(self):
         source_item = self.items[0]

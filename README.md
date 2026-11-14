@@ -11,6 +11,7 @@ Fruit, vegetable, and non-produce cashier references, their audit reports, and t
 | [current/review/till-binder-supplier-photos-final/](current/review/till-binder-supplier-photos-final/) | Complete text-only and photo till-binder review copies in XLSX/PDF, Produce previews, standalone booklets, reconciliation and validation reports. |
 | [current/reports/](current/reports/) | Latest booklet audit, duplicate-code report, image inventory, and image-match report. |
 | [sources/plu/](sources/plu/) | Immutable owner-maintained `PickList.xml` and generated, decision-reviewed `WorkingList.xml`. |
+| [sources/image-library/](sources/image-library/) | Current identity-linked approved produce images, standardized to 500 × 500 pixels, with an audit index and provenance sidecars. |
 | [sources/binders/](sources/binders/) | Untouched original complete November 2025 binder and its SHA-256 checksum, retained as a reproducible build dependency. |
 | [sources/visual/](sources/visual/) | Supplied visual DOCX inputs, retained unchanged despite their `_CORRECTED` filenames. |
 | [archive/provisional/booklets/](archive/provisional/booklets/) | Earlier PDF exports of the supplied visual documents. |
@@ -188,6 +189,10 @@ Current reports:
 - [IMAGE_MATCH_REPORT.csv](current/reports/IMAGE_MATCH_REPORT.csv): automated match confidence and image-quality notes.
 
 Image paths in the CSV reports point to standalone copies of each booklet image under [data/images/](data/images/); [data/image_review.csv](data/image_review.csv) holds the full per-entry review table.
+
+The approved produce image library contains only entries that pass current WorkingList reconciliation and all individual image checks; it does not include rejected or unverified legacy references. Each image is a 500 × 500 PNG, fitted without cropping or stretching on a white background; organic images also carry the standard pink badge. Original files remain unchanged under `data/images/` or in their documented source documents. `IMAGE_LIBRARY.csv` and each adjacent JSON retain identities, original and derivative checksums, and provenance; resizing does not upgrade image quality, rights, or approvals. The library may therefore be incomplete while reviews are outstanding.
+
+The image approval helper automatically refreshes the library after each approval, excluding entries with remaining blockers. If a refresh fails, the helper reports that the approval was saved and the library needs attention. To refresh after other source or registry changes, run `python3 tools/build_image_library.py --refresh`; it checks the existing index and asset checksums before replacing managed files, and refuses to overwrite unmanaged files. For an isolated snapshot instead, run `python3 tools/build_image_library.py --output /path/to/empty/image-library`. Commit the updated library with the approval; `python3 tools/build_image_library.py --check` and the image-verification workflow flag stale snapshots. Future production DOCX and Excel builds use the same 500 × 500 rendering; the existing published booklets are not altered while release gates are blocked.
 
 ## Keeping the repository organized
 

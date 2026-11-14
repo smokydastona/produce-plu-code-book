@@ -89,8 +89,19 @@ def approve(root, source_id, candidate, book, section, source_sha, evidence,
         json.dump(saved, file, ensure_ascii=False, indent=2)
         file.write("\n")
     temporary.replace(registry)
+    from build_image_library import refresh_library
+
+    try:
+        library = refresh_library(root)
+    except (OSError, ValueError, KeyError) as exc:
+        raise ValueError(f"image approval was saved, but library refresh failed: {exc}") from exc
+    if book in {"Fruit", "Vegetable"} and source_id not in library["source_ids"]:
+        blockers = library["blockers_by_source_id"].get(source_id, [])
+        raise ValueError(
+            "image approval was saved, but this entry remains blocked and was not added to the library; "
+            + (", ".join(blockers) if blockers else "check its current classification"))
     print(f"Recorded reviewed WorkingList image for {item['plu']} / {item['name']}; "
-          "full catalogue validation still required before publication")
+          "approved image library refreshed; full catalogue validation still required before publication")
 
 
 def main():

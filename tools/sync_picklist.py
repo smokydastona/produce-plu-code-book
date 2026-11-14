@@ -12,7 +12,6 @@ from pathlib import Path
 from PIL import Image, ImageOps
 
 from check_image_uniqueness import image_fingerprint
-from organic_watermarks import badge_artwork, render_watermark
 from picklist_catalog import read_assignments, read_picklist
 from working_list import read_working_list, rebuild_working_list
 
@@ -334,8 +333,13 @@ def booklet_order(rows, assignments):
 
 
 def booklet_image(row, images):
-    content = images[row["source_id"]]
-    return render_watermark(content) if row["organic"] else content
+    from image_display import display_image
+
+    if row["book"] == "Non-produce":
+        from organic_watermarks import render_watermark
+        content = images[row["source_id"]]
+        return render_watermark(content) if row["organic"] else content
+    return display_image(images[row["source_id"]], organic=row["organic"])
 
 
 def build_documents(root, output, rows, images, assignments, digest):
@@ -384,13 +388,16 @@ def build_documents(root, output, rows, images, assignments, digest):
         if row["source_id"] in images:
             provenance = assignments[row["source_id"]]["provenance"]
             credit = dict(source_id=row["source_id"], plu=row["plu"], product=row["name"], **provenance)
+            if row["book"] != "Non-produce":
+                credit["changes"] += "; aspect-ratio-preserving resize and white padding to 500x500 PNG"
             if row["organic"]:
                 credit["changes"] += "; pink organic badge added"
             credits.append(credit)
     csv_output(output / "PHOTO_ATTRIBUTIONS.csv", credits,
                ["source_id", "plu", "product", "creator", "license", "license_url",
                 "source_page_url", "original_image_url", "source_reference", "rights_status",
-                "attribution", "changes", "photographic_origin_evidence", "rights_evidence"])
+                "attribution", "changes", "photographic_origin_evidence",
+                "visual_approval_evidence", "rights_evidence"])
 
 
 def excel_row(sheet, number, values):
