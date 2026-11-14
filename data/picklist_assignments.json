@@ -11155,6 +11155,39 @@
         "rights_evidence": "User confirmed: \"I own it and approve its use and resizing\""
       },
       "reuse_from_source_id": ""
+    },
+    {
+      "source_id": "09df42d831061953e2d95b5f3e2071ef7f26a68b008377ecb6ce871b0b546186",
+      "book": "Fruit",
+      "section": "Citrus",
+      "image": "data/images/approved/aa097e83f41a5a55b85d443f14cebb150d36a318feaf94c0fdeaffea1cebf2d9.jpg",
+      "image_mode": "PHOTO",
+      "reviewed_plu": "4055",
+      "reviewed_product": "Murcott Tangerines",
+      "working_source_ids": [
+        "2d8d90099db1dcef519e9f507003cd866ba1038341e2890908df1cbae9648ca2",
+        "d42229b05135916f40ec076d37a9486386cf5a94a21f9c16fad82054f8848cb5"
+      ],
+      "working_decision_id": "4055",
+      "image_sha256": "aa097e83f41a5a55b85d443f14cebb150d36a318feaf94c0fdeaffea1cebf2d9",
+      "photographic_origin": "VERIFIED_PHOTO",
+      "visual_approval_status": "APPROVED",
+      "rights_verification_status": "VERIFIED",
+      "provenance": {
+        "creator": "Not separately identified; ownership attested by user",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "",
+        "original_image_url": "",
+        "source_reference": "Owner-uploaded file: Murcott_Tangerines.jpg (Copilot session attachment; no public source URL supplied)",
+        "rights_status": "OWNER_CONFIRMED_PERMISSION",
+        "photographic_origin_evidence": "User confirmed: \"Actual photograph\"",
+        "visual_approval_evidence": "Owner supplied this Murcott image after rejecting the previous candidate and confirmed approval of its use and resizing.",
+        "attribution": "Owner-provided image; creator not separately identified",
+        "changes": "Original uploaded image bytes unchanged",
+        "rights_evidence": "User confirmed: \"I own it and approve its use and resizing\""
+      },
+      "reuse_from_source_id": ""
     }
   ]
 }
