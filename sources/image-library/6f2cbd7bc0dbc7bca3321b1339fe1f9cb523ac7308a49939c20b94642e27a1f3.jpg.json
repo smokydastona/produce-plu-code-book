@@ -1,0 +1,36 @@
+{
+  "plu": "4265",
+  "product": "Feijoa",
+  "width": 500,
+  "height": 500,
+  "sha256": "1b91488bbfea14c441514d186bec41b545387a2259fbfae51acd98912de38110",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "247c80fb4c92146893a9e77e74a8f9726cc1b38a31c78833a7450ea13234f26c",
+  "original_image_path": "data/images/Fruit/0179_4265.jpg",
+  "original_width": 336,
+  "original_height": 336,
+  "assigned_image_path": "data/images/Fruit/0179_4265.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "6f2cbd7bc0dbc7bca3321b1339fe1f9cb523ac7308a49939c20b94642e27a1f3",
+  "working_source_ids": [
+    "6f2cbd7bc0dbc7bca3321b1339fe1f9cb523ac7308a49939c20b94642e27a1f3"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

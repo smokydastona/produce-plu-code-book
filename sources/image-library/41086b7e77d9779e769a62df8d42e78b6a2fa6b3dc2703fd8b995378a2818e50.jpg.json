@@ -1,0 +1,37 @@
+{
+  "plu": "4582",
+  "product": "Celery Bunch",
+  "width": 500,
+  "height": 500,
+  "sha256": "59a82b50fd765fad9e1a32a1386560a9061b568bf25b9b0208a2e3d4326b5cc9",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "bda14aca6a397f78489a5fb6790a89034ea883eed1b1978bc31368d15aab783a",
+  "original_image_path": "data/images/Vegetable/0486_4582.jpg",
+  "original_width": 232,
+  "original_height": 232,
+  "assigned_image_path": "data/images/Vegetable/0486_4582.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "41086b7e77d9779e769a62df8d42e78b6a2fa6b3dc2703fd8b995378a2818e50",
+  "working_source_ids": [
+    "41086b7e77d9779e769a62df8d42e78b6a2fa6b3dc2703fd8b995378a2818e50"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

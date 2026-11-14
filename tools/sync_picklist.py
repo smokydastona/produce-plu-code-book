@@ -12,7 +12,6 @@ from pathlib import Path
 from PIL import Image, ImageOps
 
 from check_image_uniqueness import image_fingerprint
-from organic_watermarks import badge_artwork, render_watermark
 from picklist_catalog import read_assignments, read_picklist
 from working_list import read_working_list, rebuild_working_list
 
@@ -68,10 +67,18 @@ def reviewed_image(root, item, assignment):
             item["plu"], item["name"]):
         errors.append("PRODUCT_IMAGE_REVIEW_REQUIRED")
     provenance = assignment.get("provenance", {})
-    if provenance.get("license") not in LICENSES and not owner_permission:
+    owner_upload = provenance.get("rights_status") == "OWNER_CONFIRMED_PERMISSION"
+    if owner_upload:
+        if provenance.get("license") != "OWNER_CONFIRMED_PERMISSION":
+            errors.append("OWNER_PERMISSION_MUST_NOT_CLAIM_PUBLIC_LICENCE")
+    elif provenance.get("license") not in LICENSES and not owner_permission:
         errors.append("SUPPORTED_IMAGE_LICENCE_REQUIRED")
-    for key in ("creator", "license_url", "source_page_url", "original_image_url",
-                "attribution", "changes", "rights_evidence"):
+    required_provenance = (("creator", "attribution", "changes", "rights_evidence",
+                            "source_reference", "photographic_origin_evidence",
+                            "visual_approval_evidence") if owner_upload else
+                           ("creator", "license_url", "source_page_url", "original_image_url",
+                            "attribution", "changes", "rights_evidence"))
+    for key in required_provenance:
         if owner_permission and key == "license_url":
             continue
         if not isinstance(provenance.get(key), str) or not provenance[key].strip():
@@ -328,8 +335,13 @@ def booklet_order(rows, assignments):
 
 
 def booklet_image(row, images):
-    content = images[row["source_id"]]
-    return render_watermark(content) if row["organic"] else content
+    from image_display import display_image
+
+    if row["book"] == "Non-produce":
+        from organic_watermarks import render_watermark
+        content = images[row["source_id"]]
+        return render_watermark(content) if row["organic"] else content
+    return display_image(images[row["source_id"]], organic=row["organic"])
 
 
 def build_documents(root, output, rows, images, assignments, digest):
@@ -378,12 +390,16 @@ def build_documents(root, output, rows, images, assignments, digest):
         if row["source_id"] in images:
             provenance = assignments[row["source_id"]]["provenance"]
             credit = dict(source_id=row["source_id"], plu=row["plu"], product=row["name"], **provenance)
+            if row["book"] != "Non-produce":
+                credit["changes"] += "; aspect-ratio-preserving resize and solid white padding to 500x500 JPEG"
             if row["organic"]:
                 credit["changes"] += "; pink organic badge added"
             credits.append(credit)
     csv_output(output / "PHOTO_ATTRIBUTIONS.csv", credits,
                ["source_id", "plu", "product", "creator", "license", "license_url",
-                "source_page_url", "original_image_url", "attribution", "changes", "rights_evidence"])
+                "source_page_url", "original_image_url", "source_reference", "rights_status",
+                "attribution", "changes", "photographic_origin_evidence",
+                "visual_approval_evidence", "rights_evidence"])
 
 
 def excel_row(sheet, number, values):

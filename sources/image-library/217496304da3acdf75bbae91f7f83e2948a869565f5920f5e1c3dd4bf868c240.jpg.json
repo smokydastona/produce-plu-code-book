@@ -1,0 +1,37 @@
+{
+  "plu": "4093",
+  "product": "Onion Yellow",
+  "width": 500,
+  "height": 500,
+  "sha256": "64b8fa4ae71ebdcc3aa1acbcf0b5a15499f7507ee75432d3a0f3a4688ccb3e91",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "6feb1386ea480b5bee1b77ee21ddbcf05a000ed37edbd2c76e55e88f99316007",
+  "original_image_path": "data/images/Vegetable/0384_4093.jpg",
+  "original_width": 190,
+  "original_height": 190,
+  "assigned_image_path": "data/images/Vegetable/0384_4093.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "217496304da3acdf75bbae91f7f83e2948a869565f5920f5e1c3dd4bf868c240",
+  "working_source_ids": [
+    "217496304da3acdf75bbae91f7f83e2948a869565f5920f5e1c3dd4bf868c240"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

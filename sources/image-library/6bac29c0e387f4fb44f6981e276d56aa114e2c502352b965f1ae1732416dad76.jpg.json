@@ -1,0 +1,37 @@
+{
+  "plu": "4153",
+  "product": "Apples MacIntosh Large",
+  "width": 500,
+  "height": 500,
+  "sha256": "5ef249ae5b3b1ea6b2d5efe787fc99f4f3d0915d8ab04d33a827819f875b8a21",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "1aa22b908a301036f24c75d8a63df1064161fe519196f161c269050e0a9e0fa3",
+  "original_image_path": "data/images/Fruit/0011_4153.jpg",
+  "original_width": 299,
+  "original_height": 299,
+  "assigned_image_path": "data/images/Fruit/0011_4153.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "6bac29c0e387f4fb44f6981e276d56aa114e2c502352b965f1ae1732416dad76",
+  "working_source_ids": [
+    "6bac29c0e387f4fb44f6981e276d56aa114e2c502352b965f1ae1732416dad76"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

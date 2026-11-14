@@ -1,0 +1,37 @@
+{
+  "plu": "4462",
+  "product": "Blackberries 1 Pound",
+  "width": 500,
+  "height": 500,
+  "sha256": "38069788329a508e83f70e57efab83c967a4996ea865b226892ba605aea14733",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "928efede77d99c52aa8560c3e515ef74a5255f2364988be1ad126115f229a519",
+  "original_image_path": "data/images/Fruit/0083_4462.jpg",
+  "original_width": 352,
+  "original_height": 352,
+  "assigned_image_path": "data/images/Fruit/0083_4462.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "b027d27aa661e55cbef7d6062a72c8a8c280366e0d7b25732209adba120ed8a6",
+  "working_source_ids": [
+    "b027d27aa661e55cbef7d6062a72c8a8c280366e0d7b25732209adba120ed8a6"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

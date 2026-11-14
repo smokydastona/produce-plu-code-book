@@ -1,0 +1,40 @@
+{
+  "plu": "94785",
+  "product": "Organic Squash Festival",
+  "width": 500,
+  "height": 500,
+  "sha256": "42377a1e4062f1ef33de19b16d8aa635f8351be0d635d22d60d0c73cd5b8a774",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "d50709f11427301f4a92c09b1e60041491dd9ab1a83d0557919ede6f833d13a5",
+  "original_image_path": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image170.jpg",
+  "original_width": 293,
+  "original_height": 293,
+  "assigned_image_path": "data/images/Vegetable/0576_94785.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image170.jpg",
+    "original_sha256": "d50709f11427301f4a92c09b1e60041491dd9ab1a83d0557919ede6f833d13a5"
+  },
+  "working_source_id": "d998adb88309a304c6425e75e22dfafa0bf4a7e6fcabf992a33db20987a2f5fc",
+  "working_source_ids": [
+    "d998adb88309a304c6425e75e22dfafa0bf4a7e6fcabf992a33db20987a2f5fc"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

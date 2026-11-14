@@ -1,0 +1,41 @@
+{
+  "plu": "93072",
+  "product": "Organic Apples Lady",
+  "width": 500,
+  "height": 500,
+  "sha256": "bc1114f6db6c313a322379a0766eb8d3013e8c793e053842548a49a7031a873e",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "315fdfc7b616b7993742242cb8f1f11c7213d02687b8ac7341b2a5e9eac6eceb",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image13.jpg",
+  "original_width": 225,
+  "original_height": 225,
+  "assigned_image_path": "data/images/Fruit/0203_93072.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image13.jpg",
+    "original_sha256": "315fdfc7b616b7993742242cb8f1f11c7213d02687b8ac7341b2a5e9eac6eceb"
+  },
+  "working_source_id": "bf1a7347d225441b1e4ec29c8c3f57daeac5d05e9cc831b4f968492740790936",
+  "working_source_ids": [
+    "bf1a7347d225441b1e4ec29c8c3f57daeac5d05e9cc831b4f968492740790936"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

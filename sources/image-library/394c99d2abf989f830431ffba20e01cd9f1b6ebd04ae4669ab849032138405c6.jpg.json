@@ -1,0 +1,41 @@
+{
+  "plu": "94750",
+  "product": "Organic Squash Acorn",
+  "width": 500,
+  "height": 500,
+  "sha256": "0a0b0f594c6b1c017ade1bfbe9d7d2648959c3d7429aaf248bf4275f11b36203",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "3888e8387f191d93f67b00837fdeb2dcac1c4761b41debc270c8a474f90af6af",
+  "original_image_path": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image106.jpg",
+  "original_width": 302,
+  "original_height": 302,
+  "assigned_image_path": "data/images/Vegetable/0569_94750.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image106.jpg",
+    "original_sha256": "3888e8387f191d93f67b00837fdeb2dcac1c4761b41debc270c8a474f90af6af"
+  },
+  "working_source_id": "394c99d2abf989f830431ffba20e01cd9f1b6ebd04ae4669ab849032138405c6",
+  "working_source_ids": [
+    "394c99d2abf989f830431ffba20e01cd9f1b6ebd04ae4669ab849032138405c6"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

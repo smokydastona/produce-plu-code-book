@@ -1,0 +1,36 @@
+{
+  "plu": "4256",
+  "product": "StarFruit",
+  "width": 500,
+  "height": 500,
+  "sha256": "9546dd5cfa31fabd9f75d7d48888299cfb0818f24181cb59df16b23bc522ea6a",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "ed780d5325d1d3c1fb7f7cdacacf76545f28b926bfdcccdb23eaaad505807ec0",
+  "original_image_path": "data/images/Fruit/0176_4256.jpg",
+  "original_width": 198,
+  "original_height": 198,
+  "assigned_image_path": "data/images/Fruit/0176_4256.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "2a65e4925ad519faa8b50f11c6bccf3dac30cad49322936ea17b3109a5238bfe",
+  "working_source_ids": [
+    "2a65e4925ad519faa8b50f11c6bccf3dac30cad49322936ea17b3109a5238bfe"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

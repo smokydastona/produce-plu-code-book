@@ -1,0 +1,37 @@
+{
+  "plu": "4623",
+  "product": "Kale Red",
+  "width": 500,
+  "height": 500,
+  "sha256": "424e9308624dae746f2adbe524f90719d36df38be3b148d3747b221e6393869b",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "e6fa45d48135b63429b86ea861c410c24aadb73ced8b1e8c9305ff87971467b7",
+  "original_image_path": "data/images/Vegetable/0307_4623.jpg",
+  "original_width": 351,
+  "original_height": 351,
+  "assigned_image_path": "data/images/Vegetable/0307_4623.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "3fd567246b97cfe9697741af6fe7535f090070445c12b98dfa6bb2f6a15eaca7",
+  "working_source_ids": [
+    "3fd567246b97cfe9697741af6fe7535f090070445c12b98dfa6bb2f6a15eaca7"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

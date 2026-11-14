@@ -1,0 +1,37 @@
+{
+  "plu": "4798",
+  "product": "Tomato Hot House Small",
+  "width": 500,
+  "height": 500,
+  "sha256": "dd463968082e5abdaadd66d9012ff7c5b8f9af6acabefc8a45c07a6ba351f868",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "a0f8f3754f747c53df13d249e0e547be117d21a4be13305ca7fb65640197039d",
+  "original_image_path": "data/images/Vegetable/0418_4798.jpg",
+  "original_width": 180,
+  "original_height": 180,
+  "assigned_image_path": "data/images/Vegetable/0418_4798.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "c4d379e1ec92a39e5f23237ecc7ecd521db5dbd67fc924ceea7d3b9333d4f6dd",
+  "working_source_ids": [
+    "c4d379e1ec92a39e5f23237ecc7ecd521db5dbd67fc924ceea7d3b9333d4f6dd"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

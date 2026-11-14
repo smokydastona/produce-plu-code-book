@@ -1,0 +1,36 @@
+{
+  "plu": "4686",
+  "product": "Pepper Green Chili",
+  "width": 500,
+  "height": 500,
+  "sha256": "1e64547d9f9f08fe252aad82c072cf06f7a6893bf24b08e98ced197265b50bda",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "00138cce9f42c8ff7d688b6a2a9772834a0a67465c9c596682e0aa0ba42c0084",
+  "original_image_path": "data/images/Vegetable/0395_4686.jpg",
+  "original_width": 386,
+  "original_height": 386,
+  "assigned_image_path": "data/images/Vegetable/0395_4686.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "29b9cc3580900999b240d0a767181dc8796cea5c561101e8f0dc1f75a4a93419",
+  "working_source_ids": [
+    "29b9cc3580900999b240d0a767181dc8796cea5c561101e8f0dc1f75a4a93419"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

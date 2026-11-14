@@ -1,0 +1,37 @@
+{
+  "plu": "4022",
+  "product": "Grapes Green Seedless",
+  "width": 500,
+  "height": 500,
+  "sha256": "a24ba37c732165e31bc4ea1b20a8042cbf25a50957e86f47564591f4afcd9105",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "17f4a6d23639d4cd091c7897bd3dc4ed003e0d79ee62c0ae6f65c1f53ce0960c",
+  "original_image_path": "data/images/Fruit/0074_4022.jpg",
+  "original_width": 271,
+  "original_height": 271,
+  "assigned_image_path": "data/images/Fruit/0074_4022.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "c91f604f0c25b96ed0938117f38e16b8d4f37f5e7b5d7ef8965a86f0b362e9cb",
+  "working_source_ids": [
+    "c91f604f0c25b96ed0938117f38e16b8d4f37f5e7b5d7ef8965a86f0b362e9cb"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

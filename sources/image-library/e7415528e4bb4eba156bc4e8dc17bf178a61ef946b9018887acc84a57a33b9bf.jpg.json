@@ -1,0 +1,41 @@
+{
+  "plu": "93128",
+  "product": "Organic Potato Purple",
+  "width": 500,
+  "height": 500,
+  "sha256": "7b6f442bed683fb5661b582a8cbcb714a3db6d4be6845c6bdea3ca3c67dc81cb",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "9a959b9b98947aabf7e178dbafe8480b96d734df8d336eb9c95c4947f6c18be6",
+  "original_image_path": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image54.jpg",
+  "original_width": 334,
+  "original_height": 334,
+  "assigned_image_path": "data/images/Vegetable/0559_93128.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image54.jpg",
+    "original_sha256": "9a959b9b98947aabf7e178dbafe8480b96d734df8d336eb9c95c4947f6c18be6"
+  },
+  "working_source_id": "e7415528e4bb4eba156bc4e8dc17bf178a61ef946b9018887acc84a57a33b9bf",
+  "working_source_ids": [
+    "e7415528e4bb4eba156bc4e8dc17bf178a61ef946b9018887acc84a57a33b9bf"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

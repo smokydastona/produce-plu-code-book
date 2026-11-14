@@ -1,0 +1,40 @@
+{
+  "plu": "94600",
+  "product": "Organic Eggplant White",
+  "width": 500,
+  "height": 500,
+  "sha256": "b601882b015b30ded2800d20d4b84bbee2b54a81940182803500db84c84948ed",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "a2b039e5bfb6b6b07983d96a6a2a6b06c1b88576b3b7bf81b2b95102efc2218b",
+  "original_image_path": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image156.jpg",
+  "original_width": 332,
+  "original_height": 332,
+  "assigned_image_path": "data/images/Vegetable/0515_94600.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image156.jpg",
+    "original_sha256": "a2b039e5bfb6b6b07983d96a6a2a6b06c1b88576b3b7bf81b2b95102efc2218b"
+  },
+  "working_source_id": "4d199075204dbd96651e55224ef42304ca14b67e2948746039e831b1df33d64f",
+  "working_source_ids": [
+    "4d199075204dbd96651e55224ef42304ca14b67e2948746039e831b1df33d64f"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

@@ -1,0 +1,36 @@
+{
+  "plu": "4218",
+  "product": "Apricots",
+  "width": 500,
+  "height": 500,
+  "sha256": "1269cdf371cc6163bd3408333571977510cb5c25fc635a23c17aceea43788bd7",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "eaca0269675c4f0f527a5597d6cd6c751b45e24631bc01e50c79c110810cad18",
+  "original_image_path": "data/images/Fruit/0125_4218.jpg",
+  "original_width": 204,
+  "original_height": 204,
+  "assigned_image_path": "data/images/Fruit/0125_4218.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "622b522465d52c4c1815a63f722f60c6a1aeaab25101abc743266ef3ffd934c2",
+  "working_source_ids": [
+    "622b522465d52c4c1815a63f722f60c6a1aeaab25101abc743266ef3ffd934c2"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

@@ -1,0 +1,37 @@
+{
+  "plu": "6097",
+  "product": "Mango",
+  "width": 500,
+  "height": 500,
+  "sha256": "65548ae4309f38fa944a678a7512a283c3359cf72faf82b7a4aaa8f3eaea979e",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "a4a931fb69872965c08a305f1fcf33ecf871c0a6e7310c97f3609e5c3ece1754",
+  "original_image_path": "data/images/Fruit/0151_6097.jpg",
+  "original_width": 180,
+  "original_height": 180,
+  "assigned_image_path": "data/images/Fruit/0151_6097.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "cb6080efcd729147d597e6d15be09c9ee10fb5dddfbfe4ca382d298cec2b3bf4",
+  "working_source_ids": [
+    "cb6080efcd729147d597e6d15be09c9ee10fb5dddfbfe4ca382d298cec2b3bf4"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

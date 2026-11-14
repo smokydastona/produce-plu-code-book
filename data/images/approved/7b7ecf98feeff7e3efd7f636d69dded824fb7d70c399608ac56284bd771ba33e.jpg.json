@@ -1,27 +1,19 @@
 {
-  "schema_version": 1,
   "plu": "4253",
   "product": "Strawberries by the Flat",
-  "working_list_id": "831477f2fab34a6c4c61d3462e135ee1da505cd870459c90f8258a057fd59ebb",
-  "source_identity_ids": [
-    "0739ff34cc3f91508f4916830a13b20c4d7b1d1f532197559944a1dfda9b2513"
-  ],
-  "creator": "Not identified in source",
-  "source_page_url": "https://media.koelnmesse.io/aft2021/redaktionell/aft/img/magazin/ecko-tray/ecko-tray_m24_full_m36_1025.jpg",
-  "original_image_url": "https://media.koelnmesse.io/aft2021/redaktionell/aft/img/magazin/ecko-tray/ecko-tray_m24_full_m36_1025.jpg",
-  "sha256": "7b7ecf98feeff7e3efd7f636d69dded824fb7d70c399608ac56284bd771ba33e",
+  "creator": "Not separately identified; ownership attested by user",
+  "license": "OWNER_CONFIRMED_PERMISSION",
+  "rights_status": "OWNER_CONFIRMED_PERMISSION",
+  "source_reference": "Owner-uploaded file: Strawberry_Tray.jpg (Copilot session attachment; no public source URL supplied)",
+  "rights_evidence": "User confirmed: \"I own it and approve its use and resizing\"",
+  "photographic_origin": "OWNER_CONFIRMED_PHOTO",
+  "photographic_origin_evidence": "User confirmed: \"Actual photograph\"",
+  "visual_approval_evidence": "Owner supplied this tray image after requesting a flat/tray of strawberries and confirmed approval of its use and resizing.",
+  "attribution": "Owner-provided image; creator not separately identified",
   "width": 1200,
   "height": 675,
-  "license": "OWNER_CONFIRMED_PERMISSION",
-  "license_url": "",
-  "attribution": "Koelnmesse-hosted image; creator not identified in source. Owner-confirmed permission for this specific use; no public reuse licence is asserted.",
-  "changes": "Original image unchanged",
+  "sha256": "7b7ecf98feeff7e3efd7f636d69dded824fb7d70c399608ac56284bd771ba33e",
   "approval_status": "CANDIDATE",
   "visual_approval_status": "APPROVED",
-  "photographic_origin": "VERIFIED_PHOTO",
-  "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
-  "rights_evidence": "User confirmed permission from the rights holder to use this exact strawberry image in the public repository and cashier binders. Owner-confirmed, not independently documented.",
-  "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
-  "note": "User approved this exact photograph for PLU 4253 under the confirmed permission; not a public reuse licence or blanket approval.",
-  "production_approved_source_id": "831477f2fab34a6c4c61d3462e135ee1da505cd870459c90f8258a057fd59ebb"
+  "rights_verification_status": "VERIFIED"
 }

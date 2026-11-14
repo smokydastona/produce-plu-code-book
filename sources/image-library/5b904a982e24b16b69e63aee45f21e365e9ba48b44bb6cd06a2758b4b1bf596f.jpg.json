@@ -1,0 +1,37 @@
+{
+  "plu": "4761",
+  "product": "Squash Chayote",
+  "width": 500,
+  "height": 500,
+  "sha256": "5810fe7873f3dff3cc0cadefa5ad34ebbf511bafc2a94be8a3f846cf3948360e",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "bc34e6e288593c2c081acabc68ee40c9da8c89d8c1ade523af591b1c1c549539",
+  "original_image_path": "data/images/Vegetable/0438_4761.jpg",
+  "original_width": 213,
+  "original_height": 213,
+  "assigned_image_path": "data/images/Vegetable/0438_4761.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "5b904a982e24b16b69e63aee45f21e365e9ba48b44bb6cd06a2758b4b1bf596f",
+  "working_source_ids": [
+    "5b904a982e24b16b69e63aee45f21e365e9ba48b44bb6cd06a2758b4b1bf596f"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

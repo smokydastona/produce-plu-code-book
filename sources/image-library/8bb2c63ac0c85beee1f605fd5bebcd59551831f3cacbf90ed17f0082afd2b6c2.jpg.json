@@ -1,0 +1,37 @@
+{
+  "plu": "4586",
+  "product": "Swiss Chard Green",
+  "width": 500,
+  "height": 500,
+  "sha256": "c48d6c26439a1aab1b9ea9d018884ed75cb3b990dd1d40d1b76ae377928528ed",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "8ddd8de3e8af88dac239165499d06950df77e55415a115085c1751ddaf1195fd",
+  "original_image_path": "data/images/Vegetable/0310_4586.jpg",
+  "original_width": 257,
+  "original_height": 257,
+  "assigned_image_path": "data/images/Vegetable/0310_4586.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "8bb2c63ac0c85beee1f605fd5bebcd59551831f3cacbf90ed17f0082afd2b6c2",
+  "working_source_ids": [
+    "8bb2c63ac0c85beee1f605fd5bebcd59551831f3cacbf90ed17f0082afd2b6c2"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

@@ -1,0 +1,37 @@
+{
+  "plu": "4020",
+  "product": "Apples Gold Delicious Large",
+  "width": 500,
+  "height": 500,
+  "sha256": "290c5651d932c3142dd4357b6ff591ce79a9dcac7a9f3f3beca836509529241a",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "aba9392101578d42158ec30f7607e3a422e3af1507bcbf1fa7bc33940485e8a5",
+  "original_image_path": "data/images/Fruit/0007_4020.jpg",
+  "original_width": 253,
+  "original_height": 253,
+  "assigned_image_path": "data/images/Fruit/0007_4020.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "1645365b5c290b1674d3dcd01ef050f2bfde741ad506530addb6ca4f17874eb6",
+  "working_source_ids": [
+    "1645365b5c290b1674d3dcd01ef050f2bfde741ad506530addb6ca4f17874eb6"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

@@ -1,0 +1,36 @@
+{
+  "plu": "4560",
+  "product": "Carrotts Baby",
+  "width": 500,
+  "height": 500,
+  "sha256": "98086669eb73d8ba6cff3707d575c33c097f516674e2b161089b603381dc987c",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "fcd0d3835e03348af41703e04a93cb28f06ea260d880477f68d6302404437d95",
+  "original_image_path": "data/images/Vegetable/0347_4560.jpg",
+  "original_width": 322,
+  "original_height": 322,
+  "assigned_image_path": "data/images/Vegetable/0347_4560.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "65c10a3593104a52c096661c09c9ee600b7d9237bcb549569816d6e4b4db3c27",
+  "working_source_ids": [
+    "65c10a3593104a52c096661c09c9ee600b7d9237bcb549569816d6e4b4db3c27"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

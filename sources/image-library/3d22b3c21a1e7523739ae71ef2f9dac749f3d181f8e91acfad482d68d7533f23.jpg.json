@@ -1,0 +1,41 @@
+{
+  "plu": "94070",
+  "product": "Organic Celery",
+  "width": 500,
+  "height": 500,
+  "sha256": "5cbe0515d4b7ebf6fa4a1d5fb899f8f7269ebedf4247b1b93d8f8eeb7d7ec87b",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "bda14aca6a397f78489a5fb6790a89034ea883eed1b1978bc31368d15aab783a",
+  "original_image_path": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image142.jpg",
+  "original_width": 232,
+  "original_height": 232,
+  "assigned_image_path": "data/images/Vegetable/0505_94070.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image142.jpg",
+    "original_sha256": "bda14aca6a397f78489a5fb6790a89034ea883eed1b1978bc31368d15aab783a"
+  },
+  "working_source_id": "3d22b3c21a1e7523739ae71ef2f9dac749f3d181f8e91acfad482d68d7533f23",
+  "working_source_ids": [
+    "3d22b3c21a1e7523739ae71ef2f9dac749f3d181f8e91acfad482d68d7533f23"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

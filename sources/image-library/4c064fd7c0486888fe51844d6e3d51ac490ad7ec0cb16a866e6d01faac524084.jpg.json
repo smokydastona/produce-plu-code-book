@@ -1,0 +1,41 @@
+{
+  "plu": "94011",
+  "product": "Organic Bananas",
+  "width": 500,
+  "height": 500,
+  "sha256": "9a0a8f391d20e07fe8b5f1e23af618a06cead29da79bff2f4a211bfd1e4faede",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "ecbdb84445ad381b9245c15144e7768abe2f63b14b8b7dcaaf04bcbddf013ab7",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image83.jpg",
+  "original_width": 225,
+  "original_height": 225,
+  "assigned_image_path": "data/images/Fruit/0215_94011.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image83.jpg",
+    "original_sha256": "ecbdb84445ad381b9245c15144e7768abe2f63b14b8b7dcaaf04bcbddf013ab7"
+  },
+  "working_source_id": "4c064fd7c0486888fe51844d6e3d51ac490ad7ec0cb16a866e6d01faac524084",
+  "working_source_ids": [
+    "4c064fd7c0486888fe51844d6e3d51ac490ad7ec0cb16a866e6d01faac524084"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

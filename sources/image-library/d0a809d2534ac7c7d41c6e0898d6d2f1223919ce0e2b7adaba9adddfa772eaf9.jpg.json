@@ -1,0 +1,40 @@
+{
+  "plu": "94085",
+  "product": "Organic Mushrooms White",
+  "width": 500,
+  "height": 500,
+  "sha256": "3980408d99f85f47826e57b55e223aa5c6f09972905efdb475783b80debe4e18",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "8bd6941d513967fb71f4cf2399c3878af6f3fd4ac533bc55e0502f710d823c8e",
+  "original_image_path": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image162.jpg",
+  "original_width": 255,
+  "original_height": 255,
+  "assigned_image_path": "data/images/Vegetable/0538_94085.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image162.jpg",
+    "original_sha256": "8bd6941d513967fb71f4cf2399c3878af6f3fd4ac533bc55e0502f710d823c8e"
+  },
+  "working_source_id": "d0a809d2534ac7c7d41c6e0898d6d2f1223919ce0e2b7adaba9adddfa772eaf9",
+  "working_source_ids": [
+    "d0a809d2534ac7c7d41c6e0898d6d2f1223919ce0e2b7adaba9adddfa772eaf9"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

@@ -1,0 +1,36 @@
+{
+  "plu": "3082",
+  "product": "Broccoli Crowns",
+  "width": 500,
+  "height": 500,
+  "sha256": "3f03b6b58e994fb117a2712dcd89440d803d5479569fde119e7ecf642e18c093",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "3e39ac208b89fa0607876a02ab49ac5144712f89587d209bd20940b885d460bd",
+  "original_image_path": "data/images/Vegetable/0329_3082.jpg",
+  "original_width": 180,
+  "original_height": 180,
+  "assigned_image_path": "data/images/Vegetable/0329_3082.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "b58d046bcb370737cc4a6f1537c9f4e2a228d3e421734aaa4271c6eca186bf11",
+  "working_source_ids": [
+    "b58d046bcb370737cc4a6f1537c9f4e2a228d3e421734aaa4271c6eca186bf11"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

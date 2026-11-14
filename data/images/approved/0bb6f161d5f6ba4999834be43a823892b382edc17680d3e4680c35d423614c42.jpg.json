@@ -1,0 +1,19 @@
+{
+  "plu": "4723",
+  "product": "Red Creamer Potatoes",
+  "creator": "Not separately identified; ownership attested by user",
+  "license": "OWNER_CONFIRMED_PERMISSION",
+  "rights_status": "OWNER_CONFIRMED_PERMISSION",
+  "source_reference": "Owner-uploaded file: Red_creamer_potatoes.jpg (Copilot session attachment; no public source URL supplied)",
+  "rights_evidence": "User confirmed: \"I own both and approve their use and resizing\"",
+  "photographic_origin": "OWNER_CONFIRMED_PHOTO",
+  "photographic_origin_evidence": "User confirmed: \"Both are actual photographs\"",
+  "visual_approval_evidence": "Owner supplied separate red-potato and red-creamer images and requested their use for the respective products. Red_creamer_potatoes.jpg is assigned only to Red Creamer Potatoes, PLU 4723.",
+  "attribution": "Owner-provided image; creator not separately identified",
+  "width": 632,
+  "height": 687,
+  "sha256": "0bb6f161d5f6ba4999834be43a823892b382edc17680d3e4680c35d423614c42",
+  "approval_status": "CANDIDATE",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "VERIFIED"
+}

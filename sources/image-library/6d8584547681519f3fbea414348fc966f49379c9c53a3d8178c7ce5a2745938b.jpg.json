@@ -1,0 +1,37 @@
+{
+  "plu": "4027",
+  "product": "Grapefruit Red Sm",
+  "width": 500,
+  "height": 500,
+  "sha256": "96cc69dad3d3ff902afe127c732d825a2b2fb3614731ea314fb65fef907714c1",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "31c9d102d7f9775213b57d056588c1dcf4737055205c05dffc5eef2ed87931e7",
+  "original_image_path": "data/images/Fruit/0048_4027.jpg",
+  "original_width": 206,
+  "original_height": 206,
+  "assigned_image_path": "data/images/Fruit/0048_4027.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "6d8584547681519f3fbea414348fc966f49379c9c53a3d8178c7ce5a2745938b",
+  "working_source_ids": [
+    "6d8584547681519f3fbea414348fc966f49379c9c53a3d8178c7ce5a2745938b"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

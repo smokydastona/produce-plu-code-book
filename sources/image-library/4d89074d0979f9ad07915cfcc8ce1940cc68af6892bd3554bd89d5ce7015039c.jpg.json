@@ -1,0 +1,41 @@
+{
+  "plu": "93121",
+  "product": "Organic Pepper Orange",
+  "width": 500,
+  "height": 500,
+  "sha256": "9eb0a399dc2875e956b4eb2b0c560d71a077e69a54aa9a536775e41c9f0a7fef",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "478aa73394e7ec5faf428f57e23a6e0e70fc84327049e95d3a5806fe5b255027",
+  "original_image_path": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image81.jpg",
+  "original_width": 180,
+  "original_height": 180,
+  "assigned_image_path": "data/images/Vegetable/0553_93121.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image81.jpg",
+    "original_sha256": "478aa73394e7ec5faf428f57e23a6e0e70fc84327049e95d3a5806fe5b255027"
+  },
+  "working_source_id": "4d89074d0979f9ad07915cfcc8ce1940cc68af6892bd3554bd89d5ce7015039c",
+  "working_source_ids": [
+    "4d89074d0979f9ad07915cfcc8ce1940cc68af6892bd3554bd89d5ce7015039c"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

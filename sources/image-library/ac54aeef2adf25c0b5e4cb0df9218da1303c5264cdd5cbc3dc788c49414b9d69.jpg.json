@@ -1,0 +1,36 @@
+{
+  "plu": "4693",
+  "product": "Pepper Jalapeno",
+  "width": 500,
+  "height": 500,
+  "sha256": "33b7ac79ed1947d910289ee0e988d4473fc72a8112c58a9f0cfd6f492e3c55ea",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "8db64aef5170e68b4d5326c83aba1621e6e1c9d4814882ce810d77ad007b0050",
+  "original_image_path": "data/images/Vegetable/0400_4693.jpg",
+  "original_width": 257,
+  "original_height": 257,
+  "assigned_image_path": "data/images/Vegetable/0400_4693.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "ac54aeef2adf25c0b5e4cb0df9218da1303c5264cdd5cbc3dc788c49414b9d69",
+  "working_source_ids": [
+    "ac54aeef2adf25c0b5e4cb0df9218da1303c5264cdd5cbc3dc788c49414b9d69"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

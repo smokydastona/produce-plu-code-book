@@ -1,0 +1,37 @@
+{
+  "plu": "4545",
+  "product": "Bok Choy",
+  "width": 500,
+  "height": 500,
+  "sha256": "27ec197367645dfaa21118c712c9e23dc226c348387a385d418919becd2f0e31",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "fcbcf51dc9f19232b6fd8427fcc5998a09e3cd9de82f950305337eccedf7de4b",
+  "original_image_path": "data/images/Vegetable/0461_4545.jpg",
+  "original_width": 144,
+  "original_height": 144,
+  "assigned_image_path": "data/images/Vegetable/0461_4545.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "1b75ad8f317eac2a906c9ad4976dcb157f7e5f0be8a69142d879716a510ae968",
+  "working_source_ids": [
+    "1b75ad8f317eac2a906c9ad4976dcb157f7e5f0be8a69142d879716a510ae968"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

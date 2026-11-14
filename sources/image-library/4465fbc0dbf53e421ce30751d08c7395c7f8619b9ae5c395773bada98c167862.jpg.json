@@ -1,0 +1,37 @@
+{
+  "plu": "4413",
+  "product": "Pear Bosc Large",
+  "width": 500,
+  "height": 500,
+  "sha256": "fd2f1981933f72f60cae9d706a11bee9959d7997f1fe294c8d120268e5cf254f",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "da2c4ed7f65c0e70368f7ebf66e9673ed4e5c0a8d1f049260d5b4dc65a0286c4",
+  "original_image_path": "data/images/Fruit/0025_4413.jpg",
+  "original_width": 180,
+  "original_height": 180,
+  "assigned_image_path": "data/images/Fruit/0025_4413.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "4465fbc0dbf53e421ce30751d08c7395c7f8619b9ae5c395773bada98c167862",
+  "working_source_ids": [
+    "4465fbc0dbf53e421ce30751d08c7395c7f8619b9ae5c395773bada98c167862"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

@@ -1,0 +1,37 @@
+{
+  "plu": "4410",
+  "product": "Pear Bartlett Red",
+  "width": 500,
+  "height": 500,
+  "sha256": "951f4ae09adab649f7fe126b0785edd506b318d3f4a92b9fe1bd0a1943e969d9",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "d96ef6871ea35920514cb9e408c36977d2a0e809be5d3a91a10c0b1b790e2058",
+  "original_image_path": "data/images/Fruit/0024_4410.jpg",
+  "original_width": 199,
+  "original_height": 199,
+  "assigned_image_path": "data/images/Fruit/0024_4410.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "48295ada83054661267fe7b86f531bcbe19e329cfc0b6dafb106b4792bbadf95",
+  "working_source_ids": [
+    "48295ada83054661267fe7b86f531bcbe19e329cfc0b6dafb106b4792bbadf95"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

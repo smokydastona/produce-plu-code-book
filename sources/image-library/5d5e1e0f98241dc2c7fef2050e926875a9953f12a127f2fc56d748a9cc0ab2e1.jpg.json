@@ -1,0 +1,41 @@
+{
+  "plu": "94311",
+  "product": "Organic Mangoes",
+  "width": 500,
+  "height": 500,
+  "sha256": "ab029d1690485cfd880be0a1181c19225b32ea0f63b6324f02c8d48dafbcf8f0",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "a4a931fb69872965c08a305f1fcf33ecf871c0a6e7310c97f3609e5c3ece1754",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image90.jpg",
+  "original_width": 180,
+  "original_height": 180,
+  "assigned_image_path": "data/images/Fruit/0237_94311.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image90.jpg",
+    "original_sha256": "a4a931fb69872965c08a305f1fcf33ecf871c0a6e7310c97f3609e5c3ece1754"
+  },
+  "working_source_id": "5d5e1e0f98241dc2c7fef2050e926875a9953f12a127f2fc56d748a9cc0ab2e1",
+  "working_source_ids": [
+    "5d5e1e0f98241dc2c7fef2050e926875a9953f12a127f2fc56d748a9cc0ab2e1"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

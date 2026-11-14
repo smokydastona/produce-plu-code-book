@@ -1,0 +1,36 @@
+{
+  "plu": "4819",
+  "product": "Yucca Root",
+  "width": 500,
+  "height": 500,
+  "sha256": "c3de0cfa7b1fd8c335ebef29fb645aad55f201a9d1778221a2fb2c6370a92e02",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "5237b7ef655f80213e43a6172e4b2ab5a6f8da82e6e6c36c3fc7333f7bcf325f",
+  "original_image_path": "data/images/Vegetable/0358_4819.jpg",
+  "original_width": 239,
+  "original_height": 239,
+  "assigned_image_path": "data/images/Vegetable/0358_4819.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "5b0d5bf506e57826a2c29510816ad3e33f3f5b14bcfd0a235829dc07237ac39f",
+  "working_source_ids": [
+    "5b0d5bf506e57826a2c29510816ad3e33f3f5b14bcfd0a235829dc07237ac39f"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

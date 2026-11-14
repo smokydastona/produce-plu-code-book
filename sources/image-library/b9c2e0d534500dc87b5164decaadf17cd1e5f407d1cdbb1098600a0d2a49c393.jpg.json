@@ -1,0 +1,37 @@
+{
+  "plu": "4032",
+  "product": "Watermelon",
+  "width": 500,
+  "height": 500,
+  "sha256": "b8cd978cafe5fa50992605ec943f18eba887c7081a4a11d8aaa9c68f030100f5",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "26b3bf83813d0717eb27b3f23948208a25795a0cef583bfe84dcac30592631d8",
+  "original_image_path": "data/images/Fruit/0124_4032.jpg",
+  "original_width": 205,
+  "original_height": 205,
+  "assigned_image_path": "data/images/Fruit/0124_4032.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "b9c2e0d534500dc87b5164decaadf17cd1e5f407d1cdbb1098600a0d2a49c393",
+  "working_source_ids": [
+    "b9c2e0d534500dc87b5164decaadf17cd1e5f407d1cdbb1098600a0d2a49c393"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

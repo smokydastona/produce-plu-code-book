@@ -1,0 +1,41 @@
+{
+  "plu": "94539",
+  "product": "Organic Beets",
+  "width": 500,
+  "height": 500,
+  "sha256": "8c7c45869ff80ca91d3b06d0b4a1e223ecaec0e11b0b1e1c9205ed2c55fff44a",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "7cc518004988295d2f1075cd89ccb307486fb293a708cec8335cd486b2bc9fa6",
+  "original_image_path": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image37.jpg",
+  "original_width": 286,
+  "original_height": 286,
+  "assigned_image_path": "data/images/Vegetable/0499_94539.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image37.jpg",
+    "original_sha256": "7cc518004988295d2f1075cd89ccb307486fb293a708cec8335cd486b2bc9fa6"
+  },
+  "working_source_id": "330d285d9d581383d6fae30f3b5480ec0eb4992a10d9635a9758d2c0f03aee79",
+  "working_source_ids": [
+    "330d285d9d581383d6fae30f3b5480ec0eb4992a10d9635a9758d2c0f03aee79"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

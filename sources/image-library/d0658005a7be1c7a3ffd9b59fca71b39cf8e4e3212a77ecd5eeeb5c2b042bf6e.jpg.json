@@ -1,0 +1,36 @@
+{
+  "plu": "4961",
+  "product": "Mango Ataulfo Mexico",
+  "width": 500,
+  "height": 500,
+  "sha256": "fca2e31d63fd26440f0eb378ce305742f5c99f0474360c0df0d129915f71c7f1",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "e195d9a626f98af3849b0786fed8a52366439898ffe039a860c78677bc1c7978",
+  "original_image_path": "data/images/Fruit/0152_4961.jpg",
+  "original_width": 183,
+  "original_height": 183,
+  "assigned_image_path": "data/images/Fruit/0152_4961.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "d0658005a7be1c7a3ffd9b59fca71b39cf8e4e3212a77ecd5eeeb5c2b042bf6e",
+  "working_source_ids": [
+    "d0658005a7be1c7a3ffd9b59fca71b39cf8e4e3212a77ecd5eeeb5c2b042bf6e"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

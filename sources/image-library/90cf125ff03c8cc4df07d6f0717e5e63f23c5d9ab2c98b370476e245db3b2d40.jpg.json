@@ -1,0 +1,41 @@
+{
+  "plu": "94799",
+  "product": "Organic Hot House Tomatoe",
+  "width": 500,
+  "height": 500,
+  "sha256": "c0e9364062cff660d2c31e507ce536fcc44461c7111626ede32d9acaff9a3c77",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "a0f8f3754f747c53df13d249e0e547be117d21a4be13305ca7fb65640197039d",
+  "original_image_path": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image94.jpg",
+  "original_width": 180,
+  "original_height": 180,
+  "assigned_image_path": "data/images/Vegetable/0520_94799.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image94.jpg",
+    "original_sha256": "a0f8f3754f747c53df13d249e0e547be117d21a4be13305ca7fb65640197039d"
+  },
+  "working_source_id": "90cf125ff03c8cc4df07d6f0717e5e63f23c5d9ab2c98b370476e245db3b2d40",
+  "working_source_ids": [
+    "90cf125ff03c8cc4df07d6f0717e5e63f23c5d9ab2c98b370476e245db3b2d40"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

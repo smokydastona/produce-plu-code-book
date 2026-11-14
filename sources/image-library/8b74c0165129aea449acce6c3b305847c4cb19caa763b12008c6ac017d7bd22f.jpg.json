@@ -1,0 +1,36 @@
+{
+  "plu": "4397",
+  "product": "Passion Fruit",
+  "width": 500,
+  "height": 500,
+  "sha256": "e7ce3f4d9b0e579794110a37dac213e9a5cea80e08e5053618160c9298f812df",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "c21bf6530372854778dfa88803f74f97fe51a491cd194a0a7edbe9f703a30cdb",
+  "original_image_path": "data/images/Fruit/0165_4397.jpg",
+  "original_width": 224,
+  "original_height": 224,
+  "assigned_image_path": "data/images/Fruit/0165_4397.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "8b74c0165129aea449acce6c3b305847c4cb19caa763b12008c6ac017d7bd22f",
+  "working_source_ids": [
+    "8b74c0165129aea449acce6c3b305847c4cb19caa763b12008c6ac017d7bd22f"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

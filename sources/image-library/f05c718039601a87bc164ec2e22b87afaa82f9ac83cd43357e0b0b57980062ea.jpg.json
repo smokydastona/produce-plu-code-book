@@ -1,0 +1,36 @@
+{
+  "plu": "4722",
+  "product": "Pepper Cherry",
+  "width": 500,
+  "height": 500,
+  "sha256": "ac6e15d0329efea40ca0128f48b4c273b76464c7b2f6c4477e4eb3d74b6d4cbc",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "34620a5539a7c4d30bba887cc0995b4e543eabd46f2257667e15c14766150815",
+  "original_image_path": "data/images/Vegetable/0393_4722.jpg",
+  "original_width": 316,
+  "original_height": 316,
+  "assigned_image_path": "data/images/Vegetable/0393_4722.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "f05c718039601a87bc164ec2e22b87afaa82f9ac83cd43357e0b0b57980062ea",
+  "working_source_ids": [
+    "f05c718039601a87bc164ec2e22b87afaa82f9ac83cd43357e0b0b57980062ea"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

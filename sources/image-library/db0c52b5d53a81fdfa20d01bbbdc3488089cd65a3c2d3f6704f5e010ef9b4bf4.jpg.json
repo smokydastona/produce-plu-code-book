@@ -1,0 +1,41 @@
+{
+  "plu": "94096",
+  "product": "Organic Ginger Gold",
+  "width": 500,
+  "height": 500,
+  "sha256": "41223bcbe728ee998af75581b5bcb93f9922326ddedb45c58cb95a57f2ad821c",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "6fa642a734582193596ee0231ff9f0a814b252b228a23431fcbc04f2dd748223",
+  "original_image_path": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image44.jpg",
+  "original_width": 165,
+  "original_height": 165,
+  "assigned_image_path": "data/images/Vegetable/0517_94096.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image44.jpg",
+    "original_sha256": "6fa642a734582193596ee0231ff9f0a814b252b228a23431fcbc04f2dd748223"
+  },
+  "working_source_id": "db0c52b5d53a81fdfa20d01bbbdc3488089cd65a3c2d3f6704f5e010ef9b4bf4",
+  "working_source_ids": [
+    "db0c52b5d53a81fdfa20d01bbbdc3488089cd65a3c2d3f6704f5e010ef9b4bf4"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

@@ -1,0 +1,37 @@
+{
+  "plu": "4689",
+  "product": "Pepper Yellow",
+  "width": 500,
+  "height": 500,
+  "sha256": "0b438966a9374e7b1110937717314dbe8be22cf50b2cc50001aac8677655f2f8",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "2761caa57efde206d7bca4fb46eb4c5414b108689df72f8a69f435e785820f89",
+  "original_image_path": "data/images/Vegetable/0410_4689.jpg",
+  "original_width": 185,
+  "original_height": 185,
+  "assigned_image_path": "data/images/Vegetable/0410_4689.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "4ea0666cd993ea69a0a473e0f1fdf6a1985cffc4b8312c5fa5f0a1583307e1a0",
+  "working_source_ids": [
+    "4ea0666cd993ea69a0a473e0f1fdf6a1985cffc4b8312c5fa5f0a1583307e1a0"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

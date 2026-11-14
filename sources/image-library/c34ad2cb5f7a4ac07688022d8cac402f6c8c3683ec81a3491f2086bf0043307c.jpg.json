@@ -1,0 +1,37 @@
+{
+  "plu": "4040",
+  "product": "Plum Black Large",
+  "width": 500,
+  "height": 500,
+  "sha256": "3bca25bed268f077f121c85e2fc1f0313b57354caeb39364cb35844a3c59d45e",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "132fe3144435d9f57742440111612e2e1dad8b9a73c78f107ee1745c4b3f2b04",
+  "original_image_path": "data/images/Fruit/0132_4040.jpg",
+  "original_width": 318,
+  "original_height": 318,
+  "assigned_image_path": "data/images/Fruit/0132_4040.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "c34ad2cb5f7a4ac07688022d8cac402f6c8c3683ec81a3491f2086bf0043307c",
+  "working_source_ids": [
+    "c34ad2cb5f7a4ac07688022d8cac402f6c8c3683ec81a3491f2086bf0043307c"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

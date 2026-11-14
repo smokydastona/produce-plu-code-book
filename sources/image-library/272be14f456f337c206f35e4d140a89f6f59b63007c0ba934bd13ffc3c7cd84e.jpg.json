@@ -1,0 +1,37 @@
+{
+  "plu": "4045",
+  "product": "Cherries",
+  "width": 500,
+  "height": 500,
+  "sha256": "6834360a080c6bac5e22dfcd2830ba8c5a496b212ac7c98a308c393eb79a03c9",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "ade2c752f928bc4ddf07affcc3ebe774b4ca165755b6eb9a47849adf3cdb648d",
+  "original_image_path": "data/images/Fruit/0126_4045.jpg",
+  "original_width": 225,
+  "original_height": 225,
+  "assigned_image_path": "data/images/Fruit/0126_4045.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "272be14f456f337c206f35e4d140a89f6f59b63007c0ba934bd13ffc3c7cd84e",
+  "working_source_ids": [
+    "272be14f456f337c206f35e4d140a89f6f59b63007c0ba934bd13ffc3c7cd84e"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

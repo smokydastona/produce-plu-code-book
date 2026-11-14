@@ -1,0 +1,36 @@
+{
+  "plu": "4779",
+  "product": "Squash Sweet Mama",
+  "width": 500,
+  "height": 500,
+  "sha256": "bdca256c87a6f9154b9e810f79e2734202ade6f40a463cd13fadfbdd6bef14b6",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "bd0831280cd4e433c67a0e92ba3b6b38e8d92cedebb10b016ecb5194dcfde761",
+  "original_image_path": "data/images/Vegetable/0449_4779.jpg",
+  "original_width": 280,
+  "original_height": 280,
+  "assigned_image_path": "data/images/Vegetable/0449_4779.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "f1c7c4f55c803faa721c9746a8116f406d60b5a13a167f80cd6f83c7d1e6a30b",
+  "working_source_ids": [
+    "f1c7c4f55c803faa721c9746a8116f406d60b5a13a167f80cd6f83c7d1e6a30b"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

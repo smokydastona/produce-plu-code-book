@@ -1,0 +1,37 @@
+{
+  "plu": "4516",
+  "product": "Artichokes Small",
+  "width": 500,
+  "height": 500,
+  "sha256": "057d8f3e9d32684e44d93bd34ba08d8aeae089ce8bb8dd647cef0ee11bbd6361",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "2424f0585c7e2d4b586769dac034a04b5bae28d750507edd02af7a833929b987",
+  "original_image_path": "data/images/Vegetable/0481_4516.jpg",
+  "original_width": 261,
+  "original_height": 261,
+  "assigned_image_path": "data/images/Vegetable/0481_4516.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "76430b5e134ca84c9e3a40dac3c6432267a680ba9708d2d2fab9b0d4b8fe5ced",
+  "working_source_ids": [
+    "76430b5e134ca84c9e3a40dac3c6432267a680ba9708d2d2fab9b0d4b8fe5ced"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

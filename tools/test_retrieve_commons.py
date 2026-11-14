@@ -1,0 +1,80 @@
+import csv
+import tempfile
+import unittest
+from pathlib import Path
+
+from retrieve_commons import (
+    apply_search_query,
+    entry_query,
+    review_rejection_entries,
+    select_review_sequence,
+)
+
+
+class WorkingListCandidateRequests(unittest.TestCase):
+    def setUp(self):
+        self.temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temporary.cleanup)
+        self.root = Path(self.temporary.name)
+        self.review_path = self.root / "IMAGE_VISUAL_REVIEW.csv"
+        self.report = dict(
+            source="sources/plu/PickList.xml",
+            source_sha256="current-source-hash",
+            reviewed_working_list_entries=2,
+            decision_counts={"REJECTED": 1, "VISUALLY_SUITABLE": 1},
+        )
+        self.items = [
+            dict(source_id="working-napa", source_ids=["source-napa"], plu="4552",
+                 name="Napa Cabbage", included=True),
+            dict(source_id="working-cilantro", source_ids=["source-cilantro"], plu="4889",
+                 name="Cilantro", included=True),
+        ]
+        rows = [
+            dict(sequence="4", working_list_id="working-napa", source_identity_ids="source-napa",
+                 plu="4552", working_product="Napa Cabbage", visual_decision="REJECTED"),
+            dict(sequence="15", working_list_id="working-cilantro", source_identity_ids="source-cilantro",
+                 plu="4889", working_product="Cilantro", visual_decision="VISUALLY_SUITABLE"),
+        ]
+        with self.review_path.open("w", newline="", encoding="utf-8") as file:
+            writer = csv.DictWriter(file, fieldnames=rows[0].keys())
+            writer.writeheader()
+            writer.writerows(rows)
+
+    def test_only_current_rejected_working_list_identities_become_search_requests(self):
+        entries = review_rejection_entries(self.review_path, self.report, "current-source-hash", self.items)
+        self.assertEqual(entries, [
+            dict(idx="4", plu="4552", name="Napa Cabbage", source_id="working-napa"),
+        ])
+
+    def test_stale_source_or_identity_fails_closed(self):
+        with self.assertRaisesRegex(ValueError, "different PickList"):
+            review_rejection_entries(self.review_path, self.report, "changed-source-hash", self.items)
+
+        changed_items = [dict(self.items[0], name="Different Product"), self.items[1]]
+        with self.assertRaisesRegex(ValueError, "identity changed"):
+            review_rejection_entries(self.review_path, self.report, "current-source-hash", changed_items)
+
+    def test_sequence_filter_selects_only_one_rejected_entry(self):
+        entries = [
+            dict(idx="4", plu="4552", name="Napa Cabbage", source_id="working-napa"),
+            dict(idx="5", plu="4253", name="Strawberries by the Flat", source_id="working-berries"),
+        ]
+        self.assertEqual(select_review_sequence(entries, "4"), entries[:1])
+        self.assertEqual(select_review_sequence(entries, ""), entries)
+        with self.assertRaisesRegex(ValueError, "not a rejected"):
+            select_review_sequence(entries, "15")
+
+    def test_search_query_override_is_limited_to_one_entry(self):
+        entries = [dict(idx="4", plu="4552", name="Napa Cabbage", source_id="working-napa")]
+        selected = apply_search_query(entries, "  Napa cabbage   white background ")
+        self.assertEqual(entry_query(selected[0]), "Napa cabbage white background")
+        self.assertNotIn("query", entries[0])
+
+        with self.assertRaisesRegex(ValueError, "exactly one"):
+            apply_search_query(entries * 2, "Napa cabbage white background")
+        with self.assertRaisesRegex(ValueError, "must not be blank"):
+            apply_search_query(entries, "  ")
+
+
+if __name__ == "__main__":
+    unittest.main()

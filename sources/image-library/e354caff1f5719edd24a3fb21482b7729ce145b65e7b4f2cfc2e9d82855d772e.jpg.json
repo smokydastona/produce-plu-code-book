@@ -1,0 +1,36 @@
+{
+  "plu": "3122",
+  "product": "Pepper White",
+  "width": 500,
+  "height": 500,
+  "sha256": "7d8fdee79ca1ed3d8dd45814b9ad2efeecd1f0715545d005ddc91f5af88e82df",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "51ea7c896a47bfd0667fb582952db48100cecb1d809da66131298e08a8f8d9d4",
+  "original_image_path": "data/images/Vegetable/0409_3122.jpg",
+  "original_width": 305,
+  "original_height": 305,
+  "assigned_image_path": "data/images/Vegetable/0409_3122.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "e354caff1f5719edd24a3fb21482b7729ce145b65e7b4f2cfc2e9d82855d772e",
+  "working_source_ids": [
+    "e354caff1f5719edd24a3fb21482b7729ce145b65e7b4f2cfc2e9d82855d772e"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

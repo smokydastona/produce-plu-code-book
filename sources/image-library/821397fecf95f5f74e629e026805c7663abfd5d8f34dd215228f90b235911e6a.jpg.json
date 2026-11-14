@@ -1,0 +1,41 @@
+{
+  "plu": "94252",
+  "product": "Organic Strawberry Pint",
+  "width": 500,
+  "height": 500,
+  "sha256": "b7e0c187788db7fe4c4407a26fa2187e206c62a0ee89181e72f59f6546f74500",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "b8508fef81429f28bac2565229a7aa62c099305d1dac132e4140b31ee14f4013",
+  "original_image_path": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image58.jpg",
+  "original_width": 194,
+  "original_height": 194,
+  "assigned_image_path": "data/images/Fruit/0292_94252.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/FRUIT_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image58.jpg",
+    "original_sha256": "b8508fef81429f28bac2565229a7aa62c099305d1dac132e4140b31ee14f4013"
+  },
+  "working_source_id": "821397fecf95f5f74e629e026805c7663abfd5d8f34dd215228f90b235911e6a",
+  "working_source_ids": [
+    "821397fecf95f5f74e629e026805c7663abfd5d8f34dd215228f90b235911e6a"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

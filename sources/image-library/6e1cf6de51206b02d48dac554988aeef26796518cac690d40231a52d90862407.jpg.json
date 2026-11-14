@@ -1,0 +1,36 @@
+{
+  "plu": "3040",
+  "product": "Dragon Fruit - Pitahaya",
+  "width": 500,
+  "height": 500,
+  "sha256": "574c3021cb5fbd977fbc9d3e63f13b3583c6034a8da15606642475830e5a4822",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "2d3eddc070046ae8f33f05727f457bad6427b8e4422666df8836ed2f6c223de1",
+  "original_image_path": "data/images/Fruit/0147_3040.jpg",
+  "original_width": 180,
+  "original_height": 180,
+  "assigned_image_path": "data/images/Fruit/0147_3040.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "6e1cf6de51206b02d48dac554988aeef26796518cac690d40231a52d90862407",
+  "working_source_ids": [
+    "6e1cf6de51206b02d48dac554988aeef26796518cac690d40231a52d90862407"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

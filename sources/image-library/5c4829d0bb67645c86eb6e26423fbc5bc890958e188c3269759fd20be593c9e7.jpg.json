@@ -1,0 +1,37 @@
+{
+  "plu": "4745",
+  "product": "Rhubarb KG",
+  "width": 500,
+  "height": 500,
+  "sha256": "6742d14c6bdfb222492c56c8522dad5bf9d9e51662f9e5fc858d1996d9b9abdf",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "c967c2fe730c43722ac085e4c160a088865e79acdd6cd5212588c3bcc5a8f010",
+  "original_image_path": "data/images/Vegetable/0497_4745.jpg",
+  "original_width": 261,
+  "original_height": 261,
+  "assigned_image_path": "data/images/Vegetable/0497_4745.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "5c4829d0bb67645c86eb6e26423fbc5bc890958e188c3269759fd20be593c9e7",
+  "working_source_ids": [
+    "5c4829d0bb67645c86eb6e26423fbc5bc890958e188c3269759fd20be593c9e7"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

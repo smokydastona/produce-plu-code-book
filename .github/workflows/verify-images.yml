@@ -7,12 +7,20 @@ on:
     paths:
       - 'requirements.txt'
       - 'data/images/**'
+      - 'data/picklist_assignments.json'
+      - 'data/working_list_decisions.json'
       - 'data/entries.csv'
       - 'data/organic_watermarks.json'
       - 'data/branding/**'
       - 'current/booklets/*_PRODUCTION.docx'
       - 'sources/**'
       - 'tools/verify_images.py'
+      - 'tools/build_image_library.py'
+      - 'tools/image_display.py'
+      - 'tools/approve_picklist_image.py'
+      - 'tools/sync_picklist.py'
+      - 'tools/working_list.py'
+      - 'tools/test_picklist_sync.py'
       - 'tools/retrieve_commons.py'
       - 'tools/test_images.py'
       - 'tools/check_image_uniqueness.py'
@@ -36,6 +44,8 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install -r requirements.txt
       - run: python -m unittest discover -s tools -p 'test_*.py'
+      - name: Verify the approved image library is current
+        run: python tools/build_image_library.py --check
       - name: Check changed images and provenance
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}

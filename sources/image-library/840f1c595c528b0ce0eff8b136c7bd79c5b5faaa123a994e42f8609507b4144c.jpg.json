@@ -1,0 +1,40 @@
+{
+  "plu": "94088",
+  "product": "Organic Pepper Red",
+  "width": 500,
+  "height": 500,
+  "sha256": "29618e29205a03eff932cf4519c6fb7f51ff554fcadd47edf49cf2a58469c926",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "4f2fd3db0df4a2337731b86ff9ef189e37be8030ff21a8d1ea9682557ab2ac0d",
+  "original_image_path": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image84.jpg",
+  "original_width": 256,
+  "original_height": 256,
+  "assigned_image_path": "data/images/Vegetable/0555_94088.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image84.jpg",
+    "original_sha256": "4f2fd3db0df4a2337731b86ff9ef189e37be8030ff21a8d1ea9682557ab2ac0d"
+  },
+  "working_source_id": "840f1c595c528b0ce0eff8b136c7bd79c5b5faaa123a994e42f8609507b4144c",
+  "working_source_ids": [
+    "840f1c595c528b0ce0eff8b136c7bd79c5b5faaa123a994e42f8609507b4144c"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

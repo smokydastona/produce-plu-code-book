@@ -60,6 +60,18 @@ class ProductionAuditChecks(unittest.TestCase):
         self.image.with_suffix(".png.json").write_text(json.dumps(metadata))
         self.assertEqual(image_blockers(self.row, self.review, self.root)[2], [])
 
+    def test_owner_confirmed_permission_is_not_mislabeled_as_a_public_licence(self):
+        metadata = dict(
+            sha256=hashlib.sha256(self.image.read_bytes()).hexdigest(),
+            plu="03283", product="Apple", creator="Not separately identified by the owner",
+            license="OWNER_CONFIRMED_PERMISSION", rights_status="OWNER_CONFIRMED_PERMISSION",
+            attribution="Owner-provided image", source_reference="Owner-uploaded image attachment",
+            rights_evidence="Owner confirmed permission for this repository",
+            rights_verification_status="VERIFIED", visual_approval_status="APPROVED",
+        )
+        self.image.with_suffix(".png.json").write_text(json.dumps(metadata))
+        self.assertEqual(image_blockers(self.row, self.review, self.root)[2], [])
+
     def test_reviews_cannot_be_applied_to_another_assignment(self):
         with patch("audit_production.read_csv", side_effect=[
                 [self.row], [dict(self.review, plu="other")]]), \

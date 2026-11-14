@@ -18,6 +18,7 @@ from organic_watermarks import (is_organic, read_records, verified_original,
 PUBLIC_DOMAIN = {"CC0", "Public domain"}
 LICENSES = PUBLIC_DOMAIN | {"CC BY 2.0", "CC BY 3.0", "CC BY 4.0",
                             "CC BY-SA 2.0", "CC BY-SA 3.0", "CC BY-SA 4.0"}
+OWNER_PERMISSION = "OWNER_CONFIRMED_PERMISSION"
 OWNER_CONFIRMED_PERMISSION_ASSETS = {
     ("aa097e83f41a5a55b85d443f14cebb150d36a318feaf94c0fdeaffea1cebf2d9",
      "4055", "Murcott Tangerines",
@@ -99,22 +100,31 @@ EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".tif", ".tiff", ".gif",
 def owner_permission_metadata(metadata):
     identity = (metadata.get("sha256"), metadata.get("plu"), metadata.get("product"),
                 metadata.get("working_list_id"))
-    return (
+    pinned_permission = (
         identity in OWNER_CONFIRMED_PERMISSION_ASSETS
-        and metadata.get("license") == "OWNER_CONFIRMED_PERMISSION"
-        and metadata.get("rights_verification_status") == "OWNER_CONFIRMED_PERMISSION"
+        and metadata.get("license") == OWNER_PERMISSION
+        and metadata.get("rights_verification_status") == OWNER_PERMISSION
         and isinstance(metadata.get("rights_evidence"), str)
         and bool(metadata["rights_evidence"].strip())
         and metadata.get("photographic_origin") == "VERIFIED_PHOTO"
         and metadata.get("visual_approval_status") == "APPROVED"
     )
+    owner_upload = (
+        metadata.get("rights_status") == OWNER_PERMISSION
+        and metadata.get("license") == OWNER_PERMISSION
+        and metadata.get("photographic_origin") == "OWNER_CONFIRMED_PHOTO"
+        and all(isinstance(metadata.get(key), str) and metadata[key].strip()
+                for key in ("source_reference", "rights_evidence",
+                            "photographic_origin_evidence", "visual_approval_evidence"))
+    )
+    return pinned_permission or owner_upload
 
 
 def owner_permission_assignment(item, assignment):
     provenance = assignment.get("provenance", {})
     identity = (assignment.get("image_sha256"), item.get("plu"), item.get("name"),
                 item.get("source_id"))
-    return (
+    pinned_permission = (
         identity in OWNER_CONFIRMED_PERMISSION_ASSETS
         and assignment.get("reviewed_plu") == item.get("plu")
         and assignment.get("reviewed_product") == item.get("name")
@@ -123,10 +133,25 @@ def owner_permission_assignment(item, assignment):
         "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT"
         and assignment.get("photographic_origin") == "VERIFIED_PHOTO"
         and assignment.get("visual_approval_status") == "APPROVED"
-        and provenance.get("license") == "OWNER_CONFIRMED_PERMISSION"
+        and provenance.get("license") == OWNER_PERMISSION
         and isinstance(provenance.get("rights_evidence"), str)
         and bool(provenance["rights_evidence"].strip())
     )
+    owner_upload = (
+        assignment.get("reviewed_plu") == item.get("plu")
+        and assignment.get("reviewed_product") == item.get("name")
+        and assignment.get("rights_verification_status") == "VERIFIED"
+        and assignment.get("production_status") in
+        (None, "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT")
+        and assignment.get("photographic_origin") == "VERIFIED_PHOTO"
+        and assignment.get("visual_approval_status") == "APPROVED"
+        and provenance.get("rights_status") == OWNER_PERMISSION
+        and provenance.get("license") == OWNER_PERMISSION
+        and all(isinstance(provenance.get(key), str) and provenance[key].strip()
+                for key in ("source_reference", "rights_evidence",
+                            "photographic_origin_evidence", "visual_approval_evidence"))
+    )
+    return pinned_permission or owner_upload
 
 
 def validate(path):
@@ -146,6 +171,7 @@ def validate(path):
     except (OSError, ValueError, Image.DecompressionBombError,
             Image.DecompressionBombWarning) as exc:
         return [f"invalid image: {exc}"]
+    owner_permission = False
     try:
         metadata = json.loads(path.with_suffix(path.suffix + ".json").read_text())
     except (OSError, ValueError) as exc:
@@ -153,16 +179,25 @@ def validate(path):
     if not isinstance(metadata, dict):
         return errors + ["provenance JSON must be an object"]
     owner_permission = owner_permission_metadata(metadata)
-    required = ["plu", "product", "creator", "license", "attribution",
-                "source_page_url", "original_image_url"]
-    if not owner_permission:
-        required.append("license_url")
+    owner_upload = metadata.get("rights_status") == OWNER_PERMISSION
+    required = ["plu", "product", "creator", "attribution"]
+    if owner_upload:
+        required.extend(("source_reference", "rights_evidence", "photographic_origin_evidence",
+                         "visual_approval_evidence"))
+        if metadata.get("license") != OWNER_PERMISSION:
+            errors.append("owner permission must not be presented as a public licence")
+        if metadata.get("photographic_origin") != "OWNER_CONFIRMED_PHOTO":
+            errors.append("owner-provided image photographic origin is not confirmed")
+    else:
+        required.extend(("license", "source_page_url", "original_image_url"))
+        if not owner_permission:
+            required.append("license_url")
     for key in required:
         if not isinstance(metadata.get(key), str) or not metadata[key].strip():
             errors.append(f"missing/non-string metadata: {key}")
     for key in ("source_page_url", "original_image_url"):
         value = metadata.get(key)
-        if isinstance(value, str):
+        if isinstance(value, str) and value:
             try:
                 url = urlparse(value)
                 valid_url = url.scheme == "https" and bool(url.hostname)
@@ -170,7 +205,7 @@ def validate(path):
                 valid_url = False
             if not valid_url:
                 errors.append(f"{key} must be an absolute HTTPS URL")
-    if metadata.get("license") in LICENSES:
+    if metadata.get("license") in LICENSES and not owner_upload:
         license_url = metadata.get("license_url")
         try:
             parsed = urlparse(license_url)
@@ -179,9 +214,10 @@ def validate(path):
             valid_license_url = False
         if not valid_license_url:
             errors.append("license_url must be an absolute HTTPS URL")
-    elif not owner_permission:
+    elif not owner_permission and not owner_upload:
         errors.append("licence is not a supported commercial-use licence")
-    elif metadata.get("sha256") != hashlib.sha256(path.read_bytes()).hexdigest():
+    if (owner_permission and metadata.get("sha256")
+            and metadata["sha256"] != hashlib.sha256(path.read_bytes()).hexdigest()):
         errors.append("owner-confirmed permission requires a matching recorded checksum")
     if metadata.get("width") != size[0] or metadata.get("height") != size[1]:
         errors.append("recorded dimensions do not match the file")
@@ -266,6 +302,20 @@ def check_assignment_changes(base):
     return organic_paths, legacy_watermarks
 
 
+def approved_library_pair(group, root):
+    library = (root / "sources/image-library").resolve()
+    copies = [path for path in group if path.parent == library]
+    if len(group) != 2 or len(copies) != 1:
+        return False
+    from build_image_library import check_library, library_records
+
+    check_library(root)
+    records = {row["image"]: row for row in library_records(library)}
+    record = records.get(copies[0].name)
+    other = next(path for path in group if path != copies[0])
+    return bool(record and (root / record["assigned_image"]).resolve() == other)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("images", nargs="*", type=Path)
@@ -305,6 +355,17 @@ def main():
             failed = True
             print(f"FAIL entry image assignments: {exc}")
     paths = sorted(set(paths))
+    library_paths = {path.resolve() for path in paths
+                     if path.resolve().parent == Path("sources/image-library").resolve()}
+    if library_paths:
+        from build_image_library import check_library
+
+        try:
+            check_library(Path.cwd())
+        except (OSError, ValueError, KeyError) as exc:
+            failed = True
+            print(f"FAIL image library verification: {exc}")
+            library_paths = set()
     changed = {path.resolve() for path in paths}
     fingerprints = {}
     comparison_paths = set(paths)
@@ -322,10 +383,22 @@ def main():
             continue
         fingerprints.setdefault(fingerprint, set()).add(path.resolve())
     for group in fingerprints.values():
+        # A regenerated audit library may retain legacy reuse warnings without
+        # authorizing new reuse among the assigned originals.
+        group = group - library_paths
         if len(group) > 1 and group & changed and not group <= organic_paths:
+            try:
+                if approved_library_pair(group, Path.cwd()):
+                    continue
+            except (OSError, ValueError, KeyError) as exc:
+                print(f"FAIL image library verification: {exc}")
             failed = True
             print("FAIL duplicate image content: " + ", ".join(str(path) for path in sorted(group)))
     for path in sorted(set(paths)):
+        if path.resolve() in library_paths:
+            print(f"PASS {path} (regenerated visual-reference library; "
+                  "production limitations remain in its index and sidecar)")
+            continue
         if path.resolve() in legacy_watermarks:
             print(f"WARN {path}: verified watermark-only update of a legacy image; "
                   "existing size, licence and visual-review limitations remain")

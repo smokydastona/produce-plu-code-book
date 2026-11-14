@@ -1,0 +1,41 @@
+{
+  "plu": "94782",
+  "product": "Organic Squash Yellow",
+  "width": 500,
+  "height": 500,
+  "sha256": "ad2b5bb9174db32c2ec1bee5ff2d41f237f1cdb2b6b2980cf64c176976ec0c64",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "1b68d326ac0dc78f81d25c7f20cbf5ec114f30fceb3b5d74bdaa315d1d4111db",
+  "original_image_path": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx#word/media/image121.jpg",
+  "original_width": 338,
+  "original_height": 338,
+  "assigned_image_path": "data/images/Vegetable/0583_94782.png",
+  "legacy_organic_original": {
+    "source_document": "sources/visual/VEGETABLE_VISUAL_PLU_BOOKLET_CORRECTED.docx",
+    "source_member": "word/media/image121.jpg",
+    "original_sha256": "1b68d326ac0dc78f81d25c7f20cbf5ec114f30fceb3b5d74bdaa315d1d4111db"
+  },
+  "working_source_id": "dfe7034eed3103d768bdfbf16ed5d1d308cf7cea3eae464e5f935f809eb16081",
+  "working_source_ids": [
+    "dfe7034eed3103d768bdfbf16ed5d1d308cf7cea3eae464e5f935f809eb16081"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive); standard pink organic badge added"
+}

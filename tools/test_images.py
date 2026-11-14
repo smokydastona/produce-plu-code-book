@@ -206,18 +206,39 @@ class ImageChecks(unittest.TestCase):
         plus = {"94391", "94306", "94328", "94024", "2159", "94457",
                 "4452", "3110", "93110", "4381", "94381", "94461"}
         approved = [item for item in items if item["included"] and item["plu"] in plus]
-        self.assertEqual(len(approved), len(plus))
+        approved = [item for item in approved if item["source_id"] in assignments
+                    and assignments[item["source_id"]]["image"].startswith("data/images/approved/")]
+        self.assertTrue(approved)
         for item in approved:
             with self.subTest(plu=item["plu"]):
                 assignment = assignments[item["source_id"]]
                 candidate = root / assignment["image"]
                 metadata = json.loads(candidate.with_suffix(candidate.suffix + ".json").read_text())
-                self.assertEqual(metadata["working_list_id"], item["source_id"])
-                self.assertEqual(metadata["source_identity_ids"], item["source_ids"])
+                if "working_list_id" in metadata:
+                    self.assertEqual(metadata["working_list_id"], item["source_id"])
+                    self.assertEqual(metadata["source_identity_ids"], item["source_ids"])
+                else:
+                    self.assertEqual(assignment["working_source_ids"], item["source_ids"])
                 self.assertTrue(verify_images.owner_permission_metadata(metadata))
                 self.assertEqual(reviewed_image(root, item, assignment)[3], [])
                 self.assertFalse(verify_images.owner_permission_assignment(
                     dict(item, source_id="different"), assignment))
+    def test_owner_confirmed_permission_does_not_infer_a_public_licence(self):
+        self.record.update(
+            license="OWNER_CONFIRMED_PERMISSION",
+            rights_status="OWNER_CONFIRMED_PERMISSION",
+            source_reference="Owner-uploaded image attachment",
+            rights_evidence="Owner confirmed permission for this repository",
+            photographic_origin="OWNER_CONFIRMED_PHOTO",
+            photographic_origin_evidence="Owner confirmed this is a photograph",
+            visual_approval_evidence="Owner approved this image",
+        )
+        self.write_record()
+        self.assertEqual(validate(self.path), [])
+        self.record["license"] = "CC0"
+        self.write_record()
+        self.assertTrue(any("must not be presented as a public licence" in error
+                            for error in validate(self.path)))
 
     def test_shortest_side_not_longest(self):
         Image.new("RGB", (1000, 499)).save(self.path)

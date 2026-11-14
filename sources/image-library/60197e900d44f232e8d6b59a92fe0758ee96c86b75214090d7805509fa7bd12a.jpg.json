@@ -1,0 +1,37 @@
+{
+  "plu": "4429",
+  "product": "Persimmon Large",
+  "width": 500,
+  "height": 500,
+  "sha256": "6587ded6e16e42d29b95174f398614cd2f89bd24e278b1908d2194ab8a5d6b91",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "265b98bfe9a5f06a78bd7f102ad12a274c1cfbfeb6911884384e6977646e412c",
+  "original_image_path": "data/images/Fruit/0186_4429.jpg",
+  "original_width": 180,
+  "original_height": 180,
+  "assigned_image_path": "data/images/Fruit/0186_4429.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "60197e900d44f232e8d6b59a92fe0758ee96c86b75214090d7805509fa7bd12a",
+  "working_source_ids": [
+    "60197e900d44f232e8d6b59a92fe0758ee96c86b75214090d7805509fa7bd12a"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "BELOW_500_PX",
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL",
+    "PROHIBITED_IMAGE_REUSE"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

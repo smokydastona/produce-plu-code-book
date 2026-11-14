@@ -1,0 +1,35 @@
+{
+  "plu": "4430",
+  "product": "Pineapple Large",
+  "width": 500,
+  "height": 500,
+  "sha256": "ba4ff79a20a0b95080b2115449a69e51dee46e5e8e86a40697dd771ddb5c2c83",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "NOT_VERIFIED",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "NOT_VERIFIED",
+  "original_image_sha256": "6a1f0283025d14f06ae941a4a7523fd20380578fea8cde86002f1c584b17f6c1",
+  "original_image_path": "data/images/Fruit/0173_4430.jpg",
+  "original_width": 736,
+  "original_height": 736,
+  "assigned_image_path": "data/images/Fruit/0173_4430.jpg",
+  "legacy_organic_original": null,
+  "working_source_id": "954d6784c869f9304d41163911eda3fc3a3360a523ca792c72ffb77bbc3a435f",
+  "working_source_ids": [
+    "954d6784c869f9304d41163911eda3fc3a3360a523ca792c72ffb77bbc3a435f"
+  ],
+  "production_status": "BLOCKED",
+  "production_blockers": [
+    "PHOTOGRAPHIC_ORIGIN_NOT_VERIFIED",
+    "IMAGE_RIGHTS_NOT_VERIFIED",
+    "SUPPORTED_IMAGE_LICENCE_REQUIRED",
+    "MISSING_PROVENANCE_CREATOR",
+    "MISSING_PROVENANCE_ATTRIBUTION",
+    "MISSING_PROVENANCE_CHANGES",
+    "MISSING_PROVENANCE_RIGHTS_EVIDENCE",
+    "MISSING_PROVENANCE_LICENSE_URL",
+    "MISSING_PROVENANCE_SOURCE_PAGE_URL",
+    "MISSING_PROVENANCE_ORIGINAL_IMAGE_URL"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}
