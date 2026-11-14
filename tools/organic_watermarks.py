@@ -158,7 +158,7 @@ def verify_booklets(root, rows):
 
     index = 0
     for book, filename in BOOKS.items():
-        document = docx.Document(root / "current/booklets" / filename)
+        document = docx.Document(root / "outputs/booklets" / filename)
         for cell in document.element.body.iter(qn("w:tc")):
             texts = ["".join(node.text or "" for node in p.iter(qn("w:t")))
                      for p in cell.iter(qn("w:p"))]
@@ -184,7 +184,7 @@ def update_workbook(root, rows, records):
     import openpyxl
     from check_image_uniqueness import audit_entries
 
-    path = root / "current/reports/BOOKLET_AUDIT_REPORT.xlsx"
+    path = root / "outputs/reports/BOOKLET_AUDIT_REPORT.xlsx"
     workbook = openpyxl.load_workbook(path)
     for name in ("Organic Watermarks", "Image Uniqueness"):
         if name in workbook.sheetnames:
@@ -247,7 +247,7 @@ def apply(root):
     documents = {}
     index = 0
     for book, filename in BOOKS.items():
-        document = docx.Document(root / "current/booklets" / filename)
+        document = docx.Document(root / "outputs/booklets" / filename)
         for cell in document.element.body.iter(qn("w:tc")):
             texts = ["".join(node.text or "" for node in p.iter(qn("w:t")))
                      for p in cell.iter(qn("w:p"))]
@@ -281,7 +281,7 @@ def apply(root):
         if row["idx"] in rendered:
             (data / row["image"]).write_bytes(rendered[row["idx"]])
     for filename, document in documents.items():
-        document.save(root / "current/booklets" / filename)
+        document.save(root / "outputs/booklets" / filename)
     (data / "branding").mkdir(exist_ok=True)
     (data / "branding/pink-organic-badge.png").write_bytes(badge_artwork())
     write_csv(data / "entries.csv", rows, encoding="utf-8")
@@ -293,7 +293,7 @@ def apply(root):
     write_csv(data / "image_review.csv", review)
     for filename, field in (("MASTER_IMAGE_LIBRARY.csv", "Image File"),
                             ("IMAGE_MATCH_REPORT.csv", "Assigned Image")):
-        path = root / "current/reports" / filename
+        path = root / "outputs/reports" / filename
         report = read_csv(path)
         if len(report) != len(rows):
             raise ValueError(f"{filename}: entry count differs")

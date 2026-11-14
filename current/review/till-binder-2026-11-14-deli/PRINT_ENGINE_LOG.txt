@@ -1,2 +1,0 @@
-convert /home/runner/work/_temp/till-binder-review/Complete Till Binder - Updated - Text Only.xlsx as a Calc document -> /tmp/till-print-zzmhxtd4/Complete Till Binder - Updated - Text Only.pdf using filter : calc_pdf_Export
-convert /home/runner/work/_temp/till-binder-review/Complete Till Binder - Updated - Photos.xlsx as a Calc document -> /tmp/till-print-zzmhxtd4/Complete Till Binder - Updated - Photos.pdf using filter : calc_pdf_Export

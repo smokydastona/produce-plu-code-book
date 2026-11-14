@@ -1,0 +1,3 @@
+Run from the repository root with a new, empty output directory:
+
+.venv/bin/python tools/build_till_binders.py --binder sources/binders/Complete_Till_Binder_-_Nov_2025.xlsx --output /path/to/empty/till-binder-review --verify-print

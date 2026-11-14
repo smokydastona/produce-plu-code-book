@@ -593,7 +593,7 @@ class TillBinderChecks(unittest.TestCase):
         registry = json.loads(registry_path.read_text())
         registry["assignments"][1].update(book="Vegetable", section="Vegetables")
         registry_path.write_text(json.dumps(registry))
-        reports = self.root / "current/review-booklets"
+        reports = self.root / "outputs/review-booklets"
         reports.mkdir(parents=True)
         for name in ("DUPLICATE_PLU_CLASSIFICATIONS.csv", "DUPLICATE_PLU_CLASSIFICATION_REVIEW.md"):
             (reports / name).write_text("Fixture decision report\n")

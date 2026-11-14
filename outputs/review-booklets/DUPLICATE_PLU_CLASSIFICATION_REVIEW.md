@@ -53,12 +53,9 @@ original values, and identity links are available in the reconciliation audit.
 
 ## Publication status
 
-`current/review-booklets/` contains regenerated cashier-facing review files:
-entries show only PLU, WorkingList product name and optional image. The
-fruit, vegetable and non-produce layouts were verified as landscape US Letter;
-image associations, exact text, PLU strings and leading zeros were checked.
-Organic images retain the consistent pink upper-left badge. Provenance,
-conflicts and review issues stay in external reports.
+This directory retains the identity-pinned review decisions and supporting
+audit evidence. The superseded standalone review booklets were removed; the
+latest complete review binder is in `outputs/till-binder-review/`.
 
 Publication remains **BLOCKED**. Visual review of the 48 changed identities is
 complete, but visual suitability alone does not clear image rights,
@@ -71,11 +68,5 @@ The owner reuploaded the exact original workbook, now committed at
 `sources/binders/Complete_Till_Binder_-_Nov_2025.xlsx`
 (verified SHA-256
 `6b0aeaa153233c5f4917811a3f7a5b2212f7a946a0abede372a31db556ab0f63`).
-Both complete binder review editions were regenerated from WorkingList using
-that unchanged original, never reconstructed from prior outputs. Each complete
-PDF has 38 pages, including 10 Produce pages with 550 entries. The photo edition
-embeds 502 unchanged-identity references; the 48 changed identities remain blank
-despite their completed visual-only review.
-All 14 worksheets and unrelated workbook objects, package parts, styles and
-settings are preserved. See the complete-binder validation and preservation
-reports in `current/review/till-binder-supplier-photos-final/`.
+The latest complete binder is generated from WorkingList and the Deli source.
+See its validation and preservation reports in `outputs/till-binder-review/`.

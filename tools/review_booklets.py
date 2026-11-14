@@ -258,7 +258,7 @@ def build_working_list_review(root, output, pdf=False):
         "placement_status", "counterpart_source_ids", "placement_note"])
     for name in ("DUPLICATE_PLU_CLASSIFICATIONS.csv",
                  "DUPLICATE_PLU_CLASSIFICATION_REVIEW.md"):
-        shutil.copy2(root / "current/review-booklets" / name, output / name)
+        shutil.copy2(root / "outputs/review-booklets" / name, output / name)
     for path in booklet_stage.iterdir():
         if path.is_file() and path.name not in {
                 "AI_REFERENCE_REVIEW.csv", "MISSING_IMAGES.csv",

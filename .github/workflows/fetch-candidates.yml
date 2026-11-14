@@ -78,7 +78,7 @@ jobs:
         run: |
           python tools/retrieve_owner_image.py \
             --output "$RUNNER_TEMP/produce-candidates" \
-            --working-list-review current/review-booklets/IMAGE_VISUAL_REVIEW.csv \
+            --working-list-review outputs/review-booklets/IMAGE_VISUAL_REVIEW.csv \
             --sequence "$SEQUENCE" --url "$OWNER_IMAGE_URL" \
             --user-agent "ProducePLUReview/1.0 (https://github.com/smokydastona/produce-plu-code-book)"
       - name: Acquire entries and build review package
@@ -95,7 +95,7 @@ jobs:
             REVIEW="$RUNNER_TEMP/picklist-sync/ALL_IMAGE_REQUESTS.csv"
             EXTRA_ARGS+=(--all-entries --shard-count 6 --shard-index "$SHARD")
           elif [ "$SCOPE" = "working-list-rejected" ]; then
-            REVIEW=current/review-booklets/IMAGE_VISUAL_REVIEW.csv
+            REVIEW=outputs/review-booklets/IMAGE_VISUAL_REVIEW.csv
             REVIEW_ARGS=(--working-list-review "$REVIEW")
             if [ -n "$SEQUENCE" ]; then
               EXTRA_ARGS+=(--sequence "$SEQUENCE")

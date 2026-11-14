@@ -1,3 +1,0 @@
-Exact generation command (output must be empty; use a new directory when rerunning):
-
-/workspaces/produce-plu-code-book/smokydastona/produce-plu-code-book/.venv/bin/python /workspaces/produce-plu-code-book/smokydastona/produce-plu-code-book/tools/build_till_binders.py --root /workspaces/produce-plu-code-book/smokydastona/produce-plu-code-book --binder /workspaces/produce-plu-code-book/smokydastona/produce-plu-code-book/sources/binders/Complete_Till_Binder_-_Nov_2025.xlsx --output /workspaces/produce-plu-code-book/smokydastona/produce-plu-code-book/current/till-binder-review --verify-print

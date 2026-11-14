@@ -221,7 +221,7 @@ class PickListSyncChecks(unittest.TestCase):
         self.assertNotIn("legacy_image_audit", report)
 
     def test_blocked_cli_never_creates_booklets_and_never_touches_current(self):
-        current = self.root / "current/booklets"
+        current = self.root / "outputs/booklets"
         current.mkdir(parents=True)
         sentinel = current / "previous.pdf"
         sentinel.write_bytes(b"last published")

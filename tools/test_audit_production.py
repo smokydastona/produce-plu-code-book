@@ -149,7 +149,7 @@ class ProductionAuditChecks(unittest.TestCase):
         source = self.root / "sources/plu/PickList.xml"
         source.parent.mkdir(parents=True)
         source.write_text("<broken")
-        old = self.root / "current/reports/PRODUCTION_READINESS.json"
+        old = self.root / "outputs/reports/PRODUCTION_READINESS.json"
         old.parent.mkdir(parents=True)
         old.write_text('{"status": "OLD"}')
         output = self.root / "fresh"

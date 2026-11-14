@@ -40,7 +40,7 @@ def initialize(root, output):
             content = (root / "data" / row["image"]).read_bytes()
         assignment["image_sha256"] = hashlib.sha256(content).hexdigest()
         available[(row["plu"], row["name"])].append(assignment)
-    for table in Document(root / "current/booklets/NON_PRODUCE_PLU_CASHIER_BOOKLET.docx").tables:
+    for table in Document(root / "outputs/booklets/NON_PRODUCE_PLU_CASHIER_BOOKLET.docx").tables:
         for row in table.rows:
             for cell in row.cells:
                 match = re.search(

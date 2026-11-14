@@ -330,7 +330,7 @@ def main():
         names = subprocess.check_output([
             "git", "diff", "--name-only", "-z", "--diff-filter=AMRD",
             base, "HEAD", "--", "data/images", "data/entries.csv",
-            "data/organic_watermarks.json", "data/branding", "sources", "current/booklets",
+            "data/organic_watermarks.json", "data/branding", "sources", "outputs/booklets",
         ]).decode().split("\0")
         for name in filter(None, names):
             if name in {"data/entries.csv", "data/organic_watermarks.json"}:
@@ -338,7 +338,7 @@ def main():
             if name.startswith("data/branding/"):
                 entries_changed = True
                 continue
-            if name.startswith("current/booklets/") and name.endswith(".docx"):
+            if name.startswith("outputs/booklets/") and name.endswith(".docx"):
                 entries_changed = True
             path = Path(name)
             if path.suffix.lower() == ".json":

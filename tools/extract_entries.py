@@ -18,7 +18,7 @@ def main():
     out = ROOT / "data"; (out / "images").mkdir(parents=True, exist_ok=True)
     rows = []
     for book, fn in BOOKS.items():
-        d = docx.Document(ROOT / "current/booklets" / fn)
+        d = docx.Document(ROOT / "outputs/booklets" / fn)
         # table order follows heading order: map each table to its section heading
         body = d.element.body
         section = None

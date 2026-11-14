@@ -67,7 +67,7 @@ def require_unique_entries(rows, image_root):
             "only a matching conventional/organic pair with the standard pink "
             "ORGANIC watermark may reuse a photo. Run "
             "python3 tools/check_image_uniqueness.py --report "
-            "current/reports/DUPLICATE_IMAGE_REPORT.csv for details."
+            "outputs/reports/DUPLICATE_IMAGE_REPORT.csv for details."
         )
 
 

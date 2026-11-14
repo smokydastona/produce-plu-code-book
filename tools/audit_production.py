@@ -123,7 +123,7 @@ def main():
                         help="Also inventory historical booklet images; not a production gate")
     args = parser.parse_args()
     try:
-        output = args.output or args.root / "current/reports"
+        output = args.output or args.root / "outputs/reports"
         output.mkdir(parents=True, exist_ok=True)
         _, _, _, picklist_summary = reconcile_picklist(args.root, output)
         if hashlib.sha256((args.root / "sources/plu/PickList.xml").read_bytes()).hexdigest() != picklist_summary["source_sha256"]:
