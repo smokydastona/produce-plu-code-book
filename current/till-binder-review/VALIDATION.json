@@ -1,0 +1,390 @@
+{
+  "status": "REVIEW_ONLY_NOT_RELEASED",
+  "production_publication": "BLOCKED",
+  "original_binder": "sources/binders/Complete_Till_Binder_-_Nov_2025.xlsx",
+  "original_binder_sha256": "6b0aeaa153233c5f4917811a3f7a5b2212f7a946a0abede372a31db556ab0f63",
+  "deli_source": "/workspaces/produce-plu-code-book/smokydastona/produce-plu-code-book/sources/binders/Updated_Deli_Two_Columns.xlsx",
+  "deli_source_sha256": "a26ab6cf98d72d656e5cfd7a5c8928a7938ae1d965934a597c047f8eb37438f3",
+  "deli_original_document_sha256": "7875ee3093559572925102b2cab8b83258de9bf4eaeb21c43f4193d127df7926",
+  "deli_records_included": 52,
+  "picklist_sha256": "462db3121094008cd1dd5ea2c5836ca4b24de077edb8982c0f43149edbaf2cbb",
+  "total_source_records": 724,
+  "active_source_records": 648,
+  "hidden_or_deleted_records": 76,
+  "known_non_produce_excluded": 46,
+  "produce_records_included": 550,
+  "unique_produce_plus": 549,
+  "duplicate_produce_codes": 1,
+  "duplicate_produce_records": 2,
+  "original_produce_entries": 579,
+  "original_comparison_counts": {
+    "CODE_ACTIVE_DESCRIPTION_DIFFERS_REVIEW": 299,
+    "NOT_IN_CURRENT_SOURCE_UNRESOLVED": 254,
+    "CODE_ONLY_HIDDEN_OR_DELETED": 24,
+    "ORIGINAL_DESCRIPTION_WITHOUT_CODE": 2
+  },
+  "updated_record_counts": {
+    "DESCRIPTION_UPDATED_REVIEW": 279,
+    "CODE_NOT_IN_ORIGINAL": 271
+  },
+  "image_status_counts": {
+    "LEGACY_PREAPPROVED_IMAGE": 500,
+    "MISSING": 33,
+    "APPROVED_WORKINGLIST_IMAGE": 17
+  },
+  "embedded_references": 517,
+  "missing_or_uncertain_images": 33,
+  "ai_illustrations_embedded": 131,
+  "ai_illustrations_omitted": 0,
+  "new_ai_crops_embedded": 0,
+  "classification_review_required": 5,
+  "placement_review_required": 95,
+  "planned_produce_print_pages": 10,
+  "source_reconciliation": {
+    "source": "sources/plu/PickList.xml",
+    "cashier_source": "sources/plu/WorkingList.xml",
+    "source_sha256": "462db3121094008cd1dd5ea2c5836ca4b24de077edb8982c0f43149edbaf2cbb",
+    "source_unchanged": true,
+    "total_xml_records": 724,
+    "total_working_records": 672,
+    "included_records": 596,
+    "excluded_records": 76,
+    "status": "BLOCKED",
+    "records_needing_review": 360,
+    "missing_image_requests": 33,
+    "inactive_assignments": 96,
+    "organic_placements_needing_review": 91,
+    "working_list_review_records": 2,
+    "reconciliation_review_records": 2,
+    "reconciliation_review_decisions": 1,
+    "identity_changed_entries": 48,
+    "blocker_counts": {
+      "APPROVED_IMAGE_REQUIRED": 33,
+      "CLASSIFICATION_REQUIRED": 5,
+      "PRODUCT_IMAGE_REVIEW_REQUIRED": 33,
+      "PROHIBITED_IMAGE_REUSE": 326,
+      "SECTION_REQUIRED": 5,
+      "WORKING_LIST_REVIEW_REQUIRED": 2
+    }
+  },
+  "working_list_reconciliation": {
+    "source": "sources/plu/PickList.xml",
+    "working_list": "sources/plu/WorkingList.xml",
+    "source_sha256": "462db3121094008cd1dd5ea2c5836ca4b24de077edb8982c0f43149edbaf2cbb",
+    "decision_registry_sha256": "4d44564be1c0a8dcad496b14f482a88d6b6eb54e70b4c6945698426c4b8add6b",
+    "source_records": 724,
+    "working_records": 672,
+    "merged_or_standardized_records": 48,
+    "excluded_conflicting_source_records": 6,
+    "excluded_unconfirmed_equivalence_records": 1,
+    "hidden_or_deleted_source_records": 76,
+    "review_required_records": 2,
+    "decisions": [
+      {
+        "decision_id": "3038",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Owner identifies orange granadilla as a sweet variety of passion fruit; conventional tropical/exotic fruit; organic variant identified as 93038"
+      },
+      {
+        "decision_id": "3110",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Merge"
+      },
+      {
+        "decision_id": "3129",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Standardize"
+      },
+      {
+        "decision_id": "3141",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Merge"
+      },
+      {
+        "decision_id": "4050",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Merge"
+      },
+      {
+        "decision_id": "4055",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Owner confirms the descriptions refer to one product"
+      },
+      {
+        "decision_id": "4059",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Owner confirms Red Prince apples are intended"
+      },
+      {
+        "decision_id": "4067",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Merge all three"
+      },
+      {
+        "decision_id": "4074",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Standardize"
+      },
+      {
+        "decision_id": "4086",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Merge"
+      },
+      {
+        "decision_id": "4253",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Owner confirms strawberries by the flat are intended"
+      },
+      {
+        "decision_id": "4336",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Merge; correct spelling"
+      },
+      {
+        "decision_id": "4425",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Owner confirms Shinko/Shingo Asian Pear is intended; Taylor's Gold separately listed as PLU 4553"
+      },
+      {
+        "decision_id": "4436",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Merge"
+      },
+      {
+        "decision_id": "4450",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Merge"
+      },
+      {
+        "decision_id": "4458",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Tangerine Seedless is intended; Clementines Box equivalence and packaging were not confirmed."
+      },
+      {
+        "decision_id": "4552",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Merge"
+      },
+      {
+        "decision_id": "4598",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Merge"
+      },
+      {
+        "decision_id": "4640",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Merge"
+      },
+      {
+        "decision_id": "4688",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Standardize"
+      },
+      {
+        "decision_id": "4723",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Merge all three"
+      },
+      {
+        "decision_id": "4724",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Merge"
+      },
+      {
+        "decision_id": "4727",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Standardized to Yellow Potatoes; retain Yukon Gold as an alias only after inventory confirmation. No alias added."
+      },
+      {
+        "decision_id": "4884",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Merge; correct spelling"
+      },
+      {
+        "decision_id": "4885",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Merge"
+      },
+      {
+        "decision_id": "4889",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Merge"
+      },
+      {
+        "decision_id": "4893",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Owner confirms the descriptions are equivalent and recommends standardizing to Dill"
+      },
+      {
+        "decision_id": "4899",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Merge"
+      },
+      {
+        "decision_id": "4901",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Merge"
+      },
+      {
+        "decision_id": "41519",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Merge; local/custom code"
+      },
+      {
+        "decision_id": "60271",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Owner confirms these refer to the same variety and recommends Early Nugget (Warba) Potatoes"
+      },
+      {
+        "decision_id": "94022",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Merge"
+      },
+      {
+        "decision_id": "94023",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Merge"
+      },
+      {
+        "decision_id": "94031",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Remove exact duplicate"
+      },
+      {
+        "decision_id": "94040",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Owner confirms organic black plums are intended"
+      },
+      {
+        "decision_id": "94049",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Remove exact duplicate"
+      },
+      {
+        "decision_id": "94093",
+        "status": "PENDING_OWNER_CONDITION",
+        "details": "Standardization requires supplier confirmation; keep original source records unchanged."
+      },
+      {
+        "decision_id": "94153",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Merge; correct spelling"
+      },
+      {
+        "decision_id": "94281",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Merge"
+      },
+      {
+        "decision_id": "94317",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Remove exact duplicate"
+      },
+      {
+        "decision_id": "94321",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Remove exact duplicate"
+      },
+      {
+        "decision_id": "94329",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Standardize; retain size as an attribute if needed"
+      },
+      {
+        "decision_id": "94342",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Owner confirms these descriptions refer to the same product and recommends Organic Watermelon"
+      },
+      {
+        "decision_id": "94461",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Standardize; do not call it grapefruit"
+      },
+      {
+        "decision_id": "94648",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Merge"
+      },
+      {
+        "decision_id": "94657",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Remove exact duplicate; correct spelling"
+      },
+      {
+        "decision_id": "94664",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Merge"
+      },
+      {
+        "decision_id": "94769",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Owner confirms organic Kabocha squash is intended"
+      },
+      {
+        "decision_id": "94823",
+        "status": "APPLIED_TO_EXACT_SOURCE_IDENTITIES",
+        "details": "Owner confirms organic white potatoes are intended"
+      }
+    ],
+    "source_unchanged": true
+  },
+  "validations": {
+    "photos": {
+      "status": "PASS",
+      "original_sheet_names": [
+        "Time To Stretch",
+        "Conversions",
+        "Weighed more $100",
+        "Soil",
+        "Misc Codes",
+        "Bakery",
+        "Deli",
+        "Produce",
+        "Bulk",
+        "Bulk (2)",
+        "Bulk (3)",
+        "Bulk (4)",
+        "Delivery Charges",
+        "Store Directory"
+      ],
+      "worksheets_preserved": 14,
+      "produce_records_verified": 550,
+      "deli_records_verified": 52,
+      "produce_images_verified": 517,
+      "original_parts_checked": 104,
+      "original_parts_byte_identical": 97,
+      "unrelated_package_parts_byte_identical": true,
+      "existing_styles_preserved": true,
+      "unrelated_workbook_settings_preserved": true,
+      "internal_relationships_valid": true,
+      "exact_text_codes_and_descriptions": true,
+      "duplicate_highlights_verified": true,
+      "file_sha256": "611ac200886639e653524c52ba0928c52b2a3d769e85138721f4430e9ea7b8df",
+      "file_size_bytes": 9492431
+    }
+  },
+  "print_validation": {
+    "photos": {
+      "status": "PASS",
+      "pages": 10,
+      "landscape_us_letter": true,
+      "complete_workbook_opened_and_exported_by_calc": true,
+      "complete_binder_pdf_pages": 37,
+      "every_page_code_count_verified": true,
+      "every_description_found": true,
+      "drawn_images": 517,
+      "deli_print_records_verified": 52,
+      "complete_pdf": "Complete Till Binder - Updated - Photos.pdf",
+      "visual_review": "REQUIRED; automated text/geometry checks are not a visual print approval"
+    }
+  },
+  "limitations": [
+    "The complete binder is a REVIEW copy, not approved for operational till use.",
+    "Legacy images are pre-approved by owner policy; source, historical verdict, rights and provenance remain documented in the external audit report.",
+    "Missing, identity-mismatched, checksum-changed and unreadable image associations remain blank.",
+    "Existing and newly supplied identity-linked AI illustrations are visual references at the owner's request; AI provenance and uncertain visual verdicts are recorded only in the external audit report.",
+    "Old descriptions are contextual abbreviations; code-only/name-only differences are not automatic corrections.",
+    "Deli is replaced from the owner-supplied two-column source; all other unrelated operational sheets remain unchanged.",
+    "Future unclassified entries are retained for review, not silently discarded or approved."
+  ]
+}

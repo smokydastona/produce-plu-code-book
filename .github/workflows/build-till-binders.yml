@@ -1,4 +1,4 @@
-name: Build till-binder review copies
+name: Build complete till-binder review
 
 on:
   workflow_dispatch:
@@ -40,13 +40,13 @@ jobs:
           if not path.is_relative_to(root) or not path.is_file() or path.suffix.lower() != ".xlsx":
               raise SystemExit("Missing original .xlsx inside repository. Upload the untouched binder first; no source is fabricated.")
           PY
-      - name: Generate both complete review copies and verify printed Produce and Deli sheets
+      - name: Generate complete review binder and verify printed Produce and Deli sheets
         env:
           BINDER_PATH: ${{ inputs.binder_path }}
         run: |
           python tools/build_till_binders.py --binder "$BINDER_PATH" \
-            --output "$RUNNER_TEMP/till-binder-review" --verify-print --booklets
-      - name: Upload review copies and reports without publishing a release
+            --output "$RUNNER_TEMP/till-binder-review" --verify-print
+      - name: Upload review binder and reports without publishing a release
         if: always()
         uses: actions/upload-artifact@v4
         with:

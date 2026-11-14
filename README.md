@@ -8,7 +8,7 @@ Fruit, vegetable, and non-produce cashier references, their audit reports, and t
 | --- | --- |
 | [current/booklets/](current/booklets/) | Latest fruit, vegetable, and non-produce booklets in editable DOCX and printable PDF formats. |
 | [current/review-booklets/](current/review-booklets/) | Standalone review editions in DOCX/PDF/XLSX, with image mapping and validation results; not a production release. |
-| [current/review/till-binder-supplier-photos-final/](current/review/till-binder-supplier-photos-final/) | Complete text-only and photo till-binder review copies in XLSX/PDF, Produce previews, standalone booklets, reconciliation and validation reports. |
+| [current/till-binder-review/](current/till-binder-review/) | Latest complete till-binder review workbook and PDF, plus validation reports. |
 | [current/reports/](current/reports/) | Latest booklet audit, duplicate-code report, image inventory, and image-match report. |
 | [sources/plu/](sources/plu/) | Immutable owner-maintained `PickList.xml` and generated, decision-reviewed `WorkingList.xml`. |
 | [sources/image-library/](sources/image-library/) | Single local JPEG library for approved, review and legacy images, with separate approval and usage indexes and provenance sidecars. |
@@ -33,10 +33,7 @@ Owner-provided duplicate PLU classifications and canonical-name recommendations 
 
 ## Updating the complete till binder
 
-`tools/build_till_binders.py` creates two **complete copies** of an existing till binder, replacing its Produce and Deli sections:
-
-- `Complete Till Binder - Updated - Text Only.xlsx`
-- `Complete Till Binder - Updated - Photos.xlsx`
+`tools/build_till_binders.py` creates one photo-inclusive **complete binder**, replacing its Produce and Deli sections. The editable workbook is `Complete Till Binder - Updated - Photos.xlsx`; `--verify-print` also supplies a PDF of that same binder, not a second edition.
 
 Keep `sources/binders/Complete_Till_Binder_-_Nov_2025.xlsx` unchanged. The owner reuploaded the exact original, verified against SHA-256 `6b0aeaa153233c5f4917811a3f7a5b2212f7a946a0abede372a31db556ab0f63`; it is committed as a build dependency, never reconstructed from outputs. Python runtime dependencies (including transitive packages and PDF inspection) are pinned in `requirements.txt`; all workflows install that manifest. Install dependencies from the repository root with Python 3.12:
 
@@ -49,22 +46,22 @@ sudo apt-get install -y libreoffice-calc libreoffice-writer fonts-dejavu-core fo
 
 LibreOffice **Calc and Writer** plus DejaVu fonts are system dependencies, installed locally or by Actions rather than committed as binaries. The checked-in visual DOCX files, AI contact sheets, supplier assets, branding and decision registries supply the remaining build inputs; generation needs no new image downloads.
 
-A tracked-files-only checkout successfully regenerated both complete binders, PDFs, previews and standalone booklets with these dependencies. No uploaded or untracked local assets were needed.
+The checked-in sources are sufficient to generate the complete binder without additional image downloads.
 
 ```bash
 .venv/bin/python tools/build_till_binders.py \
   --binder sources/binders/Complete_Till_Binder_-_Nov_2025.xlsx \
   --output "/path/to/empty/till-binder-review" \
-  --verify-print --booklets
+  --verify-print
 ```
 
-The output directory must be empty. Neither the original workbook nor the owner-maintained XML is modified. After a future owner XML upload, repeat the same command with a new empty output directory. Alternatively, the manually triggered **Build till-binder review copies** Actions workflow defaults to the committed original; it fails explicitly if the selected file is missing. Do not upload any different workbook or additional operational/contact information without owner authorization.
+The output directory must be empty. Neither the input workbook nor the owner-maintained XML is modified. After a future owner XML upload, repeat the command with a new empty output directory. The manually triggered **Build complete till-binder review** workflow defaults to the committed original and accepts a repository-relative binder template path. Future owner edits to other sheets can be supplied in an updated complete binder template; the build preserves those sheets and replaces only Produce and Deli from their respective sources. Do not upload any different workbook or additional operational/contact information without owner authorization.
 
-The owner-uploaded updated deli guide is preserved unchanged at `sources/binders/Deli.docx`. Its adjusted Word version, `Updated_Deli_Two_Columns.docx`, uses two flowing columns; `Updated_Deli_Two_Columns.xlsx` uses two side-by-side Product/PLU lists, retaining all 52 entries and 10 category headings in source order. Every complete binder build replaces the existing Deli worksheet from this Excel source, in both editions. The builder verifies its contents and layout against the original deli document, preserves PLUs as text, and fails on missing or stale sources. `DELI_LAYOUT.csv` and `VALIDATION.json` record the exact cells, counts and source checksum. Deli does not use or alter the produce XML. To prepare a future owner-supplied revision, run `tools/build_deli_sheet.py NEW_DELI.docx --output /path/to/empty/source-folder`, then replace the three deli source files together after reviewing the conversion.
+The owner-uploaded updated deli guide is preserved unchanged at `sources/binders/Deli.docx`. Its adjusted Word version, `Updated_Deli_Two_Columns.docx`, uses two flowing columns; `Updated_Deli_Two_Columns.xlsx` uses two side-by-side Product/PLU lists, retaining all 52 entries and 10 category headings in source order. Every complete binder build replaces the existing Deli worksheet from this Excel source. The builder verifies its contents and layout against the original deli document, preserves PLUs as text, and fails on missing or stale sources. `DELI_LAYOUT.csv` and `VALIDATION.json` record the exact cells, counts and source checksum. Deli does not use or alter the produce XML. To prepare a future owner-supplied revision, run `tools/build_deli_sheet.py NEW_DELI.docx --output /path/to/empty/source-folder`, then replace the three deli source files together after reviewing the conversion.
 
-The November 14, 2026 generated review set is saved in `current/review/till-binder-2026-11-14-deli/`, including complete XLSX/PDF binders, DOCX/PDF/XLSX booklets, print previews and audit reports. These are review copies only; production publication remains blocked, and the published booklets are unchanged.
+The current review binder is saved in `current/till-binder-review/`. It is not a production release; production publication remains blocked and published booklets are unchanged. Earlier review sets are historical.
 
-Both editions use the same compact three-block layout, WorkingList PLUs and approved cashier-facing names, with organic entries following their confidently identified conventional counterparts and unresolved duplicate PLUs highlighted red. Unknown classifications and ambiguous counterparts are retained and flagged in separate reports. Known non-produce records are excluded from Produce; unrelated operational sheets are never rewritten from the PLU master.
+The Produce sheet uses a compact three-block layout, WorkingList PLUs and approved cashier-facing names, with organic entries following their confidently identified conventional counterparts and unresolved duplicate PLUs highlighted red. Unknown classifications and ambiguous counterparts are retained and flagged in separate reports. Known non-produce records are excluded from Produce; unrelated operational sheets are never rewritten from the PLU master.
 
 **Cashier entries contain only the PLU, approved WorkingList product name and optional image.** No source, provenance, review or approval labels appear in entries. Organic images retain the requested upper-left pink badge. Audit details stay outside cashier files. Source images are matched by exact WorkingList identity and checksum; merged, renamed or selected identities receive no inherited image approval and remain blank until a candidate passes all production gates. The 48 changed identities have separate visual-suitability decisions in [the image audit](current/review-booklets/IMAGE_VISUAL_REVIEW.csv); those decisions alone do not grant rights, photographic-origin, resolution or production approval. Fourteen images have separate, exact-identity approvals; the other 34 changed entries remain blank. Unchanged identity-linked AI references remain visual references unless explicitly rejected; their provenance and review concerns appear only in external audits. Rejected wrong-product images are never reused.
 
@@ -72,9 +69,9 @@ The original XLSX is **not loaded and resaved** to produce the result. Only the 
 
 Each binder generation writes `PRODUCE_CHANGE_AND_VALIDATION_REPORT.txt`, `VALIDATION.json`, original-to-WorkingList comparisons, source duplicate associations, excluded-record details, image/placement audits, per-cell/page layout, package-preservation hashes and a full `PICKLIST_SOURCE_RECORDS.xml` audit. Every WorkingList item carries its source identity IDs. Uncertain source changes remain explicit.
 
-`--verify-print` opens/exports the **actual assembled complete workbooks** in Calc and retains **Produce and Deli PDF previews** in `print-previews/`. It verifies Produce page count and landscape US Letter size, finds every code/description on its planned page, and checks actually drawn image counts. Deli must print on one portrait US Letter page with every owner-supplied product and PLU present. With `--booklets`, the complete binder PDFs are included with the review deliverables, alongside three standalone review booklets in `booklets/` (fruit, vegetable and non-produce), each in DOCX, XLSX and, with `--verify-print`, PDF. Booklet PDF export additionally requires LibreOffice Writer. Booklets show only product names, PLUs and available images; duplicate codes remain red and image metadata stays in the external reports. The non-produce supplement remains code-only.
+`--verify-print` opens and exports the **actual assembled complete workbook** in Calc as one complete binder PDF. It verifies Produce page count and landscape US Letter size, finds every code/description on its planned page, and checks actually drawn image counts. Deli must print on one portrait US Letter page with every owner-supplied product and PLU present. No separate sheet PDFs or booklets are generated by the binder workflow. Standalone booklet generation remains a separate process.
 
-Complete binder review copies and standalone booklets were regenerated from `WorkingList.xml` using the checksum-verified original. Both complete binder PDFs have 38 pages, including 10 Produce pages with 550 entries; the photo edition embeds the 502 existing identity-linked references plus thirteen approved changed-identity images, leaving 35 of 48 changed identities blank. Each is approved only for its exact WorkingList identity under owner-confirmed permission; no public reuse licence is claimed. The other changed entries have visual-suitability decisions recorded separately in `current/review-booklets/IMAGE_VISUAL_REVIEW.csv` and `.json`, not rights, photographic-origin, resolution or production approval. All 14 original worksheets and all unrelated OOXML parts, styles and settings are preserved. These checks do not replace a store-printer test. Publication remains blocked by image provenance and approval gates, unresolved supplier confirmation for PLU 94093, and existing classification/reuse gates. Previously published production booklets remain intact. The owner explicitly authorized repository sharing of complete binders and requested committing build dependencies. The convenience ZIP remains excluded.
+The binder retains all 14 original worksheets and unrelated OOXML parts, styles and settings. Automated checks do not replace a store-printer test. Publication remains blocked by reconciliation, image and reuse gates; previously published production booklets remain intact.
 
 ### Supplied AI contact-sheet references
 

@@ -46,7 +46,6 @@ P = "http://schemas.openxmlformats.org/package/2006/relationships"
 CT = "http://schemas.openxmlformats.org/package/2006/content-types"
 NS = {"s": S, "r": R, "p": P}
 FILENAMES = {
-    "text": "Complete Till Binder - Updated - Text Only.xlsx",
     "photos": "Complete Till Binder - Updated - Photos.xlsx",
 }
 MAX_WORKBOOK_IMAGE_SIZE = (192, 120)
@@ -643,8 +642,11 @@ def replace_sheet(binder, donor_content, destination, sheet_name):
                 if source not in paths:
                     folder, name = posixpath.split(source)
                     result = posixpath.join(folder, "till-" + sheet_name.lower() + "-" + name)
-                    if result in original.namelist():
-                        raise ValueError(f"refusing collision with existing package part: {result}")
+                    stem, suffix = posixpath.splitext(result)
+                    number = 2
+                    while result in original.namelist() or result in additions:
+                        result = f"{stem}-{number}{suffix}"
+                        number += 1
                     paths[source] = result
                     additions[result] = donor.read(source)
                     copy_relationships(source, result)
@@ -799,13 +801,11 @@ def validate_package(binder, output, coordinates, images, with_photos, deli_coor
         original_book.close()
 
 
-def validate_print(output, coordinates, expected_pages, retain_complete=False, deli_coordinates=None):
-    from pypdf import PdfReader, PdfWriter
+def validate_print(output, coordinates, expected_pages, deli_coordinates=None, deli_title=None):
+    from pypdf import PdfReader
 
     if not shutil.which("soffice"):
         raise ValueError("print validation requires LibreOffice Calc (soffice)")
-    previews = output / "print-previews"
-    previews.mkdir()
     result = {}
     with tempfile.TemporaryDirectory(prefix="till-print-") as directory:
         work = Path(directory)
@@ -824,7 +824,7 @@ def validate_print(output, coordinates, expected_pages, retain_complete=False, d
             full_pdf = PdfReader(complete)
             if deli_coordinates is not None:
                 deli_pages = [page for page in full_pdf.pages
-                              if "DELI PRODUCT & PLU REFERENCE GUIDE" in " ".join(page.extract_text().split())]
+                              if " ".join(deli_title.split()) in " ".join(page.extract_text().split())]
                 if len(deli_pages) != 1:
                     raise ValueError(f"{edition}: updated Deli must print on exactly one page")
                 deli_page = deli_pages[0]
@@ -837,26 +837,14 @@ def validate_print(output, coordinates, expected_pages, retain_complete=False, d
                     raise ValueError(f"{edition}: printed deli PLUs missing or duplicated")
                 if any(" ".join(entry["product"].split()) not in deli_text for entry in deli_coordinates):
                     raise ValueError(f"{edition}: printed deli products missing or clipped")
-                writer = PdfWriter()
-                writer.add_page(deli_page)
-                writer.write(previews / ("Deli - " + edition + ".pdf"))
-                writer.close()
-            if retain_complete:
-                shutil.copyfile(complete, output / complete.name)
+            shutil.copyfile(complete, output / complete.name)
             produce_pages = [page for page in full_pdf.pages if
                              "PRODUCE PLU QUICK GUIDE" in page.extract_text()]
-            writer = PdfWriter()
-            for page in produce_pages:
-                writer.add_page(page)
-            path = previews / ("Produce - " + edition + ".pdf")
-            writer.write(path)
-            writer.close()
-            pdf = PdfReader(path)
-            if len(pdf.pages) != expected_pages:
-                raise ValueError(f"{edition}: expected {expected_pages} Produce pages; got {len(pdf.pages)}")
+            if len(produce_pages) != expected_pages:
+                raise ValueError(f"{edition}: expected {expected_pages} Produce pages; got {len(produce_pages)}")
             all_codes = {entry["plu"] for entry in coordinates}
             total_drawn = 0
-            for number, page in enumerate(pdf.pages, 1):
+            for number, page in enumerate(produce_pages, 1):
                 if abs(float(page.mediabox.width) - 792) > 1 or abs(float(page.mediabox.height) - 612) > 1:
                     raise ValueError(f"{edition} page {number}: not landscape US Letter")
                 text = page.extract_text()
@@ -879,16 +867,14 @@ def validate_print(output, coordinates, expected_pages, retain_complete=False, d
                     for operands, operator in page.get_contents().operations if operator == b"Do"
                 )
                 total_drawn += drawn
-                if edition == "text" and drawn:
-                    raise ValueError(f"text page {number}: unexpected printed image")
             result[edition] = dict(
-                status="PASS", pages=len(pdf.pages), landscape_us_letter=True,
+                status="PASS", pages=len(produce_pages), landscape_us_letter=True,
                 complete_workbook_opened_and_exported_by_calc=True,
                 complete_binder_pdf_pages=len(full_pdf.pages),
                 every_page_code_count_verified=True, every_description_found=True,
                 drawn_images=total_drawn,
                 deli_print_records_verified=len(deli_coordinates) if deli_coordinates is not None else 0,
-                preview_pdf=str(path.relative_to(output)),
+                complete_pdf=complete.name,
                 visual_review="REQUIRED; automated text/geometry checks are not a visual print approval",
             )
     return result
@@ -897,7 +883,7 @@ def validate_print(output, coordinates, expected_pages, retain_complete=False, d
 def report_text(summary):
     lines = [
         "PRODUCE TILL BINDER - CHANGE AND VALIDATION REPORT",
-        "REVIEW COPIES ONLY - NOT RELEASED FOR OPERATIONAL TILL USE",
+        "REVIEW COPY ONLY - NOT RELEASED FOR OPERATIONAL TILL USE",
         "",
         f"Source XML SHA-256: {summary['picklist_sha256']}",
         f"Original workbook SHA-256: {summary['original_binder_sha256']}",
@@ -918,7 +904,7 @@ def report_text(summary):
         f"Classification review: {summary['classification_review_required']}; "
         f"organic placement review: {summary['placement_review_required']}",
         "",
-        "Both complete workbook copies retain original worksheet names/order.",
+        "The complete workbook retains original worksheet names/order.",
         "Every original package part outside the Produce and Deli sheets, their relationships,",
         "append-only styles, content types and their print names is byte-identical. No original part is removed.",
         "Existing styles and all unrelated workbook-level settings are independently compared.",
@@ -946,7 +932,7 @@ def report_text(summary):
         "  AI_REFERENCE_REVIEW.csv: exact identities, crop boxes and excluded AI panels",
         "  PRODUCE_LAYOUT.csv: exact record-to-cell and printed-page mapping for both editions",
         "  PLACEMENT_REVIEW.csv: unresolved classifications/counterparts",
-        "  PACKAGE_PRESERVATION_TEXT.csv / PACKAGE_PRESERVATION_PHOTOS.csv: before/after package hashes",
+        "  PACKAGE_PRESERVATION_PHOTOS.csv: before/after package hashes",
         "  reconciliation/: full authoritative XML catalogue and existing production-readiness gates",
         "  REGENERATE.txt: exact command with original input paths (choose a new empty output directory)",
         "",
@@ -958,7 +944,7 @@ def report_text(summary):
     return "\n".join(lines) + "\n"
 
 
-def generate(root, binder, output, verify_print=False, booklets=False):
+def generate(root, binder, output, verify_print=False):
     if not binder.is_file():
         raise ValueError(f"missing original till binder: {binder}")
     output.mkdir(parents=True, exist_ok=True)
@@ -969,6 +955,11 @@ def generate(root, binder, output, verify_print=False, booklets=False):
     deli_document_checksum = sha(deli_document.read_bytes())
     deli_content, deli_coordinates = read_deli_source(root)
     deli_checksum = sha(deli_content)
+    deli_workbook = load_workbook(io.BytesIO(deli_content), read_only=True)
+    try:
+        deli_title = deli_workbook["Deli"]["A1"].value
+    finally:
+        deli_workbook.close()
     with zipfile.ZipFile(binder) as original:
         sheet_info(original, "Deli")
     source_items, digest = read_picklist(root / "sources/plu/PickList.xml")
@@ -1038,7 +1029,6 @@ def generate(root, binder, output, verify_print=False, booklets=False):
     csv_output(output / "DUPLICATE_PLU_RECORDS.csv", duplicates,
                ["source_id", "source_ids", "plu", "name", "duplicate_count", "source_position"])
     active_source_code_counts = Counter(item["plu"] for item in source_items if item["included"])
-    active_working_code_counts = Counter(item["plu"] for item in items if item["included"])
     csv_output(output / "ACTIVE_SOURCE_DUPLICATES.csv", [
         dict(item, active_code_count=active_source_code_counts[item["plu"]])
         for item in source_items if item["included"] and active_source_code_counts[item["plu"]] > 1
@@ -1077,7 +1067,7 @@ def generate(root, binder, output, verify_print=False, booklets=False):
             (reconciliation / "WORKING_LIST_RECONCILIATION.json").read_text(encoding="utf-8")),
         validations=validations, print_validation="NOT_RUN",
         limitations=[
-            "Both files are complete binder REVIEW copies, not approved for operational till use.",
+            "The complete binder is a REVIEW copy, not approved for operational till use.",
             "Legacy images are pre-approved by owner policy; source, historical verdict, rights and provenance "
             "remain documented in the external audit report.",
             "Missing, identity-mismatched, checksum-changed and unreadable image associations remain blank.",
@@ -1091,19 +1081,6 @@ def generate(root, binder, output, verify_print=False, booklets=False):
     csv_output(output / "MISSING_IMAGES.csv", [row for row in image_report if not row["embedded"]], [
         "source_id", "plu", "product", "image_status", "visual_review_note", "details",
     ])
-    if booklets:
-        from review_booklets import build_review_booklets
-
-        non_produce = [dict(item, book="Non-produce",
-                            section=assignments[item["classification_source_id"]]["section"],
-                            organic=organic(item), duplicate_count=active_working_code_counts[item["plu"]])
-                       for item in items if item["included"] and
-                       assignments.get(item["classification_source_id"], {}).get("book") == "Non-produce"]
-        summary["review_booklets"] = build_review_booklets(
-            output / "booklets", rows + non_produce, images, assignments, digest, pdf=verify_print)
-        for name in ("AI_REFERENCE_REVIEW.csv", "MISSING_IMAGES.csv", "PHOTO_MAPPING.csv",
-                     "PLACEMENT_REVIEW.csv"):
-            shutil.copyfile(output / name, output / "booklets" / name)
     if sha(binder.read_bytes()) != original_checksum or sha(
             (root / "sources/plu/PickList.xml").read_bytes()) != digest:
         raise ValueError("an input changed during generation; discard outputs and retry")
@@ -1111,7 +1088,7 @@ def generate(root, binder, output, verify_print=False, booklets=False):
     (output / "PRODUCE_CHANGE_AND_VALIDATION_REPORT.txt").write_text(report_text(summary), encoding="utf-8")
     if verify_print:
         summary["print_validation"] = validate_print(
-            output, coordinates, pages, retain_complete=booklets, deli_coordinates=deli_coordinates)
+            output, coordinates, pages, deli_coordinates=deli_coordinates, deli_title=deli_title)
         if summary["print_validation"]["photos"]["drawn_images"] != len(images):
             raise ValueError("printed reference count differs from the exact image mapping")
         (output / "VALIDATION.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
@@ -1127,8 +1104,6 @@ def generate(root, binder, output, verify_print=False, booklets=False):
                "--output", str(output.resolve())]
     if verify_print:
         command.append("--verify-print")
-    if booklets:
-        command.append("--booklets")
     (output / "REGENERATE.txt").write_text(
         "Exact generation command (output must be empty; use a new directory when rerunning):\n\n" +
         shlex.join(command) + "\n", encoding="utf-8")
@@ -1138,16 +1113,13 @@ def generate(root, binder, output, verify_print=False, booklets=False):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=ROOT)
-    parser.add_argument("--binder", type=Path, required=True, help="Untouched original complete till binder")
-    parser.add_argument("--output", type=Path, required=True, help="Empty directory for review copies and reports")
+    parser.add_argument("--binder", type=Path, required=True, help="Complete binder template (never modified)")
+    parser.add_argument("--output", type=Path, required=True, help="Empty directory for the review binder and reports")
     parser.add_argument("--verify-print", action="store_true",
-                        help="Export Produce and Deli PDF previews with Calc and verify printed records")
-    parser.add_argument("--booklets", action="store_true",
-                        help="Also generate three cashier review booklets (DOCX/XLSX; PDF with --verify-print) "
-                             "and retain complete binder PDFs locally")
+                        help="Export the complete binder PDF and verify printed Produce and Deli records")
     args = parser.parse_args()
     try:
-        summary = generate(args.root, args.binder, args.output, args.verify_print, args.booklets)
+        summary = generate(args.root, args.binder, args.output, args.verify_print)
     except (OSError, ValueError, KeyError, zipfile.BadZipFile, ET.XMLSyntaxError,
             subprocess.SubprocessError) as exc:
         parser.exit(1, f"ERROR: {exc}\n")

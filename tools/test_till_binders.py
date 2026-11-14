@@ -169,6 +169,9 @@ class TillBinderChecks(unittest.TestCase):
         before = self.binder.read_bytes()
         source_before = (self.root / "sources/plu/PickList.xml").read_bytes()
         summary = generate(self.root, self.binder, self.output)
+        self.assertEqual(list(FILENAMES), ["photos"])
+        self.assertEqual(len(list(self.output.glob("*.xlsx"))), 1)
+        self.assertFalse((self.output / "booklets").exists())
         self.assertEqual(summary["produce_records_included"], 7)
         self.assertEqual(summary["total_source_records"], 10)
         self.assertEqual(summary["hidden_or_deleted_records"], 2)
@@ -211,6 +214,27 @@ class TillBinderChecks(unittest.TestCase):
         self.assertTrue((self.output / "PRODUCE_CHANGE_AND_VALIDATION_REPORT.txt").is_file())
         with self.assertRaisesRegex(ValueError, "empty"):
             generate(self.root, self.binder, self.output)
+
+    def test_existing_binder_can_be_updated_without_losing_other_sheet_edits(self):
+        generate(self.root, self.binder, self.output)
+        updated_template = self.root / "Edited.xlsx"
+        edited = load_workbook(self.output / FILENAMES["photos"])
+        edited["Operational"]["A1"] = "Owner's updated operational sheet"
+        edited["Deli"]["A5"] = "Not the approved deli source"
+        edited.save(updated_template)
+        edited.close()
+        template_bytes = updated_template.read_bytes()
+        second = self.root / "second"
+        summary = generate(self.root, updated_template, second)
+        self.assertTrue(summary["validations"]["photos"]["unrelated_package_parts_byte_identical"])
+        result = load_workbook(second / FILENAMES["photos"])
+        try:
+            self.assertEqual(result["Operational"]["A1"].value, "Owner's updated operational sheet")
+            self.assertEqual(result["Deli"]["A5"].value, "Updated meal")
+            self.assertEqual(len(result["Produce"]._images), 5)
+        finally:
+            result.close()
+        self.assertEqual(updated_template.read_bytes(), template_bytes)
 
     def test_workbook_photo_copies_keep_transparency_and_do_not_change_source_bytes(self):
         opaque = io.BytesIO()

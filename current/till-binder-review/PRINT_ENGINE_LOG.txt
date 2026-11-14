@@ -1,0 +1,2 @@
+convert /workspaces/produce-plu-code-book/smokydastona/produce-plu-code-book/current/till-binder-review/Complete Till Binder - Updated - Photos.xlsx as a Calc document -> /tmp/till-print-z7fgpjxt/Complete Till Binder - Updated - Photos.pdf using filter : calc_pdf_Export
+Warning: failed to launch javaldx - java may not function correctly
