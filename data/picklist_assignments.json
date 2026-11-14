@@ -11302,6 +11302,39 @@
         "rights_evidence": "User confirmed: \"I own it and approve its use and resizing\""
       },
       "reuse_from_source_id": ""
+    },
+    {
+      "source_id": "4d1579b29ca61345f1ce202b9cbc37c8d37f3c4e014ac093dad497c29348cd7b",
+      "book": "Vegetable",
+      "section": "Potatoes",
+      "image": "data/images/approved/6fb65e7a483e137d088c71d0e1a51b771a5188620455132b8d86fcdaafb72999.jpg",
+      "image_mode": "PHOTO",
+      "reviewed_plu": "4724",
+      "reviewed_product": "White Creamer Potatoes",
+      "working_source_ids": [
+        "cdb80d93aa2a249cd5a21f755ba7896cbbf436e6c9408df1a3250df93da404e9",
+        "a5dcefbf46308a9cff2156aed32cee8e1e8dfada215c45114a4ae0eb90b1098a"
+      ],
+      "working_decision_id": "4724",
+      "image_sha256": "6fb65e7a483e137d088c71d0e1a51b771a5188620455132b8d86fcdaafb72999",
+      "photographic_origin": "VERIFIED_PHOTO",
+      "visual_approval_status": "APPROVED",
+      "rights_verification_status": "VERIFIED",
+      "provenance": {
+        "creator": "Not separately identified; ownership attested by user",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "",
+        "original_image_url": "",
+        "source_reference": "Owner-uploaded file: White_creamer_potatoes.jpg (Copilot session attachment; no public source URL supplied)",
+        "rights_status": "OWNER_CONFIRMED_PERMISSION",
+        "photographic_origin_evidence": "User confirmed: \"Actual photograph\"",
+        "visual_approval_evidence": "Owner supplied this white-creamer potato image as the replacement for PLU 4724 and approved its use and resizing.",
+        "attribution": "Owner-provided image; creator not separately identified",
+        "changes": "Original uploaded image bytes unchanged",
+        "rights_evidence": "User confirmed: \"I own it and approve its use and resizing\""
+      },
+      "reuse_from_source_id": ""
     }
   ]
 }
