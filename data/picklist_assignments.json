@@ -11385,6 +11385,39 @@
         "rights_evidence": "User confirmed: \"I own both and approve their use and resizing\""
       },
       "reuse_from_source_id": ""
+    },
+    {
+      "source_id": "35d39de9adf84f8fb0de0bc64944a0e7e89e156eca9ef5121528ee638d6e8d84",
+      "book": "Vegetable",
+      "section": "Carrots",
+      "image": "data/images/approved/369855bb3c3445924e1c46fe8e87d1472659bcbbe6dd9c3b5d969b5227926053.png",
+      "image_mode": "PHOTO",
+      "reviewed_plu": "41519",
+      "reviewed_product": "Jumbo Carrots",
+      "working_source_ids": [
+        "cbf6f798709efe99a458efc06002496dda0a5ab35abf58736e48f0acdc6142a0",
+        "0f1ea2f44e1fca09a0833cbcffd17556dd05c1ff9453f2406e89b512d189c9b0"
+      ],
+      "working_decision_id": "41519",
+      "image_sha256": "369855bb3c3445924e1c46fe8e87d1472659bcbbe6dd9c3b5d969b5227926053",
+      "photographic_origin": "VERIFIED_PHOTO",
+      "visual_approval_status": "APPROVED",
+      "rights_verification_status": "VERIFIED",
+      "provenance": {
+        "creator": "Not separately identified; ownership attested by user",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "",
+        "original_image_url": "",
+        "source_reference": "Owner-uploaded file: Jumbo_Carrots.png (Copilot session attachment; no public source URL supplied)",
+        "rights_status": "OWNER_CONFIRMED_PERMISSION",
+        "photographic_origin_evidence": "User confirmed: \"Yes—all three are actual photographs\" for the supplied composite, Warba potatoes, and Jumbo Carrots images.",
+        "visual_approval_evidence": "Owner supplied Jumbo_Carrots.png for Jumbo Carrots. Visual review shows uncooked orange carrots isolated on transparency, with no visible labels or watermark. Assigned only to the exact merged WorkingList identity for PLU 41519.",
+        "attribution": "Owner-provided image; creator not separately identified",
+        "changes": "Original uploaded image bytes unchanged",
+        "rights_evidence": "User confirmed: \"Yes—I own the rights and approve all those uses for all three\" in response to permission for public repository distribution, resizing, and booklet use of the composite, Warba potatoes, and Jumbo Carrots images."
+      },
+      "reuse_from_source_id": ""
     }
   ]
 }

@@ -1,0 +1,33 @@
+{
+  "creator": "Not separately identified; ownership attested by user",
+  "license": "OWNER_CONFIRMED_PERMISSION",
+  "license_url": "",
+  "source_page_url": "",
+  "original_image_url": "",
+  "source_reference": "Owner-uploaded file: Jumbo_Carrots.png (Copilot session attachment; no public source URL supplied)",
+  "rights_status": "OWNER_CONFIRMED_PERMISSION",
+  "photographic_origin_evidence": "User confirmed: \"Yes—all three are actual photographs\" for the supplied composite, Warba potatoes, and Jumbo Carrots images.",
+  "visual_approval_evidence": "Owner supplied Jumbo_Carrots.png for Jumbo Carrots. Visual review shows uncooked orange carrots isolated on transparency, with no visible labels or watermark. Assigned only to the exact merged WorkingList identity for PLU 41519.",
+  "attribution": "Owner-provided image; creator not separately identified",
+  "changes": "Original uploaded image bytes unchanged",
+  "rights_evidence": "User confirmed: \"Yes—I own the rights and approve all those uses for all three\" in response to permission for public repository distribution, resizing, and booklet use of the composite, Warba potatoes, and Jumbo Carrots images.",
+  "plu": "41519",
+  "product": "Jumbo Carrots",
+  "width": 500,
+  "height": 500,
+  "sha256": "ef74b5f048f82a5be78d3db268fa795c13887eeef0ce9ee9a3249acb4a0b2501",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "OWNER_CONFIRMED_PHOTO",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "VERIFIED",
+  "original_image_sha256": "369855bb3c3445924e1c46fe8e87d1472659bcbbe6dd9c3b5d969b5227926053",
+  "original_image_path": "data/images/approved/369855bb3c3445924e1c46fe8e87d1472659bcbbe6dd9c3b5d969b5227926053.png",
+  "assigned_image_path": "data/images/approved/369855bb3c3445924e1c46fe8e87d1472659bcbbe6dd9c3b5d969b5227926053.png",
+  "legacy_organic_original": null,
+  "working_source_id": "35d39de9adf84f8fb0de0bc64944a0e7e89e156eca9ef5121528ee638d6e8d84",
+  "working_source_ids": [
+    "cbf6f798709efe99a458efc06002496dda0a5ab35abf58736e48f0acdc6142a0",
+    "0f1ea2f44e1fca09a0833cbcffd17556dd05c1ff9453f2406e89b512d189c9b0"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}
