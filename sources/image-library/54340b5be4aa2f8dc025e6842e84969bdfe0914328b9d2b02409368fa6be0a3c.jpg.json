@@ -1,0 +1,33 @@
+{
+  "creator": "Not separately identified; ownership attested by user",
+  "license": "OWNER_CONFIRMED_PERMISSION",
+  "license_url": "",
+  "source_page_url": "",
+  "original_image_url": "",
+  "source_reference": "Owner-uploaded file: Yellow zucchini.png (Copilot session attachment; no public source URL supplied)",
+  "rights_status": "OWNER_CONFIRMED_PERMISSION",
+  "photographic_origin_evidence": "User confirmed: \"Yes—I own the rights to both, they are actual photographs, and I approve repository distribution, resizing and booklet use\" for \"Red Sweet Potato 2.png\" and \"Yellow zucchini.png\"",
+  "visual_approval_evidence": "Owner supplied Yellow zucchini.png for Yellow Zucchini. Visual review shows whole and sliced uncooked yellow zucchini, isolated on white; no visible watermark or labels. Assigned only to PLU 4086.",
+  "attribution": "Owner-provided image; creator not separately identified",
+  "changes": "Original uploaded image bytes unchanged",
+  "rights_evidence": "User confirmed: \"Yes—I own the rights to both, they are actual photographs, and I approve repository distribution, resizing and booklet use\" for \"Red Sweet Potato 2.png\" and \"Yellow zucchini.png\"",
+  "plu": "4086",
+  "product": "Yellow Zucchini",
+  "width": 500,
+  "height": 500,
+  "sha256": "b3c655f4651f50a204a3b1085511ca2552f7362b09463e46ac21b56b74a848cc",
+  "approval_status": "CANDIDATE",
+  "photographic_origin": "OWNER_CONFIRMED_PHOTO",
+  "visual_approval_status": "APPROVED",
+  "rights_verification_status": "VERIFIED",
+  "original_image_sha256": "a3ef1071eab57f3353d0b54fb0173b7a10ac1d290eb1d9f0d05fbfd27cb592bf",
+  "original_image_path": "data/images/approved/a3ef1071eab57f3353d0b54fb0173b7a10ac1d290eb1d9f0d05fbfd27cb592bf.png",
+  "assigned_image_path": "data/images/approved/a3ef1071eab57f3353d0b54fb0173b7a10ac1d290eb1d9f0d05fbfd27cb592bf.png",
+  "legacy_organic_original": null,
+  "working_source_id": "54340b5be4aa2f8dc025e6842e84969bdfe0914328b9d2b02409368fa6be0a3c",
+  "working_source_ids": [
+    "3027e0999534f703f29894e2b9ac6ebd786582941c63184f3517cd9343c7a6ee",
+    "3025c82cb325ba0383cde20cc32724ad6a1784041c8736f686d77c221cf0c05a"
+  ],
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
+}

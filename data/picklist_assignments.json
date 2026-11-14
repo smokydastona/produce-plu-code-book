@@ -11517,6 +11517,72 @@
         "rights_evidence": "User confirmed: \"Yes—I own the rights to Orange_Granadilla.png, Opo_Squash.png and 6000205525481.jpg, they are actual photographs, and I approve repository distribution, resizing and booklet use\""
       },
       "reuse_from_source_id": ""
+    },
+    {
+      "source_id": "2ef9f5b01cd9e311877e44de695382686e1e4f162dca4e7a8f805c9966a341f4",
+      "book": "Vegetable",
+      "section": "Potatoes",
+      "image": "data/images/approved/419960e71dbeb52466078c3919cac028dbf4784c853c329619fa6c3de76f67b1.png",
+      "image_mode": "PHOTO",
+      "reviewed_plu": "4074",
+      "reviewed_product": "Red-Fleshed Sweet Potato",
+      "working_source_ids": [
+        "0481e67f6d5b84b6296d40f3590e2bee63521ce7e9a8d397d090f93eb31f1448",
+        "a4ca2e065052b367bb2c2bfe278b2c1cef24a93d2f1c15592bc21bb213aa9c90"
+      ],
+      "working_decision_id": "4074",
+      "image_sha256": "419960e71dbeb52466078c3919cac028dbf4784c853c329619fa6c3de76f67b1",
+      "photographic_origin": "VERIFIED_PHOTO",
+      "visual_approval_status": "APPROVED",
+      "rights_verification_status": "VERIFIED",
+      "provenance": {
+        "creator": "Not separately identified; ownership attested by user",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "",
+        "original_image_url": "",
+        "source_reference": "Owner-uploaded file: Red Sweet Potato 2.png (Copilot session attachment; no public source URL supplied)",
+        "rights_status": "OWNER_CONFIRMED_PERMISSION",
+        "photographic_origin_evidence": "User confirmed: \"Yes—I own the rights to both, they are actual photographs, and I approve repository distribution, resizing and booklet use\" for \"Red Sweet Potato 2.png\" and \"Yellow zucchini.png\"",
+        "visual_approval_evidence": "Owner supplied Red Sweet Potato 2.png for Red-Fleshed Sweet Potato. Visual review shows whole and sliced red-skinned sweet potatoes with orange flesh, isolated on white; no visible watermark or labels. Assigned only to PLU 4074.",
+        "attribution": "Owner-provided image; creator not separately identified",
+        "changes": "Original uploaded image bytes unchanged",
+        "rights_evidence": "User confirmed: \"Yes—I own the rights to both, they are actual photographs, and I approve repository distribution, resizing and booklet use\" for \"Red Sweet Potato 2.png\" and \"Yellow zucchini.png\""
+      },
+      "reuse_from_source_id": ""
+    },
+    {
+      "source_id": "54340b5be4aa2f8dc025e6842e84969bdfe0914328b9d2b02409368fa6be0a3c",
+      "book": "Vegetable",
+      "section": "Squash",
+      "image": "data/images/approved/a3ef1071eab57f3353d0b54fb0173b7a10ac1d290eb1d9f0d05fbfd27cb592bf.png",
+      "image_mode": "PHOTO",
+      "reviewed_plu": "4086",
+      "reviewed_product": "Yellow Zucchini",
+      "working_source_ids": [
+        "3027e0999534f703f29894e2b9ac6ebd786582941c63184f3517cd9343c7a6ee",
+        "3025c82cb325ba0383cde20cc32724ad6a1784041c8736f686d77c221cf0c05a"
+      ],
+      "working_decision_id": "4086",
+      "image_sha256": "a3ef1071eab57f3353d0b54fb0173b7a10ac1d290eb1d9f0d05fbfd27cb592bf",
+      "photographic_origin": "VERIFIED_PHOTO",
+      "visual_approval_status": "APPROVED",
+      "rights_verification_status": "VERIFIED",
+      "provenance": {
+        "creator": "Not separately identified; ownership attested by user",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "",
+        "original_image_url": "",
+        "source_reference": "Owner-uploaded file: Yellow zucchini.png (Copilot session attachment; no public source URL supplied)",
+        "rights_status": "OWNER_CONFIRMED_PERMISSION",
+        "photographic_origin_evidence": "User confirmed: \"Yes—I own the rights to both, they are actual photographs, and I approve repository distribution, resizing and booklet use\" for \"Red Sweet Potato 2.png\" and \"Yellow zucchini.png\"",
+        "visual_approval_evidence": "Owner supplied Yellow zucchini.png for Yellow Zucchini. Visual review shows whole and sliced uncooked yellow zucchini, isolated on white; no visible watermark or labels. Assigned only to PLU 4086.",
+        "attribution": "Owner-provided image; creator not separately identified",
+        "changes": "Original uploaded image bytes unchanged",
+        "rights_evidence": "User confirmed: \"Yes—I own the rights to both, they are actual photographs, and I approve repository distribution, resizing and booklet use\" for \"Red Sweet Potato 2.png\" and \"Yellow zucchini.png\""
+      },
+      "reuse_from_source_id": ""
     }
   ]
 }
