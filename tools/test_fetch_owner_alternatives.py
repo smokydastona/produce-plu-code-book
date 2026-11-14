@@ -28,9 +28,13 @@ class OwnerAlternativesTest(unittest.TestCase):
 
     def test_bad_redirect_host_and_scheme_are_rejected(self):
         for url in ("http://foxy.com/image.png", "https://foxy.com.evil.example/a",
-                    "https://foxy.com:8443/a", "https://user@foxy.com/a"):
+                    "https://foxy.com:8443/a", "https://user@foxy.com/a",
+                    "https://thumb.photo-ac.com.evil.example/a"):
             with self.subTest(url=url), self.assertRaises(ValueError):
                 validate_url(url)
+
+    def test_owner_proposed_carrot_host_is_allowed(self):
+        validate_url("https://thumb.photo-ac.com/8e/8ea2b83c06089dce15a6157c8112b46f_t.jpeg")
 
     def test_failed_fetch_is_reported_without_approval(self):
         with tempfile.TemporaryDirectory() as directory:
