@@ -26,6 +26,7 @@ from review_image_references import load_references
 from review_booklets import build_review_booklets, build_working_list_review
 from organic_watermarks import render_watermark
 from build_deli_sheet import convert
+from build_bulk_sheet import bulk_sheet, read_bulk, validate_bulk
 
 
 class TillBinderChecks(unittest.TestCase):
@@ -50,8 +51,7 @@ class TillBinderChecks(unittest.TestCase):
                             self.assertEqual(result.value, cell.value)
                             self.assertEqual(result.style_id, cell.style_id)
                     offset += end - 3
-                self.assertEqual([page["heading"] for page in bulk_print_pages(output)],
-                                 ["Candy", "Snacking Nuts/Seeds", "Nut Mixes", "Seasonal Christmas"])
+                self.assertIsNone(bulk_print_pages(output))
                 with zipfile.ZipFile(source) as before, zipfile.ZipFile(output) as after:
                     for name in before.namelist():
                         if name not in {"xl/workbook.xml", "xl/worksheets/sheet9.xml"}:
@@ -63,6 +63,43 @@ class TillBinderChecks(unittest.TestCase):
                 original.close()
                 combined.close()
 
+    def test_six_page_bulk_theme_preserves_all_records_and_rebuilds_from_updated_template(self):
+        source = Path(__file__).resolve().parents[1] / "sources/binders/Complete_Till_Binder_-_Nov_2025.xlsx"
+        with tempfile.TemporaryDirectory() as directory:
+            combined = Path(directory) / "combined.xlsx"
+            combine_bulk(source, combined)
+            workbook = load_workbook(combined)
+            try:
+                entries = read_bulk(workbook["Bulk"])
+            finally:
+                workbook.close()
+            content, coordinates = bulk_sheet(entries)
+            themed = load_workbook(io.BytesIO(content))
+            try:
+                validate_bulk(themed["Bulk"], coordinates)
+                self.assertEqual(len(coordinates), 400)
+                self.assertEqual(len(themed["Bulk"].row_breaks.brk), 5)
+                self.assertEqual([sum(entry["page"] == page for entry in coordinates)
+                                  for page in range(1, 7)], [66, 68, 77, 86, 43, 60])
+                self.assertFalse(themed["Bulk"].sheet_view.showGridLines)
+                rebuilt, new_coordinates = bulk_sheet(read_bulk(themed["Bulk"]))
+                self.assertEqual([(e["category"], e["product"], e["plu"], e["page"]) for e in coordinates],
+                                 [(e["category"], e["product"], e["plu"], e["page"]) for e in new_coordinates])
+                regenerated = load_workbook(io.BytesIO(rebuilt))
+                try:
+                    validate_bulk(regenerated["Bulk"], new_coordinates)
+                finally:
+                    regenerated.close()
+            finally:
+                themed.close()
+            with self.assertRaisesRegex(ValueError, "categories have changed"):
+                altered = load_workbook(io.BytesIO(content))
+                try:
+                    altered["Bulk"]["A4"] = "Unknown category"
+                    read_bulk(altered["Bulk"])
+                finally:
+                    altered.close()
+
     def test_bulk_merge_rejects_unprinted_owner_data(self):
         source = Path(__file__).resolve().parents[1] / "sources/binders/Complete_Till_Binder_-_Nov_2025.xlsx"
         with tempfile.TemporaryDirectory() as directory:
@@ -73,6 +110,20 @@ class TillBinderChecks(unittest.TestCase):
             original.close()
             with self.assertRaisesRegex(ValueError, "outside its print area"):
                 combine_bulk(changed, Path(directory) / "result.xlsx")
+
+    def test_complete_build_keeps_six_bulk_pages_with_original_and_updated_templates(self):
+        source = Path(__file__).resolve().parents[1] / "sources/binders/Complete_Till_Binder_-_Nov_2025.xlsx"
+        first = generate(self.root, source, self.output)
+        self.assertEqual(first["validations"]["photos"]["bulk_records_verified"], 400)
+        updated = self.output / FILENAMES["photos"]
+        second_output = self.root / "second-bulk"
+        second = generate(self.root, updated, second_output)
+        self.assertEqual(second["validations"]["photos"]["bulk_records_verified"], 400)
+        self.assertFalse(second["validations"]["photos"]["bulk_sheets_combined"])
+        first_pages = bulk_print_pages(updated)
+        second_pages = bulk_print_pages(second_output / FILENAMES["photos"])
+        self.assertEqual(len(first_pages), 6)
+        self.assertEqual(first_pages, second_pages)
 
     def test_supplier_jpeg_is_losslessly_made_docx_compatible(self):
         source = Path(__file__).resolve().parents[1] / "data/review-references/buck-brand/page-02-image-011.jpeg"

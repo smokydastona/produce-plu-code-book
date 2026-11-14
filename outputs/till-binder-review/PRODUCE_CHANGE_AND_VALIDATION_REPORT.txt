@@ -14,7 +14,7 @@ New owner-supplied AI crops: 0
 AI illustrations omitted (if rejected or invalid association): 0
 Classification review: 5; organic placement review: 95
 
-When present, the four original Bulk sheets are combined, with a print break between sections.
+Bulk is one themed sheet with six category-grouped pages at 11 pt, without print scaling.
 Every original package part outside the Produce, Deli and combined Bulk sheets, their relationships,
 append-only styles, content types and their print names is byte-identical. No original part is removed.
 Existing styles and all unrelated workbook-level settings are independently compared.
@@ -32,11 +32,12 @@ Image outcomes:
   MISSING: 33
   APPROVED_WORKINGLIST_IMAGE: 17
 
-Print validation: {"photos": {"status": "PASS", "pages": 10, "landscape_us_letter": true, "complete_workbook_opened_and_exported_by_calc": true, "complete_binder_pdf_pages": 35, "every_page_code_count_verified": true, "every_description_found": true, "drawn_images": 517, "deli_print_records_verified": 52, "bulk_print_pages_verified": 4, "complete_pdf": "Complete Till Binder - Updated - Photos.pdf", "visual_review": "REQUIRED; automated text/geometry checks are not a visual print approval"}}
+Print validation: {"photos": {"status": "PASS", "pages": 10, "landscape_us_letter": true, "complete_workbook_opened_and_exported_by_calc": true, "complete_binder_pdf_pages": 37, "every_page_code_count_verified": true, "every_description_found": true, "drawn_images": 517, "deli_print_records_verified": 52, "bulk_print_pages_verified": 6, "bulk_print_font_points": 11, "complete_pdf": "Complete Till Binder - Updated - Photos.pdf", "visual_review": "REQUIRED; automated text/geometry checks are not a visual print approval"}}
 
 Detailed reports:
   VALIDATION.json: checks, hashes, counts and publication blockers
   DELI_LAYOUT.csv: exact owner-supplied deli names, PLUs and two-column cell locations
+  BULK_LAYOUT.csv: original bulk names/PLUs and their six-page cell mapping
   ORIGINAL_PRODUCE_CHANGES.csv: every original entry and current-source candidates
   UPDATED_PRODUCE_RECORDS.csv: every included source record versus the original sheet
   DUPLICATE_PLU_RECORDS.csv: all included records with ambiguous/repeated codes

@@ -39,6 +39,7 @@ from sync_picklist import (booklet_order, csv_output, organic, organic_display_s
                            reconcile)
 from working_list import read_working_list
 from build_deli_sheet import DELI_SOURCE, read_source as read_deli_source, validate_sheet as validate_deli_sheet
+from build_bulk_sheet import TITLE as BULK_TITLE, bulk_sheet, read_bulk, validate_bulk
 
 ROOT = Path(__file__).resolve().parents[1]
 S = "http://schemas.openxmlformats.org/spreadsheetml/2006/main"
@@ -969,19 +970,34 @@ def validate_print(output, coordinates, expected_pages, deli_coordinates=None, d
                                  "and install libreoffice-calc")
             full_pdf = PdfReader(complete)
             if bulk_pages:
+                import pymupdf
+
                 all_codes = set().union(*(page["codes"] for page in bulk_pages))
                 matches = []
+                with pymupdf.open(complete) as positioned_pdf:
+                    bulk_words = [page.get_text("words") for page in positioned_pdf]
+                    for page in positioned_pdf:
+                        if BULK_TITLE not in page.get_text():
+                            continue
+                        for block in page.get_text("dict")["blocks"]:
+                            for line in block.get("lines", []):
+                                for span in line["spans"]:
+                                    if span["text"].strip() in all_codes and abs(span["size"] - 11) > .1:
+                                        raise ValueError(f"{edition}: printed Bulk PLU font is not 11 pt")
                 for expected in bulk_pages:
                     found = []
                     for number, page in enumerate(full_pdf.pages):
                         text = " ".join((page.extract_text() or "").split())
-                        printed = Counter(word for word in text.split() if word in all_codes)
+                        printed = Counter(word[4] for word in bulk_words[number] if word[4] in all_codes)
                         if expected["heading"] in text and printed == expected["codes"]:
                             found.append(number)
                     if len(found) != 1:
                         raise ValueError(f"{edition}: Bulk section {expected['heading']!r} "
                                          "does not print exactly once with its original PLUs")
                     page = full_pdf.pages[found[0]]
+                    normalized = " ".join((page.extract_text() or "").split())
+                    if any(" ".join(product.split()) not in normalized for product in expected["products"]):
+                        raise ValueError(f"{edition}: Bulk has missing/clipped product descriptions")
                     if abs(float(page.mediabox.width) - 792) > 1 or abs(float(page.mediabox.height) - 612) > 1:
                         raise ValueError(f"{edition}: Bulk is not landscape US Letter")
                     matches.append(found[0])
@@ -1040,6 +1056,7 @@ def validate_print(output, coordinates, expected_pages, deli_coordinates=None, d
                 drawn_images=total_drawn,
                 deli_print_records_verified=len(deli_coordinates) if deli_coordinates is not None else 0,
                 bulk_print_pages_verified=len(bulk_pages) if bulk_pages else 0,
+                bulk_print_font_points=11 if bulk_pages else None,
                 complete_pdf=complete.name,
                 visual_review="REQUIRED; automated text/geometry checks are not a visual print approval",
             )
@@ -1053,8 +1070,10 @@ def bulk_print_pages(path):
             return None
         sheet = workbook["Bulk"]
         breaks = [item.id for item in sheet.row_breaks.brk if item.man]
-        if len(breaks) != 3:
+        if sheet["A1"].value != BULK_TITLE:
             return None
+        if len(breaks) != 5:
+            raise ValueError("themed Bulk must have six print pages")
         area = sheet.print_area
         if not area or "," in area or "!" not in area:
             raise ValueError("combined Bulk must have one print area")
@@ -1064,12 +1083,14 @@ def bulk_print_pages(path):
             raise ValueError("invalid combined Bulk page breaks")
         pages = []
         for start, end in zip(boundaries, boundaries[1:]):
-            heading = sheet.cell(start, 2).value
+            heading = sheet.cell(start + 1, 1).value
             if not isinstance(heading, str) or not heading.strip():
-                raise ValueError("combined Bulk page must start with a section heading in column B")
+                raise ValueError("themed Bulk page must have a section subtitle")
             codes = Counter(str(sheet.cell(row, col).value) for row in range(start, end)
-                            for col in (3, 6, 9) if sheet.cell(row, col).value is not None)
-            pages.append(dict(heading=" ".join(heading.split()), codes=codes))
+                            for col in (2, 5, 8) if sheet.cell(row, col).value not in (None, "PLU"))
+            products = [sheet.cell(row, col).value for row in range(start, end) for col in (1, 4, 7)
+                        if sheet.cell(row, col + 1).value not in (None, "PLU")]
+            pages.append(dict(heading=" ".join(heading.split()), codes=codes, products=products))
         return pages
     finally:
         workbook.close()
@@ -1099,7 +1120,7 @@ def report_text(summary):
         f"Classification review: {summary['classification_review_required']}; "
         f"organic placement review: {summary['placement_review_required']}",
         "",
-        "When present, the four original Bulk sheets are combined, with a print break between sections.",
+        "Bulk is one themed sheet with six category-grouped pages at 11 pt, without print scaling.",
         "Every original package part outside the Produce, Deli and combined Bulk sheets, their relationships,",
         "append-only styles, content types and their print names is byte-identical. No original part is removed.",
         "Existing styles and all unrelated workbook-level settings are independently compared.",
@@ -1117,6 +1138,7 @@ def report_text(summary):
         "Detailed reports:",
         "  VALIDATION.json: checks, hashes, counts and publication blockers",
         "  DELI_LAYOUT.csv: exact owner-supplied deli names, PLUs and two-column cell locations",
+        "  BULK_LAYOUT.csv: original bulk names/PLUs and their six-page cell mapping",
         "  ORIGINAL_PRODUCE_CHANGES.csv: every original entry and current-source candidates",
         "  UPDATED_PRODUCE_RECORDS.csv: every included source record versus the original sheet",
         "  DUPLICATE_PLU_RECORDS.csv: all included records with ambiguous/repeated codes",
@@ -1193,18 +1215,35 @@ def generate(root, binder, output, verify_print=False):
         coordinates = edition_coordinates
         path = output / filename
         with tempfile.TemporaryDirectory(prefix="till-produce-") as temporary:
+            combined_binder = Path(temporary) / "Combined.xlsx"
             bulk_binder = Path(temporary) / "Bulk.xlsx"
             produce_binder = Path(temporary) / "Produce.xlsx"
-            bulk_combined = combine_bulk(binder, bulk_binder)
+            bulk_combined = combine_bulk(binder, combined_binder)
+            template = load_workbook(combined_binder)
+            try:
+                bulk_coordinates = None
+                if "Bulk" in template:
+                    bulk_content, bulk_coordinates = bulk_sheet(read_bulk(template["Bulk"]))
+            finally:
+                template.close()
+            if bulk_coordinates is not None:
+                replace_sheet(combined_binder, bulk_content, bulk_binder, "Bulk")
+            else:
+                shutil.copyfile(combined_binder, bulk_binder)
             replace_produce(bulk_binder, donor, produce_binder)
             replace_sheet(produce_binder, deli_content, path, "Deli")
             validations[edition] = validate_package(
                 bulk_binder, path, coordinates, edition_images, edition == "photos", deli_coordinates)
-        if bulk_combined and bulk_print_pages(path) is None:
-            raise ValueError("combined Bulk is missing its three page breaks")
+        if bulk_coordinates is not None:
+            result = load_workbook(path)
+            try:
+                validate_bulk(result["Bulk"], bulk_coordinates)
+            finally:
+                result.close()
         validations[edition]["bulk_sheets_combined"] = bulk_combined
+        validations[edition]["bulk_records_verified"] = len(bulk_coordinates or [])
         parts = validations[edition].pop("package_parts")
-        if bulk_combined:
+        if bulk_coordinates is not None:
             with zipfile.ZipFile(binder) as original, zipfile.ZipFile(path) as generated:
                 bulk_part, _ = sheet_info(original, "Bulk")
                 validations[edition]["output_sheet_names"] = validations[edition]["original_sheet_names"]
@@ -1216,7 +1255,7 @@ def generate(root, binder, output, verify_print=False):
                     before, after = original.read(name), generated.read(name)
                     part.update(sha256_before=sha(before), sha256_after=sha(after),
                                 byte_identical=before == after)
-                    if name not in {bulk_part, "xl/workbook.xml"} and name not in {
+                    if name not in {bulk_part, rels_part(bulk_part), "xl/workbook.xml"} and name not in {
                             sheet_info(original, "Produce")[0], rels_part(sheet_info(original, "Produce")[0]),
                             sheet_info(original, "Deli")[0], rels_part(sheet_info(original, "Deli")[0]),
                             "xl/styles.xml", "[Content_Types].xml"} and before != after:
@@ -1228,6 +1267,10 @@ def generate(root, binder, output, verify_print=False):
                ["source_id", "plu", "product", "code_cell", "description_cell", "image_cell", "page", "duplicate_count"])
     csv_output(output / "DELI_LAYOUT.csv", deli_coordinates,
                ["category", "product", "plu", "product_cell", "code_cell"])
+    if bulk_coordinates is not None:
+        csv_output(output / "BULK_LAYOUT.csv", bulk_coordinates,
+                   ["category", "product", "plu", "source_product_cell", "source_code_cell",
+                    "product_cell", "code_cell", "page"])
     csv_output(output / "PHOTO_MAPPING.csv", image_report, [
         "source_id", "source_identity_ids", "plu", "product", "image_status", "embedded", "image_source",
         "source_document", "source_member", "original_sha256", "embedded_sha256",
