@@ -15,7 +15,7 @@
   "product": "White Creamer Potatoes",
   "width": 500,
   "height": 500,
-  "sha256": "8d4f4ab38ac7d377512106869c86d26713647f5d3ec20826a194da10a469d741",
+  "sha256": "9f29efa838b056176244604346a7a50139977ba35560c2290ddea67eafa8184b",
   "approval_status": "CANDIDATE",
   "photographic_origin": "OWNER_CONFIRMED_PHOTO",
   "visual_approval_status": "APPROVED",
@@ -29,5 +29,5 @@
     "cdb80d93aa2a249cd5a21f755ba7896cbbf436e6c9408df1a3250df93da404e9",
     "a5dcefbf46308a9cff2156aed32cee8e1e8dfada215c45114a4ae0eb90b1098a"
   ],
-  "transformation": "Aspect-ratio-preserving resize and centered white padding to 500x500 PNG"
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
 }

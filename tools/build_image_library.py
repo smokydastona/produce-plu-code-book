@@ -32,7 +32,7 @@ def build_library(root, output):
         original_reference = (legacy_original["source_document"] + "#" + legacy_original["source_member"]
                               if legacy_original else assignment["image"])
         content = booklet_image(row, images)
-        name = row["source_id"] + ".png"
+        name = row["source_id"] + ".jpg"
         image_path = output / name
         provenance = dict(assignment["provenance"])
         metadata = dict(
@@ -51,18 +51,19 @@ def build_library(root, output):
             legacy_organic_original=legacy_original,
             working_source_id=row["source_id"],
             working_source_ids=row["source_ids"],
-            transformation="Aspect-ratio-preserving resize and centered white padding to 500x500 PNG"
+            transformation="Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG"
+                           " (quality 90, optimized, progressive)"
                            + ("; standard pink organic badge added" if row["organic"] else ""),
         )
         image_path.write_bytes(content)
         metadata_content = (json.dumps(metadata, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
-        image_path.with_suffix(".png.json").write_bytes(metadata_content)
+        image_path.with_suffix(image_path.suffix + ".json").write_bytes(metadata_content)
         errors = validate(image_path)
         if errors:
             raise ValueError(f"{name}: {'; '.join(errors)}")
         with Image.open(image_path) as image:
-            if image.size != DISPLAY_SIZE:
-                raise ValueError(f"{name}: incorrect library image dimensions")
+            if image.size != DISPLAY_SIZE or image.format != "JPEG" or image.mode != "RGB":
+                raise ValueError(f"{name}: library images must be 500x500 RGB JPEGs")
         records.append(dict(
             source_id=row["source_id"], source_identity_ids=";".join(row["source_ids"]),
             plu=row["plu"], product=row["name"], book=row["book"], image=name,
@@ -96,7 +97,9 @@ def library_records(path):
     seen = set()
     for row in rows:
         name = row["image"]
-        if not re.fullmatch(r"[0-9a-f]{64}\.png", name) or name != row["source_id"] + ".png" or name in seen:
+        # Accept the previous PNG index so refresh can migrate its managed files.
+        if (not re.fullmatch(r"[0-9a-f]{64}\.(?:png|jpg)", name) or
+                Path(name).stem != row["source_id"] or name in seen):
             raise ValueError(f"invalid or repeated library image name: {name}")
         seen.add(name)
         for filename, key in ((name, "image_sha256"), (name + ".json", "metadata_sha256")):

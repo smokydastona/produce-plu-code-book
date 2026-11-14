@@ -15,7 +15,7 @@
   "product": "Cucumber Long English",
   "width": 500,
   "height": 500,
-  "sha256": "98147d88b487889009a0f1315a712d43d5dff5b7f39163b6f84f9eebf1c231b8",
+  "sha256": "6ab82aa2261364745112df666636156ba0a62e089ace941f5df8de190a972468",
   "approval_status": "CANDIDATE",
   "photographic_origin": "OWNER_CONFIRMED_PHOTO",
   "visual_approval_status": "APPROVED",
@@ -28,5 +28,5 @@
   "working_source_ids": [
     "4d7ed3181e8a60fea781e8098996a2babde95e51fa9f753ac3f210238e6daf96"
   ],
-  "transformation": "Aspect-ratio-preserving resize and centered white padding to 500x500 PNG"
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
 }

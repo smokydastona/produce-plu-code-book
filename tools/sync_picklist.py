@@ -389,7 +389,7 @@ def build_documents(root, output, rows, images, assignments, digest):
             provenance = assignments[row["source_id"]]["provenance"]
             credit = dict(source_id=row["source_id"], plu=row["plu"], product=row["name"], **provenance)
             if row["book"] != "Non-produce":
-                credit["changes"] += "; aspect-ratio-preserving resize and white padding to 500x500 PNG"
+                credit["changes"] += "; aspect-ratio-preserving resize and solid white padding to 500x500 JPEG"
             if row["organic"]:
                 credit["changes"] += "; pink organic badge added"
             credits.append(credit)

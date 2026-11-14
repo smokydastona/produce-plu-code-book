@@ -15,7 +15,7 @@
   "product": "Strawberries by the Flat",
   "width": 500,
   "height": 500,
-  "sha256": "54934425295dcafd2c993286934365d5216bd87383329ab0fbb0370ae3ee5c5c",
+  "sha256": "0fd6a23cf23f1d9d9393e0f5394082c4733f87a31e14ff79977d53ce342b7536",
   "approval_status": "CANDIDATE",
   "photographic_origin": "OWNER_CONFIRMED_PHOTO",
   "visual_approval_status": "APPROVED",
@@ -28,5 +28,5 @@
   "working_source_ids": [
     "0739ff34cc3f91508f4916830a13b20c4d7b1d1f532197559944a1dfda9b2513"
   ],
-  "transformation": "Aspect-ratio-preserving resize and centered white padding to 500x500 PNG"
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
 }

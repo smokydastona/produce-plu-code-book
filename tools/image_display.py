@@ -15,7 +15,12 @@ def display_image(content, organic=False):
     background = Image.new("RGBA", DISPLAY_SIZE, "white")
     background.alpha_composite(
         image, ((DISPLAY_SIZE[0] - image.width) // 2, (DISPLAY_SIZE[1] - image.height) // 2))
+    image = background.convert("RGB")
+    if organic:
+        badge_input = io.BytesIO()
+        image.save(badge_input, format="PNG")
+        with Image.open(io.BytesIO(render_watermark(badge_input.getvalue()))) as marked:
+            image = marked.convert("RGB")
     result = io.BytesIO()
-    background.convert("RGB").save(result, format="PNG")
-    content = result.getvalue()
-    return render_watermark(content) if organic else content
+    image.save(result, format="JPEG", quality=90, optimize=True, progressive=True)
+    return result.getvalue()

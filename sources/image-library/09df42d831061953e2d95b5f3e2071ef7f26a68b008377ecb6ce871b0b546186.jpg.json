@@ -15,7 +15,7 @@
   "product": "Murcott Tangerines",
   "width": 500,
   "height": 500,
-  "sha256": "62a76658c71d13f63a33209753d47a74d41dfbd7a2849b9ffa68f8d81d686742",
+  "sha256": "1bc38763a08351a1a6029fe919496fdf3d821c4153441089aa66e7d1f8ad998a",
   "approval_status": "CANDIDATE",
   "photographic_origin": "OWNER_CONFIRMED_PHOTO",
   "visual_approval_status": "APPROVED",
@@ -29,5 +29,5 @@
     "2d8d90099db1dcef519e9f507003cd866ba1038341e2890908df1cbae9648ca2",
     "d42229b05135916f40ec076d37a9486386cf5a94a21f9c16fad82054f8848cb5"
   ],
-  "transformation": "Aspect-ratio-preserving resize and centered white padding to 500x500 PNG"
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
 }

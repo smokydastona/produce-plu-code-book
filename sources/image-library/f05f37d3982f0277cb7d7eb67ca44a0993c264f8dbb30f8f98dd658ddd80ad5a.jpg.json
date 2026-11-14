@@ -15,7 +15,7 @@
   "product": "Tangerine Seedless",
   "width": 500,
   "height": 500,
-  "sha256": "ce770aac030ab1745b4e4c8631e65c3b69d7d44ffb1ddb1ad5de438f3ae3f325",
+  "sha256": "c6991375075a7df38a5fc2859d4d42e42ad0676596d4d54b7725261fac24d2d0",
   "approval_status": "CANDIDATE",
   "photographic_origin": "OWNER_CONFIRMED_PHOTO",
   "visual_approval_status": "APPROVED",
@@ -28,5 +28,5 @@
   "working_source_ids": [
     "2b95c285e44d2e7c5d9870e564051c94fad9c641b4171df33cea1c2d08bb8bbb"
   ],
-  "transformation": "Aspect-ratio-preserving resize and centered white padding to 500x500 PNG"
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
 }

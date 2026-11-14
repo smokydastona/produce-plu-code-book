@@ -15,7 +15,7 @@
   "product": "Napa Cabbage",
   "width": 500,
   "height": 500,
-  "sha256": "6066c2b0a330fa02ca2c2de3cc0a0883052b63dd69f3d679f22350d27ad5bcaf",
+  "sha256": "5ea8c5b6f7d43660a0453303f565d896911378f5f6af81de890b7a40eb286583",
   "approval_status": "CANDIDATE",
   "photographic_origin": "OWNER_CONFIRMED_PHOTO",
   "visual_approval_status": "APPROVED",
@@ -30,5 +30,5 @@
     "dddc82219c5903c6a299fe2dac8504b29a54b7856017732447352a011a2845b0",
     "ef993415f0929e5c5152f7f6063e7c1013c3383b782ba577cb75a84620f726ca"
   ],
-  "transformation": "Aspect-ratio-preserving resize and centered white padding to 500x500 PNG"
+  "transformation": "Aspect-ratio-preserving resize and centered solid white padding to 500x500 JPEG (quality 90, optimized, progressive)"
 }

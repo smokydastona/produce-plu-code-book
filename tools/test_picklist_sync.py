@@ -229,6 +229,7 @@ class PickListSyncChecks(unittest.TestCase):
             expected = Image.open(io.BytesIO(display_image(self.image.read_bytes())))
             self.addCleanup(expected.close)
             self.assertEqual(image.size, (500, 500))
+            self.assertEqual((image.format, image.mode), ("JPEG", "RGB"))
             self.assertNotEqual(image.crop((0, 0, 150, 150)).tobytes(),
                                 expected.crop((0, 0, 150, 150)).tobytes())
             self.assertEqual(image.crop((200, 200, 500, 500)).tobytes(),
@@ -333,7 +334,7 @@ class PickListSyncChecks(unittest.TestCase):
     def test_library_refresh_rejects_modified_managed_files(self):
         refresh_library(self.root)
         library = self.root / "sources/image-library"
-        image = library / (self.items[0]["source_id"] + ".png")
+        image = library / (self.items[0]["source_id"] + ".jpg")
         image.write_bytes(b"modified")
         with self.assertRaisesRegex(ValueError, "changed or missing"):
             refresh_library(self.root)
@@ -341,12 +342,43 @@ class PickListSyncChecks(unittest.TestCase):
             check_library(self.root)
         self.assertEqual(image.read_bytes(), b"modified")
 
+    def test_library_refresh_migrates_managed_pngs_to_jpegs_without_changing_originals(self):
+        refresh_library(self.root)
+        library = self.root / "sources/image-library"
+        index = library / "IMAGE_LIBRARY.csv"
+        with index.open(encoding="utf-8-sig", newline="") as file:
+            row = next(csv.DictReader(file))
+        jpeg = library / row["image"]
+        png = jpeg.with_suffix(".png")
+        original_before = self.image.read_bytes()
+        with Image.open(jpeg) as image:
+            image.save(png, format="PNG")
+        metadata = json.loads(jpeg.with_suffix(".jpg.json").read_text())
+        metadata["sha256"] = hashlib.sha256(png.read_bytes()).hexdigest()
+        sidecar = png.with_suffix(".png.json")
+        sidecar.write_text(json.dumps(metadata), encoding="utf-8")
+        row.update(image=png.name, image_sha256=metadata["sha256"],
+                   metadata_sha256=hashlib.sha256(sidecar.read_bytes()).hexdigest())
+        with index.open("w", encoding="utf-8-sig", newline="") as file:
+            writer = csv.DictWriter(file, fieldnames=list(row))
+            writer.writeheader()
+            writer.writerow(row)
+        jpeg.unlink()
+        jpeg.with_suffix(".jpg.json").unlink()
+        refresh_library(self.root)
+        check_library(self.root)
+        self.assertFalse(png.exists())
+        self.assertFalse(sidecar.exists())
+        with Image.open(jpeg) as image:
+            self.assertEqual((image.size, image.format, image.mode), ((500, 500), "JPEG", "RGB"))
+        self.assertEqual(self.image.read_bytes(), original_before)
+
     def test_exact_library_copy_does_not_count_as_unapproved_image_reuse(self):
-        Image.new("RGB", (500, 500), "red").save(self.image)
+        Image.new("RGB", (500, 500), "white").save(self.image)
         self.assignment["image_sha256"] = hashlib.sha256(self.image.read_bytes()).hexdigest()
         self.write_assignments([self.assignment])
         refresh_library(self.root)
-        library_image = self.root / "sources/image-library" / (self.items[0]["source_id"] + ".png")
+        library_image = self.root / "sources/image-library" / (self.items[0]["source_id"] + ".jpg")
         self.assertEqual(image_fingerprint(library_image), image_fingerprint(self.image))
         self.assertTrue(approved_library_pair({library_image.resolve(), self.image.resolve()}, self.root))
         unrelated = self.root / "data/unrelated.png"
@@ -543,8 +575,10 @@ class PickListSyncChecks(unittest.TestCase):
         self.assertEqual(normalized, display_image(original_before))
         with Image.open(io.BytesIO(normalized)) as image:
             self.assertEqual(image.size, (500, 500))
+            self.assertEqual((image.format, image.mode), ("JPEG", "RGB"))
             self.assertEqual(image.getpixel((250, 0)), (255, 255, 255))
-            self.assertEqual(image.getpixel((250, 250)), (255, 0, 0))
+            self.assertTrue(all(abs(a - b) <= 2 for a, b in
+                                zip(image.getpixel((250, 250)), (255, 0, 0))))
         metadata = json.loads((library / (records[0]["image"] + ".json")).read_text())
         self.assertEqual(metadata["original_image_sha256"], hashlib.sha256(original_before).hexdigest())
         self.assertEqual(metadata["working_source_ids"], [items[0]["source_id"]])
@@ -558,8 +592,10 @@ class PickListSyncChecks(unittest.TestCase):
         Image.new("RGBA", (1000, 500), (255, 0, 0, 128)).save(original, format="PNG")
         with Image.open(io.BytesIO(display_image(original.getvalue()))) as image:
             self.assertEqual(image.size, (500, 500))
+            self.assertEqual((image.format, image.mode), ("JPEG", "RGB"))
             self.assertEqual(image.getpixel((250, 0)), (255, 255, 255))
-            self.assertEqual(image.getpixel((250, 250)), (255, 127, 127))
+            self.assertTrue(all(abs(a - b) <= 2 for a, b in
+                                zip(image.getpixel((250, 250)), (255, 127, 127))))
 
     def test_non_produce_code_only_exception_requires_explicit_approval(self):
         self.assignment.update(book="Non-produce", image="", image_mode="CODE_ONLY",
@@ -619,7 +655,8 @@ class PickListSyncChecks(unittest.TestCase):
                 digest, "Reviewed replacement and licence", replace=True)
         check_library(self.root)
         with Image.open(library / records[0]["image"]) as updated:
-            self.assertEqual(updated.getpixel((250, 250)), (0, 0, 255))
+            self.assertTrue(all(abs(a - b) <= 2 for a, b in
+                                zip(updated.getpixel((250, 250)), (0, 0, 255))))
         self.assertEqual(self.source.read_bytes(), source_before)
         self.assertEqual(reconcile(self.root, self.output)[3]["status"], "READY_TO_BUILD")
 
@@ -663,7 +700,7 @@ class PickListSyncChecks(unittest.TestCase):
         rebuild_working_list(self.root, self.root / "audit")
         digest = hashlib.sha256(self.source.read_bytes()).hexdigest()
         refresh_library(self.root)
-        library_image = self.root / "sources/image-library" / (self.items[0]["source_id"] + ".png")
+        library_image = self.root / "sources/image-library" / (self.items[0]["source_id"] + ".jpg")
         library_image.write_bytes(b"manual edit")
         with self.assertRaisesRegex(ValueError, "approval was saved, but library refresh failed"):
             approve(self.root, self.items[0]["source_id"], self.image, "Fruit", "Apples",
