@@ -46,6 +46,9 @@ OWNER_CONFIRMED_PERMISSION_ASSETS = {
     ("37d199942d6fd74d002843f3820399b668608b933cda7a9791b2bb4ab24eb5d4",
      "4074", "Red-Fleshed Sweet Potato",
      "2ef9f5b01cd9e311877e44de695382686e1e4f162dca4e7a8f805c9966a341f4"),
+    ("85a079aba7341916f6697a0605b4c98d350405d7d3485d657c7ff5c64c1acaab",
+     "60271", "Early Nugget (Warba) Potatoes",
+     "0396b0cf59795c2b5942fa41cbabd05263cafd3f66c15b8b20c5679d745e8eac"),
 }
 EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".tif", ".tiff", ".gif",
               ".bmp", ".avif", ".svg"}
