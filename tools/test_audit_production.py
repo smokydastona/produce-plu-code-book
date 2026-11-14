@@ -7,7 +7,7 @@ from unittest.mock import patch
 
 from PIL import Image
 
-from audit_production import image_blockers, inventory
+from audit_production import combined_summary, image_blockers, inventory
 
 
 class ProductionAuditChecks(unittest.TestCase):
@@ -88,6 +88,36 @@ class ProductionAuditChecks(unittest.TestCase):
         self.assertEqual(summary["status"], "BLOCKED")
         self.assertEqual(summary["prohibited_duplicate_groups"], 1)
         self.assertIn("PROHIBITED_IMAGE_REUSE", rows[0]["blockers"])
+
+    def test_picklist_reconciliation_blockers_block_production(self):
+        image_summary = dict(
+            status="AUTOMATED_CHECKS_PASSED_REQUIRES_RELEASE_REVIEW",
+            entries_with_blockers=0,
+        )
+        picklist_summary = dict(status="BLOCKED", working_list_review_records=2)
+
+        result = combined_summary(image_summary, picklist_summary)
+
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertEqual(result["picklist_sync"]["working_list_review_records"], 2)
+
+    def test_passing_automated_checks_still_require_release_review(self):
+        image_summary = dict(
+            status="AUTOMATED_CHECKS_PASSED_REQUIRES_RELEASE_REVIEW",
+            entries_with_blockers=0,
+        )
+        picklist_summary = dict(status="READY_TO_BUILD", working_list_review_records=0)
+
+        self.assertEqual(
+            combined_summary(image_summary, picklist_summary)["status"],
+            "AUTOMATED_CHECKS_PASSED_REQUIRES_RELEASE_REVIEW",
+        )
+
+    def test_unknown_audit_status_fails_closed(self):
+        image_summary = dict(status="UNEXPECTED")
+        picklist_summary = dict(status="READY_TO_BUILD")
+
+        self.assertEqual(combined_summary(image_summary, picklist_summary)["status"], "BLOCKED")
 
 
 if __name__ == "__main__":

@@ -27,4 +27,15 @@ jobs:
           path: |
             current/reports/PRODUCTION_BLOCKERS.csv
             current/reports/PRODUCTION_READINESS.json
+            current/reports/PICKLIST_SYNC.csv
+            current/reports/PICKLIST_SYNC.json
+            current/reports/PICKLIST_CATALOG.csv
+            current/reports/IMAGE_REQUESTS.csv
+            current/reports/ALL_IMAGE_REQUESTS.csv
+            current/reports/INACTIVE_ASSIGNMENTS.csv
+            current/reports/BOOKLET_ORDER.csv
+            current/reports/WORKING_LIST_RECONCILIATION.csv
+            current/reports/WORKING_LIST_RECONCILIATION.json
+            current/reports/WORKING_LIST_ENTRIES.csv
+            current/reports/PICKLIST_SOURCE_RECORDS.xml
           if-no-files-found: error

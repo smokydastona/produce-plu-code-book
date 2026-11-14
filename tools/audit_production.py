@@ -10,6 +10,7 @@ from PIL import Image, ImageOps
 
 from check_image_uniqueness import audit_entries
 from organic_watermarks import is_organic, read_csv, verify_booklets
+from sync_picklist import reconcile as reconcile_picklist
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -96,14 +97,27 @@ def inventory(root):
     return result, summary
 
 
+def combined_summary(image_summary, picklist_summary):
+    status = (
+        "BLOCKED"
+        if (image_summary["status"] != "AUTOMATED_CHECKS_PASSED_REQUIRES_RELEASE_REVIEW" or
+            picklist_summary["status"] != "READY_TO_BUILD")
+        else "AUTOMATED_CHECKS_PASSED_REQUIRES_RELEASE_REVIEW"
+    )
+    return dict(image_summary, status=status, picklist_sync=picklist_summary)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=ROOT)
-    parser.add_argument("--output", type=Path, help="Existing report directory")
+    parser.add_argument("--output", type=Path, help="Report directory")
     args = parser.parse_args()
     try:
-        rows, summary = inventory(args.root)
         output = args.output or args.root / "current/reports"
+        output.mkdir(parents=True, exist_ok=True)
+        _, _, _, picklist_summary = reconcile_picklist(args.root, output)
+        rows, image_summary = inventory(args.root)
+        summary = combined_summary(image_summary, picklist_summary)
         with (output / "PRODUCTION_BLOCKERS.csv").open("w", newline="", encoding="utf-8-sig") as file:
             writer = csv.DictWriter(file, fieldnames=list(rows[0]))
             writer.writeheader()
@@ -113,7 +127,7 @@ def main():
     except (OSError, ValueError, KeyError) as exc:
         parser.exit(1, f"ERROR: {exc}\n")
     print(json.dumps(summary, indent=2))
-    raise SystemExit(1 if summary["entries_with_blockers"] else 0)
+    raise SystemExit(1 if summary["status"] == "BLOCKED" else 0)
 
 
 if __name__ == "__main__":
