@@ -11389,6 +11389,36 @@
         "rights_evidence": "User confirmed permission to use this exact Warba potato image in the public repository and cashier binders. Owner-confirmed, not independently documented."
       },
       "reuse_from_source_id": ""
+    },
+    {
+      "source_id": "3d82034ba6bd54cda407392fc889750b9efc8cc92839ce19e63369282a025cb8",
+      "book": "Vegetable",
+      "section": "Squash",
+      "image": "data/images/approved/02255b6e951c8e269dd4032f4216203d9ef91a5e21931aca701c1f61b0b9e283.jpg",
+      "image_mode": "PHOTO",
+      "reviewed_plu": "3141",
+      "reviewed_product": "Opo Squash",
+      "working_source_ids": [
+        "2306e9562d720278c2df377a7e4fe267ca434dd9fda0b487e7414123f24473f3",
+        "96e6f7cc8a790505d341d3b934bcd767c2714569dfa328d79985a5ed0a7333e7"
+      ],
+      "working_decision_id": "3141",
+      "image_sha256": "02255b6e951c8e269dd4032f4216203d9ef91a5e21931aca701c1f61b0b9e283",
+      "photographic_origin": "VERIFIED_PHOTO",
+      "visual_approval_status": "APPROVED",
+      "rights_verification_status": "OWNER_CONFIRMED_PERMISSION",
+      "production_status": "APPROVED_FOR_EXACT_WORKINGLIST_ASSIGNMENT",
+      "provenance": {
+        "creator": "Not identified in source",
+        "license": "OWNER_CONFIRMED_PERMISSION",
+        "license_url": "",
+        "source_page_url": "https://images.cdn.saveonfoods.com/zoom/3141.jpg",
+        "original_image_url": "https://images.cdn.saveonfoods.com/zoom/3141.jpg",
+        "attribution": "Owner-provided Opo squash image; creator not identified in source. Owner-confirmed permission for this specific use; no public reuse licence is asserted.",
+        "changes": "Downloaded image unchanged",
+        "rights_evidence": "User confirmed permission to use this exact Opo squash image in the public repository and cashier binders. Owner-confirmed, not independently documented."
+      },
+      "reuse_from_source_id": ""
     }
   ]
 }

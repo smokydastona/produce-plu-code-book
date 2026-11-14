@@ -49,6 +49,9 @@ OWNER_CONFIRMED_PERMISSION_ASSETS = {
     ("85a079aba7341916f6697a0605b4c98d350405d7d3485d657c7ff5c64c1acaab",
      "60271", "Early Nugget (Warba) Potatoes",
      "0396b0cf59795c2b5942fa41cbabd05263cafd3f66c15b8b20c5679d745e8eac"),
+    ("02255b6e951c8e269dd4032f4216203d9ef91a5e21931aca701c1f61b0b9e283",
+     "3141", "Opo Squash",
+     "3d82034ba6bd54cda407392fc889750b9efc8cc92839ce19e63369282a025cb8"),
 }
 EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".tif", ".tiff", ".gif",
               ".bmp", ".avif", ".svg"}
